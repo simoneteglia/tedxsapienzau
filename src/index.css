@@ -1,0 +1,20 @@
+@import "tailwindcss";
+
+.primary-button {
+  background-color: rgb(235, 0, 40);
+  border-color: red;
+  border-radius: 30px;
+  font-weight: bold;
+  color: white;
+  padding: 6px 12px;
+  width: 100px;
+  min-width: 100px;
+  text-align: center;
+  cursor: pointer;
+  border: 0;
+  transition: all 0.2s ease-in-out;
+}
+
+.primary-button:hover {
+  background-color: #750014;
+}

@@ -1,0 +1,8 @@
+#middle-section > li {
+  font-weight: 600;
+  cursor: pointer;
+}
+
+#middle-section > li:hover {
+  color: #eb0028;
+}
