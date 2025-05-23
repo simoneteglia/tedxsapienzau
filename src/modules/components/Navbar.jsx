@@ -32,7 +32,10 @@ export default function Navbar() {
         id="middle-section"
         className="flex justify-evenly items-center text-white w-full"
       >
-        <Menu as="div" className="relative inline-block text-left">
+        <Menu
+          as="div"
+          className="relative inline-block text-left focus:outline-none"
+        >
           <div>
             <MenuButton className="inline-flex w-full justify-center gap-x-1.5 rounded-md bg-black text-white px-3 py-2 font-semibold hover:text-[#eb0028] hover:cursor-pointer">
               Eventi
