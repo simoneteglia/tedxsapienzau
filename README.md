@@ -18,12 +18,13 @@ This project is the official website for TEDxSapienzaU, designed to showcase eve
 1. **Clone the repository:**
 
 ```bash
-git clone https://github.com/yourusername/tedxsapienzau.git
+git clone https://github.com/simoneteglia/tedxsapienzau.git
 ```
 
 2. **Install dependencies:**
 
 ```bash
+cd tedxsapienzau
 npm install
 ```
 
