@@ -11,6 +11,7 @@ import Footer from "./modules/components/Footer";
 import ErrorPage from "./modules/pages/ErrorPage";
 
 import "./App.css";
+import Countdown2024 from "./modules/pages/events/Countdown2024";
 
 const router = createBrowserRouter([
   {
@@ -39,6 +40,10 @@ const router = createBrowserRouter([
       {
         path: "/team",
         element: <Team />,
+      },
+      {
+        path: "/events/countdown2024",
+        element: <Countdown2024 />,
       },
     ],
   },

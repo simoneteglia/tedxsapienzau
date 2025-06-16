@@ -68,7 +68,7 @@ export default function Navbar() {
             </MenuItem>
             <MenuItem>
               <a
-                href="#"
+                href="/events/countdown2024"
                 className="block px-4 py-2 text-sm data-focus:text-[#eb0028]"
               >
                 Countdown

@@ -2,6 +2,7 @@
 
 body {
   margin: 0;
+  background-color: black;
   font-family: -apple-system, BlinkMacSystemFont, "Fira Sans Extra Condensed",
     "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji",
     "Segoe UI Emoji", "Segoe UI Symbol";
@@ -134,4 +135,9 @@ body {
   font-family: "Fira Sans Extra Condensed", sans-serif;
   font-weight: 900;
   font-style: italic;
+}
+
+@font-face {
+  font-family: Anton;
+  src: url("./resources/Anton-Regular.ttf") format("truetype");
 }
