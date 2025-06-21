@@ -27,6 +27,12 @@ body {
   background-color: #750014;
 }
 
+.bento-box {
+  background-color: #ffffff1a;
+  border-radius: 24px;
+  padding: 40px;
+}
+
 /** FONTS **/
 
 .fira-sans extra condensed-thin {

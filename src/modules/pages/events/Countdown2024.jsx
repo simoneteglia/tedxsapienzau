@@ -54,7 +54,6 @@ export default function Countdown2024() {
               "linear-gradient(to top, rgba(0,0,0,0) 20%,rgba(0,0,0,0.9) 100%)",
             WebkitMaskImage:
               "linear-gradient(to top, rgba(0,0,0,0) 20%,rgba(0,0,0,0.9) 100%)",
-            // marginBottom: "-250px",
           }}
         />
         <img
@@ -76,16 +75,8 @@ export default function Countdown2024() {
         id="speakers-section"
         className="w-screen h-full text-black flex flex-col justify-center items-center p-[50px] text-justify"
         style={{
-          // width: "100vw",
-          // height: "100%",
           backgroundColor: global.COLORS.GIALLO_COUNTDOWN,
-          // color: "#000",
           fontFamily: "Anton",
-          // display: "flex",
-          // flexDirection: "column",
-          // alignItems: "center",
-          // padding: "50px",
-          // textAlign: "justify",
         }}
       >
         <h1 className="mb-4 lg:text-5xl text-2xl">
