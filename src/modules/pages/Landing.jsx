@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useLayoutEffect } from "react";
 import { useOutletContext } from "react-router-dom";
 
 import backgroundVideo from "../../assets/videos/tedx.mp4";
@@ -6,6 +6,11 @@ import global from "../../resources/global.json";
 
 export default function Landing() {
   const [windowSize] = useOutletContext();
+
+  useLayoutEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <div className="bg-black">
       <section
@@ -14,6 +19,7 @@ export default function Landing() {
           justifyContent: "center",
           alignItems: "center",
           height: `calc(100vh - ${global.UTILS.NAV_HEIGHT})`,
+          marginTop: global.UTILS.NAV_HEIGHT,
           width: "100vw",
           backgroundColor: "#000",
           padding:

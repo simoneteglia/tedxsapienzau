@@ -1,8 +1,12 @@
-import React, { Component } from "react";
+import React, { Component, useLayoutEffect } from "react";
 
 import global from "../../resources/global.json";
 
 export default function Sponsors() {
+  useLayoutEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <div className="bg-black">
       <section
