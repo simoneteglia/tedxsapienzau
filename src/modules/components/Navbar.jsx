@@ -1,10 +1,17 @@
 // COMPONENTS
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
+import {
+  Disclosure,
+  DisclosureButton,
+  DisclosurePanel,
+} from "@headlessui/react";
 
 // RESOURCES
 import global from "../../resources/global.json";
 import "../../resources/styles/navbar.css";
+import { Bars3Icon, BellIcon, XMarkIcon } from "@heroicons/react/24/outline";
 
 //MEDIA
 import Logo from "../../assets/logos/logo_white.png";
@@ -16,21 +23,30 @@ import Logo from "../../assets/logos/logo_white.png";
 export default function Navbar() {
   const [windowSize, setWindowSize] = useState(window.innerWidth);
   const [currentPage, setCurrentPage] = useState("homepage");
+  const { t, i18n } = useTranslation();
 
   useEffect(() => {
-    console.log(currentPage);
-  }, [currentPage]);
+    // function that logs when the disclosurepanel is open or closed
+  });
 
   const navigation = [
-    { name: "Eventi", href: "/events", current: currentPage === "eventi" },
     {
-      name: "Sponsors",
+      name: t("navbar.events"),
+      href: "/events",
+      current: currentPage === "eventi",
+    },
+    {
+      name: t("navbar.partners"),
       href: "/sponsors",
       current: currentPage === "sponsors",
     },
-    { name: "Team", href: "/team", current: currentPage === "team" },
-    { name: "Blog", href: "/blog", current: currentPage === "blog" },
-    { name: "Chi Siamo", href: "/about", current: currentPage === "chi siamo" },
+    { name: t("navbar.team"), href: "/team", current: currentPage === "team" },
+    { name: t("navbar.blog"), href: "/blog", current: currentPage === "blog" },
+    {
+      name: t("navbar.about_us"),
+      href: "/about",
+      current: currentPage === "chi siamo",
+    },
   ];
 
   function classNames(...classes) {
@@ -38,7 +54,8 @@ export default function Navbar() {
   }
 
   return (
-    <nav
+    <Disclosure
+      as="nav"
       className="w-full z-1 top-0 fixed flex justify-center items-center"
       style={{
         height: global.UTILS.NAV_HEIGHT,
@@ -71,7 +88,7 @@ export default function Navbar() {
             </Link>
           ))}
         </section>
-        <section id="right-section">
+        <section id="right-section" className="flex items-center gap-2">
           <div
             className="primary-button"
             onMouseEnter={(e) => {
@@ -89,6 +106,50 @@ export default function Navbar() {
         </section>
         <div className="flex md:hidden"></div>
       </div>
-    </nav>
+      <div className="absolute inset-y-0 left-0 w-full pl-2 pr-2 flex items-center justify-between md:hidden bg-black">
+        <Link to="/" onClick={() => setCurrentPage("homepage")}>
+          <img src={Logo} alt="LogoTedx" className="w-[200px]" />
+        </Link>
+        {/* Mobile menu button*/}
+        <DisclosureButton className="group relative inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:ring-2 focus:ring-white focus:outline-hidden focus:ring-inset">
+          <span className="absolute -inset-0.5" />
+          <span className="sr-only">Open main menu</span>
+          <Bars3Icon
+            aria-hidden="true"
+            className="block size-6 group-data-open:hidden"
+          />
+          <XMarkIcon
+            aria-hidden="true"
+            className="hidden size-6 group-data-open:block"
+          />
+        </DisclosureButton>
+        <DisclosurePanel
+          transition
+          className="origin-top transition duration-200 ease-out data-closed:-translate-y-5 data-closed:opacity-0 md:hidden glass-card-darker fixed top-[70px] w-full h-full z-10 pr-2 "
+        >
+          <div className="space-y-1 pl-2 pr-4 pt-2 pb-3 ">
+            {navigation.map((item) => (
+              <DisclosureButton
+                key={item.name}
+                as="a"
+                href={item.href}
+                aria-current={item.current ? "page" : undefined}
+                className={classNames(
+                  item.current
+                    ? "bg-gray-800 text-red-500 underline-offset-4 underline"
+                    : "text-gray-200 hover:bg-gray-700 hover:text-white",
+                  "block rounded-md px-3 py-8  text-5xl font-medium"
+                )}
+                onClick={() => {
+                  setCurrentPage(item.name.toLowerCase());
+                }}
+              >
+                {item.name}
+              </DisclosureButton>
+            ))}
+          </div>
+        </DisclosurePanel>
+      </div>
+    </Disclosure>
   );
 }

@@ -4,6 +4,8 @@ import { useOutletContext } from "react-router-dom";
 import backgroundVideo from "../../assets/videos/tedx.mp4";
 import global from "../../resources/global.json";
 
+import Volunteers from "../../assets/images/general/volunteers.webp";
+
 export default function Landing() {
   const [windowSize] = useOutletContext();
 
@@ -36,7 +38,7 @@ export default function Landing() {
           style={{
             padding: global.UTILS.BENTO_BOX_PADDING,
             borderRadius: global.UTILS.BENTO_BOX_PADDING,
-            // backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(${Volunteers})`,
+            backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(${Volunteers})`,
             backgroundSize: "cover",
             backgroundPosition: "top",
             display: "flex",
@@ -82,7 +84,7 @@ export default function Landing() {
           <div
             style={{
               color: "white",
-              zIndex: 1,
+              zIndex: 0,
               display: "flex",
               alignItems: "flex-end",
               gap: "20px",
