@@ -9,6 +9,7 @@ import Sponsors from "./modules/pages/Sponsors";
 import Blog from "./modules/pages/Blog";
 import Footer from "./modules/components/Footer";
 import ErrorPage from "./modules/pages/ErrorPage";
+import Location from "./modules/pages/Location";
 
 import "./App.css";
 import Countdown2024 from "./modules/pages/events/Countdown2024";
@@ -44,6 +45,10 @@ const router = createBrowserRouter([
       {
         path: "/events/countdown2024",
         element: <Countdown2024 />,
+      },
+      {
+        path: "/location",
+        element: <Location />,
       },
     ],
   },
