@@ -1,4 +1,6 @@
-import React, { useState, useLayoutEffect } from "react";
+
+
+import React, { useState, useLayoutEffect, useEffect } from "react"; // 1. Aggiunto useEffect
 import { useOutletContext } from "react-router-dom";
 
 import backgroundVideo from "../../assets/videos/tedx.mp4";
@@ -8,10 +10,27 @@ import Volunteers from "../../assets/images/general/volunteers.webp";
 
 export default function Landing() {
   const [windowSize] = useOutletContext();
+  
+  // 2. NUOVO: Stato per la visibilità della cookie box
+  const [showCookieBox, setShowCookieBox] = useState(false);
 
   useLayoutEffect(() => {
     window.scrollTo(0, 0);
   }, []);
+
+  // 3. NUOVO: Controllo al caricamento se l'utente ha già accettato
+  useEffect(() => {
+    const consent = localStorage.getItem("tedx_cookie_consent");
+    if (!consent) {
+      setShowCookieBox(true);
+    }
+  }, []);
+
+  // 4. NUOVO: Funzione per salvare il consenso
+  const acceptCookies = () => {
+    localStorage.setItem("tedx_cookie_consent", "true");
+    setShowCookieBox(false);
+  };
 
   return (
     <div className="bg-black">
@@ -133,6 +152,52 @@ export default function Landing() {
           </div>
         </div>
       </section>
+
+      {/* 5. NUOVO: Blocco visuale Cookie Box */}
+      {showCookieBox && (
+        <div
+          style={{
+            position: "fixed",
+            bottom: "20px",
+            left: "50%",
+            transform: "translateX(-50%)",
+            width: "90%",
+            maxWidth: "600px",
+            backgroundColor: "rgba(20, 20, 20, 0.95)",
+            backdropFilter: "blur(10px)",
+            border: "1px solid #333",
+            borderRadius: "12px",
+            padding: "20px",
+            zIndex: 9999,
+            display: "flex",
+            flexDirection: windowSize > global.UTILS.MOBILE_WIDTH ? "row" : "column",
+            alignItems: "center",
+            justifyContent: "space-between",
+            gap: "20px",
+            boxShadow: "0 10px 30px rgba(0,0,0,0.5)",
+          }}
+        >
+          <p style={{ color: "#fff", fontSize: "0.9rem", margin: 0, fontFamily: "sans-serif" }}>
+            Questo sito utilizza i cookie per migliorare l'esperienza utente.
+          </p>
+          <button
+            onClick={acceptCookies}
+            style={{
+              backgroundColor: "#eb0028", // Rosso TEDx standard
+              color: "white",
+              border: "none",
+              padding: "10px 20px",
+              borderRadius: "5px",
+              cursor: "pointer",
+              fontWeight: "bold",
+              whiteSpace: "nowrap",
+              fontFamily: "sans-serif"
+            }}
+          >
+            Accetta
+          </button>
+        </div>
+      )}
     </div>
   );
 }
