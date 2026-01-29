@@ -14,6 +14,9 @@ import Location from "./modules/pages/Location";
 import "./App.css";
 import Countdown2024 from "./modules/pages/events/Countdown2024";
 
+// aggiunta temporanea
+import StatsPages from "./modules/pages/StatsPages";
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -50,6 +53,13 @@ const router = createBrowserRouter([
         path: "/location",
         element: <Location />,
       },
+      {//aggiunta temporanea
+        path: "/stats",
+        element: <StatsPages />, 
+      
+
+      },
+    
     ],
   },
 ]);
