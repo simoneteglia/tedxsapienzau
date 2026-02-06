@@ -13,6 +13,7 @@ import Location from "./modules/pages/Location";
 
 import "./App.css";
 import Countdown2024 from "./modules/pages/events/Countdown2024";
+import ParaDoxa2025 from "./modules/pages/events/ParaDoxa2025";
 
 // aggiunta temporanea
 import StatsPages from "./modules/pages/StatsPages";
@@ -48,6 +49,15 @@ const router = createBrowserRouter([
       {
         path: "/events/countdown2024",
         element: <Countdown2024 />,
+      },
+
+      {
+        path: "/eventi/paradoxa2025",
+        element: <ParaDoxa2025 />,
+      },
+      {
+        path: "/events/paradoxa2025",
+        element: <ParaDoxa2025 />,
       },
       {
         path: "/location",
