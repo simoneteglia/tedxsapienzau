@@ -14,7 +14,7 @@ import Location from "./modules/pages/Location";
 import "./App.css";
 import Countdown2024 from "./modules/pages/events/Countdown2024";
 import ParaDoxa2025 from "./modules/pages/events/ParaDoxa2025";
-
+import BackToZero from "./modules/pages/events/BackToZero";
 // aggiunta temporanea
 import StatsPages from "./modules/pages/StatsPages";
 
@@ -66,9 +66,14 @@ const router = createBrowserRouter([
       {//aggiunta temporanea
         path: "/stats",
         element: <StatsPages />, 
-      
-
       },
+
+
+       {
+        path: "/events/backtozero", // Questo sarà l'indirizzo nel browser
+        element: <BackToZero />,
+      }, // <--- FINE AGGIUNTA
+
     
     ],
   },
