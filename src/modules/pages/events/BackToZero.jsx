@@ -1,6 +1,5 @@
-import React, { useLayoutEffect, useState, useEffect } from "react";
+import React, { useLayoutEffect } from "react";
 import { useOutletContext } from "react-router-dom";
-import axios from "axios"; 
 
 // --- COMPONENTS ---
 import global from "../../../resources/global.json";
@@ -9,7 +8,22 @@ import SpeakerCard from "../../components/SpeakerCard";
 // --- IMAGES ---
 import HeaderBg from "../../../assets/images/backtozero23/Edizione2023.webp"; 
 
-// --- ICONE SVG PERSONALIZZATE (Stile Screenshot) ---
+// --- IMPORT IMMAGINI LOCALI DEGLI SPEAKER ---
+// Sostituisci i nomi dei file (.webp, .jpg, .png) con quelli esatti presenti nella tua cartella
+import Img1 from "../../../assets/images/backtozero23/speakersBTZ/speakersBTZ/Tullio.webp";
+import Img2 from "../../../assets/images/backtozero23/speakersBTZ/speakersBTZ/Rossi.webp";
+import Img3 from "../../../assets/images/backtozero23/speakersBTZ/speakersBTZ/Freymann.webp";
+import Img4 from "../../../assets/images/backtozero23/speakersBTZ/speakersBTZ/Basilone.webp";
+import Img5 from "../../../assets/images/backtozero23/speakersBTZ/speakersBTZ/Schito.webp";
+import Img6 from "../../../assets/images/backtozero23/speakersBTZ/speakersBTZ/Cervellini.webp";
+import Img7 from "../../../assets/images/backtozero23/speakersBTZ/speakersBTZ/Estrela.webp";
+import Img8 from "../../../assets/images/backtozero23/speakersBTZ/speakersBTZ/Lambarelli.webp";
+import Img9 from "../../../assets/images/backtozero23/speakersBTZ/speakersBTZ/Ienca.webp";
+import Img10 from "../../../assets/images/backtozero23/speakersBTZ/speakersBTZ/Villain.webp";
+import Img11 from "../../../assets/images/backtozero23/speakersBTZ/speakersBTZ/Onofri.webp";
+import Img12 from "../../../assets/images/backtozero23/speakersBTZ/speakersBTZ/Nakita.webp";
+
+// --- ICONE SVG PERSONALIZZATE ---
 const CalendarIcon = () => (
   <svg width="45" height="45" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
     <rect x="3" y="4" width="18" height="18" rx="2" stroke="#EB0028" strokeWidth="1.5"/>
@@ -25,6 +39,23 @@ const LocationIcon = () => (
     <circle cx="12" cy="10" r="3" stroke="#EB0028" strokeWidth="1.5"/>
   </svg>
 );
+
+// --- LISTA SPEAKER LOCALE ---
+const localSpeakers = [
+   { id: 10, nome: "Rose Villain", categoria: "Cantautrice", image: Img10 },
+  { id: 1, nome: "Damiano Tullio", categoria: "Antropologo", image: Img1 },
+  { id: 2, nome: "Ilaria Lucrezia Rossi", categoria: "Fisica", image: Img2 },
+  { id: 3, nome: "Edward von Freymann", categoria: "Fondazione Gaia", image: Img3 },
+  { id: 4, nome: "Riccardo Basilone", categoria: "Fisico", image: Img4 },
+  { id: 5, nome: "Gloria Schito", categoria: "Founder ICONICA", image: Img5 },
+  { id: 6, nome: "Matteo Cervellini", categoria: "Fisioterapista", image: Img6 },
+  { id: 7, nome: "Ana Estrela", categoria: "Ethnic Cook", image: Img7 },
+  { id: 8, nome: "Nina Lambarelli", categoria: "Poetessa", image: Img8 },
+  { id: 9, nome: "Marcello Ienca", categoria: "Professore", image: Img9 },
+ 
+  { id: 11, nome: "Silvano Onofri", categoria: "Presidente CSNA", image: Img11 },
+  { id: 12, nome: "Nakita Aboya", categoria: "Economista", image: Img12 },
+];
 
 // --- PROGRAMMA ---
 const programSchedule = [
@@ -64,39 +95,16 @@ const programSchedule = [
 
 export default function BackToZero() {
   const [windowSize] = useOutletContext(); 
-  
-  // --- STATO PER I DATI DAL DATABASE ---
-  const [speakers, setSpeakers] = useState([]);
-  const [isLoading, setIsLoading] = useState(true);
 
   useLayoutEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
-  // --- CHIAMATA API (Logica Mantenuta) ---
-  useEffect(() => {
-    const url = global.CONNECTION.ENDPOINT + "speakers/edizione/2023";
-
-    axios
-      .get(url)
-      .then((res) => {
-        setSpeakers(res.data.speakers); 
-        setIsLoading(false);
-      })
-      .catch((err) => {
-        console.error("Errore connessione backend:", err);
-        setIsLoading(false);
-      });
-  }, []);
-
   return (
-    // Applicazione del font Object Sans a tutta la pagina
     <div className="bg-black text-white min-h-screen" style={{ fontFamily: "'Object Sans', sans-serif" }}>
       
-      {/* SPAZIO PER NAVBAR FISSA */}
       <div style={{ paddingTop: global.UTILS.NAV_HEIGHT }}>
         
-        {/* HERO SECTION - Immagine Pulita senza Titolo sopra */}
         <section className="w-full relative">
             <img 
                 src={HeaderBg} 
@@ -104,19 +112,15 @@ export default function BackToZero() {
                 className="w-full h-auto object-cover"
                 style={{ maxHeight: "80vh", minHeight: "300px" }}
             />
-            {/* Titolo rimosso da qui */}
         </section>
 
-        {/* INTRO SECTION */}
         <section className="px-6 py-16 max-w-7xl mx-auto">
             
-            {/* TITOLO SPOSTATO QUI (Bianco e allineato a sinistra) */}
             <h1 className="text-white text-5xl md:text-7xl font-extrabold mb-12 text-left">
                 Back to zero
             </h1>
 
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
-                {/* COLONNA SINISTRA: TESTO */}
                 <div className="flex flex-col gap-6">
                     <p className="text-gray-300 text-lg leading-relaxed text-justify font-light">
                         Il nostro obiettivo è azzerare, ricercare un punto zero: le disuguaglianze, 
@@ -138,10 +142,8 @@ export default function BackToZero() {
                     </div>
                 </div>
 
-                {/* COLONNA DESTRA: DETTAGLI CON NUOVE ICONE */}
                 <div className="flex flex-col gap-8 lg:pl-10 justify-end pb-4">
                     
-                    {/* Data */}
                     <div className="flex items-start gap-6">
                         <div className="shrink-0">
                             <CalendarIcon />
@@ -149,7 +151,6 @@ export default function BackToZero() {
                         <span className="text-xl font-normal text-white pt-2">15.11.2023, 08:45 - 17:00</span>
                     </div>
 
-                    {/* Luogo */}
                     <div className="flex items-start gap-6">
                         <div className="shrink-0">
                             <LocationIcon />
@@ -161,7 +162,6 @@ export default function BackToZero() {
                         </span>
                     </div>
                     
-                    {/* Bottone */}
                     <a 
                         href="https://youtube.com/playlist?list=PL4-t_gJBexTBDgARWnLB3dmC0g1_OcxFc&si=o_xQf51xiEvfXWl4"
                         target="_blank" 
@@ -175,37 +175,31 @@ export default function BackToZero() {
             </div>
         </section>
 
-      {/* SPEAKERS SECTION (Caricamento Dinamico dal DB) */}
+        {/* SPEAKERS SECTION CON DATI LOCALI */}
         <section className="px-6 py-10 max-w-7xl mx-auto">
             <h2 className="text-4xl font-bold mb-10 text-white border-b border-gray-800 pb-4 inline-block">Speakers</h2>
             
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 justify-items-center min-h-[200px]">
-                {isLoading ? (
-                     <div className="col-span-full text-center text-gray-400 text-xl py-10">Caricamento speakers in corso...</div>
-                ) : (
-                    speakers.map((speaker) => (
-                        <SpeakerCard 
-                            key={speaker._id}
-                            nomeSpeaker={speaker.nome}
-                            imgSrc={speaker.fotoPath}
-                            ruoloSpeaker={speaker.categoria} 
-                            year={2023} 
-                            showLinkTalk={false}
-                            event="backtozero"
-                            style={{ 
-                                width: "100%", 
-                                maxWidth: "100%", 
-                                flex: "none",
-                                padding: 0, 
-                                margin: 0
-                            }}
-                        />
-                    ))
-                )}
+                {localSpeakers.map((speaker) => (
+                    <SpeakerCard 
+                        key={speaker.id}
+                        nomeSpeaker={speaker.nome}
+                        imgSrc={speaker.image} // Qui passiamo direttamente l'immagine importata
+                        ruoloSpeaker={speaker.categoria} 
+                        showLinkTalk={false}
+                        event="backtozero"
+                        style={{ 
+                            width: "100%", 
+                            maxWidth: "100%", 
+                            flex: "none",
+                            padding: 0, 
+                            margin: 0
+                        }}
+                    />
+                ))}
             </div>
         </section>
 
-       {/* PROGRAMMA SECTION */}
         <section className="px-6 py-10 max-w-7xl mx-auto mb-20">
              <h2 className="text-4xl font-bold mb-16 text-white border-b border-gray-800 pb-4 inline-block">Programma</h2>
              
@@ -213,8 +207,8 @@ export default function BackToZero() {
                 {programSchedule.map((item, index) => (
                     <div key={index} className="flex flex-col md:flex-row gap-4 md:gap-12 py-6 border-b border-gray-900 last:border-0">
                        <div className="w-full md:w-[160px] shrink-0 text-lg md:text-xl font-normal text-white"> 
-    {item.time}
-</div>
+                            {item.time}
+                        </div>
                         <div className="w-full">
                             <h3 className="text-xl font-normal text-white mb-2">{item.title}</h3>
                             {item.desc && (

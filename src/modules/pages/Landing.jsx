@@ -1,22 +1,59 @@
-import React, { useLayoutEffect } from "react"; // Rimossi useState e useEffect
+import React, { useLayoutEffect, useState, useEffect } from "react"; 
 import { useOutletContext } from "react-router-dom";
 
 import backgroundVideo from "../../assets/videos/tedx.mp4";
 import global from "../../resources/global.json";
 import Volunteers from "../../assets/images/general/volunteers.webp";
 
-// Importiamo il nuovo componente (aggiorna il percorso se necessario)
+// Importiamo la Cookie Box e il nostro "Lego" Bento
 import CookieBox from "../components/CookieBox";
+import Bento from "../components/bento"; 
+
+// --- COMPONENTE PER L'ANIMAZIONE DEI NUMERI (Spostato qui) ---
+const AnimatedNumber = ({ end, duration = 2000 }) => {
+  const [count, setCount] = useState(0);
+
+  useEffect(() => {
+    let start = 0;
+    const incrementTime = (duration / end) * 1000; 
+    let timer = setInterval(() => {
+      start += Math.ceil(end / 100);
+      if (start >= end) {
+        setCount(end);
+        clearInterval(timer);
+      } else {
+        setCount(start);
+      }
+    }, 20);
+    return () => clearInterval(timer);
+  }, [end, duration]);
+
+  return <span>{count.toLocaleString('it-IT')}</span>;
+};
+
 
 export default function Landing() {
   const [windowSize] = useOutletContext();
+  
+  // Usiamo il windowSize che già esiste per capire se siamo su mobile
+  const isMobile = windowSize < global.UTILS.TABLET_WIDTH;
 
   useLayoutEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
+  // --- I DATI DELLE TUE STATISTICHE ---
+  const stats = [
+    { end: 41, label: "speakers" },
+    { end: 4000, label: "spettatori" },
+    { end: 9000, label: "followers" },
+    { end: 35000, label: "visualizzazioni su YouTube" }
+  ];
+
   return (
     <div className="bg-black">
+      
+      {/* HERO SECTION ORIGINALE */}
       <section
         style={{
           display: "flex",
@@ -83,7 +120,98 @@ export default function Landing() {
         </div>
       </section>
 
-      {/* Qui inseriamo la Cookie Box che ora vive di vita propria */}
+      {/* NUOVA SEZIONE STATISTICHE CON BENTO BOX E SFONDO */}
+      <section 
+        className="w-full relative py-24"
+        style={{ 
+          backgroundImage: `url(${Volunteers})`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          backgroundAttachment: "fixed",
+        }}
+      >
+        {/* OVERLAY SCURO SULL'IMMAGINE */}
+        <div style={{
+          position: "absolute",
+          top: 0, left: 0, width: "100%", height: "100%",
+          backgroundColor: "rgba(0,0,0,0.7)", 
+          zIndex: 0
+        }}></div>
+
+        {/* CONTENITORE GRIGLIA */}
+        <div style={{ position: "relative", zIndex: 1, maxWidth: "1200px", margin: "0 auto", padding: "0 24px" }}>
+          
+          <div
+            style={{
+              display: "grid",
+              gridTemplateColumns: isMobile ? "1fr" : "1.2fr 1fr 1fr", 
+              gridTemplateRows: isMobile ? "auto" : "repeat(2, 1fr)",
+              gap: "24px",
+              fontFamily: "'Object Sans', sans-serif"
+            }}
+          >
+            
+            {/* BOX 1: TESTO GRANDE (Usando il componente Bento) */}
+            <Bento
+              style={{
+                gridRow: isMobile ? "span 1" : "span 2", 
+                alignItems: "flex-start",
+                textAlign: "left",
+                padding: "40px",
+                background: "rgba(20, 20, 20, 0.6)" 
+              }}
+              onMouseOver={(e) => {
+                e.currentTarget.style.transform = "translateY(-5px)";
+                e.currentTarget.style.borderColor = "rgba(235, 0, 40, 0.8)";
+              }}
+              onMouseOut={(e) => {
+                e.currentTarget.style.transform = "translateY(0)";
+                e.currentTarget.style.borderColor = "rgba(255, 255, 255, 0.15)";
+              }}
+            >
+              <h3 style={{ fontSize: "1.8rem", fontWeight: "bold", lineHeight: "1.4", marginBottom: "30px", color: "white" }}>
+                TEDxSapienzaU è il TEDx Universitario dell'Ateneo Sapienza Università di Roma
+              </h3>
+              <a
+                href="#"
+                style={{
+                  backgroundColor: "#eb0028",
+                  color: "white",
+                  border: "none",
+                  padding: "15px 35px",
+                  borderRadius: "50px",
+                  fontSize: "1rem",
+                  fontWeight: "bold",
+                  cursor: "pointer",
+                  transition: "transform 0.2s",
+                  boxShadow: "0 4px 15px rgba(235, 0, 40, 0.4)",
+                  textDecoration: "none",
+                  display: "inline-block"
+                }}
+                onMouseOver={(e) => e.target.style.transform = "scale(1.05)"}
+                onMouseOut={(e) => e.target.style.transform = "scale(1)"}
+              >
+                Scopri di più
+              </a>
+            </Bento>
+
+            {/* BOX 2-5: STATISTICHE DINAMICHE (Usando il componente Bento) */}
+            {stats.map((stat, index) => (
+              <Bento key={index}>
+                <div style={{ color: "#eb0028", fontSize: "3.5rem", fontWeight: "800", marginBottom: "10px" }}>
+                  <AnimatedNumber end={stat.end} duration={2000} />
+                </div>
+                <div style={{ fontSize: "1.2rem", fontWeight: "500", color: "#ccc", textAlign: "center" }}>
+                  {stat.label}
+                </div>
+              </Bento>
+            ))}
+
+          </div>
+        </div>
+      </section>
+
+      {/* Cookie Box  */}
       <CookieBox />
       
     </div>
