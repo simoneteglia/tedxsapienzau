@@ -60,6 +60,10 @@ const router = createBrowserRouter([
         element: <ParaDoxa2025 />,
       },
       {
+        path: "/events/backtozero",
+        element: <BackToZero />,
+      },
+      {
         path: "/location",
         element: <Location />,
       },
