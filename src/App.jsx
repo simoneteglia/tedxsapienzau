@@ -15,6 +15,8 @@ import "./App.css";
 import Countdown2024 from "./modules/pages/events/Countdown2024";
 import ParaDoxa2025 from "./modules/pages/events/ParaDoxa2025";
 import BackToZero from "./modules/pages/events/BackToZero";
+import Awards23 from "./modules/pages/events/Awards23";
+import Awards24 from "./modules/pages/events/Awards24";
 // aggiunta temporanea
 import StatsPages from "./modules/pages/StatsPages";
 
@@ -74,7 +76,15 @@ const router = createBrowserRouter([
         element: <BackToZero />,
       }, // <--- FINE AGGIUNTA
 
-    
+       {
+        path: "/events/awards23",
+        element: <Awards23 />,
+      },
+
+         {
+        path: "/events/awards24",
+        element: <Awards24 />,
+      },
     ],
   },
 ]);
