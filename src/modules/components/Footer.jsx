@@ -65,7 +65,17 @@ export default function Footer() {
 
   return (
     <section className="p-[24px] flex flex-col items-center justify-center gap-[15px] text-white">
-      <footer className="bento-box flex w-full justify-between flex-wrap gap-[40px] ">
+      <footer
+        className="bento-box flex w-full justify-between flex-wrap gap-[40px]"
+        style={{
+          borderRadius: "24px",
+          backgroundColor: "rgba(255, 255, 255, 0.08)",
+          backdropFilter: "blur(18px)",
+          WebkitBackdropFilter: "blur(18px)",
+          border: "1px solid rgba(255, 255, 255, 0.18)",
+          boxShadow: "0 20px 60px rgba(0, 0, 0, 0.35)",
+        }}
+      >
         <div>
           <img
             src={Logo}

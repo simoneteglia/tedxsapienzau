@@ -263,7 +263,7 @@ body {
 
 
 .paradoxa-page {
-  background-color: #000;
+  background-color: transparent;
   color: #fff;
   padding-top: 90px;
   padding-bottom: 80px;
@@ -383,10 +383,9 @@ body {
 .paradoxa-intro-inner {
   width: 100%;
   max-width: 1300px;
-  display: grid;
-  grid-template-columns: 1.2fr 0.8fr;
-  gap: 64px;
-  align-items: start;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
 }
 
 .paradoxa-title {
@@ -443,10 +442,41 @@ body {
   margin-top: 20px;
 }
 
-.paradoxa-intro-right {
-  padding-left: 220px;
+.paradoxa-glass-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.35fr) minmax(0, 0.9fr);
+  gap: 32px;
+  align-items: stretch;
+}
+
+.paradoxa-glass-card {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 28px;
+  padding: 32px;
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  box-shadow: 0 25px 55px rgba(0, 0, 0, 0.35);
+}
+
+.paradoxa-glass-card--info {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  justify-content: center;
+}
+
+.paradoxa-glass-card--info .paradoxa-cta {
   align-self: center;
-  justify-self: end;
+}
+
+.paradoxa-glass-card--info .paradoxa-info {
+  align-items: center;
+}
+
+.paradoxa-glass-card--info .paradoxa-info-row {
+  width: 100%;
+  max-width: 360px;
 }
 
 .paradoxa-cta {
@@ -524,6 +554,10 @@ body {
   .paradoxa-intro-inner {
     grid-template-columns: 1fr;
     gap: 24px;
+  }
+
+  .paradoxa-glass-grid {
+    grid-template-columns: 1fr;
   }
 
   .paradoxa-hero-frame::after {

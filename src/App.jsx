@@ -1,5 +1,10 @@
 import { useState, useEffect } from "react";
-import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
+import {
+  createBrowserRouter,
+  Outlet,
+  RouterProvider,
+  useLocation,
+} from "react-router-dom";
 import { AuthContextProvider } from "./modules/context/authContext";
 
 import Navbar from "./modules/components/Navbar";
@@ -10,6 +15,7 @@ import Blog from "./modules/pages/Blog";
 import Footer from "./modules/components/Footer";
 import ErrorPage from "./modules/pages/ErrorPage";
 import Location from "./modules/pages/Location";
+import Grainient from "./modules/components/Grainient";
 
 import "./App.css";
 import Countdown2024 from "./modules/pages/events/Countdown2024";
@@ -91,6 +97,8 @@ const router = createBrowserRouter([
 
 function LandingManager() {
   const [windowSize, setWindowSize] = useState(window.innerWidth);
+  const location = useLocation();
+  const isParadoxaPage = location.pathname.includes("paradoxa2025");
 
   useEffect(() => {
     window.addEventListener("resize", handleResize);
@@ -101,11 +109,36 @@ function LandingManager() {
   };
 
   return (
-    <>
-      <Navbar />
-      <Outlet context={[windowSize, setWindowSize]} />
-      <Footer />
-    </>
+    <div style={{ position: "relative" }}>
+      {isParadoxaPage ? (
+        <div
+          aria-hidden="true"
+          style={{
+            position: "fixed",
+            inset: 0,
+            zIndex: 0,
+            pointerEvents: "none",
+          }}
+        >
+        <Grainient
+          timeSpeed={0.3}
+          colorBalance={0.08}
+          color1="#c40022"
+          color2="#000000"
+          color3="#cfcfcf"
+          warpStrength={3.2}
+          contrast={1.2}
+          gamma={1.1}
+          saturation={0.9}
+        />
+        </div>
+      ) : null}
+      <div style={{ position: "relative", zIndex: 1 }}>
+        <Navbar />
+        <Outlet context={[windowSize, setWindowSize]} />
+        <Footer />
+      </div>
+    </div>
   );
 }
 
