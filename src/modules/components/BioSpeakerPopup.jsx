@@ -11,6 +11,7 @@ export default function BioSpeakerPopup({
   selectedSpeakerInfo,
   windowSize,
   year,
+  sidebarTheme,
 }) {
   useEffect(() => {
     if (isBioOpen) {
@@ -29,7 +30,8 @@ export default function BioSpeakerPopup({
   const is2025 = year === 2025;
   const tagLabel = selectedSpeakerInfo?.tag || "Speaker";
   const bioText = selectedSpeakerInfo?.bio || "Bio in arrivo.";
-  const sidebarBackground = is2025
+  const useDarkSidebar = sidebarTheme === "dark";
+  const sidebarBackground = useDarkSidebar || is2025
     ? "#1d1d1d"
     : year === 2022
     ? "linear-gradient(307deg, rgb(130, 36, 51) 29%, #E62B1E 98%)"

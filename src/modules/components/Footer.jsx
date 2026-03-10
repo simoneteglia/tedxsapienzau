@@ -145,6 +145,7 @@ export default function Footer() {
             <GreyLink text="Para Doxa" link={"/eventi/paradoxa2025"} />
             <GreyLink text="Awards" link={"/eventi/awards2024"} />
             <GreyLink text="Countdown" link={"/eventi/countdown2024"} />
+            <GreyLink text="Back To Zero" link={"/events/backtozero"} />
           </div>
           <b>
             <WhiteLink text={t("navbar.partners")} link="/partners" />

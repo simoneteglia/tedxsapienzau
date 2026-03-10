@@ -98,7 +98,12 @@ const router = createBrowserRouter([
 function LandingManager() {
   const [windowSize, setWindowSize] = useState(window.innerWidth);
   const location = useLocation();
-  const isParadoxaPage = location.pathname.includes("paradoxa2025");
+  const path = location.pathname.toLowerCase();
+  const isGradientEvent =
+    path.includes("paradoxa2025") ||
+    path.includes("backtozero") ||
+    path.includes("awards23") ||
+    path.includes("awards24");
 
   useEffect(() => {
     window.addEventListener("resize", handleResize);
@@ -110,7 +115,7 @@ function LandingManager() {
 
   return (
     <div style={{ position: "relative" }}>
-      {isParadoxaPage ? (
+      {isGradientEvent ? (
         <div
           aria-hidden="true"
           style={{
@@ -122,14 +127,14 @@ function LandingManager() {
         >
         <Grainient
           timeSpeed={0.3}
-          colorBalance={0.08}
+          colorBalance={0.01}
           color1="#c40022"
           color2="#000000"
-          color3="#cfcfcf"
+          color3="#777777"
           warpStrength={3.2}
-          contrast={1.2}
-          gamma={1.1}
-          saturation={0.9}
+          contrast={1.02}
+          gamma={1.18}
+          saturation={0.7}
         />
         </div>
       ) : null}

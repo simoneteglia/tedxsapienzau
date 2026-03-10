@@ -1,9 +1,10 @@
-import React, { useLayoutEffect } from "react";
+import React, { useLayoutEffect, useState } from "react";
 import { useOutletContext } from "react-router-dom";
 
 // --- COMPONENTS ---
 import global from "../../../resources/global.json";
 import SpeakerCard from "../../components/SpeakerCard"; 
+import BioSpeakerPopup from "../../components/BioSpeakerPopup";
 
 // --- IMAGES ---
 import HeaderBg from "../../../assets/images/backtozero23/Edizione2023.webp"; 
@@ -95,13 +96,18 @@ const programSchedule = [
 
 export default function BackToZero() {
   const [windowSize] = useOutletContext(); 
+  const [isBioOpen, setIsBioOpen] = useState(false);
+  const [selectedSpeakerInfo, setSelectedSpeakerInfo] = useState({});
 
   useLayoutEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
   return (
-    <div className="bg-black text-white min-h-screen" style={{ fontFamily: "'Object Sans', sans-serif" }}>
+    <div
+      className="text-white min-h-screen"
+      style={{ fontFamily: "'Object Sans', sans-serif", backgroundColor: "transparent" }}
+    >
       
       <div style={{ paddingTop: global.UTILS.NAV_HEIGHT }}>
         
@@ -120,54 +126,56 @@ export default function BackToZero() {
                 Back to zero
             </h1>
 
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
-                <div className="flex flex-col gap-6">
-                    <p className="text-gray-300 text-lg leading-relaxed text-justify font-light">
-                        Il nostro obiettivo è azzerare, ricercare un punto zero: le disuguaglianze, 
+            <div className="paradoxa-glass-grid">
+                <div className="paradoxa-glass-card">
+                    <p className="paradoxa-intro-text">
+                        Il nostro obiettivo è azzerare, ricercare un punto zero: le disuguaglianze,
                         i conflitti, i cattivi stili di vita, le emissioni e i rifiuti. Ridurre quei
                         fattori inquinanti che rallentano la crescita della nostra società, peggiorando
-                        la qualità della nostra vita. Riconsiderare noi stessi ed il nostro modo di 
-                        confrontarci. Imparare ed interagire con la società contemporanea, con le 
-                        arti e le scienze. È fondamentale per costruire un mondo dove l'essere umano 
-                        possa 'rinascere', prosperando ed esprimendosi al meglio in ogni disciplina. 
+                        la qualità della nostra vita. Riconsiderare noi stessi ed il nostro modo di
+                        confrontarci. Imparare ed interagire con la società contemporanea, con le
+                        arti e le scienze. È fondamentale per costruire un mondo dove l'essere umano
+                        possa 'rinascere', prosperando ed esprimendosi al meglio in ogni disciplina.
                         Riscoprire le basi per rinascere, diventare persone migliori in un luogo migliore.
                     </p>
-                    <div className="mt-4">
+                    <div className="mt-6">
                         <p className="text-white font-medium text-2xl leading-snug">
-                            <span className="text-4xl align-top">“</span> 
-                            L'uomo e il mondo che lo circonda non sono binari separati, 
+                            <span className="text-4xl align-top">“</span>
+                            L'uomo e il mondo che lo circonda non sono binari separati,
                             ma rotaie che si muovono insieme, hanno bisogno l'uno dell'altro.
                             <span className="text-4xl align-bottom leading-none"> ”</span>
                         </p>
                     </div>
                 </div>
 
-                <div className="flex flex-col gap-8 lg:pl-10 justify-end pb-4">
-                    
-                    <div className="flex items-start gap-6">
-                        <div className="shrink-0">
-                            <CalendarIcon />
+                <div className="paradoxa-glass-card paradoxa-glass-card--info">
+                    <div className="paradoxa-info">
+                        <div className="paradoxa-info-row">
+                            <span className="paradoxa-info-icon">
+                                <CalendarIcon />
+                            </span>
+                            <div className="paradoxa-info-text paradoxa-info-text--date">
+                                15.11.2023, 08:45 - 17:00
+                            </div>
                         </div>
-                        <span className="text-xl font-normal text-white pt-2">15.11.2023, 08:45 - 17:00</span>
+
+                        <div className="paradoxa-info-row">
+                            <span className="paradoxa-info-icon">
+                                <LocationIcon />
+                            </span>
+                            <div className="paradoxa-info-text">
+                                Aula Magna,<br/>
+                                Palazzo del Rettorato<br/>
+                                Sapienza Università di Roma
+                            </div>
+                        </div>
                     </div>
 
-                    <div className="flex items-start gap-6">
-                        <div className="shrink-0">
-                            <LocationIcon />
-                        </div>
-                        <span className="text-xl font-normal text-white pt-1">
-                            Aula Magna,<br/>
-                            Palazzo del Rettorato<br/>
-                            Sapienza Università di Roma
-                        </span>
-                    </div>
-                    
-                    <a 
+                    <a
+                        className="paradoxa-cta"
                         href="https://youtube.com/playlist?list=PL4-t_gJBexTBDgARWnLB3dmC0g1_OcxFc&si=o_xQf51xiEvfXWl4"
-                        target="_blank" 
+                        target="_blank"
                         rel="noreferrer"
-                        className="mt-6 bg-[#EB0028] text-white font-bold py-4 px-8 text-center uppercase rounded-lg hover:bg-white hover:text-[#EB0028] transition-colors w-full md:w-auto self-start"
-                        style={{ letterSpacing: "1px" }}
                     >
                         Guarda i TEDx Talks
                     </a>
@@ -177,7 +185,7 @@ export default function BackToZero() {
 
         {/* SPEAKERS SECTION CON DATI LOCALI */}
         <section className="px-6 py-10 max-w-7xl mx-auto">
-            <h2 className="text-4xl font-bold mb-10 text-white border-b border-gray-800 pb-4 inline-block">Speakers</h2>
+            <h2 className="text-5xl font-bold mb-10 text-white inline-block">Speakers</h2>
             
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 justify-items-center min-h-[200px]">
                 {localSpeakers.map((speaker) => (
@@ -188,6 +196,9 @@ export default function BackToZero() {
                         ruoloSpeaker={speaker.categoria} 
                         showLinkTalk={false}
                         event="backtozero"
+                        tag={speaker.categoria}
+                        setIsBioOpen={setIsBioOpen}
+                        setSelectedSpeakerInfo={setSelectedSpeakerInfo}
                         style={{ 
                             width: "100%", 
                             maxWidth: "100%", 
@@ -222,6 +233,14 @@ export default function BackToZero() {
              </div>
         </section>
 
+        <BioSpeakerPopup
+          isBioOpen={isBioOpen}
+          setIsBioOpen={setIsBioOpen}
+          selectedSpeakerInfo={selectedSpeakerInfo}
+          windowSize={windowSize}
+          year={2023}
+          sidebarTheme="dark"
+        />
       </div>
     </div>
   );

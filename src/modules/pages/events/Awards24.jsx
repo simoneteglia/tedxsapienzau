@@ -1,12 +1,13 @@
-import React, { useLayoutEffect } from "react";
+import React, { useLayoutEffect, useState } from "react";
 import { useOutletContext } from "react-router-dom";
 
 // --- COMPONENTS ---
 import global from "../../../resources/global.json";
 import SpeakerCard from "../../components/SpeakerCard"; 
+import BioSpeakerPopup from "../../components/BioSpeakerPopup";
 
 // --- IMAGES ---
-import HeaderBg from "../../../assets/images/awards24/awards24.webp"; 
+import HeaderBg from "../../../assets/images/awards24/awards_sapienza.png"; 
 
 // --- IMPORT IMMAGINI LOCALI DEGLI SPEAKER/ARTISTI (.webp) ---
 import ImgAbbozzo from "../../../assets/images/awards24/abbozzo.webp";
@@ -34,7 +35,7 @@ const LocationIcon = () => (
 
 // --- LISTE SUDDIVISE (ARTISTS E SPEAKERS 2024) ---
 const localArtists = [
-  { id: 1, nome: "Abozzo", categoria: "Artist", image: ImgAbbozzo },
+  { id: 1, nome: "Abbozzo", categoria: "Artist", image: ImgAbbozzo },
   { id: 2, nome: "Lorenzo Saltarelli", categoria: "Artist", image: ImgSaltarelli },
 ];
 
@@ -46,13 +47,18 @@ const localSpeakers = [
 
 export default function Awards24() {
   const [windowSize] = useOutletContext(); 
+  const [isBioOpen, setIsBioOpen] = useState(false);
+  const [selectedSpeakerInfo, setSelectedSpeakerInfo] = useState({});
 
   useLayoutEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
   return (
-    <div className="bg-black text-white min-h-screen" style={{ fontFamily: "'Object Sans', sans-serif" }}>
+    <div
+      className="text-white min-h-screen"
+      style={{ fontFamily: "'Object Sans', sans-serif", backgroundColor: "transparent" }}
+    >
       
       <div style={{ paddingTop: global.UTILS.NAV_HEIGHT }}>
         
@@ -63,8 +69,8 @@ export default function Awards24() {
             <img 
                 src={HeaderBg} 
                 alt="Header Awards" 
-                className="w-full h-auto object-cover"
-                style={{ maxHeight: "80vh", minHeight: "300px" }}
+                className="w-full object-contain"
+                style={{ height: "auto", maxHeight: "420px", backgroundColor: "#000" }}
             />
         </section>
         {/* SEZIONE INFORMAZIONI */}
@@ -74,16 +80,16 @@ export default function Awards24() {
                 Cosa sono i<br/>SapienzaU awards?
             </h1>
 
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
-                <div className="flex flex-col gap-6">
-                    <p className="text-gray-300 text-lg leading-relaxed text-justify font-light">
+            <div className="paradoxa-glass-grid">
+                <div className="paradoxa-glass-card">
+                    <p className="paradoxa-intro-text">
                         I SapienzaU Awards sono organizzati dall'associazione SapienzaU ed hanno lo scopo di promuovere idee di
                         valore, offrendo ai vincitori la prestigiosa opportunità di esibirsi sul palco dell'edizione 2025 del TEDxSapienzaU. I
                         vincitori del concorso SapienzaU Awards, 3 Speakers e 2 Artists, vengono premiati sul palco della 
                         finale e avranno l'occasione di condividere le loro idee con un pubblico ampio, promuovendo il loro messaggio di
                         innovazione e ispirazione.
                     </p>
-                    <div className="mt-4">
+                    <div className="mt-6">
                         <p className="text-white font-medium text-2xl leading-snug">
                             <span className="text-4xl align-top">“</span> 
                             L'uomo e il mondo che lo circonda non sono binari separati, 
@@ -93,33 +99,32 @@ export default function Awards24() {
                     </div>
                 </div>
 
-                {/* ICONE E BOTTONE YOUTUBE */}
-                <div className="flex flex-col gap-8 lg:pl-10 justify-end pb-4">
-                    
-                    <div className="flex items-start gap-6">
-                        <div className="shrink-0">
-                            <CalendarIcon />
+                <div className="paradoxa-glass-card paradoxa-glass-card--info">
+                    <div className="paradoxa-info">
+                        <div className="paradoxa-info-row">
+                            <span className="paradoxa-info-icon">
+                                <CalendarIcon />
+                            </span>
+                            <div className="paradoxa-info-text paradoxa-info-text--date">28.11.2024</div>
                         </div>
-                        <span className="text-xl font-normal text-white pt-2">28.11.2024</span>
+
+                        <div className="paradoxa-info-row">
+                            <span className="paradoxa-info-icon">
+                                <LocationIcon />
+                            </span>
+                            <div className="paradoxa-info-text">
+                                Università La Sapienza - Nuovo Teatro Ateneo<br/>
+                                Piazzale Aldo Moro, 5<br/>
+                                00185 Roma RM
+                            </div>
+                        </div>
                     </div>
 
-                    <div className="flex items-start gap-6">
-                        <div className="shrink-0">
-                            <LocationIcon />
-                        </div>
-                        <span className="text-xl font-normal text-white pt-1">
-                            Università La Sapienza - Nuovo Teatro Ateneo<br/>
-                            Piazzale Aldo Moro, 5<br/>
-                            00185 Roma RM
-                        </span>
-                    </div>
-                    
                     <a 
+                        className="paradoxa-cta"
                         href="#"
                         target="_blank" 
                         rel="noreferrer"
-                        className="mt-6 bg-[#EB0028] text-white font-bold py-4 px-8 text-center uppercase rounded-lg hover:bg-white hover:text-[#EB0028] transition-colors w-full md:w-auto self-start"
-                        style={{ letterSpacing: "1px" }}
                     >
                         Guarda i TEDx Talks
                     </a>
@@ -129,53 +134,58 @@ export default function Awards24() {
 
         {/* SEZIONE VINCITORI AWARDS */}
     {/* SEZIONE VINCITORI AWARDS */}
-        <section className="px-6 py-10 max-w-7xl mx-auto mb-20 text-center">
+        <section className="px-6 py-10 max-w-7xl mx-auto mb-20">
             
-            <h2 className="text-4xl md:text-5xl font-bold mb-16 text-white">
+            <h2 className="text-4xl md:text-5xl font-bold mb-16 text-white text-center">
                 I vincitori SapienzaU awards 2024
             </h2>
             
             {/* SUB-SEZIONE ARTISTS */}
-            <div className="w-full flex justify-center">
-                <h3 className="text-3xl font-medium mb-10 text-white border-b border-gray-800 pb-2 inline-block">Artists</h3>
-            </div>
-            
-            <div className="flex flex-wrap justify-center gap-6 sm:gap-10 mb-16 max-w-4xl mx-auto">
+            <h3 className="text-4xl font-medium mb-10 text-white text-center">Artists</h3>
+            <div className="paradoxa-speakers-grid mb-16">
                 {localArtists.map((speaker) => (
-                    <div key={speaker.id} className="w-full sm:w-[280px] flex justify-center">
-                        <SpeakerCard 
-                            nomeSpeaker={speaker.nome}
-                            imgSrc={speaker.image} 
-                            ruoloSpeaker={speaker.categoria} 
-                            showLinkTalk={false}
-                            event="awards24"
-                            style={{ width: "100%", maxWidth: "100%", padding: 0, margin: 0 }}
-                        />
-                    </div>
+                    <SpeakerCard 
+                        key={speaker.id}
+                        nomeSpeaker={speaker.nome}
+                        imgSrc={speaker.image} 
+                        ruoloSpeaker={speaker.categoria} 
+                        showLinkTalk={false}
+                        event="awards24"
+                        tag={speaker.categoria}
+                        setIsBioOpen={setIsBioOpen}
+                        setSelectedSpeakerInfo={setSelectedSpeakerInfo}
+                    />
                 ))}
             </div>
 
             {/* SUB-SEZIONE SPEAKERS */}
-            <div className="w-full flex justify-center">
-                <h3 className="text-3xl font-medium mb-10 text-white border-b border-gray-800 pb-2 inline-block">Speakers</h3>
-            </div>
-            
-            <div className="flex flex-wrap justify-center gap-6 sm:gap-10 max-w-5xl mx-auto">
+            <h3 className="text-4xl font-medium mb-10 text-white text-center">Speakers</h3>
+            <div className="paradoxa-speakers-grid">
                 {localSpeakers.map((speaker) => (
-                    <div key={speaker.id} className="w-full sm:w-[280px] flex justify-center">
-                        <SpeakerCard 
-                            nomeSpeaker={speaker.nome}
-                            imgSrc={speaker.image} 
-                            ruoloSpeaker={speaker.categoria} 
-                            showLinkTalk={false}
-                            event="awards24"
-                            style={{ width: "100%", maxWidth: "100%", padding: 0, margin: 0 }}
-                        />
-                    </div>
+                    <SpeakerCard 
+                        key={speaker.id}
+                        nomeSpeaker={speaker.nome}
+                        imgSrc={speaker.image} 
+                        ruoloSpeaker={speaker.categoria} 
+                        showLinkTalk={false}
+                        event="awards24"
+                        tag={speaker.categoria}
+                        setIsBioOpen={setIsBioOpen}
+                        setSelectedSpeakerInfo={setSelectedSpeakerInfo}
+                    />
                 ))}
             </div>
 
         </section>
+
+        <BioSpeakerPopup
+          isBioOpen={isBioOpen}
+          setIsBioOpen={setIsBioOpen}
+          selectedSpeakerInfo={selectedSpeakerInfo}
+          windowSize={windowSize}
+          year={2024}
+          sidebarTheme="dark"
+        />
       </div>
     </div>
   );
