@@ -2,7 +2,7 @@ import React from "react";
 
 // --- STILE LIQUID GLASS (Solo la scatola) ---
 const glassStyle = {
-  background: "rgba(0, 0, 0, 0.4)",
+  background: "rgba(0, 0, 0, 0)",
   backdropFilter: "blur(12px) saturate(180%)",
   WebkitBackdropFilter: "blur(12px) saturate(180%)",
   border: "1px solid rgba(255, 255, 255, 0.15)",

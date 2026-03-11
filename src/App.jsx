@@ -81,6 +81,7 @@ function LandingManager() {
   const location = useLocation();
   const path = location.pathname.toLowerCase();
   const isGradientEvent =
+    path === "/" ||
     path.includes("paradoxa2025") ||
     path.includes("backtozero") ||
     path.includes("awards23") ||

@@ -3,10 +3,12 @@ import { useOutletContext } from "react-router-dom";
 
 import backgroundVideo from "../../assets/videos/tedx.mp4";
 import global from "../../resources/global.json";
-import Volunteers from "../../assets/images/general/volunteers.webp";
+
+// Importiamo la Cookie Box e il nostro "Lego" Bento
 import CookieBox from "../components/CookieBox";
 import Bento from "../components/bento";
 
+// --- COMPONENTE PER L'ANIMAZIONE DEI NUMERI (Spostato qui) ---
 const AnimatedNumber = ({ end, duration = 2000 }) => {
   const [count, setCount] = useState(0);
 
@@ -45,7 +47,7 @@ export default function Landing() {
   ];
 
   return (
-    <div className="">
+    <div className="text-white" style={{ backgroundColor: "transparent" }}>
       {/* HERO SECTION ORIGINALE */}
       <section
         style={{
@@ -69,9 +71,6 @@ export default function Landing() {
           style={{
             padding: global.UTILS.BENTO_BOX_PADDING,
             borderRadius: global.UTILS.BENTO_BOX_PADDING,
-            backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(${Volunteers})`,
-            backgroundSize: "cover",
-            backgroundPosition: "top",
             display: "flex",
             justifyContent: "center",
             alignItems: "flex-end",
@@ -101,18 +100,7 @@ export default function Landing() {
           ) : (
             <></>
           )}
-          <div
-            id="video-overlay"
-            style={{
-              position: "absolute",
-              top: 0,
-              left: 0,
-              width: "100%",
-              height: "100%",
-              background:
-                "linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.8))",
-            }}
-          ></div>
+
           <div
             style={{
               color: "white",
@@ -142,8 +130,8 @@ export default function Landing() {
                   windowSize > 1245
                     ? "14vh"
                     : windowSize > global.UTILS.MOBILE_WIDTH
-                      ? "100px"
-                      : "50px",
+                    ? "100px"
+                    : "50px",
                 fontWeight: 700,
                 maxWidth: "13ch",
               }}
@@ -166,7 +154,9 @@ export default function Landing() {
         </div>
       </section>
 
-      <section id="stats-section" className="w-full relative py-24">
+      {/* NUOVA SEZIONE STATISTICHE CON BENTO BOX E SFONDO */}
+      <section className="w-full relative py-24">
+        {/* CONTENITORE GRIGLIA */}
         <div
           style={{
             position: "relative",
@@ -185,13 +175,13 @@ export default function Landing() {
               fontFamily: "'Object Sans', sans-serif",
             }}
           >
+            {/* BOX 1: TESTO GRANDE (Usando il componente Bento) */}
             <Bento
               style={{
                 gridRow: isMobile ? "span 1" : "span 2",
                 alignItems: "flex-start",
                 textAlign: "left",
                 padding: "40px",
-                background: "rgba(20, 20, 20, 0.6)",
               }}
               onMouseOver={(e) => {
                 e.currentTarget.style.transform = "translateY(-5px)";
