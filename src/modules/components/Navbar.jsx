@@ -25,10 +25,6 @@ export default function Navbar() {
   const [currentPage, setCurrentPage] = useState("homepage");
   const { t, i18n } = useTranslation();
 
-  useEffect(() => {
-    // function that logs when the disclosurepanel is open or closed
-  });
-
   const navigation = [
     {
       name: t("navbar.events"),
@@ -41,7 +37,6 @@ export default function Navbar() {
       current: currentPage === "sponsors",
     },
     { name: t("navbar.team"), href: "/team", current: currentPage === "team" },
-    { name: t("navbar.blog"), href: "/blog", current: currentPage === "blog" },
     {
       name: t("navbar.about_us"),
       href: "/about",
@@ -78,7 +73,7 @@ export default function Navbar() {
                 item.current
                   ? "bg-gray-900 text-white"
                   : "text-gray-300 hover:bg-gray-700 hover:text-white",
-                "rounded-md px-3 py-2 text-sm font-semibold"
+                "rounded-md px-3 py-2 text-sm font-semibold",
               )}
               onClick={() => {
                 setCurrentPage(item.name.toLowerCase());
@@ -138,7 +133,7 @@ export default function Navbar() {
                   item.current
                     ? "bg-gray-800 text-red-500 underline-offset-4 underline"
                     : "text-gray-200 hover:bg-gray-700 hover:text-white",
-                  "block rounded-md px-3 py-8  text-5xl font-medium"
+                  "block rounded-md px-3 py-8  text-5xl font-medium",
                 )}
                 onClick={() => {
                   setCurrentPage(item.name.toLowerCase());

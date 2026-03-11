@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from "react";
 import { Trans, useTranslation } from "react-i18next";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { Link } from "react-router-dom";
 
 // -------------RESOURCES-------------
 import global from "../../resources/global.json";
@@ -57,9 +58,9 @@ export default function Footer() {
 
   const GreyLink = ({ text, link }) => {
     return (
-      <a className="text-decoration-none text-gray-400" href={link}>
+      <Link className="text-decoration-none text-gray-400" to={link}>
         {text}
-      </a>
+      </Link>
     );
   };
 
@@ -142,9 +143,9 @@ export default function Footer() {
               flexDirection: "column",
             }}
           >
-            <GreyLink text="Para Doxa" link={"/eventi/paradoxa2025"} />
-            <GreyLink text="Awards" link={"/eventi/awards2024"} />
-            <GreyLink text="Countdown" link={"/eventi/countdown2024"} />
+            <GreyLink text="Para Doxa" link={"/events/paradoxa2025"} />
+            <GreyLink text="Awards" link={"/events/awards2024"} />
+            <GreyLink text="Countdown" link={"/events/countdown2024"} />
             <GreyLink text="Back To Zero" link={"/events/backtozero"} />
           </div>
           <b>
@@ -152,9 +153,6 @@ export default function Footer() {
           </b>
           <b>
             <WhiteLink text={t("navbar.team")} link="/team" />
-          </b>
-          <b>
-            <WhiteLink text={t("navbar.blog")} link="/blog" />
           </b>
           <b>
             <WhiteLink text={t("navbar.about_us")} link="/mission&vision" />

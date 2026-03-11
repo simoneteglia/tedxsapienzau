@@ -42,9 +42,7 @@ export default function SpeakerCard({
     (value || "")
       .toLowerCase()
       .split(" ")
-      .map((word) =>
-        word ? `${word[0].toUpperCase()}${word.slice(1)}` : ""
-      )
+      .map((word) => (word ? `${word[0].toUpperCase()}${word.slice(1)}` : ""))
       .join(" ");
 
   // Split name into two lines (Nome / Cognome)
@@ -115,10 +113,13 @@ export default function SpeakerCard({
         {showName ? (
           <div className="speaker-poster-nameblock">
             <div className="speaker-poster-name-line">{firstName}</div>
-            <div className="speaker-poster-name-line">{lastName || "\u00A0"}</div>
+            {lastName && (
+              <div className="speaker-poster-name-line">
+                {lastName || "\u00A0"}
+              </div>
+            )}
           </div>
         ) : null}
-
 
         {/* Optional YouTube link */}
         {showLinkTalk && linkTalk ? (

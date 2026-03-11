@@ -1,21 +1,18 @@
-import React, { useLayoutEffect, useState, useEffect } from "react"; 
+import React, { useLayoutEffect, useState, useEffect } from "react";
 import { useOutletContext } from "react-router-dom";
 
 import backgroundVideo from "../../assets/videos/tedx.mp4";
 import global from "../../resources/global.json";
 import Volunteers from "../../assets/images/general/volunteers.webp";
-
-// Importiamo la Cookie Box e il nostro "Lego" Bento
 import CookieBox from "../components/CookieBox";
-import Bento from "../components/bento"; 
+import Bento from "../components/bento";
 
-// --- COMPONENTE PER L'ANIMAZIONE DEI NUMERI (Spostato qui) ---
 const AnimatedNumber = ({ end, duration = 2000 }) => {
   const [count, setCount] = useState(0);
 
   useEffect(() => {
     let start = 0;
-    const incrementTime = (duration / end) * 1000; 
+    const incrementTime = (duration / end) * 1000;
     let timer = setInterval(() => {
       start += Math.ceil(end / 100);
       if (start >= end) {
@@ -28,31 +25,27 @@ const AnimatedNumber = ({ end, duration = 2000 }) => {
     return () => clearInterval(timer);
   }, [end, duration]);
 
-  return <span>{count.toLocaleString('it-IT')}</span>;
+  return <span>{count.toLocaleString("it-IT")}</span>;
 };
-
 
 export default function Landing() {
   const [windowSize] = useOutletContext();
-  
-  // Usiamo il windowSize che già esiste per capire se siamo su mobile
+
   const isMobile = windowSize < global.UTILS.TABLET_WIDTH;
 
   useLayoutEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
-  // --- I DATI DELLE TUE STATISTICHE ---
   const stats = [
     { end: 41, label: "speakers" },
     { end: 4000, label: "spettatori" },
     { end: 9000, label: "followers" },
-    { end: 35000, label: "visualizzazioni su YouTube" }
+    { end: 35000, label: "visualizzazioni su YouTube" },
   ];
 
   return (
-    <div className="bg-black">
-      
+    <div className="">
       {/* HERO SECTION ORIGINALE */}
       <section
         style={{
@@ -62,8 +55,10 @@ export default function Landing() {
           height: `calc(100vh - ${global.UTILS.NAV_HEIGHT})`,
           marginTop: global.UTILS.NAV_HEIGHT,
           width: "100vw",
-          backgroundColor: "#000",
-          padding: windowSize < global.UTILS.BIG_TABLET_WIDTH ? "34px 34px 0px 34px" : "34px",
+          padding:
+            windowSize < global.UTILS.BIG_TABLET_WIDTH
+              ? "34px 34px 0px 34px"
+              : "34px",
           gap: "20px",
           flexWrap: "wrap",
         }}
@@ -82,6 +77,7 @@ export default function Landing() {
             alignItems: "flex-end",
             fontFamily: "Fira Sans Extra Condensed, sans-serif",
             position: "relative",
+            overflow: "hidden",
           }}
         >
           {windowSize > global.UTILS.TABLET_WIDTH ? (
@@ -102,63 +98,100 @@ export default function Landing() {
             >
               <source src={backgroundVideo} type="video/mp4" />
             </video>
-          ) : ( <></> )}
-          
-          <div id="video-overlay" style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%", background: "linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.8))" }}></div>
-          
-          <div style={{ color: "white", zIndex: 0, display: "flex", alignItems: "flex-end", gap: "20px" }}>
-            <h2 className="mb-10 text-gray-400" style={{ fontSize: windowSize > global.UTILS.TABLET_WIDTH ? "2vw" : "0.5vw", visibility: windowSize > global.UTILS.TABLET_WIDTH ? "initial" : " hidden" }}>
+          ) : (
+            <></>
+          )}
+          <div
+            id="video-overlay"
+            style={{
+              position: "absolute",
+              top: 0,
+              left: 0,
+              width: "100%",
+              height: "100%",
+              background:
+                "linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.8))",
+            }}
+          ></div>
+          <div
+            style={{
+              color: "white",
+              zIndex: 0,
+              display: "flex",
+              alignItems: "flex-end",
+              gap: "20px",
+            }}
+          >
+            <h2
+              className="mb-10 text-gray-400"
+              style={{
+                fontSize:
+                  windowSize > global.UTILS.TABLET_WIDTH ? "2vw" : "0.5vw",
+                visibility:
+                  windowSize > global.UTILS.TABLET_WIDTH
+                    ? "initial"
+                    : " hidden",
+              }}
+            >
               TEDXSAPIENZAU
             </h2>
-            <h1 style={{ textAlign: "center", fontSize: windowSize > 1245 ? "14vh" : windowSize > global.UTILS.MOBILE_WIDTH ? "100px" : "50px", fontWeight: 700, maxWidth: "13ch" }}>
+            <h1
+              style={{
+                textAlign: "center",
+                fontSize:
+                  windowSize > 1245
+                    ? "14vh"
+                    : windowSize > global.UTILS.MOBILE_WIDTH
+                      ? "100px"
+                      : "50px",
+                fontWeight: 700,
+                maxWidth: "13ch",
+              }}
+            >
               LET'S EXPLORE HOW IT WAS
             </h1>
-            <h2 className="mb-10 text-gray-400" style={{ fontSize: "2vw", visibility: windowSize > global.UTILS.TABLET_WIDTH ? "initial" : " hidden" }}>
+            <h2
+              className="mb-10 text-gray-400"
+              style={{
+                fontSize: "2vw",
+                visibility:
+                  windowSize > global.UTILS.TABLET_WIDTH
+                    ? "initial"
+                    : " hidden",
+              }}
+            >
               PARA DOXA 2025
             </h2>
           </div>
         </div>
       </section>
 
-      {/* NUOVA SEZIONE STATISTICHE CON BENTO BOX E SFONDO */}
-      <section 
-        className="w-full relative py-24"
-        style={{ 
-          backgroundImage: `url(${Volunteers})`,
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-          backgroundAttachment: "fixed",
-        }}
-      >
-        {/* OVERLAY SCURO SULL'IMMAGINE */}
-        <div style={{
-          position: "absolute",
-          top: 0, left: 0, width: "100%", height: "100%",
-          backgroundColor: "rgba(0,0,0,0.7)", 
-          zIndex: 0
-        }}></div>
-
-        {/* CONTENITORE GRIGLIA */}
-        <div style={{ position: "relative", zIndex: 1, maxWidth: "1200px", margin: "0 auto", padding: "0 24px" }}>
-          
+      <section id="stats-section" className="w-full relative py-24">
+        <div
+          style={{
+            position: "relative",
+            zIndex: 1,
+            maxWidth: "1200px",
+            margin: "0 auto",
+            padding: "0 24px",
+          }}
+        >
           <div
             style={{
               display: "grid",
-              gridTemplateColumns: isMobile ? "1fr" : "1.2fr 1fr 1fr", 
+              gridTemplateColumns: isMobile ? "1fr" : "1.2fr 1fr 1fr",
               gridTemplateRows: isMobile ? "auto" : "repeat(2, 1fr)",
               gap: "24px",
-              fontFamily: "'Object Sans', sans-serif"
+              fontFamily: "'Object Sans', sans-serif",
             }}
           >
-            
-            {/* BOX 1: TESTO GRANDE (Usando il componente Bento) */}
             <Bento
               style={{
-                gridRow: isMobile ? "span 1" : "span 2", 
+                gridRow: isMobile ? "span 1" : "span 2",
                 alignItems: "flex-start",
                 textAlign: "left",
                 padding: "40px",
-                background: "rgba(20, 20, 20, 0.6)" 
+                background: "rgba(20, 20, 20, 0.6)",
               }}
               onMouseOver={(e) => {
                 e.currentTarget.style.transform = "translateY(-5px)";
@@ -169,8 +202,17 @@ export default function Landing() {
                 e.currentTarget.style.borderColor = "rgba(255, 255, 255, 0.15)";
               }}
             >
-              <h3 style={{ fontSize: "1.8rem", fontWeight: "bold", lineHeight: "1.4", marginBottom: "30px", color: "white" }}>
-                TEDxSapienzaU è il TEDx Universitario dell'Ateneo Sapienza Università di Roma
+              <h3
+                style={{
+                  fontSize: "1.8rem",
+                  fontWeight: "bold",
+                  lineHeight: "1.4",
+                  marginBottom: "30px",
+                  color: "white",
+                }}
+              >
+                TEDxSapienzaU è il TEDx Universitario dell'Ateneo Sapienza
+                Università di Roma
               </h3>
               <a
                 href="#"
@@ -186,10 +228,10 @@ export default function Landing() {
                   transition: "transform 0.2s",
                   boxShadow: "0 4px 15px rgba(235, 0, 40, 0.4)",
                   textDecoration: "none",
-                  display: "inline-block"
+                  display: "inline-block",
                 }}
-                onMouseOver={(e) => e.target.style.transform = "scale(1.05)"}
-                onMouseOut={(e) => e.target.style.transform = "scale(1)"}
+                onMouseOver={(e) => (e.target.style.transform = "scale(1.05)")}
+                onMouseOut={(e) => (e.target.style.transform = "scale(1)")}
               >
                 Scopri di più
               </a>
@@ -198,22 +240,34 @@ export default function Landing() {
             {/* BOX 2-5: STATISTICHE DINAMICHE (Usando il componente Bento) */}
             {stats.map((stat, index) => (
               <Bento key={index}>
-                <div style={{ color: "#eb0028", fontSize: "3.5rem", fontWeight: "800", marginBottom: "10px" }}>
+                <div
+                  style={{
+                    color: "#eb0028",
+                    fontSize: "3.5rem",
+                    fontWeight: "800",
+                    marginBottom: "10px",
+                  }}
+                >
                   <AnimatedNumber end={stat.end} duration={2000} />
                 </div>
-                <div style={{ fontSize: "1.2rem", fontWeight: "500", color: "#ccc", textAlign: "center" }}>
+                <div
+                  style={{
+                    fontSize: "1.2rem",
+                    fontWeight: "500",
+                    color: "#ccc",
+                    textAlign: "center",
+                  }}
+                >
                   {stat.label}
                 </div>
               </Bento>
             ))}
-
           </div>
         </div>
       </section>
 
       {/* Cookie Box  */}
       <CookieBox />
-      
     </div>
   );
 }

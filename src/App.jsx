@@ -11,7 +11,6 @@ import Navbar from "./modules/components/Navbar";
 import Landing from "./modules/pages/Landing";
 import Team from "./modules/pages/Team";
 import Sponsors from "./modules/pages/Sponsors";
-import Blog from "./modules/pages/Blog";
 import Footer from "./modules/components/Footer";
 import ErrorPage from "./modules/pages/ErrorPage";
 import Location from "./modules/pages/Location";
@@ -23,8 +22,7 @@ import ParaDoxa2025 from "./modules/pages/events/ParaDoxa2025";
 import BackToZero from "./modules/pages/events/BackToZero";
 import Awards23 from "./modules/pages/events/Awards23";
 import Awards24 from "./modules/pages/events/Awards24";
-// aggiunta temporanea
-import StatsPages from "./modules/pages/StatsPages";
+import ScrollToTop from "./modules/components/ScrollToTop";
 
 const router = createBrowserRouter([
   {
@@ -47,21 +45,12 @@ const router = createBrowserRouter([
         element: <Sponsors />,
       },
       {
-        path: "/blog",
-        element: <Blog />,
-      },
-      {
         path: "/team",
         element: <Team />,
       },
       {
         path: "/events/countdown2024",
         element: <Countdown2024 />,
-      },
-
-      {
-        path: "/eventi/paradoxa2025",
-        element: <ParaDoxa2025 />,
       },
       {
         path: "/events/paradoxa2025",
@@ -71,23 +60,15 @@ const router = createBrowserRouter([
         path: "/location",
         element: <Location />,
       },
-      {//aggiunta temporanea
-        path: "/stats",
-        element: <StatsPages />, 
-      },
-
-
-       {
-        path: "/events/backtozero", // Questo sarà l'indirizzo nel browser
+      {
+        path: "/events/backtozero",
         element: <BackToZero />,
-      }, // <--- FINE AGGIUNTA
-
-       {
+      },
+      {
         path: "/events/awards23",
         element: <Awards23 />,
       },
-
-         {
+      {
         path: "/events/awards24",
         element: <Awards24 />,
       },
@@ -115,16 +96,15 @@ function LandingManager() {
 
   return (
     <div style={{ position: "relative" }}>
-      {isGradientEvent ? (
-        <div
-          aria-hidden="true"
-          style={{
-            position: "fixed",
-            inset: 0,
-            zIndex: 0,
-            pointerEvents: "none",
-          }}
-        >
+      <div
+        aria-hidden="true"
+        style={{
+          position: "fixed",
+          inset: 0,
+          zIndex: 0,
+          pointerEvents: "none",
+        }}
+      >
         <Grainient
           timeSpeed={0.3}
           colorBalance={0.01}
@@ -136,10 +116,10 @@ function LandingManager() {
           gamma={1.18}
           saturation={0.7}
         />
-        </div>
-      ) : null}
+      </div>
       <div style={{ position: "relative", zIndex: 1 }}>
         <Navbar />
+        <ScrollToTop />
         <Outlet context={[windowSize, setWindowSize]} />
         <Footer />
       </div>

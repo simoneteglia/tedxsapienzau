@@ -60,12 +60,13 @@ export default function ParaDoxa2025() {
 
   return (
     <div className="paradoxa-page">
-      <section className="paradoxa-hero">
-        <div
-          className="paradoxa-hero-frame paradoxa-hero-frame--poster"
-          style={{ backgroundImage: `url(${ParadoxaHeader})` }}
-        >
-        </div>
+      <section className="w-full relative">
+        <img
+          src={ParadoxaHeader}
+          alt="Header Back To Zero"
+          className="w-full h-auto object-cover"
+          style={{ maxHeight: "80vh", minHeight: "300px" }}
+        />
       </section>
 
       <section className="paradoxa-intro">
@@ -269,5 +270,3 @@ export default function ParaDoxa2025() {
     </div>
   );
 }
-
-
