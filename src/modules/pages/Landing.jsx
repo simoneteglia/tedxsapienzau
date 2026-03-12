@@ -56,18 +56,16 @@ export default function Landing() {
           alignItems: "center",
           height: `calc(100vh - ${global.UTILS.NAV_HEIGHT})`,
           marginTop: global.UTILS.NAV_HEIGHT,
-          width: "100vw",
-          padding:
-            windowSize < global.UTILS.BIG_TABLET_WIDTH
-              ? "34px 34px 0px 34px"
-              : "34px",
+          width: "100%",
+          maxWidth: "100%",
+          padding: 0,
           gap: "20px",
           flexWrap: "wrap",
         }}
       >
         <div
           id="main-container"
-          className="w-screen h-full"
+          className="w-full h-full"
           style={{
             padding: global.UTILS.BENTO_BOX_PADDING,
             borderRadius: global.UTILS.BENTO_BOX_PADDING,
@@ -77,6 +75,7 @@ export default function Landing() {
             fontFamily: "Fira Sans Extra Condensed, sans-serif",
             position: "relative",
             overflow: "hidden",
+            boxSizing: "border-box",
           }}
         >
           {windowSize > global.UTILS.TABLET_WIDTH ? (
