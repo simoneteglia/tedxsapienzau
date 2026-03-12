@@ -58,10 +58,10 @@ export default function Landing() {
           marginTop: global.UTILS.NAV_HEIGHT,
           width: "100%",
           maxWidth: "100%",
-          padding:
-            windowSize < global.UTILS.BIG_TABLET_WIDTH
-              ? "34px 34px 0px 34px"
-              : "34px",
+          // padding:
+          //   windowSize < global.UTILS.BIG_TABLET_WIDTH
+          //     ? "34px 34px 0px 34px"
+          //     : "34px",
           gap: "20px",
           flexWrap: "wrap",
         }}
@@ -71,7 +71,7 @@ export default function Landing() {
           className="w-full h-full"
           style={{
             padding: global.UTILS.BENTO_BOX_PADDING,
-            borderRadius: global.UTILS.BENTO_BOX_PADDING,
+            // borderRadius: global.UTILS.BENTO_BOX_PADDING,
             display: "flex",
             justifyContent: "center",
             alignItems: "flex-end",
@@ -94,7 +94,7 @@ export default function Landing() {
                 left: 0,
                 objectPosition: "center",
                 objectFit: "cover",
-                borderRadius: global.UTILS.BENTO_BOX_PADDING,
+                // borderRadius: global.UTILS.BENTO_BOX_PADDING,
               }}
             >
               <source src={backgroundVideo} type="video/mp4" />
@@ -124,7 +124,7 @@ export default function Landing() {
             }}
           >
             <h2
-              className="mb-10 text-gray-400"
+              className="mb-6 text-white"
               style={{
                 fontSize:
                   windowSize > global.UTILS.TABLET_WIDTH ? "2vw" : "0.5vw",
@@ -147,12 +147,13 @@ export default function Landing() {
                       : "50px",
                 fontWeight: 700,
                 maxWidth: "13ch",
+                lineHeight: 1.23,
               }}
             >
               LET'S EXPLORE HOW IT WAS
             </h1>
             <h2
-              className="mb-10 text-gray-400"
+              className="mb-6 text-white"
               style={{
                 fontSize: "2vw",
                 visibility:

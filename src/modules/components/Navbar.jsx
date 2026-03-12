@@ -61,8 +61,8 @@ export default function Navbar() {
           <img src={Logo} alt="LogoTedx" className="w-[200px]" />
         </Link>
         <section
-          id="middle-section"
-          className="flex justify-between items-center 2xl:gap-20 xl:gap-15 gap-5"
+          id="right-section"
+          className="flex items-center gap-2 lg:gap-10 xl:gap-18"
         >
           {navigation.map((item) => (
             <Link
@@ -82,8 +82,6 @@ export default function Navbar() {
               {item.name}
             </Link>
           ))}
-        </section>
-        <section id="right-section" className="flex items-center gap-2">
           <div
             className="primary-button"
             onMouseEnter={(e) => {
@@ -96,7 +94,7 @@ export default function Navbar() {
               window.location.href = "/Newsletter";
             }}
           >
-            Join Us
+            JOIN US
           </div>
         </section>
         <div className="flex md:hidden"></div>

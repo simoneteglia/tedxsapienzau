@@ -22,6 +22,7 @@ import Azzali from "../../../assets/images/paradoxa25/azzali_poster.webp";
 import Moretti from "../../../assets/images/paradoxa25/moretti_poster.webp";
 import Kento from "../../../assets/images/paradoxa25/kento_poster.webp";
 import Armaroli from "../../../assets/images/paradoxa25/armaroli_poster.webp";
+
 // ----------BACK TO ZERO 2023 SPEAKERS ----------
 import Tullio from "../../../assets/images/backtozero23/speakersBTZ/speakersBTZ/Tullio.webp";
 import Rossi from "../../../assets/images/backtozero23/speakersBTZ/speakersBTZ/Rossi.webp";
@@ -145,7 +146,7 @@ export default function EventTemplate({ imagePath, eventData }) {
       </section>
 
       <section
-        className="paradoxa-intro"
+        className="paradoxa-intro w-full justify-center items-center"
         style={{
           padding:
             windowSize < global.UTILS.BIG_TABLET_WIDTH
