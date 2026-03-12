@@ -144,7 +144,7 @@ export default function Footer() {
             }}
           >
             <GreyLink text="Para Doxa" link={"/events/paradoxa2025"} />
-            <GreyLink text="Awards" link={"/events/awards2024"} />
+            <GreyLink text="Awards" link={"/events/awards24"} />
             <GreyLink text="Countdown" link={"/events/countdown2024"} />
             <GreyLink text="Back To Zero" link={"/events/backtozero"} />
           </div>
@@ -224,7 +224,7 @@ export default function Footer() {
           </small>
         </div>
         <small className="secondary-text">
-          &copy; Copyright 2024 | TEDxSapienzaU | All Rights Reserved
+          &copy; Copyright 2026 | TEDxSapienzaU | All Rights Reserved
         </small>
       </div>
     </section>

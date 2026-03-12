@@ -16,13 +16,22 @@ import ErrorPage from "./modules/pages/ErrorPage";
 import Location from "./modules/pages/Location";
 import Grainient from "./modules/components/Grainient";
 
-import "./App.css";
 import Countdown2024 from "./modules/pages/events/Countdown2024";
 import ParaDoxa2025 from "./modules/pages/events/ParaDoxa2025";
 import BackToZero from "./modules/pages/events/BackToZero";
 import Awards23 from "./modules/pages/events/Awards23";
 import Awards24 from "./modules/pages/events/Awards24";
+import EventTemplate from "./modules/pages/events/EventTemplate";
 import ScrollToTop from "./modules/components/ScrollToTop";
+
+// --- IMPORT ASSETS ---
+import paradoxaHeader from "./assets/images/paradoxa25/header_paradoxa2.png";
+import btzHeader from "./assets/images/backtozero23/Edizione2023.webp";
+
+// --- IMPORT DATA ---
+import paradoxaData from "./data/paradoxa.json";
+import backtozeroData from "./data/backtozero.json";
+import "./App.css";
 
 const router = createBrowserRouter([
   {
@@ -49,28 +58,33 @@ const router = createBrowserRouter([
         element: <Team />,
       },
       {
-        path: "/events/countdown2024",
-        element: <Countdown2024 />,
-      },
-      {
-        path: "/events/paradoxa2025",
-        element: <ParaDoxa2025 />,
-      },
-      {
         path: "/location",
         element: <Location />,
       },
       {
-        path: "/events/backtozero",
-        element: <BackToZero />,
-      },
-      {
-        path: "/events/awards23",
-        element: <Awards23 />,
+        path: "/events/paradoxa2025",
+        element: (
+          <EventTemplate imagePath={paradoxaHeader} eventData={paradoxaData} />
+        ),
       },
       {
         path: "/events/awards24",
         element: <Awards24 />,
+      },
+      {
+        path: "/events/countdown2024",
+        element: <Countdown2024 />,
+      },
+      {
+        path: "/events/backtozero",
+        element: (
+          // <EventTemplate imagePath={btzHeader} eventData={backtozeroData} />
+          <BackToZero />
+        ),
+      },
+      {
+        path: "/events/awards23",
+        element: <Awards23 />,
       },
     ],
   },

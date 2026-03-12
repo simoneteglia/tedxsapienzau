@@ -2,10 +2,16 @@ import React, { useState } from "react";
 import { useOutletContext } from "react-router-dom";
 import global from "../../../resources/global.json";
 import { useTranslation, Trans } from "react-i18next";
+import SpeakerCard from "../../components/SpeakerCard";
+import BioSpeakerPopup from "../../components/BioSpeakerPopup";
+
 // import CorniceParadoxaPersona from "../images/paradoxa25/cornice_paradoxa_persona.webp";
 import ParadoxaHeader from "../../../assets/images/paradoxa25/header_paradoxa2.png";
 import Iframe from "react-iframe";
 import "@fontsource-variable/bricolage-grotesque/index.css";
+
+// --- IMPORT SPEAKERS IMAGES ---
+// ----------PARADOXA 2025 SPEAKERS ----------
 import Nardi from "../../../assets/images/paradoxa25/nardi_poster.webp";
 import Dapoto from "../../../assets/images/paradoxa25/dapoto_poster.webp";
 import Saltarelli from "../../../assets/images/paradoxa25/saltarelli_poster.webp";
@@ -16,9 +22,19 @@ import Azzali from "../../../assets/images/paradoxa25/azzali_poster.webp";
 import Moretti from "../../../assets/images/paradoxa25/moretti_poster.webp";
 import Kento from "../../../assets/images/paradoxa25/kento_poster.webp";
 import Armaroli from "../../../assets/images/paradoxa25/armaroli_poster.webp";
-
-import SpeakerCard from "../../components/SpeakerCard";
-import BioSpeakerPopup from "../../components/BioSpeakerPopup";
+// ----------BACK TO ZERO 2023 SPEAKERS ----------
+import Tullio from "../../../assets/images/backtozero23/speakersBTZ/speakersBTZ/Tullio.webp";
+import Rossi from "../../../assets/images/backtozero23/speakersBTZ/speakersBTZ/Rossi.webp";
+import Freyman from "../../../assets/images/backtozero23/speakersBTZ/speakersBTZ/Freymann.webp";
+import Basilone from "../../../assets/images/backtozero23/speakersBTZ/speakersBTZ/Basilone.webp";
+import Schito from "../../../assets/images/backtozero23/speakersBTZ/speakersBTZ/Schito.webp";
+import Cervellini from "../../../assets/images/backtozero23/speakersBTZ/speakersBTZ/Cervellini.webp";
+import Estrela from "../../../assets/images/backtozero23/speakersBTZ/speakersBTZ/Estrela.webp";
+import Lambarelli from "../../../assets/images/backtozero23/speakersBTZ/speakersBTZ/Lambarelli.webp";
+import Ienca from "../../../assets/images/backtozero23/speakersBTZ/speakersBTZ/Ienca.webp";
+import Villain from "../../../assets/images/backtozero23/speakersBTZ/speakersBTZ/Villain.webp";
+import Onofri from "../../../assets/images/backtozero23/speakersBTZ/speakersBTZ/Onofri.webp";
+import Nakita from "../../../assets/images/backtozero23/speakersBTZ/speakersBTZ/Nakita.webp";
 
 const CalendarIcon = () => (
   <svg
@@ -60,7 +76,58 @@ const LocationIcon = () => (
   </svg>
 );
 
-export default function ParaDoxa2025() {
+const getImage = (imgName) => {
+  switch (imgName) {
+    case "Nardi":
+      return Nardi;
+    case "Dapoto":
+      return Dapoto;
+    case "Saltarelli":
+      return Saltarelli;
+    case "Pasatu":
+      return Pasatu;
+    case "Abbozzo":
+      return Abbozzo;
+    case "Panepinto":
+      return Panepinto;
+    case "Azzali":
+      return Azzali;
+    case "Moretti":
+      return Moretti;
+    case "Kento":
+      return Kento;
+    case "Armaroli":
+      return Armaroli;
+    case "Tullio":
+      return Tullio;
+    case "Rossi":
+      return Rossi;
+    case "Freymann":
+      return Freyman;
+    case "Basilone":
+      return Basilone;
+    case "Schito":
+      return Schito;
+    case "Cervellini":
+      return Cervellini;
+    case "Estrela":
+      return Estrela;
+    case "Lambarelli":
+      return Lambarelli;
+    case "Ienca":
+      return Ienca;
+    case "Villain":
+      return Villain;
+    case "Onofri":
+      return Onofri;
+    case "Aboya":
+      return Nakita;
+    default:
+      return "";
+  }
+};
+
+export default function EventTemplate({ imagePath, eventData }) {
   const { t, i18n } = useTranslation();
   const [windowSize] = useOutletContext();
   const [isBioOpen, setIsBioOpen] = useState(false);
@@ -70,35 +137,29 @@ export default function ParaDoxa2025() {
     <div className="paradoxa-page overflow-x-hidden">
       <section className="w-full relative">
         <img
-          src={ParadoxaHeader}
+          src={imagePath}
           alt="Header Back To Zero"
           className="w-full h-auto object-cover"
           style={{ maxHeight: "80vh", minHeight: "300px" }}
         />
       </section>
 
-      <section className="paradoxa-intro">
+      <section
+        className="paradoxa-intro"
+        style={{
+          padding:
+            windowSize < global.UTILS.BIG_TABLET_WIDTH
+              ? "34px 34px 0px 34px"
+              : "34px",
+        }}
+      >
         <div className="paradoxa-intro-inner">
           <h1 className="paradoxa-title notranslate" translate="no">
-            Para Doxa
+            {eventData.title}
           </h1>
           <div className="paradoxa-glass-grid">
             <div className="paradoxa-glass-card">
-              <p className="paradoxa-intro-text">
-                Dal greco παράδοξος, composto di παρα- nel sign. di «contro» e
-                δόξα «opinione». Che va contro il modo di pensare comune. La
-                storia dei paradossi è antica e risale alla nascita della
-                logica. Ma, mentre i primi ad essere formulati erano più simili
-                a giochi mentali, la modernità ne ha fatti nascere di nuovi
-                nella realtà che ci circonda. La giustizia che crea
-                disuguaglianza, le possibilità che creano svogliatezza, i
-                conflitti per portare la pace. E così come gli antichi pensatori
-                li hanno sviluppati, per stimolare la riflessione, allo stesso
-                modo noi dobbiamo fronteggiare, non evitare, i paradossi che
-                permeano la natura del mondo antropico per far germogliare le
-                idee che possano migliorarlo. PARA DOXA sarà il terreno fertile
-                per coltivarle.
-              </p>
+              <p className="paradoxa-intro-text">{eventData.description}</p>
             </div>
             <div className="paradoxa-glass-card paradoxa-glass-card--info">
               <div className="paradoxa-info">
@@ -110,7 +171,7 @@ export default function ParaDoxa2025() {
                     className="paradoxa-info-text paradoxa-info-text--date notranslate"
                     translate="no"
                   >
-                    11.04.2025, 09:00 - 17:00
+                    {eventData.date}
                   </div>
                 </div>
                 <div className="paradoxa-info-row">
@@ -121,17 +182,13 @@ export default function ParaDoxa2025() {
                     className="paradoxa-info-text notranslate"
                     translate="no"
                   >
-                    Aula Magna,
-                    <br />
-                    Palazzo del Rettorato
-                    <br />
-                    Sapienza Universita di Roma
+                    {eventData.location}
                   </div>
                 </div>
               </div>
               <a
                 className="paradoxa-cta"
-                href="https://youtube.com/playlist?list=PL4-t_gJBexTAb7wP2mzg-S2bCfzptE58n&feature=shared"
+                href={eventData.link_talks}
                 target="_blank"
                 rel="noreferrer"
               >
@@ -160,7 +217,6 @@ export default function ParaDoxa2025() {
           style={{
             width: "100%",
             height: "100%",
-            padding: global.UTILS.BENTO_BOX_PADDING,
             borderRadius: global.UTILS.BENTO_BOX_PADDING,
             fontFamily: "'Bricolage Grotesque', sans-serif",
             position: "relative",
@@ -179,7 +235,6 @@ export default function ParaDoxa2025() {
                 windowSize < global.UTILS.BIG_TABLET_WIDTH ? "16px" : "24px",
               marginTop:
                 windowSize < global.UTILS.BIG_TABLET_WIDTH ? "90px" : "24px",
-              paddingLeft: "30px",
               width: "100%",
             }}
           >
@@ -188,86 +243,23 @@ export default function ParaDoxa2025() {
             </extra>
           </h1>
           <div className="paradoxa-speakers-grid">
-            <SpeakerCard
-              imgSrc={Nardi}
-              nomeSpeaker="Lorenzo Nardi"
-              showLinkTalk={false}
-              event="paradoxa"
-              setIsBioOpen={setIsBioOpen}
-              setSelectedSpeakerInfo={setSelectedSpeakerInfo}
-            />
-            <SpeakerCard
-              imgSrc={Dapoto}
-              nomeSpeaker="Alessia Dapoto"
-              showLinkTalk={false}
-              event="paradoxa"
-              setIsBioOpen={setIsBioOpen}
-              setSelectedSpeakerInfo={setSelectedSpeakerInfo}
-            />
-            <SpeakerCard
-              imgSrc={Saltarelli}
-              nomeSpeaker="Lorenzo Saltarelli"
-              showLinkTalk={false}
-              event="paradoxa"
-              setIsBioOpen={setIsBioOpen}
-              setSelectedSpeakerInfo={setSelectedSpeakerInfo}
-            />
-            <SpeakerCard
-              imgSrc={Pasatu}
-              nomeSpeaker="Pepa Pasatu"
-              showLinkTalk={false}
-              event="paradoxa"
-              setIsBioOpen={setIsBioOpen}
-              setSelectedSpeakerInfo={setSelectedSpeakerInfo}
-            />
-            <SpeakerCard
-              imgSrc={Abbozzo}
-              nomeSpeaker="Abbozzo"
-              showLinkTalk={false}
-              event="paradoxa"
-              setIsBioOpen={setIsBioOpen}
-              setSelectedSpeakerInfo={setSelectedSpeakerInfo}
-            />
-            <SpeakerCard
-              imgSrc={Panepinto}
-              nomeSpeaker="Carmen Panepinto Zayati"
-              showLinkTalk={false}
-              event="paradoxa"
-              setIsBioOpen={setIsBioOpen}
-              setSelectedSpeakerInfo={setSelectedSpeakerInfo}
-            />
-            <SpeakerCard
-              imgSrc={Azzali}
-              nomeSpeaker="Riccardo Azzali"
-              showLinkTalk={false}
-              event="paradoxa"
-              setIsBioOpen={setIsBioOpen}
-              setSelectedSpeakerInfo={setSelectedSpeakerInfo}
-            />
-            <SpeakerCard
-              imgSrc={Moretti}
-              nomeSpeaker="Esmeralda Moretti"
-              showLinkTalk={false}
-              event="paradoxa"
-              setIsBioOpen={setIsBioOpen}
-              setSelectedSpeakerInfo={setSelectedSpeakerInfo}
-            />
-            <SpeakerCard
-              imgSrc={Kento}
-              nomeSpeaker="Kento"
-              showLinkTalk={false}
-              event="paradoxa"
-              setIsBioOpen={setIsBioOpen}
-              setSelectedSpeakerInfo={setSelectedSpeakerInfo}
-            />
-            <SpeakerCard
-              imgSrc={Armaroli}
-              nomeSpeaker="Nicola Armaroli"
-              showLinkTalk={false}
-              event="paradoxa"
-              setIsBioOpen={setIsBioOpen}
-              setSelectedSpeakerInfo={setSelectedSpeakerInfo}
-            />
+            {Object.keys(eventData.speakers).map((key, index) => {
+              const speaker = eventData.speakers[key];
+              if (index >= 0) {
+                return (
+                  <SpeakerCard
+                    key={index}
+                    imgSrc={getImage(speaker.img)}
+                    nomeSpeaker={speaker.name}
+                    showLinkTalk={false}
+                    event="paradoxa"
+                    setIsBioOpen={setIsBioOpen}
+                    setSelectedSpeakerInfo={setSelectedSpeakerInfo}
+                  />
+                );
+              }
+              return null;
+            })}
           </div>
         </div>
       </section>

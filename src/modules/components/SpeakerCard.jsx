@@ -67,7 +67,6 @@ export default function SpeakerCard({
       return;
     }
 
-    // Otherwise if link exists -> navigate
     if (link) {
       window.location.href = link;
     }

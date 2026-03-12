@@ -58,7 +58,10 @@ export default function Landing() {
           marginTop: global.UTILS.NAV_HEIGHT,
           width: "100%",
           maxWidth: "100%",
-          padding: 0,
+          padding:
+            windowSize < global.UTILS.BIG_TABLET_WIDTH
+              ? "34px 34px 0px 34px"
+              : "34px",
           gap: "20px",
           flexWrap: "wrap",
         }}
@@ -99,7 +102,18 @@ export default function Landing() {
           ) : (
             <></>
           )}
-
+          <div
+            id="video-overlay"
+            style={{
+              position: "absolute",
+              top: 0,
+              left: 0,
+              width: "100%",
+              height: "100%",
+              background:
+                "linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.8))",
+            }}
+          ></div>
           <div
             style={{
               color: "white",
@@ -129,8 +143,8 @@ export default function Landing() {
                   windowSize > 1245
                     ? "14vh"
                     : windowSize > global.UTILS.MOBILE_WIDTH
-                    ? "100px"
-                    : "50px",
+                      ? "100px"
+                      : "50px",
                 fontWeight: 700,
                 maxWidth: "13ch",
               }}
