@@ -146,7 +146,6 @@ export default function EventTemplate({ imagePath, eventData }) {
       </section>
 
       <section
-        className="paradoxa-intro w-full justify-center items-center"
         style={{
           padding:
             windowSize < global.UTILS.BIG_TABLET_WIDTH
@@ -154,48 +153,45 @@ export default function EventTemplate({ imagePath, eventData }) {
               : "34px",
         }}
       >
-        <div className="paradoxa-intro-inner">
-          <h1 className="paradoxa-title notranslate" translate="no">
-            {eventData.title}
-          </h1>
-          <div className="paradoxa-glass-grid">
-            <div className="paradoxa-glass-card">
-              <p className="paradoxa-intro-text">{eventData.description}</p>
-            </div>
-            <div className="paradoxa-glass-card paradoxa-glass-card--info">
-              <div className="paradoxa-info">
-                <div className="paradoxa-info-row">
-                  <span className="paradoxa-info-icon">
-                    <CalendarIcon />
-                  </span>
-                  <div
-                    className="paradoxa-info-text paradoxa-info-text--date notranslate"
-                    translate="no"
-                  >
-                    {eventData.date}
-                  </div>
-                </div>
-                <div className="paradoxa-info-row">
-                  <span className="paradoxa-info-icon">
-                    <LocationIcon />
-                  </span>
-                  <div
-                    className="paradoxa-info-text notranslate"
-                    translate="no"
-                  >
-                    {eventData.location}
-                  </div>
+        <h1 className="event-title notranslate" translate="no">
+          {eventData.title}
+        </h1>
+        <div className="paradoxa-glass-grid">
+          <div className="paradoxa-glass-card">
+            <p className="font-gotham-book md:text-lg text-sm">
+              {eventData.description}
+            </p>
+          </div>
+          <div className="paradoxa-glass-card paradoxa-glass-card--info">
+            <div className="paradoxa-info">
+              <div className="paradoxa-info-row">
+                <span className="paradoxa-info-icon">
+                  <CalendarIcon />
+                </span>
+                <div
+                  className="paradoxa-info-text paradoxa-info-text--date notranslate"
+                  translate="no"
+                >
+                  {eventData.date}
                 </div>
               </div>
-              <a
-                className="paradoxa-cta"
-                href={eventData.link_talks}
-                target="_blank"
-                rel="noreferrer"
-              >
-                Guarda i TEDx talks
-              </a>
+              <div className="paradoxa-info-row">
+                <span className="paradoxa-info-icon">
+                  <LocationIcon />
+                </span>
+                <div className="paradoxa-info-text notranslate" translate="no">
+                  {eventData.location}
+                </div>
+              </div>
             </div>
+            <a
+              className="paradoxa-cta"
+              href={eventData.link_talks}
+              target="_blank"
+              rel="noreferrer"
+            >
+              Guarda i TEDx talks
+            </a>
           </div>
         </div>
       </section>
@@ -223,26 +219,7 @@ export default function EventTemplate({ imagePath, eventData }) {
             position: "relative",
           }}
         >
-          <h1
-            className="paradoxa-speakers-title"
-            style={{
-              fontSize: windowSize > 1245 ? "7vh" : "4vh",
-              fontWeight: 700,
-              maxWidth: "20ch",
-              color: "#FFFFFF",
-              textAlign: "left",
-              textTransform: "none",
-              marginBottom:
-                windowSize < global.UTILS.BIG_TABLET_WIDTH ? "16px" : "24px",
-              marginTop:
-                windowSize < global.UTILS.BIG_TABLET_WIDTH ? "90px" : "24px",
-              width: "100%",
-            }}
-          >
-            <extra>
-              <span className="condensed-extrabold">Speakers</span>
-            </extra>
-          </h1>
+          <h1 className="event-title notranslate">Speakers</h1>
           <div className="paradoxa-speakers-grid">
             {Object.keys(eventData.speakers).map((key, index) => {
               const speaker = eventData.speakers[key];

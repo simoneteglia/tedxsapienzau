@@ -1,5 +1,35 @@
 @import "tailwindcss";
 
+@font-face {
+  font-family: Anton;
+  src: url("./resources/Anton-Regular.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: GothamBold;
+  src: url("./resources/Gotham-Bold.otf") format("opentype");
+}
+
+@font-face {
+  font-family: GothamBook;
+  src: url("./resources/Gotham-Book.otf") format("opentype");
+}
+
+@theme {
+  --font-objectsans: "ObjectSans", sans-serif;
+  --font-objectsans-heavy: "ObjectSansHeavy", sans-serif;
+  --font-gotham-bold: "GothamBold", sans-serif;
+  --font-gotham-ultra: "GothamUltra", sans-serif;
+  --font-gotham-book: "GothamBook", sans-serif;
+  --font-gotham-medium: "GothamMedium", sans-serif;
+  --color-bronze: #d46832;
+  --color-gold: #fab632;
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 body {
   margin: 0;
   background-color: black;
@@ -159,20 +189,6 @@ body {
   font-style: italic;
 }
 
-@font-face {
-  font-family: Anton;
-  src: url("./resources/Anton-Regular.ttf") format("truetype");
-}
-
-@font-face {
-  font-family: GothamBold;
-  src: url("./resources/Gotham-Bold.otf") format("opentype");
-}
-
-@font-face {
-  font-family: GothamBook;
-  src: url("./resources/Gotham-Book.otf") format("opentype");
-}
 :root {
   --paradoxa-red: #eb0028;
   --paradoxa-magenta: #ff009c;
@@ -369,37 +385,20 @@ body {
   font-size: clamp(18px, 3vw, 34px);
 }
 
-.paradoxa-intro {
-  padding: 36px 24px 16px;
-  display: flex;
-  justify-content: flex-start;
-}
-
-.paradoxa-intro-inner {
-  width: 100%;
-  max-width: 1300px;
-  display: flex;
-  flex-direction: column;
-  gap: 24px;
-}
-
-.paradoxa-title {
+.event-title {
   font-family: "GothamBold";
-  font-size: 56px;
-  font-weight: bold;
-  text-transform: none;
-  letter-spacing: 0.01em;
+  font-size: 70px;
   margin: 0 0 20px 0;
 }
 
-.paradoxa-intro-text {
+/* .paradoxa-intro-text {
   font-family: "GothamBook";
   font-size: 18px;
   line-height: 1.45;
   color: #d7d7d7;
   margin: 0;
   max-width: 650px;
-}
+} */
 
 .paradoxa-info {
   display: flex;
@@ -442,6 +441,8 @@ body {
   grid-template-columns: minmax(0, 1.35fr) minmax(0, 0.9fr);
   gap: 32px;
   align-items: stretch;
+  max-width: 1500px;
+  margin: auto;
 }
 
 .paradoxa-glass-card {
@@ -538,6 +539,10 @@ body {
 @media (max-width: 600px) {
   .paradoxa-speakers-grid > div {
     flex-basis: 100%;
+  }
+
+  .event-title {
+    font-size: 48px;
   }
 }
 
