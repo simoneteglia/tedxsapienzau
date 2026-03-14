@@ -1,21 +1,51 @@
 @import "tailwindcss";
 
+@font-face {
+  font-family: Anton;
+  src: url("./resources/Anton-Regular.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: GothamBold;
+  src: url("./resources/Gotham-Bold.otf") format("opentype");
+}
+
+@font-face {
+  font-family: GothamBook;
+  src: url("./resources/Gotham-Book.otf") format("opentype");
+}
+
+@theme {
+  --font-objectsans: "ObjectSans", sans-serif;
+  --font-objectsans-heavy: "ObjectSansHeavy", sans-serif;
+  --font-gotham-bold: "GothamBold", sans-serif;
+  --font-gotham-ultra: "GothamUltra", sans-serif;
+  --font-gotham-book: "GothamBook", sans-serif;
+  --font-gotham-medium: "GothamMedium", sans-serif;
+  --color-bronze: #d46832;
+  --color-gold: #fab632;
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 body {
   margin: 0;
   background-color: black;
-  font-family: -apple-system, BlinkMacSystemFont, "Fira Sans Extra Condensed",
-    "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji",
-    "Segoe UI Emoji", "Segoe UI Symbol";
+  font-family:
+    -apple-system, BlinkMacSystemFont, "Fira Sans Extra Condensed", "Segoe UI",
+    Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
+    "Segoe UI Symbol";
 }
 
 .primary-button {
   background-color: rgb(235, 0, 40);
   border-color: red;
-  border-radius: 8px;
+  border-radius: 50px;
   font-weight: bold;
   color: white;
-  padding: 10px 20px;
-  width: 100px;
+  padding: 10px 25px;
   min-width: 100px;
   text-align: center;
   cursor: pointer;
@@ -159,29 +189,12 @@ body {
   font-style: italic;
 }
 
-@font-face {
-  font-family: Anton;
-  src: url("./resources/Anton-Regular.ttf") format("truetype");
-}
-
-
-@font-face {
-  font-family: GothamBold;
-  src: url("./resources/Gotham-Bold.otf") format("opentype");
-}
-
-@font-face {
-  font-family: GothamBook;
-  src: url("./resources/Gotham-Book.otf") format("opentype");
-}
 :root {
-  --paradoxa-red: #EB0028;
-  --paradoxa-magenta: #FF009C;
-  --paradoxa-blue: #0033CB;
-  --paradoxa-cyan: #009EDC;
+  --paradoxa-red: #eb0028;
+  --paradoxa-magenta: #ff009c;
+  --paradoxa-blue: #0033cb;
+  --paradoxa-cyan: #009edc;
 }
-
-
 
 .speaker-poster-card {
   position: relative;
@@ -216,7 +229,7 @@ body {
       to top,
       rgba(0, 0, 0, 0.85) 0%,
       rgba(0, 0, 0, 0.35) 65%,
-      rgba(0, 0, 0, 0.0) 100%
+      rgba(0, 0, 0, 0) 100%
     ),
     var(--poster);
   background-size: cover;
@@ -248,22 +261,20 @@ body {
 
   text-transform: none;
   line-height: 1.02;
-  color: #FF0000;
+  color: #ff0000;
 }
 
 .speaker-poster-name-line {
   font-family: "GothamBold";
-  font-size: 38px;          /* tweak 34–42 */
+  font-size: 38px; /* tweak 34–42 */
 }
-
 
 .speaker-poster-nameblock {
-  text-shadow: 0 6px 18px rgba(0,0,0,0.6);
+  text-shadow: 0 6px 18px rgba(0, 0, 0, 0.6);
 }
 
-
 .paradoxa-page {
-  background-color: #000;
+  background-color: transparent;
   color: #fff;
   padding-top: 90px;
   padding-bottom: 80px;
@@ -374,38 +385,20 @@ body {
   font-size: clamp(18px, 3vw, 34px);
 }
 
-.paradoxa-intro {
-  padding: 36px 24px 16px;
-  display: flex;
-  justify-content: flex-start;
-}
-
-.paradoxa-intro-inner {
-  width: 100%;
-  max-width: 1300px;
-  display: grid;
-  grid-template-columns: 1.2fr 0.8fr;
-  gap: 64px;
-  align-items: start;
-}
-
-.paradoxa-title {
+.event-title {
   font-family: "GothamBold";
-  font-size: 56px;
-  font-weight: bold;
-  text-transform: none;
-  letter-spacing: 0.01em;
+  font-size: 70px;
   margin: 0 0 20px 0;
 }
 
-.paradoxa-intro-text {
+/* .paradoxa-intro-text {
   font-family: "GothamBook";
   font-size: 18px;
   line-height: 1.45;
   color: #d7d7d7;
   margin: 0;
   max-width: 650px;
-}
+} */
 
 .paradoxa-info {
   display: flex;
@@ -443,10 +436,43 @@ body {
   margin-top: 20px;
 }
 
-.paradoxa-intro-right {
-  padding-left: 220px;
+.paradoxa-glass-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.35fr) minmax(0, 0.9fr);
+  gap: 32px;
+  align-items: stretch;
+  max-width: 1500px;
+  margin: auto;
+}
+
+.paradoxa-glass-card {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 28px;
+  padding: 32px;
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  box-shadow: 0 25px 55px rgba(0, 0, 0, 0.35);
+}
+
+.paradoxa-glass-card--info {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  justify-content: center;
+}
+
+.paradoxa-glass-card--info .paradoxa-cta {
   align-self: center;
-  justify-self: end;
+}
+
+.paradoxa-glass-card--info .paradoxa-info {
+  align-items: center;
+}
+
+.paradoxa-glass-card--info .paradoxa-info-row {
+  width: 100%;
+  max-width: 360px;
 }
 
 .paradoxa-cta {
@@ -462,7 +488,9 @@ body {
   text-transform: uppercase;
   letter-spacing: 0.05em;
   font-size: 15px;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
 }
 
 .paradoxa-cta:hover {
@@ -481,8 +509,6 @@ body {
   text-transform: none !important;
   letter-spacing: 0.01em;
 }
-
-
 
 .paradoxa-speakers-grid {
   display: flex;
@@ -514,6 +540,10 @@ body {
   .paradoxa-speakers-grid > div {
     flex-basis: 100%;
   }
+
+  .event-title {
+    font-size: 48px;
+  }
 }
 
 @media (max-width: 900px) {
@@ -524,6 +554,10 @@ body {
   .paradoxa-intro-inner {
     grid-template-columns: 1fr;
     gap: 24px;
+  }
+
+  .paradoxa-glass-grid {
+    grid-template-columns: 1fr;
   }
 
   .paradoxa-hero-frame::after {

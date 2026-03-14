@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from "react";
 import { Trans, useTranslation } from "react-i18next";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { Link } from "react-router-dom";
 
 // -------------RESOURCES-------------
 import global from "../../resources/global.json";
@@ -57,15 +58,25 @@ export default function Footer() {
 
   const GreyLink = ({ text, link }) => {
     return (
-      <a className="text-decoration-none text-gray-400" href={link}>
+      <Link className="text-decoration-none text-gray-400" to={link}>
         {text}
-      </a>
+      </Link>
     );
   };
 
   return (
     <section className="p-[24px] flex flex-col items-center justify-center gap-[15px] text-white">
-      <footer className="bento-box flex w-full justify-between flex-wrap gap-[40px] ">
+      <footer
+        className="bento-box flex w-full justify-between flex-wrap gap-[40px]"
+        style={{
+          borderRadius: "24px",
+          backgroundColor: "rgba(255, 255, 255, 0.08)",
+          backdropFilter: "blur(18px)",
+          WebkitBackdropFilter: "blur(18px)",
+          border: "1px solid rgba(255, 255, 255, 0.18)",
+          boxShadow: "0 20px 60px rgba(0, 0, 0, 0.35)",
+        }}
+      >
         <div>
           <img
             src={Logo}
@@ -132,18 +143,16 @@ export default function Footer() {
               flexDirection: "column",
             }}
           >
-            <GreyLink text="Para Doxa" link={"/eventi/paradoxa2025"} />
-            <GreyLink text="Awards" link={"/eventi/awards2024"} />
-            <GreyLink text="Countdown" link={"/eventi/countdown2024"} />
+            <GreyLink text="Para Doxa" link={"/events/paradoxa2025"} />
+            <GreyLink text="Awards" link={"/events/awards24"} />
+            <GreyLink text="Countdown" link={"/events/countdown2024"} />
+            <GreyLink text="Back To Zero" link={"/events/backtozero"} />
           </div>
           <b>
             <WhiteLink text={t("navbar.partners")} link="/partners" />
           </b>
           <b>
             <WhiteLink text={t("navbar.team")} link="/team" />
-          </b>
-          <b>
-            <WhiteLink text={t("navbar.blog")} link="/blog" />
           </b>
           <b>
             <WhiteLink text={t("navbar.about_us")} link="/mission&vision" />
@@ -215,7 +224,7 @@ export default function Footer() {
           </small>
         </div>
         <small className="secondary-text">
-          &copy; Copyright 2024 | TEDxSapienzaU | All Rights Reserved
+          &copy; Copyright 2026 | TEDxSapienzaU | All Rights Reserved
         </small>
       </div>
     </section>

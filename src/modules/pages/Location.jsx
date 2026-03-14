@@ -1,4 +1,3 @@
-
 // -------------IMPORT COMPONENTS-------------
 import React from "react";
 import { useOutletContext } from "react-router-dom";
@@ -19,9 +18,7 @@ export default function Location() {
   const isMobile = windowSize <= global.UTILS.MOBILE_WIDTH;
 
   return (
-    <section
-      className="pt-8 bg-black mt-[global.UTILS.NAV_HEIGHT]"
-    >
+    <section className="pt-8 bg-black mt-[global.UTILS.NAV_HEIGHT]">
       {/* Title 1 */}
       <h1 className="text-white text-center font-bold mt-12 mb-12 font-fira-extra-condensed text-[30px] md:text-[50px]">
         {t("location.title1")}
@@ -29,7 +26,7 @@ export default function Location() {
 
       {/* Banner 1 */}
       <div
-  className={`
+        className={`
     rounded-[25px] 
     mx-auto 
     mb-12 
@@ -38,15 +35,14 @@ export default function Location() {
     bg-cover 
     ${isMobile ? "w-[90%] h-[100px] bg-[position:0px_-600px]" : "w-[95%] h-[200px] bg-[position:0px_-300px]"}
   `}
-  style={{
-    backgroundImage: `url(${Image2})`,
-  }}
-></div>
-
+        style={{
+          backgroundImage: `url(${Image2})`,
+        }}
+      ></div>
 
       {/* Text block 1 */}
       <div
-  className="
+        className="
     rounded-[25px] 
     mx-auto 
     mt-12 
@@ -56,8 +52,7 @@ export default function Location() {
     md:w-[95%] 
     md:p-[30px]
   "
->
-
+      >
         {/* Paragraphs */}
         <p className="text-white text-justify font-normal mt-5 font-fira-extra-condensed text-[15px] md:text-[20px]">
           {t("location.a1")}
@@ -159,7 +154,7 @@ export default function Location() {
 
       {/* Banner 2 */}
       <div
-  className={`
+        className={`
     rounded-[25px]
     mx-auto
     px-[30px]
@@ -167,23 +162,21 @@ export default function Location() {
     bg-cover
     ${isMobile ? "w-[90%] h-[100px] bg-[position:0px_-5000px]" : "w-[95%] h-[200px] bg-[position:0px_-400px]"}
   `}
-  style={{
-    backgroundImage: `url(${Image})`,
-  }}
-></div>
-
+        style={{
+          backgroundImage: `url(${Image})`,
+        }}
+      ></div>
 
       {/* Text block 2 */}
       <div
-  className={`
+        className={`
     rounded-[25px] 
     mx-auto 
     mt-12 
     bg-[#191919] 
     ${isMobile ? "w-[90%] p-[5px]" : "w-[95%] p-[30px]"}
   `}
->
-
+      >
         <p className="text-white text-justify font-normal mt-5 font-fira-extra-condensed text-[15px] md:text-[20px]">
           {t("location.g1")}
           <a
@@ -192,15 +185,18 @@ export default function Location() {
           >
             {t("location.g2")}
           </a>
-          <strong>{t("location.g3")}</strong>{t("location.g4")}
-          <strong>{t("location.g5")}</strong>{t("location.g6")}
+          <strong>{t("location.g3")}</strong>
+          {t("location.g4")}
+          <strong>{t("location.g5")}</strong>
+          {t("location.g6")}
         </p>
 
         <p className="text-white text-justify font-normal mt-5 font-fira-extra-condensed text-[15px] md:text-[20px]">
           {t("location.h1")}
           <strong>{t("location.h2")}</strong>
           {t("location.h3")}
-          <strong>{t("location.h4")}</strong>{t("location.h5")}
+          <strong>{t("location.h4")}</strong>
+          {t("location.h5")}
         </p>
 
         <p className="text-white text-justify font-normal mt-5 font-fira-extra-condensed text-[15px] md:text-[20px]">

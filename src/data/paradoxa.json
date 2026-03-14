@@ -1,0 +1,59 @@
+{
+  "title": " Para Doxa",
+  "description": "Dal greco παράδοξος, composto di παρα- nel sign. di «contro» e δόξα «opinione». Che va contro il modo di pensare comune. La storia dei paradossi è antica e risale alla nascita della logica. Ma, mentre i primi ad essere formulati erano più simili a giochi mentali, la modernità ne ha fatti nascere di nuovi nella realtà che ci circonda. La giustizia che crea disuguaglianza, le possibilità che creano svogliatezza, i conflitti per portare la pace. E così come gli antichi pensatori li hanno sviluppati, per stimolare la riflessione, allo stesso modo noi dobbiamo fronteggiare, non evitare, i paradossi che permeano la natura del mondo antropico per far germogliare le idee che possano migliorarlo. PARA DOXA sarà il terreno fertile per coltivarle.",
+  "date": "11.04.2025, 09:00 - 17:00",
+  "location": "Aula Magna, Palazzo del Rettorato Sapienza Universita di Roma",
+  "link_talks": "https://youtube.com/playlist?list=PL4-t_gJBexTAb7wP2mzg-S2bCfzptE58n&feature=shared",
+  "speakers": {
+    "speaker1": {
+      "name": "Lorenzo Nardi",
+      "bio": "Bio",
+      "img": "Nardi"
+    },
+    "speaker2": {
+      "name": "Alessia Dapoto",
+      "bio": "Bio",
+      "img": "Dapoto"
+    },
+    "speaker3": {
+      "name": "Lorenzo Saltarelli",
+      "bio": "Bio",
+      "img": "Saltarelli"
+    },
+    "speaker4": {
+      "name": "Pepa Pasatu",
+      "bio": "Bio",
+      "img": "Pasatu"
+    },
+    "speaker5": {
+      "name": "Abbozzo",
+      "bio": "Bio",
+      "img": "Abbozzo"
+    },
+    "speaker6": {
+      "name": "Carmen Panepinto Zayati",
+      "bio": "Bio",
+      "img": "Panepinto"
+    },
+    "speaker7": {
+      "name": "Riccardo Azzali",
+      "bio": "Bio",
+      "img": "Azzali"
+    },
+    "speaker8": {
+      "name": "Esmeralda Moretti",
+      "bio": "Bio",
+      "img": "Moretti"
+    },
+    "speaker9": {
+      "name": "Kento",
+      "bio": "Bio",
+      "img": "Kento"
+    },
+    "speaker10": {
+      "name": "Nicola Armaroli",
+      "bio": "Bio",
+      "img": "Armaroli"
+    }
+  }
+}

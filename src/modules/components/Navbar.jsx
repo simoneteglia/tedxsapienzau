@@ -25,10 +25,6 @@ export default function Navbar() {
   const [currentPage, setCurrentPage] = useState("homepage");
   const { t, i18n } = useTranslation();
 
-  useEffect(() => {
-    // function that logs when the disclosurepanel is open or closed
-  });
-
   const navigation = [
     {
       name: t("navbar.events"),
@@ -41,7 +37,6 @@ export default function Navbar() {
       current: currentPage === "sponsors",
     },
     { name: t("navbar.team"), href: "/team", current: currentPage === "team" },
-    { name: t("navbar.blog"), href: "/blog", current: currentPage === "blog" },
     {
       name: t("navbar.about_us"),
       href: "/about",
@@ -56,9 +51,10 @@ export default function Navbar() {
   return (
     <Disclosure
       as="nav"
-      className="w-full z-1 top-0 fixed flex justify-center items-center"
+      className="w-full top-0 fixed flex justify-center items-center"
       style={{
         height: global.UTILS.NAV_HEIGHT,
+        zIndex: 1000,
       }}
     >
       <div className="glass-card relative hidden w-full xl:w-[85%] h-[75%] md:flex justify-between items-center p-[12px] rounded-[1rem] ">
@@ -66,8 +62,8 @@ export default function Navbar() {
           <img src={Logo} alt="LogoTedx" className="w-[200px]" />
         </Link>
         <section
-          id="middle-section"
-          className="flex justify-between items-center 2xl:gap-20 xl:gap-15 gap-5"
+          id="right-section"
+          className="flex items-center gap-2 lg:gap-10 xl:gap-18"
         >
           {navigation.map((item) => (
             <Link
@@ -78,7 +74,7 @@ export default function Navbar() {
                 item.current
                   ? "bg-gray-900 text-white"
                   : "text-gray-300 hover:bg-gray-700 hover:text-white",
-                "rounded-md px-3 py-2 text-sm font-semibold"
+                "rounded-md px-3 py-2 text-sm font-semibold",
               )}
               onClick={() => {
                 setCurrentPage(item.name.toLowerCase());
@@ -87,8 +83,6 @@ export default function Navbar() {
               {item.name}
             </Link>
           ))}
-        </section>
-        <section id="right-section" className="flex items-center gap-2">
           <div
             className="primary-button"
             onMouseEnter={(e) => {
@@ -101,7 +95,7 @@ export default function Navbar() {
               window.location.href = "/Newsletter";
             }}
           >
-            Join Us
+            JOIN US
           </div>
         </section>
         <div className="flex md:hidden"></div>
@@ -125,7 +119,8 @@ export default function Navbar() {
         </DisclosureButton>
         <DisclosurePanel
           transition
-          className="origin-top transition duration-200 ease-out data-closed:-translate-y-5 data-closed:opacity-0 md:hidden glass-card-darker fixed top-[70px] w-full h-full z-10 pr-2 "
+          className="origin-top transition duration-200 ease-out data-closed:-translate-y-5 data-closed:opacity-0 md:hidden glass-card-darker fixed top-[70px] w-full h-full pr-2 "
+          style={{ zIndex: 1001 }}
         >
           <div className="space-y-1 pl-2 pr-4 pt-2 pb-3 ">
             {navigation.map((item) => (
@@ -138,7 +133,7 @@ export default function Navbar() {
                   item.current
                     ? "bg-gray-800 text-red-500 underline-offset-4 underline"
                     : "text-gray-200 hover:bg-gray-700 hover:text-white",
-                  "block rounded-md px-3 py-8  text-5xl font-medium"
+                  "block rounded-md px-3 py-8  text-5xl font-medium",
                 )}
                 onClick={() => {
                   setCurrentPage(item.name.toLowerCase());
