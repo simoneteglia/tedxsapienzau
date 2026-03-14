@@ -51,9 +51,10 @@ export default function Navbar() {
   return (
     <Disclosure
       as="nav"
-      className="w-full z-1 top-0 fixed flex justify-center items-center"
+      className="w-full top-0 fixed flex justify-center items-center"
       style={{
         height: global.UTILS.NAV_HEIGHT,
+        zIndex: 1000,
       }}
     >
       <div className="glass-card relative hidden w-full xl:w-[85%] h-[75%] md:flex justify-between items-center p-[12px] rounded-[1rem] ">
@@ -118,7 +119,8 @@ export default function Navbar() {
         </DisclosureButton>
         <DisclosurePanel
           transition
-          className="origin-top transition duration-200 ease-out data-closed:-translate-y-5 data-closed:opacity-0 md:hidden glass-card-darker fixed top-[70px] w-full h-full z-10 pr-2 "
+          className="origin-top transition duration-200 ease-out data-closed:-translate-y-5 data-closed:opacity-0 md:hidden glass-card-darker fixed top-[70px] w-full h-full pr-2 "
+          style={{ zIndex: 1001 }}
         >
           <div className="space-y-1 pl-2 pr-4 pt-2 pb-3 ">
             {navigation.map((item) => (

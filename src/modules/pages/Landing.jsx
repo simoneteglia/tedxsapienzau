@@ -124,7 +124,7 @@ export default function Landing() {
             }}
           >
             <h2
-              className="mb-6 text-white"
+              className="text-white"
               style={{
                 fontSize:
                   windowSize > global.UTILS.TABLET_WIDTH ? "2vw" : "0.5vw",
@@ -132,6 +132,7 @@ export default function Landing() {
                   windowSize > global.UTILS.TABLET_WIDTH
                     ? "initial"
                     : " hidden",
+                transform: "translateY(6px)",
               }}
             >
               TEDXSAPIENZAU
@@ -147,19 +148,20 @@ export default function Landing() {
                       : "50px",
                 fontWeight: 700,
                 maxWidth: "13ch",
-                lineHeight: 1.23,
+                lineHeight: 1.02,
               }}
             >
               LET'S EXPLORE HOW IT WAS
             </h1>
             <h2
-              className="mb-6 text-white"
+              className="text-white"
               style={{
                 fontSize: "2vw",
                 visibility:
                   windowSize > global.UTILS.TABLET_WIDTH
                     ? "initial"
                     : " hidden",
+                transform: "translateY(6px)",
               }}
             >
               PARA DOXA 2025
