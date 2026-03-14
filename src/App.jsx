@@ -118,6 +118,7 @@ function LandingManager() {
           inset: 0,
           zIndex: 0,
           pointerEvents: "none",
+          width: "2500px",
         }}
       >
         <Grainient
