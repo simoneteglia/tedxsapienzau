@@ -23,7 +23,7 @@ import Awards23 from "./modules/pages/events/Awards23";
 import Awards24 from "./modules/pages/events/Awards24";
 import EventTemplate from "./modules/pages/events/EventTemplate";
 import ScrollToTop from "./modules/components/ScrollToTop";
-
+import Awards22 from "./modules/pages/events/Awards22";
 // --- IMPORT ASSETS ---
 import paradoxaHeader from "./assets/images/paradoxa25/header_paradoxa2.png";
 import btzHeader from "./assets/images/backtozero23/Edizione2023.webp";
@@ -85,6 +85,11 @@ const router = createBrowserRouter([
       {
         path: "/events/awards23",
         element: <Awards23 />,
+      },
+
+      {
+        path: "/events/awards22",
+        element: <Awards22 />,
       },
     ],
   },
