@@ -78,8 +78,7 @@ const router = createBrowserRouter([
       {
         path: "/events/backtozero",
         element: (
-          // <EventTemplate imagePath={btzHeader} eventData={backtozeroData} />
-          <BackToZero />
+          <EventTemplate imagePath={btzHeader} eventData={backtozeroData} />
         ),
       },
       {
