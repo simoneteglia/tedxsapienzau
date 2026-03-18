@@ -17,13 +17,12 @@ import Location from "./modules/pages/Location";
 import Grainient from "./modules/components/Grainient";
 
 import Countdown2024 from "./modules/pages/events/Countdown2024";
-import ParaDoxa2025 from "./modules/pages/events/ParaDoxa2025";
-import BackToZero from "./modules/pages/events/BackToZero";
 import Awards23 from "./modules/pages/events/Awards23";
 import Awards24 from "./modules/pages/events/Awards24";
 import EventTemplate from "./modules/pages/events/EventTemplate";
 import ScrollToTop from "./modules/components/ScrollToTop";
 import Awards22 from "./modules/pages/events/Awards22";
+import Act22 from "./modules/pages/events/Act22";
 // --- IMPORT ASSETS ---
 import paradoxaHeader from "./assets/images/paradoxa25/header_paradoxa2.png";
 import btzHeader from "./assets/images/backtozero23/Edizione2023.webp";
@@ -89,6 +88,10 @@ const router = createBrowserRouter([
       {
         path: "/events/awards22",
         element: <Awards22 />,
+      },
+      {
+        path: "/events/act22",
+        element: <Act22 />,
       },
     ],
   },

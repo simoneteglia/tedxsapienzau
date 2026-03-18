@@ -1,17 +1,10 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { useOutletContext } from "react-router-dom";
 import global from "../../../resources/global.json";
-import { useTranslation, Trans } from "react-i18next";
 import SpeakerCard from "../../components/SpeakerCard";
 import BioSpeakerPopup from "../../components/BioSpeakerPopup";
-
-// import CorniceParadoxaPersona from "../images/paradoxa25/cornice_paradoxa_persona.webp";
-import ParadoxaHeader from "../../../assets/images/paradoxa25/header_paradoxa2.png";
-import Iframe from "react-iframe";
 import "@fontsource-variable/bricolage-grotesque/index.css";
 
-// --- IMPORT SPEAKERS IMAGES ---
-// ----------PARADOXA 2025 SPEAKERS ----------
 import Nardi from "../../../assets/images/paradoxa25/nardi_poster.webp";
 import Dapoto from "../../../assets/images/paradoxa25/dapoto_poster.webp";
 import Saltarelli from "../../../assets/images/paradoxa25/saltarelli_poster.webp";
@@ -23,7 +16,6 @@ import Moretti from "../../../assets/images/paradoxa25/moretti_poster.webp";
 import Kento from "../../../assets/images/paradoxa25/kento_poster.webp";
 import Armaroli from "../../../assets/images/paradoxa25/armaroli_poster.webp";
 
-// ----------BACK TO ZERO 2023 SPEAKERS ----------
 import Tullio from "../../../assets/images/backtozero23/speakersBTZ/speakersBTZ/Tullio.webp";
 import Rossi from "../../../assets/images/backtozero23/speakersBTZ/speakersBTZ/Rossi.webp";
 import Freyman from "../../../assets/images/backtozero23/speakersBTZ/speakersBTZ/Freymann.webp";
@@ -77,82 +69,79 @@ const LocationIcon = () => (
   </svg>
 );
 
-const getImage = (imgName) => {
-  switch (imgName) {
-    case "Nardi":
-      return Nardi;
-    case "Dapoto":
-      return Dapoto;
-    case "Saltarelli":
-      return Saltarelli;
-    case "Pasatu":
-      return Pasatu;
-    case "Abbozzo":
-      return Abbozzo;
-    case "Panepinto":
-      return Panepinto;
-    case "Azzali":
-      return Azzali;
-    case "Moretti":
-      return Moretti;
-    case "Kento":
-      return Kento;
-    case "Armaroli":
-      return Armaroli;
-    case "Tullio":
-      return Tullio;
-    case "Rossi":
-      return Rossi;
-    case "Freymann":
-      return Freyman;
-    case "Basilone":
-      return Basilone;
-    case "Schito":
-      return Schito;
-    case "Cervellini":
-      return Cervellini;
-    case "Estrela":
-      return Estrela;
-    case "Lambarelli":
-      return Lambarelli;
-    case "Ienca":
-      return Ienca;
-    case "Villain":
-      return Villain;
-    case "Onofri":
-      return Onofri;
-    case "Aboya":
-      return Nakita;
-    default:
-      return "";
-  }
+const DEFAULT_SPEAKER_IMAGES = {
+  Nardi,
+  Dapoto,
+  Saltarelli,
+  Pasatu,
+  Abbozzo,
+  Panepinto,
+  Azzali,
+  Moretti,
+  Kento,
+  Armaroli,
+  Tullio,
+  Rossi,
+  Freymann: Freyman,
+  Basilone,
+  Schito,
+  Cervellini,
+  Estrela,
+  Lambarelli,
+  Ienca,
+  Villain,
+  Onofri,
+  Aboya: Nakita,
 };
 
-export default function EventTemplate({ imagePath, eventData }) {
-  const { t, i18n } = useTranslation();
+const getImage = (imgName, speakerImages) =>
+  speakerImages?.[imgName] || DEFAULT_SPEAKER_IMAGES[imgName] || "";
+
+export default function EventTemplate({
+  imagePath,
+  headerAlt = "Event header",
+  eventData,
+  speakerImages = {},
+  speakerSections,
+  year = 2025,
+  sidebarTheme,
+  ctaLabel = "Guarda i TEDx talks",
+  children,
+}) {
   const [windowSize] = useOutletContext();
   const [isBioOpen, setIsBioOpen] = useState(false);
   const [selectedSpeakerInfo, setSelectedSpeakerInfo] = useState({});
+  const sectionPadding =
+    windowSize < global.UTILS.BIG_TABLET_WIDTH ? "34px 34px 0px 34px" : "34px";
+  const speakersSectionPadding =
+    windowSize < global.UTILS.BIG_TABLET_WIDTH
+      ? "34px 34px 8px 34px"
+      : "34px 34px 8px 34px";
+  const resolvedSpeakerSections =
+    speakerSections && speakerSections.length > 0
+      ? speakerSections
+      : [
+          {
+            title: eventData.speakersTitle || "Speakers",
+            items: Object.values(eventData.speakers || {}),
+          },
+        ];
 
   return (
-    <div className="paradoxa-page overflow-x-hidden">
+    <div
+      className="paradoxa-page overflow-x-hidden"
+      style={{ paddingBottom: "24px" }}
+    >
       <section className="w-full relative">
         <img
           src={imagePath}
-          alt="Header Back To Zero"
+          alt={headerAlt}
           className="w-full h-auto object-cover"
           style={{ maxHeight: "80vh", minHeight: "300px" }}
         />
       </section>
 
-      <section
-        style={{
-          padding:
-            windowSize < global.UTILS.BIG_TABLET_WIDTH
-              ? "34px 34px 0px 34px"
-              : "34px",
-        }}
-      >
+      <section style={{ padding: sectionPadding }}>
         <h1 className="event-title notranslate" translate="no">
           {eventData.title}
         </h1>
@@ -184,16 +173,23 @@ export default function EventTemplate({ imagePath, eventData }) {
                 </div>
               </div>
             </div>
-            <a
-              className="paradoxa-cta"
-              href={eventData.link_talks}
-              target="_blank"
-              rel="noreferrer"
-            >
-              Guarda i TEDx talks
-            </a>
+            {eventData.link_talks ? (
+              <a
+                className="paradoxa-cta"
+                href={eventData.link_talks}
+                target="_blank"
+                rel="noreferrer"
+              >
+                {ctaLabel}
+              </a>
+            ) : null}
           </div>
         </div>
+        {children ? (
+          <div style={{ maxWidth: "1500px", margin: "34px auto 0" }}>
+            {children}
+          </div>
+        ) : null}
       </section>
 
       <section
@@ -202,10 +198,7 @@ export default function EventTemplate({ imagePath, eventData }) {
           justifyContent: "center",
           alignItems: "center",
           width: "100vw",
-          padding:
-            windowSize < global.UTILS.BIG_TABLET_WIDTH
-              ? "34px 34px 0px 34px"
-              : "34px",
+          padding: speakersSectionPadding,
           flexWrap: "wrap",
         }}
       >
@@ -219,26 +212,37 @@ export default function EventTemplate({ imagePath, eventData }) {
             position: "relative",
           }}
         >
-          <h1 className="event-title notranslate">Speakers</h1>
-          <div className="paradoxa-speakers-grid">
-            {Object.keys(eventData.speakers).map((key, index) => {
-              const speaker = eventData.speakers[key];
-              if (index >= 0) {
-                return (
+          {resolvedSpeakerSections.map((section, sectionIndex) => (
+            <div
+              key={`${section.title || "speakers"}-${sectionIndex}`}
+              style={{
+                marginBottom:
+                  sectionIndex === resolvedSpeakerSections.length - 1 ? 0 : 64,
+              }}
+            >
+              <h1 className="event-title notranslate" translate="no">
+                {section.title || "Speakers"}
+              </h1>
+              <div className="paradoxa-speakers-grid">
+                {(section.items || []).map((speaker, speakerIndex) => (
                   <SpeakerCard
-                    key={index}
-                    imgSrc={getImage(speaker.img)}
+                    key={`${speaker.name || "speaker"}-${speakerIndex}`}
+                    imgSrc={getImage(speaker.img, speakerImages)}
                     nomeSpeaker={speaker.name}
-                    showLinkTalk={false}
+                    bio={speaker.bio}
+                    bioeng={speaker.bioeng}
+                    linkTalk={speaker.linkTalk}
+                    tag={speaker.tag || speaker.role}
+                    ruoloSpeaker={speaker.role}
+                    showLinkTalk={Boolean(speaker.linkTalk)}
                     event="paradoxa"
                     setIsBioOpen={setIsBioOpen}
                     setSelectedSpeakerInfo={setSelectedSpeakerInfo}
                   />
-                );
-              }
-              return null;
-            })}
-          </div>
+                ))}
+              </div>
+            </div>
+          ))}
         </div>
       </section>
       <BioSpeakerPopup
@@ -246,7 +250,8 @@ export default function EventTemplate({ imagePath, eventData }) {
         setIsBioOpen={setIsBioOpen}
         selectedSpeakerInfo={selectedSpeakerInfo}
         windowSize={windowSize}
-        year={2025}
+        year={year}
+        sidebarTheme={sidebarTheme}
       />
     </div>
   );
