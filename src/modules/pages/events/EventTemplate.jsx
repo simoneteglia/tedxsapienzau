@@ -37,7 +37,7 @@ import Villain from "../../../assets/images/backtozero23/speakersBTZ/speakersBTZ
 import Onofri from "../../../assets/images/backtozero23/speakersBTZ/speakersBTZ/Onofri.webp";
 import Nakita from "../../../assets/images/backtozero23/speakersBTZ/speakersBTZ/Nakita.webp";
 
-//foto per awards22
+// ----------AWARDS 2022 SPEAKERS ----------
 import Volosumarte22 from "../../../assets/images/awards22/artist1.jpg";
 import Spano22 from "../../../assets/images/awards22/speaker1.jpg";
 import Pariset22 from "../../../assets/images/awards22/speaker2.jpg";
@@ -128,8 +128,8 @@ const getImage = (imgName) => {
     case "Onofri":
       return Onofri;
     case "Aboya":
-      return Nakita;  
-  //aggiunta awards22
+      return Nakita;
+    //aggiunta awards22
     case "Volosumarte22":
       return Volosumarte22;
     case "Spano22":
@@ -154,7 +154,7 @@ export default function EventTemplate({ imagePath, eventData }) {
       <section className="w-full relative">
         <img
           src={imagePath}
-          alt="Header Back To Zero"
+          alt="Event Header Image"
           className="w-full h-auto object-cover"
           style={{ maxHeight: "80vh", minHeight: "300px" }}
         />
@@ -238,6 +238,7 @@ export default function EventTemplate({ imagePath, eventData }) {
           <div className="paradoxa-speakers-grid">
             {Object.keys(eventData.speakers).map((key, index) => {
               const speaker = eventData.speakers[key];
+              console.log(speaker);
               if (index >= 0) {
                 return (
                   <SpeakerCard
@@ -245,6 +246,8 @@ export default function EventTemplate({ imagePath, eventData }) {
                     imgSrc={getImage(speaker.img)}
                     nomeSpeaker={speaker.name}
                     showLinkTalk={false}
+                    bio={speaker.bio}
+                    linkTalk={speaker.linkTalk}
                     event="paradoxa"
                     setIsBioOpen={setIsBioOpen}
                     setSelectedSpeakerInfo={setSelectedSpeakerInfo}
