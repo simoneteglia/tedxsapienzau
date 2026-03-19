@@ -84,14 +84,13 @@ const router = createBrowserRouter([
         path: "/events/awards23",
         element: <Awards23 />,
       },
-
-      {
-        path: "/events/awards22",
-        element: <Awards22 />,
-      },
       {
         path: "/events/act22",
         element: <Act22 />,
+      },
+      {
+        path: "/events/awards22",
+        element: <Awards22 />,
       },
     ],
   },

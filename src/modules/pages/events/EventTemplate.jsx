@@ -109,7 +109,7 @@ export default function EventTemplate({
   children,
 }) {
   const [windowSize] = useOutletContext();
-  const [isBioOpen, setIsBioOpen] = useState(false);
+  const [isBioOpen, setIsBioOpen] = useState(true);
   const [selectedSpeakerInfo, setSelectedSpeakerInfo] = useState({});
   const sectionPadding =
     windowSize < global.UTILS.BIG_TABLET_WIDTH ? "34px 34px 0px 34px" : "34px";
