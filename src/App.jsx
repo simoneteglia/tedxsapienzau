@@ -26,11 +26,13 @@ import Act22 from "./modules/pages/events/Act22";
 // --- IMPORT ASSETS ---
 import paradoxaHeader from "./assets/images/paradoxa25/header_paradoxa2.png";
 import btzHeader from "./assets/images/backtozero23/Edizione2023.webp";
+import awardsBanner from "./assets/images/awards24/awards_sapienza.png";
 
 // --- IMPORT DATA ---
 import paradoxaData from "./data/paradoxa.json";
 import backtozeroData from "./data/backtozero.json";
 import "./App.css";
+import awards22Data from "./data/awards22.json";
 
 const router = createBrowserRouter([
   {
@@ -88,9 +90,11 @@ const router = createBrowserRouter([
         path: "/events/act22",
         element: <Act22 />,
       },
-      {
+     {
         path: "/events/awards22",
-        element: <Awards22 />,
+        element: (
+          <EventTemplate imagePath={awardsBanner} eventData={awards22Data} />
+        ),
       },
     ],
   },

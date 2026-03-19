@@ -1,0 +1,29 @@
+{
+  "title": "I vincitori SapienzaU awards 2022",
+  "description": "Il concorso ACT:Lead The Change Awards è organizzato dal Comitato TEDxSapienzaU ed ha lo scopo di promuovere idee di valore in linea con il motto TED \"Ideas worth spreading\", offrendo ai vincitori la prestigiosa opportunità di esibirsi sul palco dell' edizione 2022 del TEDxSapienzaU. I 4 vincitori del concorso SapienzaU Awards, 3 Speakers e 1 Artist, vengono premiati sul palco della finale e hanno l'occasione di esibirsi durante l'evento TEDxSapienzaU 2022!",
+  "date": "29.04.2022",
+  "location": "Università La Sapienza - Nuovo Teatro Ateneo Piazzale Aldo Moro, 5, 00185 Roma RM",
+  "link_talks": "#",
+  "speakers": {
+    "speaker1": {
+      "name": "Volosumarte",
+      "bio": "Artist",
+      "img": "Volosumarte22"
+    },
+    "speaker2": {
+      "name": "Serena Spanò",
+      "bio": "Speaker",
+      "img": "Spano22"
+    },
+    "speaker3": {
+      "name": "Eleonora Pariset",
+      "bio": "Speaker",
+      "img": "Pariset22"
+    },
+    "speaker4": {
+      "name": "Arianna Peduzzi",
+      "bio": "Speaker",
+      "img": "Peduzzi22"
+    }
+  }
+}

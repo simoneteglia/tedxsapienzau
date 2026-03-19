@@ -1,3 +1,6 @@
+//la pagina attualmente visualizzata nel sito è src\data\awards22.json questa versione non usa
+//eventtamplate ma ha la struttura artist sopra la sezione speakers
+
 import React, { useLayoutEffect, useState } from "react";
 import { useOutletContext } from "react-router-dom";
 
