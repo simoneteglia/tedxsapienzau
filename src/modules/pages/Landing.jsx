@@ -248,7 +248,7 @@ export default function Landing() {
               <Bento key={index}>
                 <div
                   style={{
-                    color: "#eb0028",
+                    color: "white",
                     fontSize: "3.5rem",
                     fontWeight: "800",
                     marginBottom: "10px",

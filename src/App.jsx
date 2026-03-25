@@ -20,6 +20,7 @@ import Countdown2024 from "./modules/pages/events/Countdown2024";
 import Awards23 from "./modules/pages/events/Awards23";
 import Awards24 from "./modules/pages/events/Awards24";
 import EventTemplate from "./modules/pages/events/EventTemplate";
+import EventsHub from "./modules/pages/events/EventsHub";
 import ScrollToTop from "./modules/components/ScrollToTop";
 import Awards22 from "./modules/pages/events/Awards22";
 import Act22 from "./modules/pages/events/Act22";
@@ -32,8 +33,40 @@ import awardsBanner from "./assets/images/awards24/awards_sapienza.png";
 import paradoxaData from "./data/paradoxa.json";
 import backtozeroData from "./data/backtozero.json";
 import awards22Data from "./data/awards22.json";
+import sidebarContent from "./data/eventSidebarContent.json";
 
 import "./App.css";
+
+const normalizeSpeakerName = (value = "") => value.trim().toLowerCase();
+
+const buildSidebarLookup = (items) =>
+  new Map(
+    (items || []).map((item) => [normalizeSpeakerName(item.name), item]),
+  );
+
+const paradoxaSidebarLookup = buildSidebarLookup(sidebarContent.paradoxa2025);
+
+const paradoxaEventData = {
+  ...paradoxaData,
+  speakers: Object.fromEntries(
+    Object.entries(paradoxaData.speakers || {}).map(([key, speaker]) => {
+      const sidebarSpeaker = paradoxaSidebarLookup.get(
+        normalizeSpeakerName(speaker.name),
+      );
+
+      return [
+        key,
+        {
+          ...speaker,
+          category: sidebarSpeaker?.category,
+          bio: sidebarSpeaker?.bio_it || speaker.bio,
+          bioeng: sidebarSpeaker?.bio_en,
+          linkTalk: sidebarSpeaker?.youtube_embed_url || speaker.linkTalk,
+        },
+      ];
+    }),
+  ),
+};
 
 const router = createBrowserRouter([
   {
@@ -64,9 +97,16 @@ const router = createBrowserRouter([
         element: <Location />,
       },
       {
+        path: "/events",
+        element: <EventsHub />,
+      },
+      {
         path: "/events/paradoxa2025",
         element: (
-          <EventTemplate imagePath={paradoxaHeader} eventData={paradoxaData} />
+          <EventTemplate
+            imagePath={paradoxaHeader}
+            eventData={paradoxaEventData}
+          />
         ),
       },
       {
