@@ -27,6 +27,15 @@
     "DESIGN": "The Design team takes care of the design aspects of the event. In detail, it works on creating a visual and graphic identity, developing products and designing the setups."
   },
 
+  "team_page": {
+    "hero_kicker": "TEDxSapienzaU people",
+    "hero_title": "Meet our team(s)",
+    "hero_description": "TEDxSapienzaU comes to life through people with different backgrounds working together across curation, production, partnerships, design and technology. Below you can explore the areas that shape each edition: for now they are presented as structure cards, ready to be swapped with real names and portraits whenever you want.",
+    "focus_label": "Focus area",
+    "jump_to_section": "Jump to section",
+    "board_description": "The board keeps the overall vision aligned, coordinates the teams and turns strategic direction into weekly execution. It is where priorities, people and decisions are brought back into sync."
+  },
+
   "partners": {
     "people": "engaged spectators",
     "yt_views": "YouTube views",

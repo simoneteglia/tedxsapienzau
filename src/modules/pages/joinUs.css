@@ -1,0 +1,581 @@
+.joinus-page {
+  position: relative;
+  min-height: 100vh;
+  padding-right: 24px;
+  padding-bottom: 118px;
+  padding-left: 24px;
+  color: #ffffff;
+  overflow: hidden;
+}
+
+.joinus-page::before,
+.joinus-page::after {
+  content: "";
+  position: absolute;
+  border-radius: 999px;
+  filter: blur(120px);
+  pointer-events: none;
+}
+
+.joinus-page::before {
+  top: 140px;
+  left: -140px;
+  width: 360px;
+  height: 360px;
+  background: rgba(255, 76, 120, 0.2);
+}
+
+.joinus-page::after {
+  right: -120px;
+  bottom: 180px;
+  width: 420px;
+  height: 420px;
+  background: rgba(235, 0, 40, 0.2);
+}
+
+.joinus-shell {
+  position: relative;
+  z-index: 1;
+  width: min(1440px, 100%);
+  margin: 0 auto;
+  display: grid;
+  gap: 76px;
+}
+
+.joinus-hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1.18fr) minmax(320px, 430px);
+  gap: 28px;
+  align-items: start;
+}
+
+.joinus-hero-copy {
+  display: grid;
+  gap: 28px;
+  align-content: start;
+}
+
+.joinus-kicker,
+.joinus-section-kicker,
+.joinus-card-eyebrow,
+.joinus-status-kicker {
+  margin: 0;
+  color: #ff93a4;
+  font-family: "Anton";
+  font-size: 14px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.joinus-title {
+  margin: 0;
+  max-width: 10ch;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.02em 0.22em;
+  font-family: "GothamBold";
+  font-size: clamp(56px, 8vw, 122px);
+  line-height: 0.88;
+  letter-spacing: -0.06em;
+  text-transform: uppercase;
+}
+
+.joinus-title-word {
+  position: relative;
+  display: inline-block;
+  color: rgba(255, 255, 255, 0.96);
+  opacity: 0;
+  transform: translateY(34px) scale(0.94) skewY(5deg);
+  filter: blur(12px);
+  animation: joinus-title-reveal 1.02s
+    cubic-bezier(0.2, 0.9, 0.22, 1)
+    forwards;
+  animation-delay: calc(var(--joinus-word-index, 0) * 145ms + 160ms);
+}
+
+.joinus-title-word.is-accent {
+  color: #ffb8c3;
+  text-shadow:
+    0 0 24px rgba(235, 0, 40, 0.2),
+    0 10px 36px rgba(235, 0, 40, 0.16);
+}
+
+.joinus-title-word::after {
+  content: "";
+  position: absolute;
+  inset: auto 8% -0.06em 8%;
+  height: 0.1em;
+  border-radius: 999px;
+  background: linear-gradient(90deg, rgba(235, 0, 40, 0), rgba(235, 0, 40, 0.72), rgba(255, 255, 255, 0));
+  opacity: 0;
+  transform: scaleX(0.4);
+  animation: joinus-title-glow 1.12s ease forwards;
+  animation-delay: calc(var(--joinus-word-index, 0) * 145ms + 540ms);
+}
+
+.joinus-title-word:not(.is-accent)::after {
+  display: none;
+}
+
+.joinus-description,
+.joinus-section-head p,
+.joinus-team-card-summary,
+.joinus-faq-card p,
+.joinus-step-card p,
+.joinus-info-card p,
+.joinus-status-description,
+.joinus-cta-copy p:last-child {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.84);
+  font-family: "GothamBook";
+  font-size: 17px;
+  line-height: 1.72;
+}
+
+.joinus-signal-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.joinus-signal-pill,
+.joinus-team-tag {
+  display: inline-flex;
+  align-items: center;
+  min-height: 38px;
+  padding: 0 16px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.07);
+  color: #ffffff;
+  font-family: "GothamBook";
+  font-size: 13px;
+}
+
+.joinus-action-row,
+.joinus-cta-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  align-items: center;
+}
+
+.joinus-primary-button,
+.joinus-secondary-button,
+.joinus-inline-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 56px;
+  padding: 0 24px;
+  border-radius: 999px;
+  font-family: "GothamBold";
+  font-size: 15px;
+  text-decoration: none;
+  transition:
+    transform 0.22s ease,
+    box-shadow 0.22s ease,
+    border-color 0.22s ease,
+    background-color 0.22s ease;
+}
+
+.joinus-primary-button {
+  border: 0;
+  background: linear-gradient(135deg, #eb0028, #ff4f6c);
+  color: #ffffff;
+  cursor: pointer;
+  box-shadow: 0 20px 45px rgba(235, 0, 40, 0.28);
+}
+
+.joinus-secondary-button,
+.joinus-inline-link {
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  background: rgba(255, 255, 255, 0.08);
+  color: #ffffff;
+}
+
+.joinus-primary-button:hover,
+.joinus-secondary-button:hover,
+.joinus-inline-link:hover {
+  transform: translateY(-2px);
+}
+
+.joinus-secondary-button:hover,
+.joinus-inline-link:hover {
+  border-color: rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.12);
+}
+
+@keyframes joinus-title-reveal {
+  0% {
+    opacity: 0;
+    transform: translateY(34px) scale(0.94) skewY(5deg);
+    filter: blur(12px);
+  }
+
+  65% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1) skewY(0);
+    filter: blur(0);
+  }
+}
+
+@keyframes joinus-title-glow {
+  0% {
+    opacity: 0;
+    transform: scaleX(0.4);
+  }
+
+  100% {
+    opacity: 1;
+    transform: scaleX(1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .joinus-title-word,
+  .joinus-title-word::after {
+    animation: none;
+  }
+
+  .joinus-title-word {
+    opacity: 1;
+    transform: none;
+    filter: none;
+  }
+
+  .joinus-title-word.is-accent::after {
+    opacity: 1;
+    transform: scaleX(1);
+  }
+}
+
+.joinus-action-note {
+  margin: -10px 0 0;
+  color: rgba(255, 255, 255, 0.62);
+  font-family: "GothamBook";
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.joinus-status-card,
+.joinus-info-card,
+.joinus-step-card,
+.joinus-team-card,
+.joinus-faq-card,
+.joinus-cta-banner {
+  position: relative;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background:
+    linear-gradient(160deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.02)),
+    rgba(12, 12, 12, 0.54);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  box-shadow: 0 28px 70px rgba(0, 0, 0, 0.18);
+}
+
+.joinus-status-card,
+.joinus-cta-banner,
+.joinus-team-card {
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.joinus-status-card::before,
+.joinus-cta-banner::before,
+.joinus-team-card::before {
+  content: "";
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 100%;
+  height: 100%;
+  border-radius: inherit;
+  background: linear-gradient(
+    135deg,
+    rgba(235, 0, 40, 0.14) 0%,
+    rgba(255, 255, 255, 0) 52%
+  );
+  pointer-events: none;
+}
+
+.joinus-status-card {
+  display: grid;
+  gap: 20px;
+  padding: 30px;
+  border-radius: 32px;
+}
+
+.joinus-status-card h2,
+.joinus-section-head h2,
+.joinus-cta-copy h2 {
+  margin: 0;
+  font-family: "GothamBold";
+  font-size: clamp(34px, 4vw, 56px);
+  line-height: 0.96;
+  letter-spacing: -0.04em;
+}
+
+.joinus-status-list {
+  display: grid;
+  gap: 12px;
+}
+
+.joinus-status-item {
+  display: grid;
+  grid-template-columns: 10px minmax(0, 1fr);
+  gap: 12px;
+  align-items: start;
+}
+
+.joinus-status-item span {
+  width: 10px;
+  height: 10px;
+  margin-top: 8px;
+  border-radius: 999px;
+  background: #ff6c82;
+  box-shadow: 0 0 0 4px rgba(255, 108, 130, 0.14);
+}
+
+.joinus-status-item p,
+.joinus-contact-block p {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.84);
+  font-family: "GothamBook";
+  font-size: 15px;
+  line-height: 1.65;
+}
+
+.joinus-contact-block {
+  display: grid;
+  gap: 6px;
+  padding-top: 6px;
+}
+
+.joinus-contact-block a {
+  color: #ffffff;
+  font-family: "GothamBold";
+  font-size: 22px;
+  line-height: 1.1;
+  text-decoration: none;
+}
+
+.joinus-info-grid,
+.joinus-step-grid,
+.joinus-faq-grid {
+  display: grid;
+  gap: 18px;
+}
+
+.joinus-info-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.joinus-info-card,
+.joinus-step-card,
+.joinus-faq-card {
+  display: grid;
+  gap: 14px;
+  padding: 28px;
+  border-radius: 28px;
+}
+
+.joinus-info-card h2,
+.joinus-step-card h3,
+.joinus-faq-card h3,
+.joinus-team-card h3 {
+  margin: 0;
+  font-family: "GothamBold";
+  line-height: 1.04;
+  letter-spacing: -0.03em;
+}
+
+.joinus-info-card h2 {
+  font-size: 32px;
+}
+
+.joinus-process-section,
+.joinus-team-section,
+.joinus-faq-section {
+  display: grid;
+  gap: 28px;
+}
+
+.joinus-section-head {
+  display: grid;
+  gap: 12px;
+  max-width: 74ch;
+}
+
+.joinus-section-head--with-link {
+  grid-template-columns: minmax(0, 1fr) auto;
+  max-width: none;
+  align-items: end;
+  gap: 24px;
+}
+
+.joinus-inline-link {
+  justify-self: end;
+}
+
+.joinus-step-grid {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.joinus-step-number {
+  color: rgba(255, 147, 164, 0.9);
+  font-family: "Anton";
+  font-size: 34px;
+  letter-spacing: 0.08em;
+}
+
+.joinus-step-card h3,
+.joinus-faq-card h3 {
+  font-size: 28px;
+}
+
+.joinus-team-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.joinus-team-card {
+  display: grid;
+  gap: 16px;
+  padding: 28px;
+  border-radius: 30px;
+}
+
+.joinus-team-card::before {
+  top: -18%;
+  left: -10%;
+  right: auto;
+  bottom: auto;
+  width: 76%;
+  height: 92%;
+  background: radial-gradient(
+    circle at top left,
+    color-mix(in srgb, var(--joinus-accent, #eb0028) 24%, transparent) 0%,
+    color-mix(in srgb, var(--joinus-accent, #eb0028) 12%, transparent) 36%,
+    rgba(255, 255, 255, 0) 72%
+  );
+  filter: blur(22px);
+  opacity: 0.88;
+}
+
+.joinus-team-card-kicker {
+  margin: 0;
+  color: var(--joinus-accent, #ff93a4);
+  font-family: "Anton";
+  font-size: 13px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.joinus-team-card h3 {
+  font-size: 36px;
+  max-width: 14ch;
+}
+
+.joinus-team-tag-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 4px;
+}
+
+.joinus-faq-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.joinus-cta-banner {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 24px;
+  align-items: center;
+  padding: 32px;
+  border-radius: 34px;
+}
+
+.joinus-cta-copy {
+  display: grid;
+  gap: 12px;
+  max-width: 72ch;
+}
+
+@media (max-width: 1180px) {
+  .joinus-hero,
+  .joinus-cta-banner,
+  .joinus-section-head--with-link {
+    grid-template-columns: 1fr;
+  }
+
+  .joinus-inline-link {
+    justify-self: start;
+  }
+
+  .joinus-info-grid,
+  .joinus-faq-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .joinus-step-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 760px) {
+  .joinus-page {
+    padding-right: 16px;
+    padding-bottom: 88px;
+    padding-left: 16px;
+  }
+
+  .joinus-shell {
+    gap: 56px;
+  }
+
+  .joinus-title {
+    max-width: none;
+    font-size: clamp(44px, 14vw, 72px);
+  }
+
+  .joinus-status-card,
+  .joinus-info-card,
+  .joinus-step-card,
+  .joinus-team-card,
+  .joinus-faq-card,
+  .joinus-cta-banner {
+    padding: 24px;
+    border-radius: 26px;
+  }
+
+  .joinus-info-grid,
+  .joinus-step-grid,
+  .joinus-team-grid,
+  .joinus-faq-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .joinus-info-card h2,
+  .joinus-step-card h3,
+  .joinus-faq-card h3,
+  .joinus-team-card h3 {
+    font-size: 26px;
+  }
+
+  .joinus-primary-button,
+  .joinus-secondary-button,
+  .joinus-inline-link {
+    width: 100%;
+  }
+
+  .joinus-contact-block a {
+    font-size: 18px;
+    overflow-wrap: anywhere;
+  }
+}

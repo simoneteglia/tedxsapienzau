@@ -11,6 +11,7 @@ import Navbar from "./modules/components/Navbar";
 import Landing from "./modules/pages/Landing";
 import Team from "./modules/pages/Team";
 import Sponsors from "./modules/pages/Sponsors";
+import JoinUs from "./modules/pages/JoinUs";
 import Footer from "./modules/components/Footer";
 import ErrorPage from "./modules/pages/ErrorPage";
 import Location from "./modules/pages/Location";
@@ -89,8 +90,28 @@ const router = createBrowserRouter([
         element: <Sponsors />,
       },
       {
+        path: "/partners",
+        element: <Sponsors />,
+      },
+      {
         path: "/team",
         element: <Team />,
+      },
+      {
+        path: "/join-us",
+        element: <JoinUs />,
+      },
+      {
+        path: "/joinus",
+        element: <JoinUs />,
+      },
+      {
+        path: "/newsletter",
+        element: <JoinUs />,
+      },
+      {
+        path: "/Newsletter",
+        element: <JoinUs />,
       },
       {
         path: "/location",

@@ -83,27 +83,16 @@ export default function Navbar() {
               className={classNames(
                 item.current
                   ? "bg-gray-900 text-white"
-                  : "text-gray-300 hover:bg-gray-700 hover:text-white",
-                "rounded-md px-3 py-2 text-sm font-semibold",
+                  : "text-white hover:bg-gray-700 hover:text-white",
+                "rounded-md px-3 py-2 text-base font-semibold tracking-[0.02em]",
               )}
             >
               {item.name}
             </Link>
           ))}
-          <div
-            className="primary-button"
-            onMouseEnter={(e) => {
-              e.target.style.borderColor = "white";
-            }}
-            onMouseLeave={(e) => {
-              e.target.style.borderColor = "red";
-            }}
-            onClick={() => {
-              window.location.href = "/Newsletter";
-            }}
-          >
+          <Link className="primary-button" to="/join-us">
             JOIN US
-          </div>
+          </Link>
         </section>
         <div className="flex md:hidden"></div>
       </div>
@@ -146,6 +135,13 @@ export default function Navbar() {
                 {item.name}
               </DisclosureButton>
             ))}
+            <DisclosureButton
+              as={Link}
+              to="/join-us"
+              className="primary-button mt-4 block w-full text-center"
+            >
+              JOIN US
+            </DisclosureButton>
           </div>
         </DisclosurePanel>
       </div>

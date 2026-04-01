@@ -27,6 +27,15 @@
     "DESIGN": "Il team Design si occupa della progettazione grafica dell’evento. Crea l'identità visiva e grafica, gestisce l’ideazione e la realizzazione di prodotti e allestimenti, assicurando un'esperienza visiva coinvolgente e coerente con il tema dell’evento."
   },
 
+  "team_page": {
+    "hero_kicker": "TEDxSapienzaU people",
+    "hero_title": "Meet our team(s)",
+    "hero_description": "TEDxSapienzaU prende forma grazie a persone con background diversi che lavorano insieme su curatela, produzione, partnership, design e tecnologia. Qui sotto trovi le aree che costruiscono ogni edizione: per ora sono raccontate come card di struttura, pronte da sostituire con nomi e foto reali quando vorrai.",
+    "focus_label": "Area in evidenza",
+    "jump_to_section": "Vai alla sezione",
+    "board_description": "Il board tiene insieme la visione generale del progetto, coordina i team e trasforma la direzione strategica in esecuzione settimanale. E il punto in cui priorita, persone e decisioni si riallineano."
+  },
+
   "partners": {
     "people": "spettatori coinvolti",
     "yt_views": "visualizzazioni su YouTube",
