@@ -134,7 +134,7 @@ export default function Footer() {
           }}
         >
           <b>
-            <WhiteLink text={t("navbar.events")} link="/edizioni" />
+            <WhiteLink text={t("navbar.events")} link="/events" />
           </b>
           <div
             style={{
@@ -155,7 +155,7 @@ export default function Footer() {
             <WhiteLink text={t("navbar.team")} link="/team" />
           </b>
           <b>
-            <WhiteLink text={t("navbar.about_us")} link="/mission&vision" />
+            <WhiteLink text={t("navbar.about_us")} link="/about" />
           </b>
         </div>
         <div
