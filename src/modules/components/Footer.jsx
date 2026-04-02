@@ -134,7 +134,7 @@ export default function Footer() {
           }}
         >
           <b>
-            <WhiteLink text={t("navbar.events")} link="/edizioni" />
+            <WhiteLink text={t("navbar.events")} link="/events" />
           </b>
           <div
             style={{
@@ -149,13 +149,13 @@ export default function Footer() {
             <GreyLink text="Back To Zero" link={"/events/backtozero"} />
           </div>
           <b>
-            <WhiteLink text={t("navbar.partners")} link="/partners" />
+            <WhiteLink text={t("navbar.partners")} link="/sponsors" />
           </b>
           <b>
             <WhiteLink text={t("navbar.team")} link="/team" />
           </b>
           <b>
-            <WhiteLink text={t("navbar.about_us")} link="/mission&vision" />
+            <WhiteLink text={t("navbar.about_us")} link="/about" />
           </b>
         </div>
         <div
@@ -170,9 +170,9 @@ export default function Footer() {
           <b>
             <Trans i18nKey="footer.join_us" lang={i18n.language} />
           </b>
-          <a className="link" href={"/Newsletter"}>
-            <button className="primary-button">Join Us</button>
-          </a>
+          <Link className="primary-button" to="/join-us">
+            Join Us
+          </Link>
           <div className="text-gray-400">
             <Trans i18nKey="footer.info1" lang={i18n.language} />
             <p className="secondary-text">

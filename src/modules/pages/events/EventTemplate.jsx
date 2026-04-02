@@ -1,13 +1,9 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { useOutletContext } from "react-router-dom";
 import global from "../../../resources/global.json";
-import { useTranslation, Trans } from "react-i18next";
 import SpeakerCard from "../../components/SpeakerCard";
 import BioSpeakerPopup from "../../components/BioSpeakerPopup";
 
-// import CorniceParadoxaPersona from "../images/paradoxa25/cornice_paradoxa_persona.webp";
-import ParadoxaHeader from "../../../assets/images/paradoxa25/header_paradoxa2.png";
-import Iframe from "react-iframe";
 import "@fontsource-variable/bricolage-grotesque/index.css";
 
 // --- IMPORT SPEAKERS IMAGES ---
@@ -36,6 +32,12 @@ import Ienca from "../../../assets/images/backtozero23/speakersBTZ/speakersBTZ/I
 import Villain from "../../../assets/images/backtozero23/speakersBTZ/speakersBTZ/Villain.webp";
 import Onofri from "../../../assets/images/backtozero23/speakersBTZ/speakersBTZ/Onofri.webp";
 import Nakita from "../../../assets/images/backtozero23/speakersBTZ/speakersBTZ/Nakita.webp";
+
+// ----------AWARDS 2022 SPEAKERS ----------
+import Volosumarte22 from "../../../assets/images/awards22/artist1.jpg";
+import Spano22 from "../../../assets/images/awards22/speaker1.jpg";
+import Pariset22 from "../../../assets/images/awards22/speaker2.jpg";
+import Peduzzi22 from "../../../assets/images/awards22/speaker3.jpg";
 
 const CalendarIcon = () => (
   <svg
@@ -123,23 +125,49 @@ const getImage = (imgName) => {
       return Onofri;
     case "Aboya":
       return Nakita;
+    //aggiunta awards22
+    case "Volosumarte22":
+      return Volosumarte22;
+    case "Spano22":
+      return Spano22;
+    case "Pariset22":
+      return Pariset22;
+    case "Peduzzi22":
+      return Peduzzi22;
     default:
       return "";
   }
 };
 
-export default function EventTemplate({ imagePath, eventData }) {
-  const { t, i18n } = useTranslation();
+export default function EventTemplate({
+  imagePath,
+  eventData,
+  year = 2025,
+  sidebarTheme,
+  children,
+}) {
   const [windowSize] = useOutletContext();
   const [isBioOpen, setIsBioOpen] = useState(false);
   const [selectedSpeakerInfo, setSelectedSpeakerInfo] = useState({});
+  const speakers = Object.values(eventData?.speakers || {});
+  const sectionPadding =
+    windowSize < global.UTILS.BIG_TABLET_WIDTH
+      ? "34px 34px 0px 34px"
+      : "34px";
+  const getSpeakerTag = (speaker) => {
+    if (speaker.category) return speaker.category;
+    if (speaker.bio === "Artist" || speaker.bio === "Speaker") {
+      return speaker.bio;
+    }
+    return "Speaker";
+  };
 
   return (
     <div className="paradoxa-page overflow-x-hidden">
       <section className="w-full relative">
         <img
           src={imagePath}
-          alt="Header Back To Zero"
+          alt="Event Header Image"
           className="w-full h-auto object-cover"
           style={{ maxHeight: "80vh", minHeight: "300px" }}
         />
@@ -147,10 +175,7 @@ export default function EventTemplate({ imagePath, eventData }) {
 
       <section
         style={{
-          padding:
-            windowSize < global.UTILS.BIG_TABLET_WIDTH
-              ? "34px 34px 0px 34px"
-              : "34px",
+          padding: sectionPadding,
         }}
       >
         <h1 className="event-title notranslate" translate="no">
@@ -202,10 +227,7 @@ export default function EventTemplate({ imagePath, eventData }) {
           justifyContent: "center",
           alignItems: "center",
           width: "100vw",
-          padding:
-            windowSize < global.UTILS.BIG_TABLET_WIDTH
-              ? "34px 34px 0px 34px"
-              : "34px",
+          padding: sectionPadding,
           flexWrap: "wrap",
         }}
       >
@@ -221,32 +243,39 @@ export default function EventTemplate({ imagePath, eventData }) {
         >
           <h1 className="event-title notranslate">Speakers</h1>
           <div className="paradoxa-speakers-grid">
-            {Object.keys(eventData.speakers).map((key, index) => {
-              const speaker = eventData.speakers[key];
-              if (index >= 0) {
-                return (
-                  <SpeakerCard
-                    key={index}
-                    imgSrc={getImage(speaker.img)}
-                    nomeSpeaker={speaker.name}
-                    showLinkTalk={false}
-                    event="paradoxa"
-                    setIsBioOpen={setIsBioOpen}
-                    setSelectedSpeakerInfo={setSelectedSpeakerInfo}
-                  />
-                );
-              }
-              return null;
-            })}
+            {speakers.map((speaker, index) => (
+              <SpeakerCard
+                key={speaker.name || index}
+                imgSrc={speaker.image || getImage(speaker.img)}
+                nomeSpeaker={speaker.name}
+                showLinkTalk={false}
+                bio={speaker.bio}
+                bioeng={speaker.bioeng}
+                linkTalk={speaker.linkTalk}
+                tag={getSpeakerTag(speaker)}
+                setIsBioOpen={setIsBioOpen}
+                setSelectedSpeakerInfo={setSelectedSpeakerInfo}
+              />
+            ))}
           </div>
         </div>
       </section>
+      {children ? (
+        <section
+          style={{
+            padding: sectionPadding,
+          }}
+        >
+          {children}
+        </section>
+      ) : null}
       <BioSpeakerPopup
         isBioOpen={isBioOpen}
         setIsBioOpen={setIsBioOpen}
         selectedSpeakerInfo={selectedSpeakerInfo}
         windowSize={windowSize}
-        year={2025}
+        year={year}
+        sidebarTheme={sidebarTheme}
       />
     </div>
   );

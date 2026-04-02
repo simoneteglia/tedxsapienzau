@@ -1,6 +1,5 @@
 // COMPONENTS
-import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import {
   Disclosure,
@@ -11,7 +10,7 @@ import {
 // RESOURCES
 import global from "../../resources/global.json";
 import "../../resources/styles/navbar.css";
-import { Bars3Icon, BellIcon, XMarkIcon } from "@heroicons/react/24/outline";
+import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 
 //MEDIA
 import Logo from "../../assets/logos/logo_white.png";
@@ -21,26 +20,37 @@ import Logo from "../../assets/logos/logo_white.png";
 // It includes the logo, navigation links, and a section for additional content
 // @author: Simone Teglia
 export default function Navbar() {
-  const [windowSize, setWindowSize] = useState(window.innerWidth);
-  const [currentPage, setCurrentPage] = useState("homepage");
-  const { t, i18n } = useTranslation();
+  const { t } = useTranslation();
+  const { pathname } = useLocation();
+
+  const isCurrentPage = (href) => {
+    if (href === "/events") {
+      return pathname === "/events" || pathname.startsWith("/events/");
+    }
+
+    return pathname === href;
+  };
 
   const navigation = [
     {
       name: t("navbar.events"),
       href: "/events",
-      current: currentPage === "eventi",
+      current: isCurrentPage("/events"),
     },
     {
       name: t("navbar.partners"),
       href: "/sponsors",
-      current: currentPage === "sponsors",
+      current: isCurrentPage("/sponsors"),
     },
-    { name: t("navbar.team"), href: "/team", current: currentPage === "team" },
+    {
+      name: t("navbar.team"),
+      href: "/team",
+      current: isCurrentPage("/team"),
+    },
     {
       name: t("navbar.about_us"),
       href: "/about",
-      current: currentPage === "chi siamo",
+      current: isCurrentPage("/about"),
     },
   ];
 
@@ -58,7 +68,7 @@ export default function Navbar() {
       }}
     >
       <div className="glass-card relative hidden w-full xl:w-[85%] h-[75%] md:flex justify-between items-center p-[12px] rounded-[1rem] ">
-        <Link to="/" onClick={() => setCurrentPage("homepage")}>
+        <Link to="/">
           <img src={Logo} alt="LogoTedx" className="w-[200px]" />
         </Link>
         <section
@@ -73,35 +83,21 @@ export default function Navbar() {
               className={classNames(
                 item.current
                   ? "bg-gray-900 text-white"
-                  : "text-gray-300 hover:bg-gray-700 hover:text-white",
-                "rounded-md px-3 py-2 text-sm font-semibold",
+                  : "text-white hover:bg-gray-700 hover:text-white",
+                "rounded-md px-3 py-2 text-base font-semibold tracking-[0.02em]",
               )}
-              onClick={() => {
-                setCurrentPage(item.name.toLowerCase());
-              }}
             >
               {item.name}
             </Link>
           ))}
-          <div
-            className="primary-button"
-            onMouseEnter={(e) => {
-              e.target.style.borderColor = "white";
-            }}
-            onMouseLeave={(e) => {
-              e.target.style.borderColor = "red";
-            }}
-            onClick={() => {
-              window.location.href = "/Newsletter";
-            }}
-          >
+          <Link className="primary-button" to="/join-us">
             JOIN US
-          </div>
+          </Link>
         </section>
         <div className="flex md:hidden"></div>
       </div>
       <div className="absolute inset-y-0 left-0 w-full pl-2 pr-2 flex items-center justify-between md:hidden bg-black">
-        <Link to="/" onClick={() => setCurrentPage("homepage")}>
+        <Link to="/">
           <img src={Logo} alt="LogoTedx" className="w-[200px]" />
         </Link>
         {/* Mobile menu button*/}
@@ -126,8 +122,8 @@ export default function Navbar() {
             {navigation.map((item) => (
               <DisclosureButton
                 key={item.name}
-                as="a"
-                href={item.href}
+                as={Link}
+                to={item.href}
                 aria-current={item.current ? "page" : undefined}
                 className={classNames(
                   item.current
@@ -135,13 +131,17 @@ export default function Navbar() {
                     : "text-gray-200 hover:bg-gray-700 hover:text-white",
                   "block rounded-md px-3 py-8  text-5xl font-medium",
                 )}
-                onClick={() => {
-                  setCurrentPage(item.name.toLowerCase());
-                }}
               >
                 {item.name}
               </DisclosureButton>
             ))}
+            <DisclosureButton
+              as={Link}
+              to="/join-us"
+              className="primary-button mt-4 block w-full text-center"
+            >
+              JOIN US
+            </DisclosureButton>
           </div>
         </DisclosurePanel>
       </div>

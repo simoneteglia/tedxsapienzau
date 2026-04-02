@@ -11,27 +11,63 @@ import Navbar from "./modules/components/Navbar";
 import Landing from "./modules/pages/Landing";
 import Team from "./modules/pages/Team";
 import Sponsors from "./modules/pages/Sponsors";
+import JoinUs from "./modules/pages/JoinUs";
 import Footer from "./modules/components/Footer";
 import ErrorPage from "./modules/pages/ErrorPage";
 import Location from "./modules/pages/Location";
 import Grainient from "./modules/components/Grainient";
 
 import Countdown2024 from "./modules/pages/events/Countdown2024";
-import ParaDoxa2025 from "./modules/pages/events/ParaDoxa2025";
-import BackToZero from "./modules/pages/events/BackToZero";
 import Awards23 from "./modules/pages/events/Awards23";
 import Awards24 from "./modules/pages/events/Awards24";
 import EventTemplate from "./modules/pages/events/EventTemplate";
+import EventsHub from "./modules/pages/events/EventsHub";
 import ScrollToTop from "./modules/components/ScrollToTop";
-
+import Awards22 from "./modules/pages/events/Awards22";
+import Act22 from "./modules/pages/events/Act22";
 // --- IMPORT ASSETS ---
 import paradoxaHeader from "./assets/images/paradoxa25/header_paradoxa2.png";
 import btzHeader from "./assets/images/backtozero23/Edizione2023.webp";
+import awardsBanner from "./assets/images/awards24/awards_sapienza.png";
 
 // --- IMPORT DATA ---
 import paradoxaData from "./data/paradoxa.json";
 import backtozeroData from "./data/backtozero.json";
+import awards22Data from "./data/awards22.json";
+import sidebarContent from "./data/eventSidebarContent.json";
+
 import "./App.css";
+
+const normalizeSpeakerName = (value = "") => value.trim().toLowerCase();
+
+const buildSidebarLookup = (items) =>
+  new Map(
+    (items || []).map((item) => [normalizeSpeakerName(item.name), item]),
+  );
+
+const paradoxaSidebarLookup = buildSidebarLookup(sidebarContent.paradoxa2025);
+
+const paradoxaEventData = {
+  ...paradoxaData,
+  speakers: Object.fromEntries(
+    Object.entries(paradoxaData.speakers || {}).map(([key, speaker]) => {
+      const sidebarSpeaker = paradoxaSidebarLookup.get(
+        normalizeSpeakerName(speaker.name),
+      );
+
+      return [
+        key,
+        {
+          ...speaker,
+          category: sidebarSpeaker?.category,
+          bio: sidebarSpeaker?.bio_it || speaker.bio,
+          bioeng: sidebarSpeaker?.bio_en,
+          linkTalk: sidebarSpeaker?.youtube_embed_url || speaker.linkTalk,
+        },
+      ];
+    }),
+  ),
+};
 
 const router = createBrowserRouter([
   {
@@ -54,17 +90,44 @@ const router = createBrowserRouter([
         element: <Sponsors />,
       },
       {
+        path: "/partners",
+        element: <Sponsors />,
+      },
+      {
         path: "/team",
         element: <Team />,
+      },
+      {
+        path: "/join-us",
+        element: <JoinUs />,
+      },
+      {
+        path: "/joinus",
+        element: <JoinUs />,
+      },
+      {
+        path: "/newsletter",
+        element: <JoinUs />,
+      },
+      {
+        path: "/Newsletter",
+        element: <JoinUs />,
       },
       {
         path: "/location",
         element: <Location />,
       },
       {
+        path: "/events",
+        element: <EventsHub />,
+      },
+      {
         path: "/events/paradoxa2025",
         element: (
-          <EventTemplate imagePath={paradoxaHeader} eventData={paradoxaData} />
+          <EventTemplate
+            imagePath={paradoxaHeader}
+            eventData={paradoxaEventData}
+          />
         ),
       },
       {
@@ -78,13 +141,22 @@ const router = createBrowserRouter([
       {
         path: "/events/backtozero",
         element: (
-          // <EventTemplate imagePath={btzHeader} eventData={backtozeroData} />
-          <BackToZero />
+          <EventTemplate imagePath={btzHeader} eventData={backtozeroData} />
         ),
       },
       {
         path: "/events/awards23",
         element: <Awards23 />,
+      },
+      {
+        path: "/events/act22",
+        element: <Act22 />,
+      },
+      {
+        path: "/events/awards22",
+        element: (
+          <EventTemplate imagePath={awardsBanner} eventData={awards22Data} />
+        ),
       },
     ],
   },
@@ -118,6 +190,7 @@ function LandingManager() {
           inset: 0,
           zIndex: 0,
           pointerEvents: "none",
+          width: "2500px",
         }}
       >
         <Grainient

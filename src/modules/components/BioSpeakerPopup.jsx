@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import { faClose } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
@@ -10,13 +10,10 @@ export default function BioSpeakerPopup({
   setIsBioOpen,
   selectedSpeakerInfo,
   windowSize,
-  year,
-  sidebarTheme,
 }) {
   useEffect(() => {
     if (isBioOpen) {
       document.body.classList.add("overflow-hidden");
-      console.log(selectedSpeakerInfo);
     } else {
       document.body.classList.remove("overflow-hidden");
     }
@@ -27,177 +24,140 @@ export default function BioSpeakerPopup({
   });
 
   const hasTalk = Boolean(selectedSpeakerInfo?.linkTalk);
-  const is2025 = year === 2025;
+  const isDesktop = windowSize > global.UTILS.TABLET_WIDTH;
   const tagLabel = selectedSpeakerInfo?.tag || "Speaker";
   const bioText = selectedSpeakerInfo?.bio || "Bio in arrivo.";
-  const useDarkSidebar = sidebarTheme === "dark";
-  const sidebarBackground = useDarkSidebar || is2025
-    ? "#1d1d1d"
-    : year === 2022
-    ? "linear-gradient(307deg, rgb(130, 36, 51) 29%, #E62B1E 98%)"
-    : year === 2023
-    ? "linear-gradient(307deg, #a42332 5%, #242958 60%)"
-    : "linear-gradient(307deg, #ff009c 3%, #0033cb 60%)";
+  const sidebarBackground =
+    "linear-gradient(180deg, rgba(24, 24, 24, 0.98) 0%, rgba(7, 7, 7, 0.99) 100%)";
+  const closeTop = hasTalk ? "18px" : isDesktop ? "28px" : "92px";
+  const contentPaddingTop = hasTalk ? "28px" : isDesktop ? "110px" : "150px";
 
-  if (windowSize > global.UTILS.TABLET_WIDTH) {
-    /**
-     * DESKTOP
-     */
-    return (
-      <div>
+  return (
+    <div>
+      <div
+        id="overlay"
+        style={{
+          width: "100vw",
+          height: "100vh",
+          backgroundColor: "rgba(0, 0, 0, 0.58)",
+          position: "fixed",
+          top: 0,
+          left: 0,
+          opacity: isBioOpen ? 1 : 0,
+          pointerEvents: isBioOpen ? "initial" : "none",
+          transition: "opacity 0.35s ease-in-out",
+          zIndex: 9998,
+        }}
+        onClick={() => setIsBioOpen(false)}
+      ></div>
+
+      <div
+        style={{
+          height: "100vh",
+          width: isDesktop ? "min(620px, 100vw)" : "100vw",
+          position: "fixed",
+          top: 0,
+          right: isBioOpen ? 0 : "-100%",
+          opacity: isBioOpen ? 1 : 0,
+          zIndex: 9999,
+          background: sidebarBackground,
+          transition: "right 0.35s ease-in-out, opacity 0.35s ease-in-out",
+          overflowY: "auto",
+          boxShadow: "-20px 0 50px rgba(0, 0, 0, 0.45)",
+          borderLeft: "1px solid rgba(255, 255, 255, 0.08)",
+        }}
+      >
         <div
           style={{
-            width: "100vw",
-            height: "100vh",
-            backgroundColor: "rgba(0, 0, 0, 0.5)",
-            position: "fixed",
-            top: 0,
-            left: 0,
-            opacity: isBioOpen ? 1 : 0,
-            pointerEvents: isBioOpen ? "initial" : "none",
-            transition: "all 0.4s ease-in-out",
-            zIndex: 10,
-          }}
-          onClick={() => setIsBioOpen(false)}
-        ></div>
-        <div
-          style={{
-            height: "100vh",
-            width: "600px",
-            position: "fixed",
-            top: 0,
-            right: isBioOpen ? 0 : "-100%",
-            zIndex: 11,
-            background: sidebarBackground,
-            transition: "all 0.4s ease-in-out",
-            overflowY: "scroll",
+            position: "relative",
+            minHeight: "100%",
+            color: "#fff",
           }}
         >
-          <div style={{ position: "relative", zIndex: 1, minHeight: "100%" }}>
-            <FontAwesomeIcon
-              icon={faClose}
-              size="2x"
-              style={{
-                color: "#fff",
-                position: "absolute",
-                left: "20px",
-                top: "60px",
-                cursor: "pointer",
-              }}
-              onClick={() => setIsBioOpen(false)}
-            />
-            {hasTalk ? (
-              <iframe
-                width="600"
-                height="400"
-                src={selectedSpeakerInfo.linkTalk}
-                title="YouTube video player"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                allowFullScreen
-              ></iframe>
-            ) : null}
+          <FontAwesomeIcon
+            icon={faClose}
+            size="2x"
+            style={{
+              color: "#fff",
+              position: "absolute",
+              right: "20px",
+              top: closeTop,
+              cursor: "pointer",
+              zIndex: 2,
+            }}
+            onClick={() => setIsBioOpen(false)}
+          />
 
+          {hasTalk ? (
+            <iframe
+              width="100%"
+              height={isDesktop ? "360" : "240"}
+              src={selectedSpeakerInfo.linkTalk}
+              title="YouTube video player"
+              style={{
+                display: "block",
+                border: 0,
+              }}
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowFullScreen
+            ></iframe>
+          ) : null}
+
+          <div
+            style={{
+              width: "min(92%, 540px)",
+              margin: "0 auto",
+              paddingTop: contentPaddingTop,
+              paddingBottom: "40px",
+              fontFamily: "GothamBold",
+            }}
+          >
             <div
               style={{
-                width: "95%",
-                margin: "auto",
-                paddingTop: hasTalk ? "0px" : "120px",
-                color: "#fff",
-                fontFamily: "GothamBold",
+                display: "inline-flex",
+                alignItems: "center",
+                minHeight: "34px",
+                padding: "0 14px",
+                borderRadius: "999px",
+                background: "rgba(255, 255, 255, 0.08)",
+                border: "1px solid rgba(255, 255, 255, 0.12)",
+                color: "#f3f3f3",
+                fontSize: "13px",
+                letterSpacing: "0.08em",
+                textTransform: "uppercase",
+                marginBottom: "18px",
               }}
             >
-              <div
-                className="tag-speaker mt-3 mb-1"
-                style={{ fontSize: "17px" }}
-              >
-                {tagLabel}
-              </div>
-              <h1>{selectedSpeakerInfo.nomeSpeaker}</h1>
-              <p
-                className="mt-1"
-                style={{
-                  fontSize: "15px",
-                  fontFamily: "GothamBook",
-                  textAlign: "justify",
-                }}
-              >
-                {bioText}
-              </p>
+              {tagLabel}
             </div>
+
+            <h1
+              style={{
+                margin: 0,
+                fontFamily: "GothamBold",
+                fontSize: isDesktop ? "42px" : "34px",
+                lineHeight: 0.95,
+              }}
+            >
+              {selectedSpeakerInfo?.nomeSpeaker}
+            </h1>
+
+            <p
+              style={{
+                marginTop: "22px",
+                marginBottom: 0,
+                fontSize: "15px",
+                lineHeight: 1.7,
+                fontFamily: "GothamBook",
+                color: "rgba(255, 255, 255, 0.86)",
+                textAlign: "justify",
+              }}
+            >
+              {bioText}
+            </p>
           </div>
         </div>
       </div>
-    );
-  } else {
-    /**
-     * MOBILE / TABLET
-     */
-    return (
-      <div>
-        <div
-          style={{
-            height: "100%",
-            width: "100vw",
-            position: "fixed",
-            top: 0,
-            right: isBioOpen ? 0 : "-100%",
-            opacity: isBioOpen ? 1 : 0,
-            zIndex: 11,
-            background: sidebarBackground,
-            transition: "all 0.4s ease-in-out",
-            overflowY: "scroll",
-          }}
-        >
-          <div style={{ position: "relative", zIndex: 1, minHeight: "100%" }}>
-            <FontAwesomeIcon
-              icon={faClose}
-              size="2x"
-              style={{
-                color: "#fff",
-                position: "absolute",
-                left: "20px",
-                top: "100px",
-                cursor: "pointer",
-              }}
-              onClick={() => setIsBioOpen(false)}
-            />
-            {hasTalk ? (
-              <iframe
-                width="100%"
-                height="400"
-                textAlign="center"
-                src={selectedSpeakerInfo.linkTalk}
-                title="YouTube video player"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                allowFullScreen
-              ></iframe>
-            ) : null}
-
-            <div
-              style={{
-                width: "95%",
-                margin: "auto",
-                paddingTop: hasTalk ? "0px" : "140px",
-                color: "#fff",
-                fontFamily: "GothamBold",
-              }}
-            >
-              <div className="tag-speaker mt-3 mb-1">{tagLabel}</div>
-              <h1>{selectedSpeakerInfo.nomeSpeaker}</h1>
-              <p
-                className="mt-1"
-                style={{
-                  fontSize: "15px",
-                  fontFamily: "GothamBook",
-                  textAlign: "justify",
-                }}
-              >
-                {bioText}
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-    );
-  }
+    </div>
+  );
 }
