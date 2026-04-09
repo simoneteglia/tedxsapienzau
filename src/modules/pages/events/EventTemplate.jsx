@@ -33,6 +33,21 @@ import Villain from "../../../assets/images/backtozero23/speakersBTZ/speakersBTZ
 import Onofri from "../../../assets/images/backtozero23/speakersBTZ/speakersBTZ/Onofri.webp";
 import Nakita from "../../../assets/images/backtozero23/speakersBTZ/speakersBTZ/Nakita.webp";
 
+// ----------ACT 2022 SPEAKERS ----------
+import Amoroso from "../../../assets/images/act22/Amoroso.png";
+import Baccini from "../../../assets/images/act22/Baccini.jpg";
+import Bottaro from "../../../assets/images/act22/Bottaro.jpg";
+import Dallari from "../../../assets/images/act22/Dallari.jpg";
+import Ewelina from "../../../assets/images/act22/Ewelina.jpg";
+import Fasma from "../../../assets/images/act22/Fasma.jpg";
+import Loreto from "../../../assets/images/act22/Loreto.jpg";
+import Melandri from "../../../assets/images/act22/Melandri.jpg";
+import Pariset from "../../../assets/images/act22/Pariset.jpg";
+import Peduzzi from "../../../assets/images/act22/Peduzzi.jpg";
+import Spanò from "../../../assets/images/act22/Spano.png";
+import Trombetta from "../../../assets/images/act22/Trombetta.jpeg";
+import Volosumarte from "../../../assets/images/act22/Volosumarte.JPG";
+
 // ----------AWARDS 2022 SPEAKERS ----------
 import Volosumarte22 from "../../../assets/images/awards22/artist1.jpg";
 import Spano22 from "../../../assets/images/awards22/speaker1.jpg";
@@ -134,6 +149,34 @@ const getImage = (imgName) => {
       return Pariset22;
     case "Peduzzi22":
       return Peduzzi22;
+      //act22
+      case "Amoroso":
+      return Amoroso;
+    case "Baccini":
+      return Baccini;
+    case "Bottaro":
+      return Bottaro;
+    case "Dallari":
+      return Dallari;
+      case "Ewelina":
+      return Ewelina;
+    case "Fasma":
+      return Fasma;
+    case "Loreto":
+      return Loreto;
+    case "Melandri":
+      return Melandri;
+      case "Pariset":
+      return Pariset;
+    case "Peduzzi":
+      return Peduzzi;
+    case "Spanò":
+      return Spanò;
+    case "Trombetta":
+      return Trombetta;
+    case "Volosumarte":
+      return Volosumarte;
+
     default:
       return "";
   }

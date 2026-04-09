@@ -18,57 +18,64 @@ import Location from "./modules/pages/Location";
 import Grainient from "./modules/components/Grainient";
 
 import Countdown2024 from "./modules/pages/events/Countdown2024";
-import Awards23 from "./modules/pages/events/Awards23";
-import Awards24 from "./modules/pages/events/Awards24";
 import EventTemplate from "./modules/pages/events/EventTemplate";
 import EventsHub from "./modules/pages/events/EventsHub";
 import ScrollToTop from "./modules/components/ScrollToTop";
-import Awards22 from "./modules/pages/events/Awards22";
 import Act22 from "./modules/pages/events/Act22";
+
 // --- IMPORT ASSETS ---
 import paradoxaHeader from "./assets/images/paradoxa25/header_paradoxa2.png";
 import btzHeader from "./assets/images/backtozero23/Edizione2023.webp";
 import awardsBanner from "./assets/images/awards24/awards_sapienza.png";
+import Awards23Header from "./assets/images/awards23/header_awards23.webp";
+
 
 // --- IMPORT DATA ---
-import paradoxaData from "./data/paradoxa.json";
-import backtozeroData from "./data/backtozero.json";
 import awards22Data from "./data/awards22.json";
 import sidebarContent from "./data/eventSidebarContent.json";
 
 import "./App.css";
 
-const normalizeSpeakerName = (value = "") => value.trim().toLowerCase();
+// 1. FUNZIONE PER FORMATTARE I DATI DI eventSidebarContent.json
+const formatEventData = (rawEventData) => {
+  if (!rawEventData) return {};
 
-const buildSidebarLookup = (items) =>
-  new Map(
-    (items || []).map((item) => [normalizeSpeakerName(item.name), item]),
-  );
-
-const paradoxaSidebarLookup = buildSidebarLookup(sidebarContent.paradoxa2025);
-
-const paradoxaEventData = {
-  ...paradoxaData,
-  speakers: Object.fromEntries(
-    Object.entries(paradoxaData.speakers || {}).map(([key, speaker]) => {
-      const sidebarSpeaker = paradoxaSidebarLookup.get(
-        normalizeSpeakerName(speaker.name),
-      );
-
-      return [
+  return {
+    ...rawEventData,
+    speakers: Object.fromEntries(
+      Object.entries(rawEventData.speakers || {}).map(([key, speaker]) => [
         key,
         {
           ...speaker,
-          category: sidebarSpeaker?.category,
-          bio: sidebarSpeaker?.bio_it || speaker.bio,
-          bioeng: sidebarSpeaker?.bio_en,
-          linkTalk: sidebarSpeaker?.youtube_embed_url || speaker.linkTalk,
+          bio: speaker.bio_it,
+          bioeng: speaker.bio_en,
+          linkTalk: speaker.youtube_embed_url,
         },
-      ];
-    }),
-  ),
+      ]),
+    ),
+  };
 };
 
+// 2. ESTRAZIONE DATI DA eventSidebarContent.json
+const rawParadoxaData = sidebarContent.paradoxa2025?.[0];
+const paradoxaEventData = formatEventData(rawParadoxaData);
+
+const rawBacktozeroData = sidebarContent.backtozero?.[0];
+const backtozeroEventData = formatEventData(rawBacktozeroData);
+
+const rawActData = sidebarContent.act22?.[0];
+const actEventData = formatEventData(rawActData);
+
+const rawAwards22Data = sidebarContent.awards22?.[0];
+const awards22EventData = formatEventData(rawAwards22Data);
+
+const rawAwards23Data = sidebarContent.awards23?.[0];
+const awards23EventData = formatEventData(rawAwards23Data);
+
+const rawAwards24Data = sidebarContent.awards24?.[0];
+const awards24EventData = formatEventData(rawAwards24Data);
+
+// 3. ROUTER
 const router = createBrowserRouter([
   {
     path: "/",
@@ -132,7 +139,9 @@ const router = createBrowserRouter([
       },
       {
         path: "/events/awards24",
-        element: <Awards24 />,
+        element: (
+          <EventTemplate imagePath={awardsBanner} eventData={awards24EventData} />
+        ),
       },
       {
         path: "/events/countdown2024",
@@ -141,27 +150,33 @@ const router = createBrowserRouter([
       {
         path: "/events/backtozero",
         element: (
-          <EventTemplate imagePath={btzHeader} eventData={backtozeroData} />
+          <EventTemplate
+            imagePath={btzHeader}
+            eventData={backtozeroEventData}
+          />
         ),
       },
       {
         path: "/events/awards23",
-        element: <Awards23 />,
+        element: (
+          <EventTemplate imagePath={Awards23Header} eventData={awards23EventData} />
+        ),
       },
       {
         path: "/events/act22",
-        element: <Act22 />,
+        element: <Act22 eventData={actEventData} />, //pagina parzialmente template per mantenere la scritta ACT
       },
       {
         path: "/events/awards22",
         element: (
-          <EventTemplate imagePath={awardsBanner} eventData={awards22Data} />
+          <EventTemplate imagePath={awardsBanner} eventData={awards22EventData} />
         ),
       },
     ],
   },
 ]);
 
+// 4. COMPONENTI
 function LandingManager() {
   const [windowSize, setWindowSize] = useState(window.innerWidth);
   const location = useLocation();
@@ -175,6 +190,7 @@ function LandingManager() {
 
   useEffect(() => {
     window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
   }, []);
 
   const handleResize = () => {
