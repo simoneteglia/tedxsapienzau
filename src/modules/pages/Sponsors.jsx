@@ -1,5 +1,7 @@
-import { useLayoutEffect } from "react";
+import { useLayoutEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
+
+import Bento from "../components/bento";
 
 import global from "../../resources/global.json";
 import {
@@ -7,63 +9,15 @@ import {
   sponsorHeroCopy,
   sponsorMarqueeItems,
   sponsorSections,
-  sponsorStats,
 } from "../../data/sponsorsData";
 
 import "./sponsors.css";
 
-function SponsorStatCard({ value, label }) {
-  return (
-    <article className="sponsor-stat-card">
-      <strong>{value}</strong>
-      <span>{label}</span>
-    </article>
-  );
-}
-
-function SponsorSlot({ sectionCode, slot, language, accent }) {
-  const name = getLocalizedSponsorValue(slot.name, language);
-  const note = getLocalizedSponsorValue(slot.note, language);
-
-  return (
-    <article
-      className="sponsor-slot"
-      style={{
-        "--sponsor-accent": slot.accent ?? accent,
-        "--sponsor-slot-logo-scale": slot.logoScale ?? 1,
-      }}
-    >
-      <span className="sponsor-slot-code">{sectionCode}</span>
-
-      <div className="sponsor-slot-visual">
-        {slot.src ? (
-          <img className="sponsor-slot-image" src={slot.src} alt={name} />
-        ) : (
-          <h3>{name}</h3>
-        )}
-      </div>
-
-      <div className="sponsor-slot-copy">
-        <h3>{name}</h3>
-        <p>{note}</p>
-      </div>
-    </article>
-  );
-}
-
+// Componente striscia scorrevole
 function SponsorLogoTile({ item, language }) {
   const name = getLocalizedSponsorValue(item.name, language);
-
   return (
-    <article
-      className="sponsor-logo-tile"
-      style={{
-        "--sponsor-accent": item.accent,
-        "--sponsor-tile-logo-scale": item.tileLogoScale ?? item.logoScale ?? 1,
-      }}
-      aria-label={name}
-      title={name}
-    >
+    <article className="sponsor-logo-tile" aria-label={name} title={name}>
       {item.src ? (
         <img className="sponsor-logo-image" src={item.src} alt={name} />
       ) : (
@@ -73,17 +27,65 @@ function SponsorLogoTile({ item, language }) {
   );
 }
 
+// IL NUOVO SPONSOR SLOT (Usa i dati del tuo file ma grafica Bento)
+function SponsorSlot({ slot, language, isFeatured }) {
+  const name = getLocalizedSponsorValue(slot.name, language);
+  
+  // Se la sezione è "featured" (es. Main Sponsor) la card è più grande
+  const bentoHeight = isFeatured ? "260px" : "180px";
+
+  return (
+    <div className="flex flex-col h-full w-full">
+      <Bento 
+        style={{ 
+          padding: "1.5rem", 
+          height: bentoHeight, 
+          background: "white", 
+          display: "flex", 
+          justifyContent: "center", 
+          alignItems: "center", 
+          borderRadius: "32px" 
+        }}
+      >
+        {slot.src ? (
+          <img 
+            src={slot.src} 
+            alt={name} 
+            className="w-full h-full object-contain drop-shadow-sm" 
+            style={{ transform: `scale(${slot.logoScale ?? 1})` }}
+          />
+        ) : (
+          <span className="text-black font-bold text-center leading-tight" style={{ fontFamily: "GothamBold", fontSize: "1.5rem" }}>
+            {name}
+          </span>
+        )}
+      </Bento>
+      
+      {/* Link sotto al logo */}
+      <a 
+        href={slot.link || "#"} 
+        target="_blank" 
+        rel="noreferrer" 
+        className="text-center text-gray-300 mt-4 text-sm underline underline-offset-4 hover:text-white transition-colors" 
+        style={{ fontFamily: "GothamBold" }}
+      >
+        {name} ↗
+      </a>
+    </div>
+  );
+}
+
 export default function Sponsors() {
   const { t, i18n } = useTranslation();
   const language = i18n.resolvedLanguage || i18n.language || "it";
+  
+  // STATO PER IL FILTRO ANNO (Impostato su 2023 per mostrare subito i tuoi dati reali)
+  const [selectedYear, setSelectedYear] = useState("2023");
+
   const marqueeFirstRow = sponsorMarqueeItems.slice(0, Math.ceil(sponsorMarqueeItems.length / 2));
   const marqueeSecondRow = sponsorMarqueeItems.slice(Math.ceil(sponsorMarqueeItems.length / 2));
   const partnershipFormats = [
-    t("partners.14th_st_el_1"),
-    t("partners.14th_st_el_2"),
-    t("partners.14th_st_el_3"),
-    t("partners.14th_st_el_4"),
-    t("partners.14th_st_el_5"),
+    t("partners.14th_st_el_1"), t("partners.14th_st_el_2"), t("partners.14th_st_el_3"), t("partners.14th_st_el_4"), t("partners.14th_st_el_5"),
   ];
 
   useLayoutEffect(() => {
@@ -91,44 +93,20 @@ export default function Sponsors() {
   }, []);
 
   return (
-    <main
-      className="sponsors-page"
-      style={{ paddingTop: `calc(${global.UTILS.NAV_HEIGHT} + 28px)` }}
-    >
+    <main className="sponsors-page" style={{ paddingTop: `calc(${global.UTILS.NAV_HEIGHT} + 28px)` }}>
       <div className="sponsors-shell">
+        
+        {/* HERO SECTION */}
         <section className="sponsors-hero">
           <div className="sponsors-hero-copy">
-            <p className="sponsors-kicker">
-              {getLocalizedSponsorValue(sponsorHeroCopy.kicker, language)}
-            </p>
-            <h1 className="sponsors-title">
-              {getLocalizedSponsorValue(sponsorHeroCopy.title, language)}
-            </h1>
-            <p className="sponsors-description">
-              {getLocalizedSponsorValue(sponsorHeroCopy.description, language)}
-            </p>
+            <h1 className="sponsors-title">{getLocalizedSponsorValue(sponsorHeroCopy.title, language)}</h1>
+            <p className="sponsors-description">{getLocalizedSponsorValue(sponsorHeroCopy.description, language)}</p>
 
-            <div className="sponsors-logo-marquee" aria-label={t("partners.slider_title")}>
+            <div className="sponsors-logo-marquee">
               <div className="sponsors-logo-marquee-row">
                 <div className="sponsors-logo-track">
                   {[...marqueeFirstRow, ...marqueeFirstRow].map((item, index) => (
-                    <SponsorLogoTile
-                      key={`${item.id}-row-a-${index}`}
-                      item={item}
-                      language={language}
-                    />
-                  ))}
-                </div>
-              </div>
-
-              <div className="sponsors-logo-marquee-row is-slower">
-                <div className="sponsors-logo-track">
-                  {[...marqueeSecondRow, ...marqueeSecondRow].map((item, index) => (
-                    <SponsorLogoTile
-                      key={`${item.id}-row-b-${index}`}
-                      item={item}
-                      language={language}
-                    />
+                    <SponsorLogoTile key={`row-a-${index}`} item={item} language={language} />
                   ))}
                 </div>
               </div>
@@ -136,109 +114,123 @@ export default function Sponsors() {
           </div>
 
           <aside className="sponsors-cta-card">
-            <p className="sponsors-cta-kicker">
-              {getLocalizedSponsorValue(sponsorHeroCopy.ctaEyebrow, language)}
-            </p>
-            <h2 className="sponsors-cta-title">
-              {getLocalizedSponsorValue(sponsorHeroCopy.ctaTitle, language)}
-            </h2>
-            <p className="sponsors-cta-description">
-              {getLocalizedSponsorValue(sponsorHeroCopy.ctaDescription, language)}
-            </p>
-
+            <h2 className="sponsors-cta-title">{getLocalizedSponsorValue(sponsorHeroCopy.ctaTitle, language)}</h2>
+            <p className="sponsors-cta-description">{getLocalizedSponsorValue(sponsorHeroCopy.ctaDescription, language)}</p>
             <div className="sponsors-format-row">
               {partnershipFormats.map((format) => (
-                <span key={format} className="sponsors-format-chip">
-                  {format}
-                </span>
+                <span key={format} className="sponsors-format-chip">{format}</span>
               ))}
             </div>
-
             <div className="sponsors-cta-contact">
               <span>{getLocalizedSponsorValue(sponsorHeroCopy.contactLabel, language)}</span>
-              <a href={`mailto:${sponsorHeroCopy.contactValue}`}>
-                {sponsorHeroCopy.contactValue}
-              </a>
+              <a href={`mailto:${sponsorHeroCopy.contactValue}`}>{sponsorHeroCopy.contactValue}</a>
             </div>
-
-            <button type="button" className="sponsors-contact-button">
-              {t("partners.14th_st_el_6")}
-            </button>
+            <button type="button" className="sponsors-contact-button">{t("partners.14th_st_el_6")}</button>
           </aside>
         </section>
 
-        <section className="sponsors-stats-section">
-          <div className="sponsors-stats-copy">
-            <p className="sponsors-stats-kicker">{t("partners.stats")}</p>
-            <h2>{t("partners.events")}</h2>
-            <p>
-              {language.toLowerCase().startsWith("en")
-                ? "A quick snapshot of audience, reach and partnerships across the project."
-                : "Una fotografia rapida di audience, reach e collaborazioni che orbitano intorno al progetto."}
+        {/* STATS SECTION - LIQUID GLASS */}
+        <section className="max-w-6xl mx-auto mb-20 w-full">
+          <div className="sponsors-stats-copy mb-10 text-center">
+            <h2 className="text-4xl md:text-5xl font-bold mb-4" style={{ fontFamily: "GothamBold" }}>{t("partners.events")}</h2>
+            <p className="text-gray-300 text-lg mx-auto max-w-3xl" style={{ fontFamily: "GothamBook" }}>
+              {language.toLowerCase().startsWith("en") ? "A quick snapshot of audience, reach and partnerships across the project." : "Una fotografia rapida di audience, reach e collaborazioni che orbitano intorno al progetto."}
             </p>
           </div>
 
-          <div className="sponsors-stats-grid">
-            {sponsorStats.map((stat) => (
-              <SponsorStatCard
-                key={stat.labelKey}
-                value={stat.value}
-                label={t(stat.labelKey)}
-              />
-            ))}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            <Bento style={{ textAlign: "center", padding: "2rem 1rem", minHeight: "220px" }}>
+              <strong className="text-[#eb0028] font-bold leading-tight block mb-2" style={{ fontSize: "clamp(42px, 5vw, 74px)", fontFamily: "GothamBold" }}>3000</strong>
+              <span className="font-bold leading-tight text-white block" style={{ fontSize: "18px", fontFamily: "GothamBold", letterSpacing: "1px" }}>spettatori coinvolti</span>
+            </Bento>
+            <Bento style={{ textAlign: "center", padding: "2rem 1rem", minHeight: "220px" }}>
+              <strong className="text-[#eb0028] font-bold leading-tight block mb-2" style={{ fontSize: "clamp(42px, 5vw, 74px)", fontFamily: "GothamBold" }}>35000</strong>
+              <span className="font-bold leading-tight text-white block" style={{ fontSize: "18px", fontFamily: "GothamBold", letterSpacing: "1px" }}>visualizzazioni su YouTube</span>
+            </Bento>
+            <Bento style={{ textAlign: "center", padding: "2rem 1rem", minHeight: "220px" }}>
+              <strong className="text-[#eb0028] font-bold leading-tight block mb-2" style={{ fontSize: "clamp(42px, 5vw, 74px)", fontFamily: "GothamBold" }}>???</strong>
+              <span className="font-bold leading-tight text-white block" style={{ fontSize: "18px", fontFamily: "GothamBold", letterSpacing: "1px" }}>vi prego qui metteteci altri numeri</span>
+            </Bento>
+            <Bento style={{ textAlign: "center", padding: "2rem 1rem", minHeight: "220px" }}>
+              <strong className="text-[#eb0028] font-bold leading-tight block mb-2" style={{ fontSize: "clamp(42px, 5vw, 74px)", fontFamily: "GothamBold" }}>50</strong>
+              <span className="font-bold leading-tight text-white block" style={{ fontSize: "18px", fontFamily: "GothamBold", letterSpacing: "1px" }}>event partners</span>
+            </Bento>
+            <Bento style={{ textAlign: "center", padding: "2rem 1rem", minHeight: "220px" }}>
+              <strong className="text-[#eb0028] font-bold leading-tight block mb-2" style={{ fontSize: "clamp(42px, 5vw, 74px)", fontFamily: "GothamBold" }}>300</strong>
+              <span className="font-bold leading-tight text-white block" style={{ fontSize: "18px", fontFamily: "GothamBold", letterSpacing: "1px" }}>volontari passati di qui</span>
+            </Bento>
+            <Bento style={{ textAlign: "center", padding: "2rem 1rem", minHeight: "220px" }}>
+              <strong className="text-[#eb0028] font-bold leading-tight block mb-2" style={{ fontSize: "clamp(42px, 5vw, 74px)", fontFamily: "GothamBold" }}>???</strong>
+              <span className="font-bold leading-tight text-white block" style={{ fontSize: "18px", fontFamily: "GothamBold", letterSpacing: "1px" }}>vi prego qui metteteci altri numeri</span>
+            </Bento>
           </div>
         </section>
 
-        <section className="sponsors-directory">
-          <header className="sponsors-directory-head">
-            <p className="sponsors-directory-kicker">{t("partners.slider_title")}</p>
-            <h2>
-              {language.toLowerCase().startsWith("en")
-                ? "A modular sponsor page ready for real logos"
-                : "Una sponsor page modulare pronta per i loghi reali"}
+        {/* LOGOS DIRECTORY (Dinamico da sponsorsData.js) */}
+        <section className="max-w-6xl mx-auto mb-20 w-full">
+          
+          {/* HEADER CON SELETTORE ANNO */}
+          <div className="flex justify-between items-center mb-12 border-b border-white/20 pb-6">
+            <h2 className="text-4xl md:text-5xl font-bold text-white" style={{ fontFamily: "GothamBold" }}>
+              {language.toLowerCase().startsWith("en") ? "Our sponsors" : "I nostri sponsor"}
             </h2>
-            <p>
-              {language.toLowerCase().startsWith("en")
-                ? "Each block below already maps one collaboration format, so later we can swap placeholder slots with real partner identities without changing the structure."
-                : "Ogni blocco qui sotto corrisponde gia a un formato di collaborazione, cosi piu avanti potremo sostituire i placeholder con loghi reali senza toccare la struttura della pagina."}
-            </p>
-          </header>
-
-          <div className="sponsor-category-grid">
-            {sponsorSections.map((section) => (
-              <article
-                key={section.id}
-                className={`sponsor-category-card ${section.featured ? "is-featured" : ""}`}
-                style={{ "--sponsor-accent": section.accent }}
-              >
-                <header className="sponsor-category-head">
-                  <div>
-                    <p className="sponsor-category-code">{section.code}</p>
-                    <h3>{getLocalizedSponsorValue(section.title, language)}</h3>
-                  </div>
-                  <span className="sponsor-category-count">
-                    {section.slots.length} {section.slots.length === 1 ? "slot" : "slots"}
-                  </span>
-                </header>
-
-                <p className="sponsor-category-description">
-                  {getLocalizedSponsorValue(section.description, language)}
-                </p>
-
-                <div className="sponsor-slot-grid">
-                  {section.slots.map((slot) => (
-                    <SponsorSlot
-                      key={slot.id}
-                      sectionCode={section.code}
-                      slot={slot}
-                      language={language}
-                      accent={section.accent}
-                    />
-                  ))}
-                </div>
-              </article>
-            ))}
+            <select
+              value={selectedYear}
+              onChange={(e) => setSelectedYear(e.target.value)}
+              className="bg-transparent text-white border border-white/40 rounded-full px-5 py-2 cursor-pointer outline-none hover:bg-white/10 transition"
+              style={{ fontFamily: "GothamBold", fontSize: "16px" }}
+            >
+              <option value="2026" className="bg-[#101010] text-white">2026</option>
+              <option value="2025" className="bg-[#101010] text-white">2025</option>
+              <option value="2024" className="bg-[#101010] text-white">2024</option>
+              <option value="2023" className="bg-[#101010] text-white">2023</option>
+            </select>
           </div>
+
+          {/* MAPPATURA SEZIONI DA sponsorsData.js */}
+          <div className="flex flex-col gap-12">
+            {sponsorSections.map((section) => {
+              
+              // Filtra gli sponsor per l'anno selezionato.
+              // N.B: Se nel file dati un logo non ha l'attributo "year", lo mostra comunque per evitare pagine vuote!
+              const filteredSlots = section.slots.filter(
+                (slot) => !slot.year || String(slot.year) === selectedYear
+              );
+
+              if (filteredSlots.length === 0) return null;
+
+              return (
+                <article key={section.id} className="w-full flex flex-col">
+                  {/* Titolo Categoria (es. MAIN SPONSORS) */}
+                  <header className="mb-6">
+                    <h3 className="text-[#ff92a3] text-sm font-bold uppercase" style={{ fontFamily: "Anton", letterSpacing: "0.16em" }}>
+                      {getLocalizedSponsorValue(section.title, language)}
+                    </h3>
+                  </header>
+
+                  {/* Griglia Loghi */}
+                  <div 
+                    className="grid gap-6" 
+                    style={{ 
+                      gridTemplateColumns: section.featured 
+                        ? "repeat(auto-fill, minmax(280px, 1fr))" 
+                        : "repeat(auto-fill, minmax(220px, 1fr))" 
+                    }}
+                  >
+                    {filteredSlots.map((slot) => (
+                      <SponsorSlot
+                        key={slot.id}
+                        slot={slot}
+                        language={language}
+                        isFeatured={section.featured}
+                      />
+                    ))}
+                  </div>
+                </article>
+              );
+            })}
+          </div>
+
         </section>
       </div>
     </main>
