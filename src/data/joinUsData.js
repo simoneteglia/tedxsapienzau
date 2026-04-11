@@ -2,10 +2,7 @@ const localized = (it, en = it) => ({ it, en });
 
 export const joinUsHeroCopy = {
   kicker: localized("Dentro il progetto", "Inside the project"),
-  title: localized(
-    "Build TEDxSapienzaU with us",
-    "Build TEDxSapienzaU with us",
-  ),
+  title: localized("Build TEDx with us", "Build TEDx with us"),
   description: localized(
     "Entrare nel team significa lavorare su eventi, contenuti, partnership, design e tecnologia insieme a studenti che trasformano idee in esperienze concrete. La pagina e pronta per diventare il punto di ingresso della prossima call, ma gia oggi racconta bene ritmo, aree e modo di lavorare.",
     "Joining the team means working on events, content, partnerships, design and technology with students who turn ideas into real experiences. This page is ready to become the entry point for the next open call, but already shows the rhythm, the areas and the way we work.",
@@ -64,7 +61,10 @@ export const joinUsInfoCards = [
   {
     id: "pace",
     eyebrow: localized("Come si lavora", "How the work feels"),
-    title: localized("Operativita vera, non solo volontariato simbolico", "Hands-on work, not symbolic volunteering"),
+    title: localized(
+      "Operativita vera, non solo volontariato simbolico",
+      "Hands-on work, not symbolic volunteering",
+    ),
     description: localized(
       "Ogni area contribuisce con task reali: planning, produzione, contenuti, contatti, design, sviluppo e supporto durante gli eventi.",
       "Every area contributes through real tasks: planning, production, content, outreach, design, development and live event support.",
@@ -73,7 +73,10 @@ export const joinUsInfoCards = [
   {
     id: "growth",
     eyebrow: localized("Cosa ti porti a casa", "What you gain"),
-    title: localized("Metodo, responsabilita, rete", "Process, ownership, network"),
+    title: localized(
+      "Metodo, responsabilita, rete",
+      "Process, ownership, network",
+    ),
     description: localized(
       "Si entra in un contesto dove si impara lavorando con persone di team diversi, con piu responsabilita nel tempo e occasioni concrete di crescita.",
       "You enter a context where you learn by working with people across teams, gain more ownership over time and build real growth opportunities.",
@@ -92,7 +95,10 @@ export const joinUsSteps = [
   },
   {
     id: "02",
-    title: localized("Raccontaci dove vuoi contribuire", "Tell us where you want to contribute"),
+    title: localized(
+      "Raccontaci dove vuoi contribuire",
+      "Tell us where you want to contribute",
+    ),
     description: localized(
       "Potrai indicare le aree che senti piu vicine a te e spiegare il tipo di contributo che vuoi portare.",
       "You will be able to indicate the areas that feel closest to you and explain the kind of contribution you want to bring.",
@@ -108,7 +114,10 @@ export const joinUsSteps = [
   },
   {
     id: "04",
-    title: localized("Onboarding e primo inserimento", "Onboarding and first integration"),
+    title: localized(
+      "Onboarding e primo inserimento",
+      "Onboarding and first integration",
+    ),
     description: localized(
       "Se entri, inizi con un affiancamento chiaro: strumenti, rituali del team, persone di riferimento e prime attivita.",
       "If you join, you start with a clear onboarding: tools, team rituals, reference people and first tasks.",
@@ -164,7 +173,10 @@ export const joinUsTeamSummaries = {
 export const joinUsFaqs = [
   {
     id: "experience",
-    question: localized("Serve esperienza pregressa?", "Do I need previous experience?"),
+    question: localized(
+      "Serve esperienza pregressa?",
+      "Do I need previous experience?",
+    ),
     answer: localized(
       "Aiuta, ma non e l'unico criterio. Contano molto chiarezza, costanza, voglia di imparare e il motivo per cui vuoi entrare nel progetto.",
       "It helps, but it is not the only criterion. Clarity, consistency, willingness to learn and your motivation matter a lot.",
@@ -172,7 +184,10 @@ export const joinUsFaqs = [
   },
   {
     id: "time",
-    question: localized("Quanto tempo richiede?", "How much time does it require?"),
+    question: localized(
+      "Quanto tempo richiede?",
+      "How much time does it require?",
+    ),
     answer: localized(
       "Dipende dall'area e dalla fase dell'anno. Alcuni periodi sono piu intensi, ma il lavoro viene organizzato per team e milestone, non lasciato al caso.",
       "It depends on the area and the moment of the year. Some periods are more intense, but work is organized through teams and milestones, not left to improvisation.",
@@ -180,7 +195,10 @@ export const joinUsFaqs = [
   },
   {
     id: "fit",
-    question: localized("E se non so ancora dove mi vedo?", "What if I do not know where I fit yet?"),
+    question: localized(
+      "E se non so ancora dove mi vedo?",
+      "What if I do not know where I fit yet?",
+    ),
     answer: localized(
       "Va bene cosi. La call serve anche a capire quale area ti permette di esprimerti meglio: puoi arrivare con curiosita, non per forza con una risposta definitiva.",
       "That is completely fine. The open call also helps understand which area fits you best: you can arrive with curiosity, not necessarily with a final answer.",
@@ -198,6 +216,9 @@ export const joinUsFinalCta = {
     "Per ora possiamo usare questa pagina per raccontare bene il progetto, indirizzare chi e curioso verso i team e raccogliere interesse attraverso email e canali social. Quando vorrai, collegheremo il form reale al bottone principale.",
     "For now this page can explain the project clearly, direct curious people to the teams and gather interest through email and social channels. When you want, we can connect the real form to the main button.",
   ),
-  primaryLabel: localized("Candidati appena apriamo", "Apply when applications open"),
+  primaryLabel: localized(
+    "Candidati appena apriamo",
+    "Apply when applications open",
+  ),
   secondaryLabel: localized("Scrivici una mail", "Send us an email"),
 };

@@ -124,7 +124,10 @@ export default function JoinUs() {
               <button type="button" className="joinus-primary-button">
                 {getLocalizedValue(joinUsHeroCopy.inactiveCtaLabel, language)}
               </button>
-              <a className="joinus-secondary-button" href="#joinus-team-directory">
+              <a
+                className="joinus-secondary-button"
+                href="#joinus-team-directory"
+              >
                 {getLocalizedValue(joinUsHeroCopy.exploreTeamsLabel, language)}
               </a>
             </div>
@@ -133,32 +136,6 @@ export default function JoinUs() {
               {getLocalizedValue(joinUsHeroCopy.inactiveCtaNote, language)}
             </p>
           </div>
-
-          <aside className="joinus-status-card">
-            <p className="joinus-status-kicker">
-              {getLocalizedValue(joinUsHeroCopy.statusEyebrow, language)}
-            </p>
-            <h2>{getLocalizedValue(joinUsHeroCopy.statusTitle, language)}</h2>
-            <p className="joinus-status-description">
-              {getLocalizedValue(joinUsHeroCopy.statusDescription, language)}
-            </p>
-
-            <div className="joinus-status-list">
-              {joinUsHeroCopy.statusPoints.map((point) => (
-                <div key={point.it} className="joinus-status-item">
-                  <span />
-                  <p>{getLocalizedValue(point, language)}</p>
-                </div>
-              ))}
-            </div>
-
-            <div className="joinus-contact-block">
-              <p>{getLocalizedValue(joinUsHeroCopy.contactLabel, language)}</p>
-              <a href={`mailto:${joinUsHeroCopy.contactValue}`}>
-                {joinUsHeroCopy.contactValue}
-              </a>
-            </div>
-          </aside>
         </section>
 
         <section className="joinus-info-grid">
@@ -172,7 +149,12 @@ export default function JoinUs() {
             <p className="joinus-section-kicker">
               {getLocalizedValue(joinUsHeroCopy.kicker, language)}
             </p>
-            <h2>{getLocalizedValue({ it: "Come funziona", en: "How it works" }, language)}</h2>
+            <h2>
+              {getLocalizedValue(
+                { it: "Come funziona", en: "How it works" },
+                language,
+              )}
+            </h2>
             <p>
               {getLocalizedValue(
                 {
@@ -202,7 +184,10 @@ export default function JoinUs() {
             </div>
 
             <Link className="joinus-inline-link" to="/team">
-              {getLocalizedValue(joinUsTeamIntro.exploreTeamPageLabel, language)}
+              {getLocalizedValue(
+                joinUsTeamIntro.exploreTeamPageLabel,
+                language,
+              )}
             </Link>
           </header>
 
