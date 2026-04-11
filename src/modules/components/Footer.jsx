@@ -91,7 +91,7 @@ export default function Footer() {
             style={{
               maxWidth: "385px",
               fontSize: "16px",
-              fontFamily: "Fira Sans Extra Condensed, sans-serif",
+              fontFamily: "ObjectSans",
             }}
           >
             {t("footer.description")}
@@ -127,10 +127,7 @@ export default function Footer() {
         <div
           className="flex flex-col justify-between"
           style={{
-            // display: "flex",
-            // flexDirection: "column",
-            // fontSize: "20px",
-            fontFamily: "Fira Sans Extra Condensed",
+            fontFamily: "ObjectSans",
           }}
         >
           <b>
@@ -164,7 +161,7 @@ export default function Footer() {
             flexDirection: "column",
             gap: "20px",
             fontSize: "18px",
-            fontFamily: "Fira Sans Extra Condensed",
+            fontFamily: "ObjectSans",
           }}
         >
           <b>
@@ -182,7 +179,6 @@ export default function Footer() {
                 href="mailto:info@tedxsapienzau.com"
                 style={{
                   color: "#eb0028",
-                  fontFamily: "Fira Sans Extra Condensed",
                   fontWeight: "initial",
                 }}
               >
@@ -198,7 +194,6 @@ export default function Footer() {
           justifyContent: "space-between",
           width: "95%",
           flexWrap: "wrap",
-          fontFamily: "Fira Sans Extra Condensed",
         }}
       >
         <div>
