@@ -15,13 +15,38 @@
   src: url("./resources/Gotham-Book.otf") format("opentype");
 }
 
+@font-face {
+  font-family: ObjectSansHeavy;
+  src: url("./resources/PPObjectSans-Heavy.otf") format("opentype");
+}
+
+@font-face {
+  font-family: ObjectSansHeavySlanted;
+  src: url("./resources/PPObjectSans-HeavySlanted.otf") format("opentype");
+}
+
+@font-face {
+  font-family: ObjectSans;
+  src: url("./resources/PPObjectSans-Regular.otf") format("opentype");
+}
+
+@font-face {
+  font-family: ObjectSansSlanted;
+  src: url("./resources/PPObjectSans-Slanted.otf") format("opentype");
+}
+
 @theme {
   --font-objectsans: "ObjectSans", sans-serif;
   --font-objectsans-heavy: "ObjectSansHeavy", sans-serif;
-  --font-gotham-bold: "GothamBold", sans-serif;
+  --font-gotham-bold: "ObjectSansHeavy", sans-serif;
   --font-gotham-ultra: "GothamUltra", sans-serif;
-  --font-gotham-book: "GothamBook", sans-serif;
-  --font-gotham-medium: "GothamMedium", sans-serif;
+  --font-gotham-book: "ObjectSans", sans-serif;
+
+  --font-objectsans-heavy: "ObjectSansHeavy", sans-serif;
+  --font-objectsans-slanted: "ObjectSansSlanted", sans-serif;
+  --font-objectsans-heavy-slanted: "ObjectSansHeavySlanted", sans-serif;
+  --font-objectsans: "ObjectSans", sans-serif;
+  --font-anton: "Anton", sans-serif;
   --color-bronze: #d46832;
   --color-gold: #fab632;
 }
@@ -265,7 +290,7 @@ body {
 }
 
 .speaker-poster-name-line {
-  font-family: "GothamBold";
+  font-family: "ObjectSansHeavy";
   font-size: 38px; /* tweak 34–42 */
 }
 
@@ -358,7 +383,7 @@ body {
 }
 
 .paradoxa-logo-arc text {
-  font-family: "GothamBold";
+  font-family: "ObjectSansHeavy";
   font-size: 28px;
   letter-spacing: 0.18em;
   fill: #ffffff;
@@ -368,7 +393,7 @@ body {
   display: flex;
   align-items: baseline;
   gap: 4px;
-  font-family: "GothamBold";
+  font-family: "ObjectSansHeavy";
   font-size: clamp(16px, 2.4vw, 26px);
   letter-spacing: 0.02em;
 }
@@ -386,13 +411,13 @@ body {
 }
 
 .event-title {
-  font-family: "GothamBold";
+  font-family: "ObjectSansHeavy";
   font-size: 70px;
   margin: 0 0 20px 0;
 }
 
 /* .paradoxa-intro-text {
-  font-family: "GothamBook";
+  font-family: "ObjectSans";
   font-size: 18px;
   line-height: 1.45;
   color: #d7d7d7;
@@ -411,7 +436,7 @@ body {
   display: flex;
   gap: 18px;
   align-items: flex-start;
-  font-family: "GothamBook";
+  font-family: "ObjectSans";
   font-size: 12px;
   color: #d9d9d9;
 }
@@ -484,7 +509,7 @@ body {
   background: var(--paradoxa-red);
   color: #fff;
   text-decoration: none;
-  font-family: "GothamBold";
+  font-family: "ObjectSansHeavy";
   text-transform: uppercase;
   letter-spacing: 0.05em;
   font-size: 15px;
@@ -502,7 +527,7 @@ body {
 .paradoxa-speakers-title {
   text-align: right;
   text-transform: none !important;
-  font-family: "GothamBold";
+  font-family: "ObjectSansHeavy";
 }
 
 .paradoxa-speakers-title * {
@@ -643,7 +668,7 @@ body {
 .events-kicker {
   margin: 0 0 16px;
   color: #ff8ca0;
-  font-family: "Anton";
+  font-family: "ObjectSans";
   font-size: 14px;
   letter-spacing: 0.18em;
   text-transform: uppercase;
@@ -652,8 +677,8 @@ body {
 .events-hero-title {
   margin: 0;
   max-width: 8ch;
-  font-family: "Anton";
-  font-size: clamp(58px, 9vw, 118px);
+  font-family: "ObjectSansHeavy";
+  font-size: clamp(58px, 9vw, 100px);
   line-height: 0.88;
   text-transform: uppercase;
 }
@@ -662,7 +687,7 @@ body {
 .events-archive-copy,
 .events-feature-content p,
 .events-card-description {
-  font-family: "GothamBook";
+  font-family: "ObjectSans";
   line-height: 1.7;
 }
 
@@ -688,7 +713,7 @@ body {
   min-height: 54px;
   padding: 0 24px;
   border-radius: 999px;
-  font-family: "GothamBold";
+  font-family: "ObjectSansHeavy";
   font-size: 13px;
   letter-spacing: 0.08em;
   text-decoration: none;
@@ -737,7 +762,7 @@ body {
 }
 
 .events-stat-value {
-  font-family: "Anton";
+  font-family: "ObjectSansHeavy";
   font-size: clamp(28px, 4vw, 42px);
   line-height: 1;
 }
@@ -745,7 +770,7 @@ body {
 .events-stat-label {
   margin-top: 8px;
   color: rgba(255, 255, 255, 0.72);
-  font-family: "GothamBook";
+  font-family: "ObjectSansHeavy";
   font-size: 12px;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -811,7 +836,7 @@ body {
   border-radius: 999px;
   background: var(--event-accent, #eb0028);
   color: #ffffff;
-  font-family: "GothamBold";
+  font-family: "ObjectSansHeavy";
   font-size: 12px;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -824,7 +849,7 @@ body {
 
 .events-feature-meta {
   color: rgba(255, 255, 255, 0.72);
-  font-family: "Anton";
+  font-family: "ObjectSans";
   font-size: 14px;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -833,7 +858,7 @@ body {
 .events-feature-content h2 {
   margin: 0;
   max-width: 8ch;
-  font-family: "GothamBold";
+  font-family: "ObjectSansHeavy";
   font-size: clamp(40px, 4.5vw, 62px);
   line-height: 0.95;
 }
@@ -847,7 +872,7 @@ body {
 
 .events-card-link {
   color: var(--event-accent, #eb0028);
-  font-family: "GothamBold";
+  font-family: "ObjectSansHeavy";
   font-size: 13px;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -867,8 +892,8 @@ body {
 
 .events-archive-head h2 {
   margin: 0;
-  font-family: "Anton";
-  font-size: clamp(42px, 7vw, 80px);
+  font-family: "ObjectSansHeavy";
+  font-size: clamp(42px, 7vw, 60px);
   line-height: 0.92;
   text-transform: uppercase;
 }
@@ -970,7 +995,7 @@ body {
 
 .events-card-topline {
   color: rgba(255, 255, 255, 0.74);
-  font-family: "Anton";
+  font-family: "ObjectSans";
   font-size: 13px;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -983,7 +1008,7 @@ body {
 
 .events-card-title {
   margin: 0;
-  font-family: "GothamBold";
+  font-family: "ObjectSansHeavy";
   font-size: clamp(30px, 3.2vw, 40px);
   line-height: 0.95;
 }
@@ -996,7 +1021,7 @@ body {
 
 .events-card-footer {
   color: rgba(255, 255, 255, 0.88);
-  font-family: "GothamBold";
+  font-family: "ObjectSansHeavy";
   font-size: 12px;
   letter-spacing: 0.08em;
   text-transform: uppercase;

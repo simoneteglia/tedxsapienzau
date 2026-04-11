@@ -109,7 +109,7 @@ export default function BioSpeakerPopup({
               margin: "0 auto",
               paddingTop: contentPaddingTop,
               paddingBottom: "40px",
-              fontFamily: "GothamBold",
+              fontFamily: "ObjectSansHeavy",
             }}
           >
             <div
@@ -134,7 +134,7 @@ export default function BioSpeakerPopup({
             <h1
               style={{
                 margin: 0,
-                fontFamily: "GothamBold",
+                fontFamily: "ObjectSansHeavy",
                 fontSize: isDesktop ? "42px" : "34px",
                 lineHeight: 0.95,
               }}
@@ -148,7 +148,7 @@ export default function BioSpeakerPopup({
                 marginBottom: 0,
                 fontSize: "15px",
                 lineHeight: 1.7,
-                fontFamily: "GothamBook",
+                fontFamily: "ObjectSans",
                 color: "rgba(255, 255, 255, 0.86)",
                 textAlign: "justify",
               }}

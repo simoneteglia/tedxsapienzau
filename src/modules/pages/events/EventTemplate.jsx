@@ -226,7 +226,7 @@ export default function EventTemplate({
         </h1>
         <div className="paradoxa-glass-grid">
           <div className="paradoxa-glass-card">
-            <p className="font-gotham-book md:text-lg text-sm">
+            <p className="font-objectsans md:text-lg text-sm">
               {eventData.description}
             </p>
           </div>

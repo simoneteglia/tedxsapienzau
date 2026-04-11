@@ -55,7 +55,7 @@ function SponsorSlot({ slot, language, isFeatured }) {
             style={{ transform: `scale(${slot.logoScale ?? 1})` }}
           />
         ) : (
-          <span className="text-black font-bold text-center leading-tight" style={{ fontFamily: "GothamBold", fontSize: "1.5rem" }}>
+          <span className="text-black font-bold text-center leading-tight" style={{ fontFamily: "ObjectSansHeavy", fontSize: "1.5rem" }}>
             {name}
           </span>
         )}
@@ -67,7 +67,7 @@ function SponsorSlot({ slot, language, isFeatured }) {
         target="_blank" 
         rel="noreferrer" 
         className="text-center text-gray-300 mt-4 text-sm underline underline-offset-4 hover:text-white transition-colors" 
-        style={{ fontFamily: "GothamBold" }}
+        style={{ fontFamily: "ObjectSansHeavy" }}
       >
         {name} ↗
       </a>
@@ -132,36 +132,36 @@ export default function Sponsors() {
         {/* STATS SECTION - LIQUID GLASS */}
         <section className="max-w-6xl mx-auto mb-20 w-full">
           <div className="sponsors-stats-copy mb-10 text-center">
-            <h2 className="text-4xl md:text-5xl font-bold mb-4" style={{ fontFamily: "GothamBold" }}>{t("partners.events")}</h2>
-            <p className="text-gray-300 text-lg mx-auto max-w-3xl" style={{ fontFamily: "GothamBook" }}>
+            <h2 className="text-4xl md:text-5xl font-bold mb-4" style={{ fontFamily: "ObjectSansHeavy" }}>{t("partners.events")}</h2>
+            <p className="text-gray-300 text-lg mx-auto max-w-3xl" style={{ fontFamily: "ObjectSans" }}>
               {language.toLowerCase().startsWith("en") ? "A quick snapshot of audience, reach and partnerships across the project." : "Una fotografia rapida di audience, reach e collaborazioni che orbitano intorno al progetto."}
             </p>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             <Bento style={{ textAlign: "center", padding: "2rem 1rem", minHeight: "220px" }}>
-              <strong className="text-[#eb0028] font-bold leading-tight block mb-2" style={{ fontSize: "clamp(42px, 5vw, 74px)", fontFamily: "GothamBold" }}>3000</strong>
-              <span className="font-bold leading-tight text-white block" style={{ fontSize: "18px", fontFamily: "GothamBold", letterSpacing: "1px" }}>spettatori coinvolti</span>
+              <strong className="text-[#eb0028] font-bold leading-tight block mb-2" style={{ fontSize: "clamp(42px, 5vw, 74px)", fontFamily: "ObjectSansHeavy" }}>3000</strong>
+              <span className="font-bold leading-tight text-white block" style={{ fontSize: "18px", fontFamily: "ObjectSansHeavy", letterSpacing: "1px" }}>spettatori coinvolti</span>
             </Bento>
             <Bento style={{ textAlign: "center", padding: "2rem 1rem", minHeight: "220px" }}>
-              <strong className="text-[#eb0028] font-bold leading-tight block mb-2" style={{ fontSize: "clamp(42px, 5vw, 74px)", fontFamily: "GothamBold" }}>35000</strong>
-              <span className="font-bold leading-tight text-white block" style={{ fontSize: "18px", fontFamily: "GothamBold", letterSpacing: "1px" }}>visualizzazioni su YouTube</span>
+              <strong className="text-[#eb0028] font-bold leading-tight block mb-2" style={{ fontSize: "clamp(42px, 5vw, 74px)", fontFamily: "ObjectSansHeavy" }}>35000</strong>
+              <span className="font-bold leading-tight text-white block" style={{ fontSize: "18px", fontFamily: "ObjectSansHeavy", letterSpacing: "1px" }}>visualizzazioni su YouTube</span>
             </Bento>
             <Bento style={{ textAlign: "center", padding: "2rem 1rem", minHeight: "220px" }}>
-              <strong className="text-[#eb0028] font-bold leading-tight block mb-2" style={{ fontSize: "clamp(42px, 5vw, 74px)", fontFamily: "GothamBold" }}>???</strong>
-              <span className="font-bold leading-tight text-white block" style={{ fontSize: "18px", fontFamily: "GothamBold", letterSpacing: "1px" }}>vi prego qui metteteci altri numeri</span>
+              <strong className="text-[#eb0028] font-bold leading-tight block mb-2" style={{ fontSize: "clamp(42px, 5vw, 74px)", fontFamily: "ObjectSansHeavy" }}>???</strong>
+              <span className="font-bold leading-tight text-white block" style={{ fontSize: "18px", fontFamily: "ObjectSansHeavy", letterSpacing: "1px" }}>vi prego qui metteteci altri numeri</span>
             </Bento>
             <Bento style={{ textAlign: "center", padding: "2rem 1rem", minHeight: "220px" }}>
-              <strong className="text-[#eb0028] font-bold leading-tight block mb-2" style={{ fontSize: "clamp(42px, 5vw, 74px)", fontFamily: "GothamBold" }}>50</strong>
-              <span className="font-bold leading-tight text-white block" style={{ fontSize: "18px", fontFamily: "GothamBold", letterSpacing: "1px" }}>event partners</span>
+              <strong className="text-[#eb0028] font-bold leading-tight block mb-2" style={{ fontSize: "clamp(42px, 5vw, 74px)", fontFamily: "ObjectSansHeavy" }}>50</strong>
+              <span className="font-bold leading-tight text-white block" style={{ fontSize: "18px", fontFamily: "ObjectSansHeavy", letterSpacing: "1px" }}>event partners</span>
             </Bento>
             <Bento style={{ textAlign: "center", padding: "2rem 1rem", minHeight: "220px" }}>
-              <strong className="text-[#eb0028] font-bold leading-tight block mb-2" style={{ fontSize: "clamp(42px, 5vw, 74px)", fontFamily: "GothamBold" }}>300</strong>
-              <span className="font-bold leading-tight text-white block" style={{ fontSize: "18px", fontFamily: "GothamBold", letterSpacing: "1px" }}>volontari passati di qui</span>
+              <strong className="text-[#eb0028] font-bold leading-tight block mb-2" style={{ fontSize: "clamp(42px, 5vw, 74px)", fontFamily: "ObjectSansHeavy" }}>300</strong>
+              <span className="font-bold leading-tight text-white block" style={{ fontSize: "18px", fontFamily: "ObjectSansHeavy", letterSpacing: "1px" }}>volontari passati di qui</span>
             </Bento>
             <Bento style={{ textAlign: "center", padding: "2rem 1rem", minHeight: "220px" }}>
-              <strong className="text-[#eb0028] font-bold leading-tight block mb-2" style={{ fontSize: "clamp(42px, 5vw, 74px)", fontFamily: "GothamBold" }}>???</strong>
-              <span className="font-bold leading-tight text-white block" style={{ fontSize: "18px", fontFamily: "GothamBold", letterSpacing: "1px" }}>vi prego qui metteteci altri numeri</span>
+              <strong className="text-[#eb0028] font-bold leading-tight block mb-2" style={{ fontSize: "clamp(42px, 5vw, 74px)", fontFamily: "ObjectSansHeavy" }}>???</strong>
+              <span className="font-bold leading-tight text-white block" style={{ fontSize: "18px", fontFamily: "ObjectSansHeavy", letterSpacing: "1px" }}>vi prego qui metteteci altri numeri</span>
             </Bento>
           </div>
         </section>
@@ -171,14 +171,14 @@ export default function Sponsors() {
           
           {/* HEADER CON SELETTORE ANNO */}
           <div className="flex justify-between items-center mb-12 border-b border-white/20 pb-6">
-            <h2 className="text-4xl md:text-5xl font-bold text-white" style={{ fontFamily: "GothamBold" }}>
+            <h2 className="text-4xl md:text-5xl font-bold text-white" style={{ fontFamily: "ObjectSansHeavy" }}>
               {language.toLowerCase().startsWith("en") ? "Our sponsors" : "I nostri sponsor"}
             </h2>
             <select
               value={selectedYear}
               onChange={(e) => setSelectedYear(e.target.value)}
               className="bg-transparent text-white border border-white/40 rounded-full px-5 py-2 cursor-pointer outline-none hover:bg-white/10 transition"
-              style={{ fontFamily: "GothamBold", fontSize: "16px" }}
+              style={{ fontFamily: "ObjectSansHeavy", fontSize: "16px" }}
             >
               <option value="2026" className="bg-[#101010] text-white">2026</option>
               <option value="2025" className="bg-[#101010] text-white">2025</option>
@@ -203,7 +203,7 @@ export default function Sponsors() {
                 <article key={section.id} className="w-full flex flex-col">
                   {/* Titolo Categoria (es. MAIN SPONSORS) */}
                   <header className="mb-6">
-                    <h3 className="text-[#ff92a3] text-sm font-bold uppercase" style={{ fontFamily: "Anton", letterSpacing: "0.16em" }}>
+                    <h3 className="text-[#ff92a3] text-sm font-bold uppercase" style={{ fontFamily: "ObjectSans", letterSpacing: "0.16em" }}>
                       {getLocalizedSponsorValue(section.title, language)}
                     </h3>
                   </header>

@@ -112,8 +112,9 @@ export default function EventsHub() {
       <div className="events-hub-shell">
         <section className="events-hero">
           <div className="events-hero-copy">
-            <p className="events-kicker">TEDxSapienzaU archive</p>
-            <h1 className="events-hero-title">Eventi da rivivere e riaprire.</h1>
+            <h1 className="events-hero-title">
+              Eventi da rivivere e riaprire.
+            </h1>
             <p className="events-hero-subtitle">
               Questa e la nuova porta d&apos;ingresso agli eventi TEDxSapienzaU:
               un archivio visivo, veloce e pieno di personalita, da cui puoi
@@ -164,7 +165,6 @@ export default function EventsHub() {
 
         <section className="events-archive-section" id="events-archive">
           <div className="events-archive-head">
-            <p className="events-kicker">Browse all pages</p>
             <h2>Dall&apos;edizione zero ai format speciali.</h2>
             <p className="events-archive-copy">
               Tutte le pagine evento raccolte in un solo posto, ordinate per

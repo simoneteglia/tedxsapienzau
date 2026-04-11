@@ -75,7 +75,7 @@ export default function Landing() {
             display: "flex",
             justifyContent: "center",
             alignItems: "flex-end",
-            fontFamily: "Fira Sans Extra Condensed, sans-serif",
+            fontFamily: "ObjectSansHeavy",
             position: "relative",
             overflow: "hidden",
             boxSizing: "border-box",
@@ -142,9 +142,9 @@ export default function Landing() {
                 textAlign: "center",
                 fontSize:
                   windowSize > 1245
-                    ? "14vh"
+                    ? "10vh"
                     : windowSize > global.UTILS.MOBILE_WIDTH
-                      ? "100px"
+                      ? "80px"
                       : "50px",
                 fontWeight: 700,
                 maxWidth: "13ch",
