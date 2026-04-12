@@ -30,6 +30,7 @@ const events = [
     date: "28 Nov 2024",
     href: "/events/awards24",
     image: awards24Poster,
+    doContain: true,
     accent: "#ffd800",
     description:
       "La finale che porta sul palco artisti e speaker emergenti con idee da far circolare molto piu lontano dell'universita.",
@@ -181,7 +182,11 @@ export default function EventsHub() {
                 to={event.href}
               >
                 <div className="events-card-image">
-                  <img src={event.image} alt={event.title} />
+                  <img
+                    src={event.image}
+                    alt={event.title}
+                    style={{ objectFit: event.doContain ? "contain" : "cover" }}
+                  />
                 </div>
 
                 <div className="events-card-body">
@@ -192,7 +197,9 @@ export default function EventsHub() {
 
                   <div className="events-card-main">
                     <h3 className="events-card-title">{event.title}</h3>
-                    <p className="events-card-description">{event.description}</p>
+                    <p className="events-card-description">
+                      {event.description}
+                    </p>
                   </div>
 
                   <div className="events-card-footer">

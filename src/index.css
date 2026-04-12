@@ -92,16 +92,22 @@ body {
   background: rgba(255, 255, 255, 0);
   border-radius: 16px;
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(9px);
   -webkit-backdrop-filter: blur(9px);
+  -moz-backdrop-filter: blur(9px);
+  -o-backdrop-filter: blur(9px);
+  -ms-backdrop-filter: blur(9px);
+  backdrop-filter: blur(9px);
 }
 
 .glass-card-darker {
   background: rgba(0, 0, 0, 0.5);
   border-radius: 16px;
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(9px);
   -webkit-backdrop-filter: blur(9px);
+  -moz-backdrop-filter: blur(9px);
+  -o-backdrop-filter: blur(9px);
+  -ms-backdrop-filter: blur(9px);
+  backdrop-filter: blur(9px);
 }
 
 /** FONTS **/
@@ -796,8 +802,17 @@ body {
   position: absolute;
   inset: 0;
   background:
-    linear-gradient(180deg, rgba(5, 5, 5, 0.02) 0%, rgba(5, 5, 5, 0.42) 45%, rgba(5, 5, 5, 0.94) 100%),
-    linear-gradient(120deg, rgba(255, 255, 255, 0) 40%, rgba(255, 255, 255, 0.12) 100%);
+    linear-gradient(
+      180deg,
+      rgba(5, 5, 5, 0.02) 0%,
+      rgba(5, 5, 5, 0.42) 45%,
+      rgba(5, 5, 5, 0.94) 100%
+    ),
+    linear-gradient(
+      120deg,
+      rgba(255, 255, 255, 0) 40%,
+      rgba(255, 255, 255, 0.12) 100%
+    );
 }
 
 .events-feature-card:hover {
@@ -920,7 +935,11 @@ body {
   overflow: hidden;
   color: #ffffff;
   text-decoration: none;
-  background: linear-gradient(145deg, rgba(18, 18, 18, 0.9), rgba(18, 18, 18, 0.7));
+  background: linear-gradient(
+    145deg,
+    rgba(18, 18, 18, 0.9),
+    rgba(18, 18, 18, 0.7)
+  );
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
   box-shadow: 0 22px 46px rgba(0, 0, 0, 0.32);
