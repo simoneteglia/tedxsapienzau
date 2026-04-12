@@ -3,13 +3,13 @@ import { useTranslation } from "react-i18next";
 
 import global from "../../resources/global.json";
 import { getLocalizedValue, teamSections } from "../../data/teamData";
-import simoneImage from "../../assets/images/team/simone.png";
+import placeholderImage from "../../assets/images/team/placeholder.webp";
 
 import "./team.css";
 
 function TeamMemberCard({ member, accent, language, imageSrc }) {
   const name = getLocalizedValue(member.name, language);
-  const role = getLocalizedValue(member.role, language);
+  const role = member.role;
 
   return (
     <article className="team-member-card" style={{ "--team-accent": accent }}>
@@ -19,7 +19,7 @@ function TeamMemberCard({ member, accent, language, imageSrc }) {
 
       <div className="team-member-copy">
         <h3>{name}</h3>
-        <p>{role}</p>
+        <p>{role ? role : ""}</p>
       </div>
     </article>
   );
@@ -53,7 +53,10 @@ export default function Team() {
       (entries) => {
         const visibleEntries = entries
           .filter((entry) => entry.isIntersecting)
-          .sort((entryA, entryB) => entryB.intersectionRatio - entryA.intersectionRatio);
+          .sort(
+            (entryA, entryB) =>
+              entryB.intersectionRatio - entryA.intersectionRatio,
+          );
 
         if (!visibleEntries.length) {
           return;
@@ -106,9 +109,7 @@ export default function Team() {
       className="team-page"
       style={{ paddingTop: `calc(${global.UTILS.NAV_HEIGHT} + 28px)` }}
     >
-      <div
-        className={`team-page-shell ${selectedTeam ? "is-focus-mode" : ""}`}
-      >
+      <div className={`team-page-shell ${selectedTeam ? "is-focus-mode" : ""}`}>
         <div className={`team-view-stack ${selectedTeam ? "is-focused" : ""}`}>
           <div
             aria-hidden={Boolean(selectedTeam)}
@@ -169,7 +170,7 @@ export default function Team() {
                         member={member}
                         accent={team.accent}
                         language={language}
-                        imageSrc={simoneImage}
+                        imageSrc={placeholderImage}
                       />
                     ))}
                   </div>
@@ -215,7 +216,7 @@ export default function Team() {
                   member={member}
                   accent={focusedTeam.accent}
                   language={language}
-                  imageSrc={simoneImage}
+                  imageSrc={placeholderImage}
                 />
               ))}
             </div>

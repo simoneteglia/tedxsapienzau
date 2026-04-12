@@ -140,28 +140,28 @@ export default function Sponsors() {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             <Bento style={{ textAlign: "center", padding: "2rem 1rem", minHeight: "220px" }}>
-              <strong className="text-[#eb0028] font-bold leading-tight block mb-2" style={{ fontSize: "clamp(42px, 5vw, 74px)", fontFamily: "ObjectSansHeavy" }}>3000</strong>
-              <span className="font-bold leading-tight text-white block" style={{ fontSize: "18px", fontFamily: "ObjectSansHeavy", letterSpacing: "1px" }}>spettatori coinvolti</span>
+              <strong className="text-[#eb0028] font-bold leading-tight block mb-2" style={{ fontSize: "clamp(42px, 5vw, 74px)", fontFamily: "ObjectSansHeavy", color:"white" }}>725113</strong>
+              <span className="font-bold leading-tight text-white block" style={{ fontSize: "18px", fontFamily: "ObjectSansHeavy", letterSpacing: "1px" }}>account social raggiunti</span>
             </Bento>
             <Bento style={{ textAlign: "center", padding: "2rem 1rem", minHeight: "220px" }}>
-              <strong className="text-[#eb0028] font-bold leading-tight block mb-2" style={{ fontSize: "clamp(42px, 5vw, 74px)", fontFamily: "ObjectSansHeavy" }}>35000</strong>
-              <span className="font-bold leading-tight text-white block" style={{ fontSize: "18px", fontFamily: "ObjectSansHeavy", letterSpacing: "1px" }}>visualizzazioni su YouTube</span>
+              <strong className="text-[#eb0028] font-bold leading-tight block mb-2" style={{ fontSize: "clamp(42px, 5vw, 74px)", fontFamily: "ObjectSansHeavy", color:"white" }}>41</strong>
+              <span className="font-bold leading-tight text-white block" style={{ fontSize: "18px", fontFamily: "ObjectSansHeavy", letterSpacing: "1px" }}>speakers</span>
             </Bento>
             <Bento style={{ textAlign: "center", padding: "2rem 1rem", minHeight: "220px" }}>
-              <strong className="text-[#eb0028] font-bold leading-tight block mb-2" style={{ fontSize: "clamp(42px, 5vw, 74px)", fontFamily: "ObjectSansHeavy" }}>???</strong>
-              <span className="font-bold leading-tight text-white block" style={{ fontSize: "18px", fontFamily: "ObjectSansHeavy", letterSpacing: "1px" }}>vi prego qui metteteci altri numeri</span>
+              <strong className="text-[#eb0028] font-bold leading-tight block mb-2" style={{ fontSize: "clamp(42px, 5vw, 74px)", fontFamily: "ObjectSansHeavy", color:"white" }}>4</strong>
+              <span className="font-bold leading-tight text-white block" style={{ fontSize: "18px", fontFamily: "ObjectSansHeavy", letterSpacing: "1px" }}>eventi Awards</span>
             </Bento>
             <Bento style={{ textAlign: "center", padding: "2rem 1rem", minHeight: "220px" }}>
-              <strong className="text-[#eb0028] font-bold leading-tight block mb-2" style={{ fontSize: "clamp(42px, 5vw, 74px)", fontFamily: "ObjectSansHeavy" }}>50</strong>
-              <span className="font-bold leading-tight text-white block" style={{ fontSize: "18px", fontFamily: "ObjectSansHeavy", letterSpacing: "1px" }}>event partners</span>
+              <strong className="text-[#eb0028] font-bold leading-tight block mb-2" style={{ fontSize: "clamp(42px, 5vw, 74px)", fontFamily: "ObjectSansHeavy", color:"white" }}>320</strong>
+              <span className="font-bold leading-tight text-white block" style={{ fontSize: "18px", fontFamily: "ObjectSansHeavy", letterSpacing: "1px" }}>volontari</span>
             </Bento>
             <Bento style={{ textAlign: "center", padding: "2rem 1rem", minHeight: "220px" }}>
-              <strong className="text-[#eb0028] font-bold leading-tight block mb-2" style={{ fontSize: "clamp(42px, 5vw, 74px)", fontFamily: "ObjectSansHeavy" }}>300</strong>
-              <span className="font-bold leading-tight text-white block" style={{ fontSize: "18px", fontFamily: "ObjectSansHeavy", letterSpacing: "1px" }}>volontari passati di qui</span>
+              <strong className="text-[#eb0028] font-bold leading-tight block mb-2" style={{ fontSize: "clamp(42px, 5vw, 74px)", fontFamily: "ObjectSansHeavy", color:"white" }}>36</strong>
+              <span className="font-bold leading-tight text-white block" style={{ fontSize: "18px", fontFamily: "ObjectSansHeavy", letterSpacing: "1px" }}>sponsors & partners</span>
             </Bento>
             <Bento style={{ textAlign: "center", padding: "2rem 1rem", minHeight: "220px" }}>
-              <strong className="text-[#eb0028] font-bold leading-tight block mb-2" style={{ fontSize: "clamp(42px, 5vw, 74px)", fontFamily: "ObjectSansHeavy" }}>???</strong>
-              <span className="font-bold leading-tight text-white block" style={{ fontSize: "18px", fontFamily: "ObjectSansHeavy", letterSpacing: "1px" }}>vi prego qui metteteci altri numeri</span>
+              <strong className="text-[#eb0028] font-bold leading-tight block mb-2" style={{ fontSize: "clamp(42px, 5vw, 74px)", fontFamily: "ObjectSansHeavy", color:"white" }}>3</strong>
+              <span className="font-bold leading-tight text-white block" style={{ fontSize: "18px", fontFamily: "ObjectSansHeavy", letterSpacing: "1px" }}>eventi TEDx</span>
             </Bento>
           </div>
         </section>
