@@ -28,6 +28,7 @@ const Awards22Page = lazy(() => import("./modules/pages/events/Awards22Page"));
 const Act22 = lazy(() => import("./modules/pages/events/Act22"));
 const ParadoxaPage = lazy(() => import("./modules/pages/events/ParadoxaPage"));
 const BackToZeroPage = lazy(() => import("./modules/pages/events/BackToZeroPage"));
+const ChiSiamo = lazy(() => import("./modules/pages/chiSiamo"));
 
 function RouteFallback() {
   return (
@@ -122,6 +123,11 @@ const router = createBrowserRouter([
       {
         path: "/events/awards22",
         element: withSuspense(<Awards22Page />),
+      },
+
+    {
+        path: "/about", 
+        element: withSuspense(<ChiSiamo />),
       },
     ],
   },

@@ -313,8 +313,11 @@ export default function Landing() {
                 TEDxSapienzaU è il TEDx Universitario dell'Ateneo Sapienza
                 Università di Roma
               </h3>
-              <a
-                href="#"
+
+              {/* qui ho cambiato per mettere il pulsante con link a chi siamo */}
+             
+             <Link
+                to="/about"
                 style={{
                   backgroundColor: "#eb0028",
                   color: "white",
@@ -333,7 +336,7 @@ export default function Landing() {
                 onMouseOut={(e) => (e.target.style.transform = "scale(1)")}
               >
                 Scopri di più
-              </a>
+              </Link>
             </Bento>
 
             {/* BOX 2-5: STATISTICHE DINAMICHE (Usando il componente Bento) */}
