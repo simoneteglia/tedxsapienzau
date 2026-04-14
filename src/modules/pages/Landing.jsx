@@ -1,12 +1,18 @@
-import React, { useLayoutEffect, useState, useEffect } from "react";
-import { useOutletContext } from "react-router-dom";
+import { useLayoutEffect, useState, useEffect } from "react";
+import { Link, useOutletContext } from "react-router-dom";
 
 import backgroundVideo from "../../assets/videos/tedx.mp4";
+import countdownCover from "../../assets/images/countdown24/earth.webp";
+import backToZeroCover from "../../assets/images/backtozero23/header_blog23-card.webp";
+import act22Cover from "../../assets/images/act22/Edizione2022.webp";
+import awards22Cover from "../../assets/images/awards22/awards2022-card.webp";
+import youtubeLogo from "../../assets/images/general/youtube_logo.png";
 import global from "../../resources/global.json";
 
 // Importiamo la Cookie Box e il nostro "Lego" Bento
 import CookieBox from "../components/CookieBox";
 import Bento from "../components/bento";
+import "./landing.css";
 
 // --- COMPONENTE PER L'ANIMAZIONE DEI NUMERI (Spostato qui) ---
 const AnimatedNumber = ({ end, duration = 2000 }) => {
@@ -14,7 +20,6 @@ const AnimatedNumber = ({ end, duration = 2000 }) => {
 
   useEffect(() => {
     let start = 0;
-    const incrementTime = (duration / end) * 1000;
     let timer = setInterval(() => {
       start += Math.ceil(end / 100);
       if (start >= end) {
@@ -29,6 +34,92 @@ const AnimatedNumber = ({ end, duration = 2000 }) => {
 
   return <span>{count.toLocaleString("it-IT")}</span>;
 };
+
+const thumbnailVariants = ["maxresdefault", "hq720", "mqdefault"];
+
+const getYouTubeThumbnail = (videoId, variant = "maxresdefault") =>
+  `https://img.youtube.com/vi/${videoId}/${variant}.jpg`;
+
+function TalkThumbnail({ videoId, alt, objectPosition = "center" }) {
+  const [variantIndex, setVariantIndex] = useState(0);
+  const thumbnail = getYouTubeThumbnail(videoId, thumbnailVariants[variantIndex]);
+
+  const handleError = () => {
+    setVariantIndex((currentIndex) =>
+      currentIndex < thumbnailVariants.length - 1
+        ? currentIndex + 1
+        : currentIndex,
+    );
+  };
+
+  return (
+    <img
+      className="landing-video-image"
+      src={thumbnail}
+      alt={alt}
+      style={{ objectPosition }}
+      loading="lazy"
+      decoding="async"
+      fetchPriority="low"
+      onError={handleError}
+    />
+  );
+}
+
+const talkHighlights = [
+  {
+    videoId: "oel9-7Az0vw",
+    title: "Pepa Pasatu",
+    subtitle: "3 habits that ruin pleasurable sex",
+    objectPosition: "12% center",
+    href: "https://www.youtube.com/watch?v=oel9-7Az0vw&list=PL4-t_gJBexTAb7wP2mzg-S2bCfzptE58n&index=1",
+  },
+  {
+    videoId: "q9f5TggigTI",
+    title: "Nicola Armaroli",
+    subtitle: "La transizione energetica e una fregatura?",
+    href: "https://www.youtube.com/watch?v=q9f5TggigTI&list=PL4-t_gJBexTAb7wP2mzg-S2bCfzptE58n&index=2&t=3s",
+  },
+  {
+    videoId: "IYliyLgTnfk",
+    title: "Rose Villain",
+    subtitle: "Musica e cura di sé: un cambio di prospettiva sul mondo",
+    href: "https://www.youtube.com/watch?v=IYliyLgTnfk&list=PL4-t_gJBexTBDgARWnLB3dmC0g1_OcxFc&index=7",
+  },
+  {
+    videoId: "qVbiy9OiaHY",
+    title: "Marcello Ienca",
+    subtitle: "Human-AI Symbiosis and the Quest for Neurorights",
+    href: "https://www.youtube.com/watch?v=qVbiy9OiaHY&list=PL4-t_gJBexTBDgARWnLB3dmC0g1_OcxFc&index=1&t=1s",
+  },
+];
+
+const landingEvents = [
+  {
+    title: "ACT Lead the change",
+    year: "2022",
+    href: "/events/act22",
+    image: act22Cover,
+  },
+  {
+    title: "Awards",
+    year: "2022",
+    href: "/events/awards22",
+    image: awards22Cover,
+  },
+  {
+    title: "Back to zero",
+    year: "2023",
+    href: "/events/backtozero",
+    image: backToZeroCover,
+  },
+  {
+    title: "Countdown",
+    year: "2024",
+    href: "/events/countdown2024",
+    image: countdownCover,
+  },
+];
 
 export default function Landing() {
   const [windowSize] = useOutletContext();
@@ -86,6 +177,8 @@ export default function Landing() {
               autoPlay
               muted
               loop
+              playsInline
+              preload="metadata"
               style={{
                 position: "absolute",
                 width: "100%",
@@ -268,6 +361,94 @@ export default function Landing() {
                 </div>
               </Bento>
             ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="landing-showcase-section">
+        <div className="landing-showcase-shell">
+          <div className="landing-section-head">
+            <h2 className="landing-section-title">Rivivi alcuni dei nostri talk.</h2>
+            <p className="landing-section-copy">
+              Una selezione veloce di interventi TEDxSapienzaU da riaprire
+              subito: immagine, titolo e accesso diretto al video completo su
+              YouTube.
+            </p>
+          </div>
+
+          <div className="landing-video-grid">
+            {talkHighlights.map((talk) => (
+              <a
+                key={talk.href}
+                className="landing-video-card"
+                href={talk.href}
+                rel="noreferrer"
+              >
+                <TalkThumbnail
+                  videoId={talk.videoId}
+                  alt={talk.title}
+                  objectPosition={talk.objectPosition}
+                />
+                <span className="landing-video-logo-badge" aria-hidden="true">
+                  <img
+                    className="landing-video-logo"
+                    src={youtubeLogo}
+                    alt=""
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </span>
+                <div className="landing-video-content">
+                  <h3 className="landing-video-title">{talk.title}</h3>
+                  <p className="landing-video-subtitle">{talk.subtitle}</p>
+                  <span className="landing-video-footer">Apri su YouTube</span>
+                </div>
+              </a>
+            ))}
+          </div>
+
+        </div>
+      </section>
+
+      <section className="landing-showcase-section">
+        <div className="landing-showcase-shell">
+          <div className="landing-section-head">
+            <h2 className="landing-section-title">I nostri eventi</h2>
+          </div>
+
+          <div className="landing-events-grid">
+            {landingEvents.map((event) => (
+              <Link
+                key={event.href}
+                className="landing-event-card"
+                to={event.href}
+              >
+                <img
+                  className="landing-event-image"
+                  src={event.image}
+                  alt={event.title}
+                  loading="lazy"
+                  decoding="async"
+                  fetchPriority="low"
+                />
+                <div className="landing-event-content">
+                  <h3 className="landing-event-title">{event.title}</h3>
+                  <div className="landing-event-footer">
+                    <span>{event.year}</span>
+                    <span className="landing-event-link">
+                      <span>SCOPRI</span>
+                      <span aria-hidden="true">&rarr;</span>
+                    </span>
+                  </div>
+                </div>
+              </Link>
+            ))}
+          </div>
+
+          <div className="landing-showcase-cta">
+            <Link className="landing-showcase-link" to="/events">
+              Scopri di piu
+            </Link>
           </div>
         </div>
       </section>

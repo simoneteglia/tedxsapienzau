@@ -95,17 +95,8 @@
 .team-hero {
   display: grid;
   justify-items: center;
-  gap: 34px;
+  gap: 22px;
   text-align: center;
-}
-
-.team-kicker {
-  margin: 0;
-  color: #ff93a4;
-  font-family: "Anton";
-  font-size: 14px;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
 }
 
 .team-hero-title {
@@ -126,7 +117,7 @@
   font-family: "GothamBook";
   font-size: 17px;
   line-height: 1.72;
-  margin-top: 25px;
+  margin-top: 0;
 }
 
 .team-chip-row {
@@ -188,6 +179,28 @@
   max-width: 760px;
 }
 
+.team-focus-brand,
+.team-section-brand {
+  display: flex;
+  justify-content: center;
+}
+
+.team-focus-brand {
+  justify-content: flex-start;
+  margin-bottom: 2px;
+}
+
+.team-focus-logo,
+.team-section-logo {
+  width: 88px;
+  height: auto;
+  filter: drop-shadow(0 14px 28px rgba(0, 0, 0, 0.22));
+}
+
+.team-focus-logo {
+  width: 96px;
+}
+
 .team-focus-mode-title {
   margin: 0;
   font-family: "GothamBold";
@@ -204,10 +217,13 @@
 .team-focus-mode-description {
   margin: 0;
   max-width: 29ch;
-  color: rgba(255, 255, 255, 0.88);
+  color: var(
+    --team-description-color,
+    color-mix(in srgb, var(--team-accent, #eb0028) 68%, white 32%)
+  );
   font-family: "GothamBook";
   font-size: 17px;
-  line-height: 1.18;
+  line-height: 1.28;
 }
 
 .team-focus-actions {
@@ -346,19 +362,10 @@
 
 .team-section-head {
   display: grid;
-  gap: 18px;
+  gap: 14px;
   max-width: 880px;
   margin: 0 auto;
   text-align: center;
-}
-
-.team-section-kicker {
-  margin: 0;
-  color: var(--team-accent, #eb0028);
-  font-family: "Anton";
-  font-size: 13px;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
 }
 
 .team-section-title {
@@ -371,7 +378,10 @@
 .team-section-description {
   margin: 0;
   max-width: 56ch;
-  color: rgba(255, 255, 255, 0.78);
+  color: var(
+    --team-description-color,
+    color-mix(in srgb, var(--team-accent, #eb0028) 64%, white 36%)
+  );
   font-family: "GothamBook";
   font-size: 16px;
   line-height: 1.72;
@@ -520,6 +530,11 @@
   .team-focus-mode-description {
     max-width: none;
     font-size: 15px;
+  }
+
+  .team-focus-logo,
+  .team-section-logo {
+    width: 72px;
   }
 
   .team-hero-description,

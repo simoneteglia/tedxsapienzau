@@ -450,6 +450,20 @@
   border-radius: 30px;
 }
 
+.joinus-team-card-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.joinus-team-card-logo {
+  width: 72px;
+  height: auto;
+  flex-shrink: 0;
+  filter: drop-shadow(0 14px 28px rgba(0, 0, 0, 0.2));
+}
+
 .joinus-team-card::before {
   top: -18%;
   left: -10%;
@@ -566,6 +580,10 @@
   .joinus-faq-card h3,
   .joinus-team-card h3 {
     font-size: 26px;
+  }
+
+  .joinus-team-card-logo {
+    width: 60px;
   }
 
   .joinus-primary-button,

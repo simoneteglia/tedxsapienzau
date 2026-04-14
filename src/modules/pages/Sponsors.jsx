@@ -110,6 +110,14 @@ export default function Sponsors() {
                   ))}
                 </div>
               </div>
+
+              <div className="sponsors-logo-marquee-row is-slower">
+                <div className="sponsors-logo-track">
+                  {[...marqueeSecondRow, ...marqueeSecondRow].map((item, index) => (
+                    <SponsorLogoTile key={`row-b-${index}`} item={item} language={language} />
+                  ))}
+                </div>
+              </div>
             </div>
           </div>
 
@@ -184,6 +192,7 @@ export default function Sponsors() {
               <option value="2025" className="bg-[#101010] text-white">2025</option>
               <option value="2024" className="bg-[#101010] text-white">2024</option>
               <option value="2023" className="bg-[#101010] text-white">2023</option>
+              <option value="2022" className="bg-[#101010] text-white">2022</option>
             </select>
           </div>
 

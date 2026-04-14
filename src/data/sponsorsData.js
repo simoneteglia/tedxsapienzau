@@ -69,18 +69,22 @@ const sponsorLogoLibrary = {
   WAYouth: createSponsorLogo("WAYouth", "WA Youth", "WA Youth", "#c8bcff"),
 };
 
-const createLogoSlot = (key, noteIt, noteEn = noteIt) => {
+const createLogoSlot = (key, noteIt, noteEn = noteIt, options = {}) => {
   const sponsor = sponsorLogoLibrary[key];
 
   return {
-    id: `slot-${sponsor.id}`,
+    id: `slot-${sponsor.id}${options.year ? `-${options.year}` : ""}`,
     name: sponsor.name,
     src: sponsor.src,
     note: localized(noteIt, noteEn),
     accent: sponsor.accent,
     logoScale: sponsor.slotLogoScale ?? sponsor.logoScale,
+    ...options,
   };
 };
+
+const createYearSlot = (year, key, noteIt, noteEn = noteIt, options = {}) =>
+  createLogoSlot(key, noteIt, noteEn, { year, ...options });
 
 export const sponsorHeroCopy = {
   kicker: localized(
@@ -143,7 +147,11 @@ export const sponsorSections = [
     accent: "#ff5d73",
     featured: true,
     slots: [
-      createLogoSlot("Deloitte", "Main sponsor", "Main sponsor"),
+      createYearSlot(2026, "Deloitte", "Main sponsor", "Main sponsor"),
+      createYearSlot(2025, "Unicredit", "Main sponsor", "Main sponsor"),
+      createYearSlot(2024, "Tim", "Main sponsor", "Main sponsor"),
+      createYearSlot(2023, "EF", "Main sponsor", "Main sponsor"),
+      createYearSlot(2022, "Copernico", "Main sponsor", "Main sponsor"),
     ].filter((slot) => Boolean(slot.src)),
   },
   {
@@ -156,9 +164,16 @@ export const sponsorSections = [
     code: "SS",
     accent: "#ff8a63",
     slots: [
-      createLogoSlot("Unicredit", "Supporting sponsor", "Supporting sponsor"),
-      createLogoSlot("Tim", "Supporting sponsor", "Supporting sponsor"),
-      createLogoSlot("Eni", "Supporting sponsor", "Supporting sponsor"),
+      createYearSlot(2026, "Unicredit", "Supporting sponsor", "Supporting sponsor"),
+      createYearSlot(2026, "Tim", "Supporting sponsor", "Supporting sponsor"),
+      createYearSlot(2026, "Eni", "Supporting sponsor", "Supporting sponsor"),
+      createYearSlot(2025, "Deloitte", "Supporting sponsor", "Supporting sponsor"),
+      createYearSlot(2025, "EF", "Supporting sponsor", "Supporting sponsor"),
+      createYearSlot(2025, "VAIA", "Supporting sponsor", "Supporting sponsor"),
+      createYearSlot(2024, "Unicredit", "Supporting sponsor", "Supporting sponsor"),
+      createYearSlot(2024, "Eni", "Supporting sponsor", "Supporting sponsor"),
+      createYearSlot(2023, "Tim", "Supporting sponsor", "Supporting sponsor"),
+      createYearSlot(2023, "VAIA", "Supporting sponsor", "Supporting sponsor"),
     ].filter((slot) => Boolean(slot.src)),
   },
   {
@@ -171,9 +186,17 @@ export const sponsorSections = [
     code: "TS",
     accent: "#59b6ff",
     slots: [
-      createLogoSlot("Copernico", "Technical sponsor", "Technical sponsor"),
-      createLogoSlot("Enav", "Technical sponsor", "Technical sponsor"),
-      createLogoSlot("Enea", "Technical sponsor", "Technical sponsor"),
+      createYearSlot(2026, "Copernico", "Technical sponsor", "Technical sponsor"),
+      createYearSlot(2026, "Enav", "Technical sponsor", "Technical sponsor"),
+      createYearSlot(2026, "Enea", "Technical sponsor", "Technical sponsor"),
+      createYearSlot(2025, "Copernico", "Technical sponsor", "Technical sponsor"),
+      createYearSlot(2025, "Dias", "Technical sponsor", "Technical sponsor"),
+      createYearSlot(2024, "Enav", "Technical sponsor", "Technical sponsor"),
+      createYearSlot(2024, "Enea", "Technical sponsor", "Technical sponsor"),
+      createYearSlot(2023, "Copernico", "Technical sponsor", "Technical sponsor"),
+      createYearSlot(2023, "Enav", "Technical sponsor", "Technical sponsor"),
+      createYearSlot(2022, "Enea", "Technical sponsor", "Technical sponsor"),
+      createYearSlot(2022, "Dias", "Technical sponsor", "Technical sponsor"),
     ].filter((slot) => Boolean(slot.src)),
   },
   {
@@ -186,7 +209,10 @@ export const sponsorSections = [
     code: "SM",
     accent: "#67d6a7",
     slots: [
-      createLogoSlot("MyDiet", "Smart sponsor", "Smart sponsor"),
+      createYearSlot(2026, "MyDiet", "Smart sponsor", "Smart sponsor"),
+      createYearSlot(2025, "MyDiet", "Smart sponsor", "Smart sponsor"),
+      createYearSlot(2024, "VAIA", "Smart sponsor", "Smart sponsor"),
+      createYearSlot(2023, "MyDiet", "Smart sponsor", "Smart sponsor"),
     ].filter((slot) => Boolean(slot.src)),
   },
   {
@@ -199,8 +225,11 @@ export const sponsorSections = [
     code: "GS",
     accent: "#ffbf5c",
     slots: [
-      createLogoSlot("Innocent", "Gastronomic sponsor", "Gastronomic sponsor"),
-      createLogoSlot("CrikCrok", "Gastronomic sponsor", "Gastronomic sponsor"),
+      createYearSlot(2026, "Innocent", "Gastronomic sponsor", "Gastronomic sponsor"),
+      createYearSlot(2026, "CrikCrok", "Gastronomic sponsor", "Gastronomic sponsor"),
+      createYearSlot(2025, "CrikCrok", "Gastronomic sponsor", "Gastronomic sponsor"),
+      createYearSlot(2024, "Innocent", "Gastronomic sponsor", "Gastronomic sponsor"),
+      createYearSlot(2023, "CrikCrok", "Gastronomic sponsor", "Gastronomic sponsor"),
     ].filter((slot) => Boolean(slot.src)),
   },
   {
@@ -213,9 +242,16 @@ export const sponsorSections = [
     code: "FS",
     accent: "#ffa5d4",
     slots: [
-      createLogoSlot("Balduina1", "Friendly sponsor", "Friendly sponsor"),
-      createLogoSlot("Marziali", "Friendly sponsor", "Friendly sponsor"),
-      createLogoSlot("Pioda", "Friendly sponsor", "Friendly sponsor"),
+      createYearSlot(2026, "Balduina1", "Friendly sponsor", "Friendly sponsor"),
+      createYearSlot(2026, "Marziali", "Friendly sponsor", "Friendly sponsor"),
+      createYearSlot(2026, "Pioda", "Friendly sponsor", "Friendly sponsor"),
+      createYearSlot(2025, "Balduina1", "Friendly sponsor", "Friendly sponsor"),
+      createYearSlot(2025, "Pioda", "Friendly sponsor", "Friendly sponsor"),
+      createYearSlot(2024, "Marziali", "Friendly sponsor", "Friendly sponsor"),
+      createYearSlot(2024, "Pioda", "Friendly sponsor", "Friendly sponsor"),
+      createYearSlot(2023, "Balduina1", "Friendly sponsor", "Friendly sponsor"),
+      createYearSlot(2023, "Marziali", "Friendly sponsor", "Friendly sponsor"),
+      createYearSlot(2022, "Balduina1", "Friendly sponsor", "Friendly sponsor"),
     ].filter((slot) => Boolean(slot.src)),
   },
   {
@@ -228,9 +264,16 @@ export const sponsorSections = [
     code: "MD",
     accent: "#ffd84a",
     slots: [
-      createLogoSlot("Millionaire", "Media sponsor", "Media sponsor"),
-      createLogoSlot("RadioKaos", "Media sponsor", "Media sponsor"),
-      createLogoSlot("RadioSapienza", "Media sponsor", "Media sponsor"),
+      createYearSlot(2026, "Millionaire", "Media sponsor", "Media sponsor"),
+      createYearSlot(2026, "RadioKaos", "Media sponsor", "Media sponsor"),
+      createYearSlot(2026, "RadioSapienza", "Media sponsor", "Media sponsor"),
+      createYearSlot(2025, "RadioKaos", "Media sponsor", "Media sponsor"),
+      createYearSlot(2025, "RadioSapienza", "Media sponsor", "Media sponsor"),
+      createYearSlot(2024, "Millionaire", "Media sponsor", "Media sponsor"),
+      createYearSlot(2024, "RadioSapienza", "Media sponsor", "Media sponsor"),
+      createYearSlot(2023, "RadioKaos", "Media sponsor", "Media sponsor"),
+      createYearSlot(2023, "Millionaire", "Media sponsor", "Media sponsor"),
+      createYearSlot(2022, "RadioSapienza", "Media sponsor", "Media sponsor"),
     ].filter((slot) => Boolean(slot.src)),
   },
   {
@@ -243,10 +286,19 @@ export const sponsorSections = [
     code: "PT",
     accent: "#8de2ff",
     slots: [
-      createLogoSlot("EF", "Partner", "Partner"),
-      createLogoSlot("Tlon", "Partner", "Partner"),
-      createLogoSlot("VAIA", "Partner", "Partner"),
-      createLogoSlot("Thesis4u", "Partner", "Partner"),
+      createYearSlot(2026, "EF", "Partner", "Partner"),
+      createYearSlot(2026, "Tlon", "Partner", "Partner"),
+      createYearSlot(2026, "VAIA", "Partner", "Partner"),
+      createYearSlot(2026, "Thesis4u", "Partner", "Partner"),
+      createYearSlot(2025, "EF", "Partner", "Partner"),
+      createYearSlot(2025, "Tlon", "Partner", "Partner"),
+      createYearSlot(2025, "Thesis4u", "Partner", "Partner"),
+      createYearSlot(2024, "VAIA", "Partner", "Partner"),
+      createYearSlot(2024, "Tlon", "Partner", "Partner"),
+      createYearSlot(2023, "EF", "Partner", "Partner"),
+      createYearSlot(2023, "VAIA", "Partner", "Partner"),
+      createYearSlot(2022, "Tlon", "Partner", "Partner"),
+      createYearSlot(2022, "EF", "Partner", "Partner"),
     ].filter((slot) => Boolean(slot.src)),
   },
   {
@@ -259,8 +311,11 @@ export const sponsorSections = [
     code: "MP",
     accent: "#c8bcff",
     slots: [
-      createLogoSlot("JESAP", "Membership partner", "Membership partner"),
-      createLogoSlot("WAYouth", "Membership partner", "Membership partner"),
+      createYearSlot(2026, "JESAP", "Membership partner", "Membership partner"),
+      createYearSlot(2026, "WAYouth", "Membership partner", "Membership partner"),
+      createYearSlot(2025, "WAYouth", "Membership partner", "Membership partner"),
+      createYearSlot(2024, "JESAP", "Membership partner", "Membership partner"),
+      createYearSlot(2023, "WAYouth", "Membership partner", "Membership partner"),
     ].filter((slot) => Boolean(slot.src)),
   },
   {
@@ -273,7 +328,10 @@ export const sponsorSections = [
     code: "CP",
     accent: "#ff8e63",
     slots: [
-      createLogoSlot("Peekaboo", "Creative partner", "Creative partner"),
+      createYearSlot(2026, "Peekaboo", "Creative partner", "Creative partner"),
+      createYearSlot(2025, "Peekaboo", "Creative partner", "Creative partner"),
+      createYearSlot(2024, "Peekaboo", "Creative partner", "Creative partner"),
+      createYearSlot(2023, "Peekaboo", "Creative partner", "Creative partner"),
     ].filter((slot) => Boolean(slot.src)),
   },
   {
@@ -286,9 +344,15 @@ export const sponsorSections = [
     code: "CM",
     accent: "#9cff8c",
     slots: [
-      createLogoSlot("Collettivo", "Community partner", "Community partner"),
-      createLogoSlot("SFClubSapienza", "Community partner", "Community partner"),
-      createLogoSlot("MentorsNova", "Community partner", "Community partner"),
+      createYearSlot(2026, "Collettivo", "Community partner", "Community partner"),
+      createYearSlot(2026, "SFClubSapienza", "Community partner", "Community partner"),
+      createYearSlot(2026, "MentorsNova", "Community partner", "Community partner"),
+      createYearSlot(2025, "Collettivo", "Community partner", "Community partner"),
+      createYearSlot(2025, "MentorsNova", "Community partner", "Community partner"),
+      createYearSlot(2024, "SFClubSapienza", "Community partner", "Community partner"),
+      createYearSlot(2024, "Collettivo", "Community partner", "Community partner"),
+      createYearSlot(2023, "MentorsNova", "Community partner", "Community partner"),
+      createYearSlot(2023, "SFClubSapienza", "Community partner", "Community partner"),
     ].filter((slot) => Boolean(slot.src)),
   },
   {
@@ -301,8 +365,13 @@ export const sponsorSections = [
     code: "PA",
     accent: "#f2f2f2",
     slots: [
-      createLogoSlot("RegioneLazio", "Patrocinio", "Patronage"),
-      createLogoSlot("Roma", "Patrocinio", "Patronage"),
+      createYearSlot(2026, "RegioneLazio", "Patrocinio", "Patronage"),
+      createYearSlot(2026, "Roma", "Patrocinio", "Patronage"),
+      createYearSlot(2025, "Roma", "Patrocinio", "Patronage"),
+      createYearSlot(2024, "RegioneLazio", "Patrocinio", "Patronage"),
+      createYearSlot(2023, "RegioneLazio", "Patrocinio", "Patronage"),
+      createYearSlot(2023, "Roma", "Patrocinio", "Patronage"),
+      createYearSlot(2022, "Roma", "Patrocinio", "Patronage"),
     ].filter((slot) => Boolean(slot.src)),
   },
   {
@@ -315,7 +384,8 @@ export const sponsorSections = [
     code: "HP",
     accent: "#f7dca1",
     slots: [
-      createLogoSlot("CNR", "Alto patrocinio", "High patronage"),
+      createYearSlot(2026, "CNR", "Alto patrocinio", "High patronage"),
+      createYearSlot(2024, "CNR", "Alto patrocinio", "High patronage"),
     ].filter((slot) => Boolean(slot.src)),
   },
 ];

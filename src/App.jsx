@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { Suspense, lazy, useState, useEffect } from "react";
 import {
   createBrowserRouter,
   Outlet,
@@ -9,65 +9,39 @@ import { AuthContextProvider } from "./modules/context/authContext";
 
 import Navbar from "./modules/components/Navbar";
 import Landing from "./modules/pages/Landing";
-import Team from "./modules/pages/Team";
-import Sponsors from "./modules/pages/Sponsors";
-import JoinUs from "./modules/pages/JoinUs";
 import Footer from "./modules/components/Footer";
 import ErrorPage from "./modules/pages/ErrorPage";
-import Location from "./modules/pages/Location";
 import Grainient from "./modules/components/Grainient";
-
-import Countdown2024 from "./modules/pages/events/Countdown2024";
-import Awards23 from "./modules/pages/events/Awards23";
-import Awards24 from "./modules/pages/events/Awards24";
-import EventTemplate from "./modules/pages/events/EventTemplate";
-import EventsHub from "./modules/pages/events/EventsHub";
 import ScrollToTop from "./modules/components/ScrollToTop";
-import Awards22 from "./modules/pages/events/Awards22";
-import Act22 from "./modules/pages/events/Act22";
-// --- IMPORT ASSETS ---
-import paradoxaHeader from "./assets/images/paradoxa25/header_paradoxa2.png";
-import btzHeader from "./assets/images/backtozero23/Edizione2023.webp";
-import awardsBanner from "./assets/images/awards24/awards_sapienza.png";
-
-// --- IMPORT DATA ---
-import paradoxaData from "./data/paradoxa.json";
-import backtozeroData from "./data/backtozero.json";
-import awards22Data from "./data/awards22.json";
-import sidebarContent from "./data/eventSidebarContent.json";
 
 import "./App.css";
 
-const normalizeSpeakerName = (value = "") => value.trim().toLowerCase();
+const Team = lazy(() => import("./modules/pages/Team"));
+const Sponsors = lazy(() => import("./modules/pages/Sponsors"));
+const JoinUs = lazy(() => import("./modules/pages/JoinUs"));
+const Location = lazy(() => import("./modules/pages/Location"));
+const Countdown2024 = lazy(() => import("./modules/pages/events/Countdown2024"));
+const Awards23 = lazy(() => import("./modules/pages/events/Awards23"));
+const Awards24 = lazy(() => import("./modules/pages/events/Awards24"));
+const EventsHub = lazy(() => import("./modules/pages/events/EventsHub"));
+const Awards22Page = lazy(() => import("./modules/pages/events/Awards22Page"));
+const Act22 = lazy(() => import("./modules/pages/events/Act22"));
+const ParadoxaPage = lazy(() => import("./modules/pages/events/ParadoxaPage"));
+const BackToZeroPage = lazy(() => import("./modules/pages/events/BackToZeroPage"));
 
-const buildSidebarLookup = (items) =>
-  new Map(
-    (items || []).map((item) => [normalizeSpeakerName(item.name), item]),
+function RouteFallback() {
+  return (
+    <div
+      style={{
+        minHeight: "50vh",
+      }}
+    />
   );
+}
 
-const paradoxaSidebarLookup = buildSidebarLookup(sidebarContent.paradoxa2025);
-
-const paradoxaEventData = {
-  ...paradoxaData,
-  speakers: Object.fromEntries(
-    Object.entries(paradoxaData.speakers || {}).map(([key, speaker]) => {
-      const sidebarSpeaker = paradoxaSidebarLookup.get(
-        normalizeSpeakerName(speaker.name),
-      );
-
-      return [
-        key,
-        {
-          ...speaker,
-          category: sidebarSpeaker?.category,
-          bio: sidebarSpeaker?.bio_it || speaker.bio,
-          bioeng: sidebarSpeaker?.bio_en,
-          linkTalk: sidebarSpeaker?.youtube_embed_url || speaker.linkTalk,
-        },
-      ];
-    }),
-  ),
-};
+const withSuspense = (element) => (
+  <Suspense fallback={<RouteFallback />}>{element}</Suspense>
+);
 
 const router = createBrowserRouter([
   {
@@ -87,76 +61,67 @@ const router = createBrowserRouter([
       },
       {
         path: "/sponsors",
-        element: <Sponsors />,
+        element: withSuspense(<Sponsors />),
       },
       {
         path: "/partners",
-        element: <Sponsors />,
+        element: withSuspense(<Sponsors />),
       },
       {
         path: "/team",
-        element: <Team />,
+        element: withSuspense(<Team />),
       },
       {
         path: "/join-us",
-        element: <JoinUs />,
+        element: withSuspense(<JoinUs />),
       },
       {
         path: "/joinus",
-        element: <JoinUs />,
+        element: withSuspense(<JoinUs />),
       },
       {
         path: "/newsletter",
-        element: <JoinUs />,
+        element: withSuspense(<JoinUs />),
       },
       {
         path: "/Newsletter",
-        element: <JoinUs />,
+        element: withSuspense(<JoinUs />),
       },
       {
         path: "/location",
-        element: <Location />,
+        element: withSuspense(<Location />),
       },
       {
         path: "/events",
-        element: <EventsHub />,
+        element: withSuspense(<EventsHub />),
       },
       {
         path: "/events/paradoxa2025",
-        element: (
-          <EventTemplate
-            imagePath={paradoxaHeader}
-            eventData={paradoxaEventData}
-          />
-        ),
+        element: withSuspense(<ParadoxaPage />),
       },
       {
         path: "/events/awards24",
-        element: <Awards24 />,
+        element: withSuspense(<Awards24 />),
       },
       {
         path: "/events/countdown2024",
-        element: <Countdown2024 />,
+        element: withSuspense(<Countdown2024 />),
       },
       {
         path: "/events/backtozero",
-        element: (
-          <EventTemplate imagePath={btzHeader} eventData={backtozeroData} />
-        ),
+        element: withSuspense(<BackToZeroPage />),
       },
       {
         path: "/events/awards23",
-        element: <Awards23 />,
+        element: withSuspense(<Awards23 />),
       },
       {
         path: "/events/act22",
-        element: <Act22 />,
+        element: withSuspense(<Act22 />),
       },
       {
         path: "/events/awards22",
-        element: (
-          <EventTemplate imagePath={awardsBanner} eventData={awards22Data} />
-        ),
+        element: withSuspense(<Awards22Page />),
       },
     ],
   },
