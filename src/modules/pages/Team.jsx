@@ -3,6 +3,7 @@ import { useTranslation } from "react-i18next";
 
 import global from "../../resources/global.json";
 import { getLocalizedValue, teamSections } from "../../data/teamData";
+import { getTeamLogo } from "../../data/teamVisuals";
 import placeholderImage from "../../assets/images/team/placeholder.webp";
 
 import "./team.css";
@@ -102,6 +103,7 @@ export default function Team() {
     selectedTeam ??
     teamSections.find(({ id }) => id === activeTeamId) ??
     teamSections[0];
+  const focusedTeamLogo = getTeamLogo(focusedTeam.id);
   const isCompactFocusTitle = focusedTeam.label.length > 28;
 
   return (
@@ -116,7 +118,6 @@ export default function Team() {
             className={`team-overview-view ${selectedTeam ? "is-hidden" : "is-visible"}`}
           >
             <section className="team-hero">
-              <p className="team-kicker">{t("team_page.hero_kicker")}</p>
               <h1 className="team-hero-title">{t("team_page.hero_title")}</h1>
               <p className="team-hero-description">
                 {t("team_page.hero_description")}
@@ -138,54 +139,89 @@ export default function Team() {
             </section>
 
             <section className="team-sections">
-              {teamSections.map((team) => (
-                <section
-                  key={team.id}
-                  id={`team-section-${team.id}`}
-                  data-team-id={team.id}
-                  className="team-section"
-                  ref={(node) => {
-                    if (node) {
-                      sectionRefs.current[team.id] = node;
-                    }
-                  }}
-                >
-                  <header
-                    className="team-section-head"
-                    style={{ "--team-accent": team.accent }}
-                  >
-                    <p className="team-section-kicker">
-                      {getLocalizedValue(team.eyebrow, language)}
-                    </p>
-                    <h2 className="team-section-title">{team.label}</h2>
-                    <p className="team-section-description">
-                      {t(team.descriptionKey)}
-                    </p>
-                  </header>
+              {teamSections.map((team) => {
+                const teamLogo = getTeamLogo(team.id);
 
-                  <div className="team-members-grid">
-                    {team.members.map((member, index) => (
-                      <TeamMemberCard
-                        key={`${team.id}-${index}`}
-                        member={member}
-                        accent={team.accent}
-                        language={language}
-                        imageSrc={placeholderImage}
-                      />
-                    ))}
-                  </div>
-                </section>
-              ))}
+                return (
+                  <section
+                    key={team.id}
+                    id={`team-section-${team.id}`}
+                    data-team-id={team.id}
+                    className="team-section"
+                    ref={(node) => {
+                      if (node) {
+                        sectionRefs.current[team.id] = node;
+                      }
+                    }}
+                  >
+                    <header
+                      className="team-section-head"
+                      style={{
+                        "--team-accent": team.accent,
+                        "--team-description-color":
+                          team.id === "board"
+                            ? "rgba(255, 255, 255, 0.84)"
+                            : undefined,
+                      }}
+                    >
+                      {teamLogo ? (
+                        <div className="team-section-brand">
+                          <img
+                            className="team-section-logo"
+                            src={teamLogo}
+                            alt=""
+                            loading="lazy"
+                            decoding="async"
+                          />
+                        </div>
+                      ) : null}
+                      <h2 className="team-section-title">{team.label}</h2>
+                      <p className="team-section-description">
+                        {t(team.descriptionKey)}
+                      </p>
+                    </header>
+
+                    <div className="team-members-grid">
+                      {team.members.map((member, index) => (
+                        <TeamMemberCard
+                          key={`${team.id}-${index}`}
+                          member={member}
+                          accent={team.accent}
+                          language={language}
+                          imageSrc={placeholderImage}
+                        />
+                      ))}
+                    </div>
+                  </section>
+                );
+              })}
             </section>
           </div>
 
           <section
             aria-hidden={!selectedTeam}
             className={`team-focus-view ${selectedTeam ? "is-visible" : "is-hidden"}`}
-            style={{ "--team-accent": focusedTeam.accent }}
+            style={{
+              "--team-accent": focusedTeam.accent,
+              "--team-description-color":
+                focusedTeam.id === "board"
+                  ? "rgba(255, 255, 255, 0.88)"
+                  : undefined,
+            }}
           >
             <div className="team-focus-stage">
               <div className="team-focus-mode-copy">
+                {focusedTeamLogo ? (
+                  <div className="team-focus-brand">
+                    <img
+                      className="team-focus-logo"
+                      src={focusedTeamLogo}
+                      alt=""
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  </div>
+                ) : null}
                 <h2
                   className={`team-focus-mode-title ${isCompactFocusTitle ? "is-compact" : ""}`}
                 >

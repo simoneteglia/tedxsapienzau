@@ -95,14 +95,14 @@
 .team-hero {
   display: grid;
   justify-items: center;
-  gap: 34px;
+  gap: 22px;
   text-align: center;
 }
 
 .team-kicker {
   margin: 0;
   color: #ff93a4;
-  font-family: "ObjectSans";
+  font-family: "Anton";
   font-size: 14px;
   letter-spacing: 0.18em;
   text-transform: uppercase;
@@ -126,7 +126,7 @@
   font-family: "ObjectSans";
   font-size: 17px;
   line-height: 1.72;
-  margin-top: 25px;
+  margin-top: 0;
 }
 
 .team-chip-row {
@@ -185,7 +185,29 @@
 .team-focus-mode-copy {
   display: grid;
   gap: 18px;
-  max-width: 760px;
+  max-width: 900px;
+}
+
+.team-focus-brand,
+.team-section-brand {
+  display: flex;
+  justify-content: center;
+}
+
+.team-focus-brand {
+  justify-content: flex-start;
+  margin-bottom: 2px;
+}
+
+.team-focus-logo,
+.team-section-logo {
+  width: 88px;
+  height: auto;
+  filter: drop-shadow(0 14px 28px rgba(0, 0, 0, 0.22));
+}
+
+.team-focus-logo {
+  width: 96px;
 }
 
 .team-focus-mode-title {
@@ -203,11 +225,11 @@
 
 .team-focus-mode-description {
   margin: 0;
-  max-width: 29ch;
+  max-width: 45ch;
   color: rgba(255, 255, 255, 0.88);
-  font-family: "ObjectSans";
+  font-family: "GothamBook";
   font-size: 17px;
-  line-height: 1.18;
+  line-height: 1.28;
 }
 
 .team-focus-actions {
@@ -346,7 +368,7 @@
 
 .team-section-head {
   display: grid;
-  gap: 18px;
+  gap: 14px;
   max-width: 880px;
   margin: 0 auto;
   text-align: center;
@@ -355,7 +377,7 @@
 .team-section-kicker {
   margin: 0;
   color: var(--team-accent, #eb0028);
-  font-family: "ObjectSans";
+  font-family: "Anton";
   font-size: 13px;
   letter-spacing: 0.14em;
   text-transform: uppercase;
@@ -372,7 +394,7 @@
   margin: 0;
   max-width: 56ch;
   color: rgba(255, 255, 255, 0.78);
-  font-family: "ObjectSans";
+  font-family: "GothamBook";
   font-size: 16px;
   line-height: 1.72;
   margin-right: auto;
@@ -520,6 +542,11 @@
   .team-focus-mode-description {
     max-width: none;
     font-size: 15px;
+  }
+
+  .team-focus-logo,
+  .team-section-logo {
+    width: 72px;
   }
 
   .team-hero-description,

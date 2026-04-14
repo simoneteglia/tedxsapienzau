@@ -32,7 +32,7 @@ const baseTeamSections = [
     id: "it-website",
     label: "IT & Website",
     code: "IT",
-    accent: "#5db4ff",
+    accent: "#f07e2a",
     eyebrow: localized("IT", "IT"),
     descriptionKey: "joinus.IT",
     members: [
@@ -46,7 +46,7 @@ const baseTeamSections = [
     id: "external-relations-sponsor",
     label: "External Relations & Sponsor",
     code: "ER",
-    accent: "#ffd84a",
+    accent: "#f089b7",
     eyebrow: localized("ERS", "ERS"),
     descriptionKey: "joinus.ERS",
     members: [
@@ -65,7 +65,7 @@ const baseTeamSections = [
     id: "planning-event-management",
     label: "Planning & Event Management",
     code: "PM",
-    accent: "#ffb347",
+    accent: "#bb5c9e",
     eyebrow: localized("PEM", "PEM"),
     descriptionKey: "joinus.PEM",
     members: [
@@ -85,7 +85,7 @@ const baseTeamSections = [
     id: "legal-administrative",
     label: "Legal & Administrative",
     code: "LA",
-    accent: "#c2b8ff",
+    accent: "#21bcef",
     eyebrow: localized("LA", "LA"),
     descriptionKey: "joinus.LA",
     members: [
@@ -102,7 +102,7 @@ const baseTeamSections = [
     id: "design",
     label: "Design",
     code: "DE",
-    accent: "#ff7cd6",
+    accent: "#fab732",
     eyebrow: localized("DEX", "DEX"),
     descriptionKey: "joinus.DESIGN",
     members: [
@@ -129,7 +129,7 @@ const baseTeamSections = [
     id: "speakers-event-curation",
     label: "Speakers & Event Curation",
     code: "SE",
-    accent: "#58d39b",
+    accent: "#95c459",
     eyebrow: localized("SEC", "SEC"),
     descriptionKey: "joinus.SEC",
     members: [
@@ -152,7 +152,7 @@ const baseTeamSections = [
     id: "human-resources-academy",
     label: "Human Resources & Academy",
     code: "HR",
-    accent: "#8be0ff",
+    accent: "#2884c7",
     eyebrow: localized("HRA", "HRA"),
     descriptionKey: "joinus.HRA",
     members: [
@@ -174,7 +174,7 @@ const baseTeamSections = [
     id: "communication-editorial-marketing-media",
     label: "Communication, Editorial, Marketing & Media",
     code: "CM",
-    accent: "#ff8e63",
+    accent: "#e9493a",
     eyebrow: localized("CEMM", "CEMM"),
     descriptionKey: "joinus.CEM",
     members: [

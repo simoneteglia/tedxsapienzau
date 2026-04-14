@@ -6,10 +6,10 @@ import global from "../../../resources/global.json";
 import paradoxaHeader from "../../../assets/images/paradoxa25/header_paradoxa2.png";
 import awards24Poster from "../../../assets/images/awards24/awards24.webp";
 import countdownCover from "../../../assets/images/countdown24/earth.webp";
-import backToZeroCover from "../../../assets/images/backtozero23/header_blog23.webp";
+import backToZeroCover from "../../../assets/images/backtozero23/header_blog23-card.webp";
 import awards23Cover from "../../../assets/images/awards23/header_awards23.webp";
 import act22Cover from "../../../assets/images/act22/Edizione2022.webp";
-import awards22Cover from "../../../assets/images/awards22/awards2022.webp";
+import awards22Cover from "../../../assets/images/awards22/awards2022-card.webp";
 
 const events = [
   {
@@ -146,7 +146,11 @@ export default function EventsHub() {
             style={{ "--event-accent": featuredEvent.accent }}
             to={featuredEvent.href}
           >
-            <img src={featuredEvent.image} alt={featuredEvent.title} />
+            <img
+              src={featuredEvent.image}
+              alt={featuredEvent.title}
+              decoding="async"
+            />
             <div className="events-feature-content">
               <div className="events-pill-row">
                 <span className="events-pill">In evidenza</span>
@@ -168,8 +172,8 @@ export default function EventsHub() {
           <div className="events-archive-head">
             <h2>Dall&apos;edizione zero ai format speciali.</h2>
             <p className="events-archive-copy">
-              Tutte le pagine evento raccolte in un solo posto, ordinate per
-              recency e pronte da esplorare.
+              Tutte le pagine evento raccolte in un solo posto, pronte da
+              esplorare.
             </p>
           </div>
 
@@ -186,6 +190,9 @@ export default function EventsHub() {
                     src={event.image}
                     alt={event.title}
                     style={{ objectFit: event.doContain ? "contain" : "cover" }}
+                    loading="lazy"
+                    decoding="async"
+                    fetchPriority="low"
                   />
                 </div>
 

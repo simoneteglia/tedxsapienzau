@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { Suspense, lazy, useState, useEffect } from "react";
 import {
   createBrowserRouter,
   Outlet,
@@ -9,34 +9,21 @@ import { AuthContextProvider } from "./modules/context/authContext";
 
 import Navbar from "./modules/components/Navbar";
 import Landing from "./modules/pages/Landing";
-import Team from "./modules/pages/Team";
-import Sponsors from "./modules/pages/Sponsors";
-import JoinUs from "./modules/pages/JoinUs";
 import Footer from "./modules/components/Footer";
 import ErrorPage from "./modules/pages/ErrorPage";
-import Location from "./modules/pages/Location";
 import Grainient from "./modules/components/Grainient";
-
-import Countdown2024 from "./modules/pages/events/Countdown2024";
-import EventTemplate from "./modules/pages/events/EventTemplate";
-import EventsHub from "./modules/pages/events/EventsHub";
 import ScrollToTop from "./modules/components/ScrollToTop";
-import Act22 from "./modules/pages/events/Act22";
 
-// --- IMPORT ASSETS ---
 import paradoxaHeader from "./assets/images/paradoxa25/header_paradoxa2.png";
 import btzHeader from "./assets/images/backtozero23/Edizione2023.webp";
 import awardsBanner from "./assets/images/awards24/awards_sapienza.png";
 import Awards23Header from "./assets/images/awards23/header_awards23.webp";
 
+import "./App.css";
 
-// --- IMPORT DATA ---
 import awards22Data from "./data/awards22.json";
 import sidebarContent from "./data/eventSidebarContent.json";
 
-import "./App.css";
-
-// 1. FUNZIONE PER FORMATTARE I DATI DI eventSidebarContent.json
 const formatEventData = (rawEventData) => {
   if (!rawEventData) return {};
 
@@ -75,7 +62,34 @@ const awards23EventData = formatEventData(rawAwards23Data);
 const rawAwards24Data = sidebarContent.awards24?.[0];
 const awards24EventData = formatEventData(rawAwards24Data);
 
-// 3. ROUTER
+const Team = lazy(() => import("./modules/pages/Team"));
+const Sponsors = lazy(() => import("./modules/pages/Sponsors"));
+const JoinUs = lazy(() => import("./modules/pages/JoinUs"));
+const Location = lazy(() => import("./modules/pages/Location"));
+const Countdown2024 = lazy(
+  () => import("./modules/pages/events/Countdown2024"),
+);
+const EventsHub = lazy(() => import("./modules/pages/events/EventsHub"));
+const EventTemplate = lazy(
+  () => import("./modules/pages/events/EventTemplate"),
+);
+const Act22 = lazy(() => import("./modules/pages/events/Act22"));
+const ChiSiamo = lazy(() => import("./modules/pages/ChiSiamo"));
+
+function RouteFallback() {
+  return (
+    <div
+      style={{
+        minHeight: "50vh",
+      }}
+    />
+  );
+}
+
+const withSuspense = (element) => (
+  <Suspense fallback={<RouteFallback />}>{element}</Suspense>
+);
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -94,89 +108,99 @@ const router = createBrowserRouter([
       },
       {
         path: "/sponsors",
-        element: <Sponsors />,
+        element: withSuspense(<Sponsors />),
       },
       {
         path: "/partners",
-        element: <Sponsors />,
+        element: withSuspense(<Sponsors />),
       },
       {
         path: "/team",
-        element: <Team />,
+        element: withSuspense(<Team />),
       },
       {
         path: "/join-us",
-        element: <JoinUs />,
+        element: withSuspense(<JoinUs />),
       },
       {
         path: "/joinus",
-        element: <JoinUs />,
+        element: withSuspense(<JoinUs />),
       },
       {
         path: "/newsletter",
-        element: <JoinUs />,
+        element: withSuspense(<JoinUs />),
       },
       {
         path: "/Newsletter",
-        element: <JoinUs />,
+        element: withSuspense(<JoinUs />),
       },
       {
         path: "/location",
-        element: <Location />,
+        element: withSuspense(<Location />),
       },
       {
         path: "/events",
-        element: <EventsHub />,
+        element: withSuspense(<EventsHub />),
       },
       {
         path: "/events/paradoxa2025",
-        element: (
+        element: withSuspense(
           <EventTemplate
             imagePath={paradoxaHeader}
             eventData={paradoxaEventData}
-          />
+          />,
         ),
       },
       {
         path: "/events/awards24",
-        element: (
-          <EventTemplate imagePath={awardsBanner} eventData={awards24EventData} />
+        element: withSuspense(
+          <EventTemplate
+            imagePath={awardsBanner}
+            eventData={awards24EventData}
+          />,
         ),
       },
       {
         path: "/events/countdown2024",
-        element: <Countdown2024 />,
+        element: withSuspense(<Countdown2024 />),
       },
       {
         path: "/events/backtozero",
-        element: (
+        element: withSuspense(
           <EventTemplate
             imagePath={btzHeader}
             eventData={backtozeroEventData}
-          />
+          />,
         ),
       },
       {
         path: "/events/awards23",
-        element: (
-          <EventTemplate imagePath={Awards23Header} eventData={awards23EventData} />
+        element: withSuspense(
+          <EventTemplate
+            imagePath={Awards23Header}
+            eventData={awards23EventData}
+          />,
         ),
       },
       {
         path: "/events/act22",
-        element: <Act22 eventData={actEventData} />, //pagina parzialmente template per mantenere la scritta ACT
+        element: withSuspense(<Act22 eventData={actEventData} />),
       },
       {
         path: "/events/awards22",
-        element: (
-          <EventTemplate imagePath={awardsBanner} eventData={awards22EventData} />
+        element: withSuspense(
+          <EventTemplate imagePath={awardsBanner} eventData={awards22Data} />,
         ),
+      },
+
+      {
+        path: "/about",
+        element: withSuspense(<ChiSiamo />),
       },
     ],
   },
 ]);
 
-// 4. COMPONENTI
 function LandingManager() {
   const [windowSize, setWindowSize] = useState(window.innerWidth);
   const location = useLocation();
@@ -190,7 +214,6 @@ function LandingManager() {
 
   useEffect(() => {
     window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
   }, []);
 
   const handleResize = () => {

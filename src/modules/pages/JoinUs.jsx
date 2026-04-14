@@ -13,6 +13,7 @@ import {
   joinUsTeamSummaries,
 } from "../../data/joinUsData";
 import { getLocalizedValue, teamSections } from "../../data/teamData";
+import { getTeamLogo } from "../../data/teamVisuals";
 
 import "./joinUs.css";
 
@@ -41,15 +42,27 @@ function JoinUsStepCard({ step, language }) {
 function JoinUsTeamCard({ team, language }) {
   const summary = joinUsTeamSummaries[team.id];
   const roleTags = team.members.slice(0, 4);
+  const teamLogo = getTeamLogo(team.id);
 
   return (
     <article
       className="joinus-team-card"
       style={{ "--joinus-accent": team.accent }}
     >
-      <p className="joinus-team-card-kicker">
-        {getLocalizedValue(team.eyebrow, language)}
-      </p>
+      <div className="joinus-team-card-head">
+        <p className="joinus-team-card-kicker">
+          {getLocalizedValue(team.eyebrow, language)}
+        </p>
+        {teamLogo ? (
+          <img
+            className="joinus-team-card-logo"
+            src={teamLogo}
+            alt=""
+            loading="lazy"
+            decoding="async"
+          />
+        ) : null}
+      </div>
       <h3>{team.label}</h3>
       <p className="joinus-team-card-summary">
         {summary ? getLocalizedValue(summary, language) : ""}
