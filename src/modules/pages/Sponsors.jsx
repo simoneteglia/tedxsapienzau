@@ -5,7 +5,6 @@ import Bento from "../components/bento";
 
 import global from "../../resources/global.json";
 import {
-  getLocalizedSponsorValue,
   sponsorHeroCopy,
   sponsorMarqueeItems,
   sponsorSections,
@@ -14,12 +13,17 @@ import {
 import "./sponsors.css";
 
 // Componente striscia scorrevole
-function SponsorLogoTile({ item, language }) {
-  const name = getLocalizedSponsorValue(item.name, language);
+function SponsorLogoTile({ item }) {
+  const name = item.name;
   return (
     <article className="sponsor-logo-tile" aria-label={name} title={name}>
       {item.src ? (
-        <img className="sponsor-logo-image" src={item.src} alt={name} />
+        <img 
+          className="sponsor-logo-image" 
+          src={item.src} 
+          alt={name} 
+          style={{ transform: `scale(${item.tileLogoScale || 1})` }}
+        />
       ) : (
         <strong>{name}</strong>
       )}
@@ -27,11 +31,9 @@ function SponsorLogoTile({ item, language }) {
   );
 }
 
-// IL NUOVO SPONSOR SLOT (Usa i dati del tuo file ma grafica Bento)
-function SponsorSlot({ slot, language, isFeatured }) {
-  const name = getLocalizedSponsorValue(slot.name, language);
-  
-  // Se la sezione è "featured" (es. Main Sponsor) la card è più grande
+// Sponsor Slot (Grafica Bento adattata ai nuovi dati)
+function SponsorSlot({ slot, isFeatured }) {
+  const name = slot.name;
   const bentoHeight = isFeatured ? "260px" : "180px";
 
   return (
@@ -61,7 +63,6 @@ function SponsorSlot({ slot, language, isFeatured }) {
         )}
       </Bento>
       
-      {/* Link sotto al logo */}
       <a 
         href={slot.link || "#"} 
         target="_blank" 
@@ -76,14 +77,14 @@ function SponsorSlot({ slot, language, isFeatured }) {
 }
 
 export default function Sponsors() {
-  const { t, i18n } = useTranslation();
-  const language = i18n.resolvedLanguage || i18n.language || "it";
+  const { t } = useTranslation();
   
-  // STATO PER IL FILTRO ANNO (Impostato su 2023 per mostrare subito i tuoi dati reali)
-  const [selectedYear, setSelectedYear] = useState("2023");
+  // STATO PER IL FILTRO ANNO: Impostato su 2026 di default
+  const [selectedYear, setSelectedYear] = useState("2026");
 
   const marqueeFirstRow = sponsorMarqueeItems.slice(0, Math.ceil(sponsorMarqueeItems.length / 2));
   const marqueeSecondRow = sponsorMarqueeItems.slice(Math.ceil(sponsorMarqueeItems.length / 2));
+  
   const partnershipFormats = [
     t("partners.14th_st_el_1"), t("partners.14th_st_el_2"), t("partners.14th_st_el_3"), t("partners.14th_st_el_4"), t("partners.14th_st_el_5"),
   ];
@@ -99,14 +100,14 @@ export default function Sponsors() {
         {/* HERO SECTION */}
         <section className="sponsors-hero">
           <div className="sponsors-hero-copy">
-            <h1 className="sponsors-title">{getLocalizedSponsorValue(sponsorHeroCopy.title, language)}</h1>
-            <p className="sponsors-description">{getLocalizedSponsorValue(sponsorHeroCopy.description, language)}</p>
+            <h1 className="sponsors-title">{sponsorHeroCopy.title}</h1>
+            <p className="sponsors-description">{sponsorHeroCopy.description}</p>
 
             <div className="sponsors-logo-marquee">
               <div className="sponsors-logo-marquee-row">
                 <div className="sponsors-logo-track">
                   {[...marqueeFirstRow, ...marqueeFirstRow].map((item, index) => (
-                    <SponsorLogoTile key={`row-a-${index}`} item={item} language={language} />
+                    <SponsorLogoTile key={`row-a-${index}`} item={item} />
                   ))}
                 </div>
               </div>
@@ -114,7 +115,7 @@ export default function Sponsors() {
               <div className="sponsors-logo-marquee-row is-slower">
                 <div className="sponsors-logo-track">
                   {[...marqueeSecondRow, ...marqueeSecondRow].map((item, index) => (
-                    <SponsorLogoTile key={`row-b-${index}`} item={item} language={language} />
+                    <SponsorLogoTile key={`row-b-${index}`} item={item} />
                   ))}
                 </div>
               </div>
@@ -122,27 +123,27 @@ export default function Sponsors() {
           </div>
 
           <aside className="sponsors-cta-card">
-            <h2 className="sponsors-cta-title">{getLocalizedSponsorValue(sponsorHeroCopy.ctaTitle, language)}</h2>
-            <p className="sponsors-cta-description">{getLocalizedSponsorValue(sponsorHeroCopy.ctaDescription, language)}</p>
+            <h2 className="sponsors-cta-title">{sponsorHeroCopy.ctaTitle}</h2>
+            <p className="sponsors-cta-description">{sponsorHeroCopy.ctaDescription}</p>
             <div className="sponsors-format-row">
               {partnershipFormats.map((format) => (
                 <span key={format} className="sponsors-format-chip">{format}</span>
               ))}
             </div>
             <div className="sponsors-cta-contact">
-              <span>{getLocalizedSponsorValue(sponsorHeroCopy.contactLabel, language)}</span>
+              <span>{sponsorHeroCopy.contactLabel}</span>
               <a href={`mailto:${sponsorHeroCopy.contactValue}`}>{sponsorHeroCopy.contactValue}</a>
             </div>
             <button type="button" className="sponsors-contact-button">{t("partners.14th_st_el_6")}</button>
           </aside>
         </section>
 
-        {/* STATS SECTION - LIQUID GLASS */}
+        {/* STATS SECTION */}
         <section className="max-w-6xl mx-auto mb-20 w-full">
           <div className="sponsors-stats-copy mb-10 text-center">
             <h2 className="text-4xl md:text-5xl font-bold mb-4" style={{ fontFamily: "ObjectSansHeavy" }}>{t("partners.events")}</h2>
             <p className="text-gray-300 text-lg mx-auto max-w-3xl" style={{ fontFamily: "ObjectSans" }}>
-              {language.toLowerCase().startsWith("en") ? "A quick snapshot of audience, reach and partnerships across the project." : "Una fotografia rapida di audience, reach e collaborazioni che orbitano intorno al progetto."}
+              Una fotografia rapida di audience, reach e collaborazioni che orbitano intorno al progetto.
             </p>
           </div>
 
@@ -174,13 +175,12 @@ export default function Sponsors() {
           </div>
         </section>
 
-        {/* LOGOS DIRECTORY (Dinamico da sponsorsData.js) */}
+        {/* LOGOS DIRECTORY */}
         <section className="max-w-6xl mx-auto mb-20 w-full">
           
-          {/* HEADER CON SELETTORE ANNO */}
           <div className="flex justify-between items-center mb-12 border-b border-white/20 pb-6">
             <h2 className="text-4xl md:text-5xl font-bold text-white" style={{ fontFamily: "ObjectSansHeavy" }}>
-              {language.toLowerCase().startsWith("en") ? "Our sponsors" : "I nostri sponsor"}
+              I nostri sponsor
             </h2>
             <select
               value={selectedYear}
@@ -196,12 +196,8 @@ export default function Sponsors() {
             </select>
           </div>
 
-          {/* MAPPATURA SEZIONI DA sponsorsData.js */}
           <div className="flex flex-col gap-12">
             {sponsorSections.map((section) => {
-              
-              // Filtra gli sponsor per l'anno selezionato.
-              // N.B: Se nel file dati un logo non ha l'attributo "year", lo mostra comunque per evitare pagine vuote!
               const filteredSlots = section.slots.filter(
                 (slot) => !slot.year || String(slot.year) === selectedYear
               );
@@ -210,14 +206,12 @@ export default function Sponsors() {
 
               return (
                 <article key={section.id} className="w-full flex flex-col">
-                  {/* Titolo Categoria (es. MAIN SPONSORS) */}
                   <header className="mb-6">
                     <h3 className="text-[#ff92a3] text-sm font-bold uppercase" style={{ fontFamily: "ObjectSans", letterSpacing: "0.16em" }}>
-                      {getLocalizedSponsorValue(section.title, language)}
+                      {section.title}
                     </h3>
                   </header>
 
-                  {/* Griglia Loghi */}
                   <div 
                     className="grid gap-6" 
                     style={{ 
@@ -230,7 +224,6 @@ export default function Sponsors() {
                       <SponsorSlot
                         key={slot.id}
                         slot={slot}
-                        language={language}
                         isFeatured={section.featured}
                       />
                     ))}
