@@ -116,17 +116,6 @@ const createLogoSlot = (key, options = {}) => {
 const createYearSlot = (year, key, options = {}) =>
   createLogoSlot(key, { year, ...options });
 
-export const sponsorHeroCopy = {
-  kicker: "Collaborazioni che fanno crescere il progetto",
-  title: "Sponsors & Partners",
-  description: "TEDxSapienzaU costruisce ogni edizione insieme a brand, istituzioni e community.",
-  ctaEyebrow: "Partnership formats",
-  ctaTitle: "Vuoi costruire la prossima edizione con noi?",
-  ctaDescription: "Questa area è pronta per diventare il punto di contatto per sponsorship e partnership.",
-  contactLabel: "Contatto diretto",
-  contactValue: "info@tedxsapienzau.com",
-};
-
 export const sponsorStats = [
   { value: "3000", labelKey: "partners.people" },
   { value: "35000", labelKey: "partners.yt_views" },

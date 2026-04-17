@@ -5,7 +5,6 @@ import Bento from "../components/bento";
 
 import global from "../../resources/global.json";
 import {
-  sponsorHeroCopy,
   sponsorMarqueeItems,
   sponsorSections,
 } from "../../data/sponsorsData";
@@ -77,7 +76,8 @@ function SponsorSlot({ slot, isFeatured }) {
 }
 
 export default function Sponsors() {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
+  const language = i18n.resolvedLanguage || i18n.language || "it";
   
   // STATO PER IL FILTRO ANNO: Impostato su 2026 di default
   const [selectedYear, setSelectedYear] = useState("2026");
@@ -100,8 +100,8 @@ export default function Sponsors() {
         {/* HERO SECTION */}
         <section className="sponsors-hero">
           <div className="sponsors-hero-copy">
-            <h1 className="sponsors-title">{sponsorHeroCopy.title}</h1>
-            <p className="sponsors-description">{sponsorHeroCopy.description}</p>
+            <h1 className="sponsors-title">{t("sponsors.hero_title")}</h1>
+            <p className="sponsors-description">{t("sponsors.hero_description")}</p>
 
             <div className="sponsors-logo-marquee">
               <div className="sponsors-logo-marquee-row">
@@ -123,54 +123,54 @@ export default function Sponsors() {
           </div>
 
           <aside className="sponsors-cta-card">
-            <h2 className="sponsors-cta-title">{sponsorHeroCopy.ctaTitle}</h2>
-            <p className="sponsors-cta-description">{sponsorHeroCopy.ctaDescription}</p>
+            <h2 className="sponsors-cta-title">{t("sponsors.ctaTitle")}</h2>
+            <p className="sponsors-cta-description">{t("sponsors.ctaDescription")}</p>
             <div className="sponsors-format-row">
               {partnershipFormats.map((format) => (
                 <span key={format} className="sponsors-format-chip">{format}</span>
               ))}
             </div>
             <div className="sponsors-cta-contact">
-              <span>{sponsorHeroCopy.contactLabel}</span>
-              <a href={`mailto:${sponsorHeroCopy.contactValue}`}>{sponsorHeroCopy.contactValue}</a>
+              <span>{t("sponsors.contactLabel")}</span>
+              <a href={`mailto:${t("sponsors.contactValue")}`}>{t("sponsors.contactValue")}</a>
             </div>
-            <button type="button" className="sponsors-contact-button">{t("partners.14th_st_el_6")}</button>
+            <button type="button" className="sponsors-contact-button">{t("sponsors.contact")}</button>
           </aside>
         </section>
 
         {/* STATS SECTION */}
         <section className="max-w-6xl mx-auto mb-20 w-full">
           <div className="sponsors-stats-copy mb-10 text-center">
-            <h2 className="text-4xl md:text-5xl font-bold mb-4" style={{ fontFamily: "ObjectSansHeavy" }}>{t("partners.events")}</h2>
+            <h2 className="text-4xl md:text-5xl font-bold mb-4" style={{ fontFamily: "ObjectSansHeavy" }}>{t("sponsors.stats_title")}</h2>
             <p className="text-gray-300 text-lg mx-auto max-w-3xl" style={{ fontFamily: "ObjectSans" }}>
-              Una fotografia rapida di audience, reach e collaborazioni che orbitano intorno al progetto.
+              {t("sponsors.stats_description")}
             </p>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             <Bento style={{ textAlign: "center", padding: "2rem 1rem", minHeight: "220px" }}>
-              <strong className="text-[#eb0028] font-bold leading-tight block mb-2" style={{ fontSize: "clamp(42px, 5vw, 74px)", fontFamily: "ObjectSansHeavy", color:"white" }}>725113</strong>
-              <span className="font-bold leading-tight text-white block" style={{ fontSize: "18px", fontFamily: "ObjectSansHeavy", letterSpacing: "1px" }}>account social raggiunti</span>
+              <strong className="text-[#eb0028] font-bold leading-tight block mb-2" style={{ fontSize: "clamp(42px, 5vw, 74px)", fontFamily: "ObjectSansHeavy", color:"white" }}>{t("sponsors.account_social_raggiunti_number")}</strong>
+              <span className="font-bold leading-tight text-white block" style={{ fontSize: "18px", fontFamily: "ObjectSansHeavy", letterSpacing: "1px" }}>{t("sponsors.account_social_raggiunti_text")}</span>
             </Bento>
             <Bento style={{ textAlign: "center", padding: "2rem 1rem", minHeight: "220px" }}>
-              <strong className="text-[#eb0028] font-bold leading-tight block mb-2" style={{ fontSize: "clamp(42px, 5vw, 74px)", fontFamily: "ObjectSansHeavy", color:"white" }}>41</strong>
-              <span className="font-bold leading-tight text-white block" style={{ fontSize: "18px", fontFamily: "ObjectSansHeavy", letterSpacing: "1px" }}>speakers</span>
+              <strong className="text-[#eb0028] font-bold leading-tight block mb-2" style={{ fontSize: "clamp(42px, 5vw, 74px)", fontFamily: "ObjectSansHeavy", color:"white" }}>{t("sponsors.speakers_number")}</strong>
+              <span className="font-bold leading-tight text-white block" style={{ fontSize: "18px", fontFamily: "ObjectSansHeavy", letterSpacing: "1px" }}>{t("sponsors.speakers_text")}</span>
             </Bento>
             <Bento style={{ textAlign: "center", padding: "2rem 1rem", minHeight: "220px" }}>
-              <strong className="text-[#eb0028] font-bold leading-tight block mb-2" style={{ fontSize: "clamp(42px, 5vw, 74px)", fontFamily: "ObjectSansHeavy", color:"white" }}>4</strong>
-              <span className="font-bold leading-tight text-white block" style={{ fontSize: "18px", fontFamily: "ObjectSansHeavy", letterSpacing: "1px" }}>eventi Awards</span>
+              <strong className="text-[#eb0028] font-bold leading-tight block mb-2" style={{ fontSize: "clamp(42px, 5vw, 74px)", fontFamily: "ObjectSansHeavy", color:"white" }}>{t("sponsors.eventi_awards_number")}</strong>
+              <span className="font-bold leading-tight text-white block" style={{ fontSize: "18px", fontFamily: "ObjectSansHeavy", letterSpacing: "1px" }}>{t("sponsors.eventi_awards_text")}</span>
             </Bento>
             <Bento style={{ textAlign: "center", padding: "2rem 1rem", minHeight: "220px" }}>
-              <strong className="text-[#eb0028] font-bold leading-tight block mb-2" style={{ fontSize: "clamp(42px, 5vw, 74px)", fontFamily: "ObjectSansHeavy", color:"white" }}>320</strong>
-              <span className="font-bold leading-tight text-white block" style={{ fontSize: "18px", fontFamily: "ObjectSansHeavy", letterSpacing: "1px" }}>volontari</span>
+              <strong className="text-[#eb0028] font-bold leading-tight block mb-2" style={{ fontSize: "clamp(42px, 5vw, 74px)", fontFamily: "ObjectSansHeavy", color:"white" }}>{t("sponsors.volontari_number")}</strong>
+              <span className="font-bold leading-tight text-white block" style={{ fontSize: "18px", fontFamily: "ObjectSansHeavy", letterSpacing: "1px" }}>{t("sponsors.volontari_text")}</span>
             </Bento>
             <Bento style={{ textAlign: "center", padding: "2rem 1rem", minHeight: "220px" }}>
-              <strong className="text-[#eb0028] font-bold leading-tight block mb-2" style={{ fontSize: "clamp(42px, 5vw, 74px)", fontFamily: "ObjectSansHeavy", color:"white" }}>36</strong>
-              <span className="font-bold leading-tight text-white block" style={{ fontSize: "18px", fontFamily: "ObjectSansHeavy", letterSpacing: "1px" }}>sponsors & partners</span>
+              <strong className="text-[#eb0028] font-bold leading-tight block mb-2" style={{ fontSize: "clamp(42px, 5vw, 74px)", fontFamily: "ObjectSansHeavy", color:"white" }}>{t("sponsors.sponsor_partners_number")}</strong>
+              <span className="font-bold leading-tight text-white block" style={{ fontSize: "18px", fontFamily: "ObjectSansHeavy", letterSpacing: "1px" }}>{t("sponsors.sponsor_partners_text")}</span>
             </Bento>
             <Bento style={{ textAlign: "center", padding: "2rem 1rem", minHeight: "220px" }}>
-              <strong className="text-[#eb0028] font-bold leading-tight block mb-2" style={{ fontSize: "clamp(42px, 5vw, 74px)", fontFamily: "ObjectSansHeavy", color:"white" }}>3</strong>
-              <span className="font-bold leading-tight text-white block" style={{ fontSize: "18px", fontFamily: "ObjectSansHeavy", letterSpacing: "1px" }}>eventi TEDx</span>
+              <strong className="text-[#eb0028] font-bold leading-tight block mb-2" style={{ fontSize: "clamp(42px, 5vw, 74px)", fontFamily: "ObjectSansHeavy", color:"white" }}>{t("sponsors.eventi_tedx_number")}</strong>
+              <span className="font-bold leading-tight text-white block" style={{ fontSize: "18px", fontFamily: "ObjectSansHeavy", letterSpacing: "1px" }}>{t("sponsors.eventi_tedx_text")}</span>
             </Bento>
           </div>
         </section>
@@ -180,7 +180,7 @@ export default function Sponsors() {
           
           <div className="flex justify-between items-center mb-12 border-b border-white/20 pb-6">
             <h2 className="text-4xl md:text-5xl font-bold text-white" style={{ fontFamily: "ObjectSansHeavy" }}>
-              I nostri sponsor
+              {t("sponsors.i_nostri_sponsor")}
             </h2>
             <select
               value={selectedYear}

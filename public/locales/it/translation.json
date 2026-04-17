@@ -27,13 +27,35 @@
     "DESIGN": "Il team Design si occupa della progettazione grafica dell’evento. Crea l'identità visiva e grafica, gestisce l’ideazione e la realizzazione di prodotti e allestimenti, assicurando un'esperienza visiva coinvolgente e coerente con il tema dell’evento."
   },
 
-  "team_page": {
-    "hero_kicker": "TEDxSapienzaU people",
+  "team": {
     "hero_title": "Meet our team(s)",
     "hero_description": "TEDxSapienzaU prende forma grazie a persone con background diversi che lavorano insieme su curatela, produzione, partnership, design e tecnologia. Qui sotto trovi le aree che costruiscono ogni edizione: per ora sono raccontate come card di struttura, pronte da sostituire con nomi e foto reali quando vorrai.",
-    "focus_label": "Area in evidenza",
-    "jump_to_section": "Vai alla sezione",
     "board_description": "Il board tiene insieme la visione generale del progetto, coordina i team e trasforma la direzione strategica in esecuzione settimanale. E il punto in cui priorita, persone e decisioni si riallineano."
+  },
+
+  "sponsors": {
+    "hero_title": "Sponsors & partners",
+    "hero_description": "TEDxSapienzaU costruisce ogni edizione insieme a brand, istituzioni e community.",
+    "stats_title": "2 Edizioni, 3 Awards, 10 Workshops, 3 Eventi indipendenti.",
+    "stats_description": "Una fotografia rapida di audience, reach e collaborazioni che orbitano intorno al progetto.",
+    "ctaTitle": "Vuoi costruire la prossima edizione con noi?",
+    "ctaDescription": "Questa area è pronta per diventare il punto di contatto per sponsorship e partnership.",
+    "contactLabel": "Contatto diretto",
+    "contactValue": "info@tedxsapienzau.com",
+    "contact": "Contattaci",
+    "account_social_raggiunti_text": "account social raggiunti",
+    "account_social_raggiunti_number": "725113",
+    "speakers_text": "speakers",
+    "speakers_number": "41",
+    "eventi_awards_text": "eventi awards",
+    "eventi_awards_number": "4",
+    "volontari_text": "volontari",
+    "volontari_number": "320",
+    "sponsors_partners_text": "sponsors & partners",
+    "sponsor_partners_number": "36",
+    "eventi_tedx_text": "eventi TEDx",
+    "eventi_tedx_number": "3",
+    "i_nostri_sponsor": "I nostri sponsors"
   },
 
   "partners": {

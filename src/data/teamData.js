@@ -12,7 +12,7 @@ const baseTeamSections = [
     code: "BD",
     accent: "#ff5e73",
     eyebrow: localized("", ""),
-    descriptionKey: "team_page.board_description",
+    descriptionKey: "team.board_description",
     members: [
       { name: "Gloria Marinelli", role: "Organizer" },
       { name: "Silvia Scardini", role: "Co-Organizer" },
