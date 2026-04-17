@@ -118,9 +118,9 @@ export default function Team() {
             className={`team-overview-view ${selectedTeam ? "is-hidden" : "is-visible"}`}
           >
             <section className="team-hero">
-              <h1 className="team-hero-title">{t("team.hero_title")}</h1>
+              <h1 className="team-hero-title">{t("team_page.hero_title")}</h1>
               <p className="team-hero-description">
-                {t("team.hero_description")}
+                {t("team_page.hero_description")}
               </p>
 
               <div className="team-chip-row">
@@ -236,7 +236,7 @@ export default function Team() {
                 <button
                   type="button"
                   className="team-focus-close"
-                  aria-label="Close selected team"
+                  aria-label={t("common.close_selected_team")}
                   onClick={closeTeamFocus}
                 >
                   X

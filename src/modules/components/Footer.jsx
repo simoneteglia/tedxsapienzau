@@ -37,6 +37,8 @@ export default function Footer() {
         className="bento-box-no-padding"
         aria-current="page"
         href={link}
+        rel="noreferrer"
+        target="_blank"
         style={{
           padding: "10px 14px",
           borderRadius: "8px",
@@ -50,9 +52,9 @@ export default function Footer() {
 
   const WhiteLink = ({ text, link }) => {
     return (
-      <a className="text-xl" href={link}>
+      <Link className="text-xl" to={link}>
         {text}
-      </a>
+      </Link>
     );
   };
 
@@ -168,7 +170,7 @@ export default function Footer() {
             <Trans i18nKey="footer.join_us" lang={i18n.language} />
           </b>
           <Link className="primary-button" to="/join-us">
-            Join Us
+            {t("common.join_us")}
           </Link>
           <div className="text-gray-400">
             <Trans i18nKey="footer.info1" lang={i18n.language} />
@@ -205,7 +207,7 @@ export default function Footer() {
               }}
               href="/privacypolicy"
             >
-              Privacy Policy
+              {t("common.privacy_policy")}
             </a>
           </small>
           <small className="tertiary-text">

@@ -22,7 +22,7 @@ export default function SpeakerCard({
   link,
   showLinkTalk,
 }) {
-  const { i18n } = useTranslation();
+  const { i18n, t } = useTranslation();
 
   // Build image path (keeps your old behavior)
   const resolvedImgSrc = (() => {
@@ -129,7 +129,7 @@ export default function SpeakerCard({
               window.location.href = linkTalk;
             }}
           >
-            <FontAwesomeIcon icon={faYoutube} /> Watch the talk
+            <FontAwesomeIcon icon={faYoutube} /> {t("common.watch_talk")}
           </div>
         ) : null}
       </div>

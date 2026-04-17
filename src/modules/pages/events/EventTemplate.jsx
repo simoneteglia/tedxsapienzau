@@ -1,8 +1,10 @@
 import { useState } from "react";
 import { useOutletContext } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import global from "../../../resources/global.json";
 import SpeakerCard from "../../components/SpeakerCard";
 import BioSpeakerPopup from "../../components/BioSpeakerPopup";
+import { getLocalizedText } from "../../utils/localization";
 
 import "@fontsource-variable/bricolage-grotesque/index.css";
 
@@ -149,8 +151,8 @@ const getImage = (imgName) => {
       return Pariset22;
     case "Peduzzi22":
       return Peduzzi22;
-      //act22
-      case "Amoroso":
+    //act22
+    case "Amoroso":
       return Amoroso;
     case "Baccini":
       return Baccini;
@@ -158,7 +160,7 @@ const getImage = (imgName) => {
       return Bottaro;
     case "Dallari":
       return Dallari;
-      case "Ewelina":
+    case "Ewelina":
       return Ewelina;
     case "Fasma":
       return Fasma;
@@ -166,7 +168,7 @@ const getImage = (imgName) => {
       return Loreto;
     case "Melandri":
       return Melandri;
-      case "Pariset":
+    case "Pariset":
       return Pariset;
     case "Peduzzi":
       return Peduzzi;
@@ -192,11 +194,26 @@ export default function EventTemplate({
   const [windowSize] = useOutletContext();
   const [isBioOpen, setIsBioOpen] = useState(false);
   const [selectedSpeakerInfo, setSelectedSpeakerInfo] = useState({});
+  const { i18n, t } = useTranslation();
+  const language = i18n.resolvedLanguage || i18n.language || "it";
   const speakers = Object.values(eventData?.speakers || {});
   const sectionPadding =
-    windowSize < global.UTILS.BIG_TABLET_WIDTH
-      ? "34px 34px 0px 34px"
-      : "34px";
+    windowSize < global.UTILS.BIG_TABLET_WIDTH ? "34px 34px 0px 34px" : "34px";
+  const eventTitle = getLocalizedText(eventData.title, language);
+  const eventDescription = getLocalizedText(eventData.description, language);
+  const eventDate = getLocalizedText(eventData.date, language);
+  const eventLocation = getLocalizedText(eventData.location, language);
+  const talksLabel =
+    getLocalizedText(eventData.talksLabel, language) ||
+    t("common.watch_tedx_talks");
+  const speakersHeading =
+    getLocalizedText(eventData.speakersHeading, language) ||
+    t("common.speakers");
+  const hasTalksLink =
+    typeof eventData.link_talks === "string" &&
+    eventData.link_talks.trim() !== "" &&
+    eventData.link_talks.trim() !== "#";
+
   const getSpeakerTag = (speaker) => {
     if (speaker.category) return speaker.category;
     if (speaker.bio === "Artist" || speaker.bio === "Speaker") {
@@ -222,12 +239,12 @@ export default function EventTemplate({
         }}
       >
         <h1 className="event-title notranslate" translate="no">
-          {eventData.title}
+          {eventTitle}
         </h1>
         <div className="paradoxa-glass-grid">
           <div className="paradoxa-glass-card">
             <p className="font-objectsans md:text-lg text-sm">
-              {eventData.description}
+              {eventDescription}
             </p>
           </div>
           <div className="paradoxa-glass-card paradoxa-glass-card--info">
@@ -240,7 +257,7 @@ export default function EventTemplate({
                   className="paradoxa-info-text paradoxa-info-text--date notranslate"
                   translate="no"
                 >
-                  {eventData.date}
+                  {eventDate}
                 </div>
               </div>
               <div className="paradoxa-info-row">
@@ -248,18 +265,20 @@ export default function EventTemplate({
                   <LocationIcon />
                 </span>
                 <div className="paradoxa-info-text notranslate" translate="no">
-                  {eventData.location}
+                  {eventLocation}
                 </div>
               </div>
             </div>
-            <a
-              className="paradoxa-cta"
-              href={eventData.link_talks}
-              target="_blank"
-              rel="noreferrer"
-            >
-              Guarda i TEDx talks
-            </a>
+            {hasTalksLink ? (
+              <a
+                className="paradoxa-cta"
+                href={eventData.link_talks}
+                target="_blank"
+                rel="noreferrer"
+              >
+                {talksLabel}
+              </a>
+            ) : null}
           </div>
         </div>
       </section>
@@ -284,7 +303,7 @@ export default function EventTemplate({
             position: "relative",
           }}
         >
-          <h1 className="event-title notranslate">Speakers</h1>
+          <h1 className="event-title notranslate">{speakersHeading}</h1>
           <div className="paradoxa-speakers-grid">
             {speakers.map((speaker, index) => (
               <SpeakerCard

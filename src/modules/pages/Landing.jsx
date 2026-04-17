@@ -1,5 +1,6 @@
-import { useLayoutEffect, useState, useEffect } from "react";
+import { useEffect, useLayoutEffect, useState } from "react";
 import { Link, useOutletContext } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 import backgroundVideo from "../../assets/videos/tedx.mp4";
 import countdownCover from "../../assets/images/countdown24/earth.webp";
@@ -9,19 +10,23 @@ import awards22Cover from "../../assets/images/awards22/awards2022-card.webp";
 import youtubeLogo from "../../assets/images/general/youtube_logo.png";
 import global from "../../resources/global.json";
 
-// Importiamo la Cookie Box e il nostro "Lego" Bento
 import CookieBox from "../components/CookieBox";
 import Bento from "../components/bento";
 import "./landing.css";
+import {
+  getLocalizedText,
+  isEnglishLanguage,
+  localized,
+} from "../utils/localization";
 
-// --- COMPONENTE PER L'ANIMAZIONE DEI NUMERI (Spostato qui) ---
-const AnimatedNumber = ({ end, duration = 2000 }) => {
+const AnimatedNumber = ({ end, duration = 2000, locale = "it-IT" }) => {
   const [count, setCount] = useState(0);
 
   useEffect(() => {
     let start = 0;
-    let timer = setInterval(() => {
+    const timer = setInterval(() => {
       start += Math.ceil(end / 100);
+
       if (start >= end) {
         setCount(end);
         clearInterval(timer);
@@ -29,10 +34,11 @@ const AnimatedNumber = ({ end, duration = 2000 }) => {
         setCount(start);
       }
     }, 20);
-    return () => clearInterval(timer);
-  }, [end, duration]);
 
-  return <span>{count.toLocaleString("it-IT")}</span>;
+    return () => clearInterval(timer);
+  }, [duration, end]);
+
+  return <span>{count.toLocaleString(locale)}</span>;
 };
 
 const thumbnailVariants = ["maxresdefault", "hq720", "mqdefault"];
@@ -42,7 +48,10 @@ const getYouTubeThumbnail = (videoId, variant = "maxresdefault") =>
 
 function TalkThumbnail({ videoId, alt, objectPosition = "center" }) {
   const [variantIndex, setVariantIndex] = useState(0);
-  const thumbnail = getYouTubeThumbnail(videoId, thumbnailVariants[variantIndex]);
+  const thumbnail = getYouTubeThumbnail(
+    videoId,
+    thumbnailVariants[variantIndex],
+  );
 
   const handleError = () => {
     setVariantIndex((currentIndex) =>
@@ -77,13 +86,13 @@ const talkHighlights = [
   {
     videoId: "q9f5TggigTI",
     title: "Nicola Armaroli",
-    subtitle: "La transizione energetica e una fregatura?",
+    subtitle: "Is the energy transition a rip-off?",
     href: "https://www.youtube.com/watch?v=q9f5TggigTI&list=PL4-t_gJBexTAb7wP2mzg-S2bCfzptE58n&index=2&t=3s",
   },
   {
     videoId: "IYliyLgTnfk",
     title: "Rose Villain",
-    subtitle: "Musica e cura di sé: un cambio di prospettiva sul mondo",
+    subtitle: "Music and self-care: a new perspective on the world",
     href: "https://www.youtube.com/watch?v=IYliyLgTnfk&list=PL4-t_gJBexTBDgARWnLB3dmC0g1_OcxFc&index=7",
   },
   {
@@ -96,19 +105,19 @@ const talkHighlights = [
 
 const landingEvents = [
   {
-    title: "ACT Lead the change",
+    title: "ACT Lead the Change",
     year: "2022",
     href: "/events/act22",
     image: act22Cover,
   },
   {
-    title: "Awards",
+    title: "SapienzaU Awards",
     year: "2022",
     href: "/events/awards22",
     image: awards22Cover,
   },
   {
-    title: "Back to zero",
+    title: "Back to Zero",
     year: "2023",
     href: "/events/backtozero",
     image: backToZeroCover,
@@ -121,8 +130,32 @@ const landingEvents = [
   },
 ];
 
+const landingCopy = {
+  heroTitle: "RELIVE THE LATEST EDITION",
+  aboutDescription: localized(
+    "TEDxSapienzaU e il TEDx universitario dell'Ateneo Sapienza Universita di Roma.",
+    "TEDxSapienzaU is the university TEDx of Sapienza University of Rome.",
+  ),
+  talksTitle: localized(
+    "Rivivi alcuni dei nostri talk.",
+    "Rewatch a few of our talks.",
+  ),
+  talksCopy: localized(
+    "Una selezione veloce di interventi TEDxSapienzaU da riaprire subito: immagine, titolo e accesso diretto al video completo su YouTube.",
+    "A quick selection of TEDxSapienzaU talks to revisit right away: image, title and direct access to the full video on YouTube.",
+  ),
+  eventsTitle: localized("I nostri eventi", "Our events"),
+  eventCardAction: localized("Scopri", "Learn more"),
+  eventsCta: localized("Scopri tutti gli eventi", "Browse all events"),
+  youtubeCta: "Open on YouTube",
+};
+
 export default function Landing() {
   const [windowSize] = useOutletContext();
+  const { t, i18n } = useTranslation();
+  const language = i18n.resolvedLanguage || i18n.language || "it";
+  const locale = isEnglishLanguage(language) ? "en-US" : "it-IT";
+  const copy = (value) => getLocalizedText(value, language);
 
   const isMobile = windowSize < global.UTILS.TABLET_WIDTH;
 
@@ -131,15 +164,14 @@ export default function Landing() {
   }, []);
 
   const stats = [
-    { end: 41, label: "speakers" },
-    { end: 4000, label: "spettatori" },
-    { end: 9000, label: "followers" },
-    { end: 35000, label: "visualizzazioni su YouTube" },
+    { end: 41, label: t("mvhome.speakers") },
+    { end: 4000, label: t("mvhome.spectators") },
+    { end: 9000, label: t("mvhome.followers") },
+    { end: 35000, label: t("mvhome.yt_views") },
   ];
 
   return (
     <div className="text-white" style={{ backgroundColor: "transparent" }}>
-      {/* HERO SECTION ORIGINALE */}
       <section
         style={{
           display: "flex",
@@ -149,10 +181,6 @@ export default function Landing() {
           marginTop: global.UTILS.NAV_HEIGHT,
           width: "100%",
           maxWidth: "100%",
-          // padding:
-          //   windowSize < global.UTILS.BIG_TABLET_WIDTH
-          //     ? "34px 34px 0px 34px"
-          //     : "34px",
           gap: "20px",
           flexWrap: "wrap",
         }}
@@ -162,7 +190,6 @@ export default function Landing() {
           className="w-full h-full"
           style={{
             padding: global.UTILS.BENTO_BOX_PADDING,
-            // borderRadius: global.UTILS.BENTO_BOX_PADDING,
             display: "flex",
             justifyContent: "center",
             alignItems: "flex-end",
@@ -187,14 +214,11 @@ export default function Landing() {
                 left: 0,
                 objectPosition: "center",
                 objectFit: "cover",
-                // borderRadius: global.UTILS.BENTO_BOX_PADDING,
               }}
             >
               <source src={backgroundVideo} type="video/mp4" />
             </video>
-          ) : (
-            <></>
-          )}
+          ) : null}
           <div
             id="video-overlay"
             style={{
@@ -206,7 +230,7 @@ export default function Landing() {
               background:
                 "linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.8))",
             }}
-          ></div>
+          />
           <div
             style={{
               color: "white",
@@ -222,9 +246,7 @@ export default function Landing() {
                 fontSize:
                   windowSize > global.UTILS.TABLET_WIDTH ? "2vw" : "0.5vw",
                 visibility:
-                  windowSize > global.UTILS.TABLET_WIDTH
-                    ? "initial"
-                    : " hidden",
+                  windowSize > global.UTILS.TABLET_WIDTH ? "initial" : "hidden",
                 transform: "translateY(6px)",
               }}
             >
@@ -244,16 +266,14 @@ export default function Landing() {
                 lineHeight: 1.02,
               }}
             >
-              LET'S EXPLORE HOW IT WAS
+              {copy(landingCopy.heroTitle)}
             </h1>
             <h2
               className="text-white"
               style={{
                 fontSize: "2vw",
                 visibility:
-                  windowSize > global.UTILS.TABLET_WIDTH
-                    ? "initial"
-                    : " hidden",
+                  windowSize > global.UTILS.TABLET_WIDTH ? "initial" : "hidden",
                 transform: "translateY(6px)",
               }}
             >
@@ -263,9 +283,7 @@ export default function Landing() {
         </div>
       </section>
 
-      {/* NUOVA SEZIONE STATISTICHE CON BENTO BOX E SFONDO */}
       <section className="w-full relative py-24">
-        {/* CONTENITORE GRIGLIA */}
         <div
           style={{
             position: "relative",
@@ -284,7 +302,6 @@ export default function Landing() {
               fontFamily: "'Object Sans', sans-serif",
             }}
           >
-            {/* BOX 1: TESTO GRANDE (Usando il componente Bento) */}
             <Bento
               style={{
                 gridRow: isMobile ? "span 1" : "span 2",
@@ -292,13 +309,14 @@ export default function Landing() {
                 textAlign: "left",
                 padding: "40px",
               }}
-              onMouseOver={(e) => {
-                e.currentTarget.style.transform = "translateY(-5px)";
-                e.currentTarget.style.borderColor = "rgba(235, 0, 40, 0.8)";
+              onMouseOver={(event) => {
+                event.currentTarget.style.transform = "translateY(-5px)";
+                event.currentTarget.style.borderColor = "rgba(235, 0, 40, 0.8)";
               }}
-              onMouseOut={(e) => {
-                e.currentTarget.style.transform = "translateY(0)";
-                e.currentTarget.style.borderColor = "rgba(255, 255, 255, 0.15)";
+              onMouseOut={(event) => {
+                event.currentTarget.style.transform = "translateY(0)";
+                event.currentTarget.style.borderColor =
+                  "rgba(255, 255, 255, 0.15)";
               }}
             >
               <h3
@@ -308,15 +326,13 @@ export default function Landing() {
                   lineHeight: "1.4",
                   marginBottom: "30px",
                   color: "white",
+                  fontFamily: "ObjectSans",
                 }}
               >
-                TEDxSapienzaU è il TEDx Universitario dell'Ateneo Sapienza
-                Università di Roma
+                {copy(landingCopy.aboutDescription)}
               </h3>
 
-              {/* qui ho cambiato per mettere il pulsante con link a chi siamo */}
-             
-             <Link
+              <Link
                 to="/about"
                 style={{
                   backgroundColor: "#eb0028",
@@ -326,22 +342,27 @@ export default function Landing() {
                   borderRadius: "50px",
                   fontSize: "1rem",
                   fontWeight: "bold",
+                  letterSpacing: "0.02em",
                   cursor: "pointer",
                   transition: "transform 0.2s",
                   boxShadow: "0 4px 15px rgba(235, 0, 40, 0.4)",
                   textDecoration: "none",
                   display: "inline-block",
+                  fontFamily: "ObjectSans",
                 }}
-                onMouseOver={(e) => (e.target.style.transform = "scale(1.05)")}
-                onMouseOut={(e) => (e.target.style.transform = "scale(1)")}
+                onMouseOver={(event) => {
+                  event.currentTarget.style.transform = "scale(1.05)";
+                }}
+                onMouseOut={(event) => {
+                  event.currentTarget.style.transform = "scale(1)";
+                }}
               >
-                Scopri di più
+                {t("common.learn_more")}
               </Link>
             </Bento>
 
-            {/* BOX 2-5: STATISTICHE DINAMICHE (Usando il componente Bento) */}
-            {stats.map((stat, index) => (
-              <Bento key={index}>
+            {stats.map((stat) => (
+              <Bento key={stat.label}>
                 <div
                   style={{
                     color: "white",
@@ -350,7 +371,11 @@ export default function Landing() {
                     marginBottom: "10px",
                   }}
                 >
-                  <AnimatedNumber end={stat.end} duration={2000} />
+                  <AnimatedNumber
+                    end={stat.end}
+                    duration={2000}
+                    locale={locale}
+                  />
                 </div>
                 <div
                   style={{
@@ -358,6 +383,7 @@ export default function Landing() {
                     fontWeight: "500",
                     color: "#ccc",
                     textAlign: "center",
+                    fontFamily: "ObjectSans",
                   }}
                 >
                   {stat.label}
@@ -371,11 +397,11 @@ export default function Landing() {
       <section className="landing-showcase-section">
         <div className="landing-showcase-shell">
           <div className="landing-section-head">
-            <h2 className="landing-section-title">Rivivi alcuni dei nostri talk.</h2>
+            <h2 className="landing-section-title">
+              {copy(landingCopy.talksTitle)}
+            </h2>
             <p className="landing-section-copy">
-              Una selezione veloce di interventi TEDxSapienzaU da riaprire
-              subito: immagine, titolo e accesso diretto al video completo su
-              YouTube.
+              {copy(landingCopy.talksCopy)}
             </p>
           </div>
 
@@ -386,6 +412,7 @@ export default function Landing() {
                 className="landing-video-card"
                 href={talk.href}
                 rel="noreferrer"
+                target="_blank"
               >
                 <TalkThumbnail
                   videoId={talk.videoId}
@@ -403,20 +430,25 @@ export default function Landing() {
                 </span>
                 <div className="landing-video-content">
                   <h3 className="landing-video-title">{talk.title}</h3>
-                  <p className="landing-video-subtitle">{talk.subtitle}</p>
-                  <span className="landing-video-footer">Apri su YouTube</span>
+                  <p className="landing-video-subtitle">
+                    {copy(talk.subtitle)}
+                  </p>
+                  <span className="landing-video-footer">
+                    {copy(landingCopy.youtubeCta)}
+                  </span>
                 </div>
               </a>
             ))}
           </div>
-
         </div>
       </section>
 
       <section className="landing-showcase-section">
         <div className="landing-showcase-shell">
           <div className="landing-section-head">
-            <h2 className="landing-section-title">I nostri eventi</h2>
+            <h2 className="landing-section-title">
+              {copy(landingCopy.eventsTitle)}
+            </h2>
           </div>
 
           <div className="landing-events-grid">
@@ -439,7 +471,7 @@ export default function Landing() {
                   <div className="landing-event-footer">
                     <span>{event.year}</span>
                     <span className="landing-event-link">
-                      <span>SCOPRI</span>
+                      <span>{copy(landingCopy.eventCardAction)}</span>
                       <span aria-hidden="true">&rarr;</span>
                     </span>
                   </div>
@@ -450,13 +482,12 @@ export default function Landing() {
 
           <div className="landing-showcase-cta">
             <Link className="landing-showcase-link" to="/events">
-              Scopri di piu
+              {copy(landingCopy.eventsCta)}
             </Link>
           </div>
         </div>
       </section>
 
-      {/* Cookie Box  */}
       <CookieBox />
     </div>
   );

@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from "react";
 import global from "../../resources/global.json";
-import { useOutletContext } from "react-router-dom";
+import { Link, useOutletContext } from "react-router-dom";
 import { useTranslation } from "react-i18next";
-import i18next from "i18next";
 
 // Importa il componente Bento per lo stile del nuovo sito
 import Bento from "../components/bento";
@@ -26,8 +25,9 @@ import slide3 from "../../assets/images/chisiamo/DSC05278.webp";
 import slide4 from "../../assets/images/chisiamo/PHP07700.webp";
 
 export default function ChiSiamo() {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const [windowSize] = useOutletContext();
+  const language = i18n.resolvedLanguage || i18n.language || "it";
 
   // Scrolla in alto quando si apre la pagina
   useEffect(() => {
@@ -60,7 +60,7 @@ export default function ChiSiamo() {
               marginBottom: "8px",
             }}
           >
-            Mission & Vision
+            {t("navbar.mission_and_vision")}
           </p>
           <h1
             style={{
@@ -71,7 +71,7 @@ export default function ChiSiamo() {
               margin: "0",
             }}
           >
-            Chi Siamo
+            {t("sapienzau.chi_siamo")}
           </h1>
         </header>
 
@@ -81,7 +81,7 @@ export default function ChiSiamo() {
             <div className="col-md-5 d-flex justify-content-center mb-4 mb-md-0">
               <img
                 // Uso le variabili importate in base alla lingua
-                src={i18next.language === "it" ? logoTED_it : logoTED_en}
+                src={language.startsWith("en") ? logoTED_en : logoTED_it}
                 alt="TED Logo"
                 height="50"
                 loading="lazy"
@@ -108,7 +108,7 @@ export default function ChiSiamo() {
           <div className="row align-items-center w-100">
             <div className="col-md-5 d-flex justify-content-center mb-4 mb-md-0">
               <img
-                src={i18next.language === "it" ? logoTEDx_it : logoTEDx_en}
+                src={language.startsWith("en") ? logoTEDx_en : logoTEDx_it}
                 alt="TEDx Logo"
                 height="50"
                 loading="lazy"
@@ -165,7 +165,7 @@ export default function ChiSiamo() {
                   marginTop: "24px",
                 }}
               >
-                <a href="/partners" style={{ textDecoration: "none" }}>
+                <Link to="/partners" style={{ textDecoration: "none" }}>
                   <button
                     style={{
                       background: "linear-gradient(135deg, #eb0028, #ff4f6c)",
@@ -188,7 +188,7 @@ export default function ChiSiamo() {
                   >
                     {t("mission.button")}
                   </button>
-                </a>
+                </Link>
               </div>
             </div>
           </div>
