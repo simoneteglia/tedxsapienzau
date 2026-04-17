@@ -235,7 +235,7 @@ export default function Team() {
                 <button
                   type="button"
                   className="team-focus-close"
-                  aria-label="Close selected team"
+                  aria-label={t("common.close_selected_team")}
                   onClick={closeTeamFocus}
                 >
                   X

@@ -9,6 +9,27 @@
     "location": "Location",
     "sapienzau": "Associazione SapienzaU"
   },
+  "common": {
+    "join_us": "Join Us",
+    "language": "Lingua",
+    "switch_to_italian": "Passa all'italiano",
+    "switch_to_english": "Passa all'inglese",
+    "watch_tedx_talks": "Guarda i TEDx talks",
+    "watch_talk": "Guarda il talk",
+    "speakers": "Speakers",
+    "artists": "Artisti",
+    "learn_more": "Scopri di piu",
+    "latest_event": "Scopri l'ultimo evento",
+    "go_to_archive": "Vai all'archivio",
+    "featured": "In evidenza",
+    "open_page": "Apri la pagina",
+    "open_on_youtube": "Apri su YouTube",
+    "privacy_policy": "Privacy Policy",
+    "cookie_message": "Questo sito utilizza i cookie per migliorare la tua esperienza.",
+    "accept": "Accetta",
+    "close_selected_team": "Chiudi il team selezionato",
+    "open_main_menu": "Apri il menu principale"
+  },
 
   "joinus": {
     "closed_title": "Le candidature per far parte del team sono chiuse, ma non per sempre.<br>Compila il form qui sotto per essere contattato quando riapriremo le candidature!",

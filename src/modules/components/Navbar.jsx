@@ -11,6 +11,7 @@ import {
 import global from "../../resources/global.json";
 import "../../resources/styles/navbar.css";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
+import LanguageSwitcher from "./LanguageSwitcher";
 
 //MEDIA
 import Logo from "../../assets/logos/logo_white.png";
@@ -73,7 +74,8 @@ export default function Navbar() {
         </Link>
         <section
           id="right-section"
-          className="flex items-center gap-2 lg:gap-10 xl:gap-18"
+          className="flex items-center gap-2 lg:gap-6 xl:gap-10"
+          style={{ fontFamily: global.UTILS.FONT_FAMILY }}
         >
           {navigation.map((item) => (
             <Link
@@ -86,13 +88,17 @@ export default function Navbar() {
                   : "text-white hover:bg-gray-700 hover:text-white",
                 "rounded-md px-3 py-2 text-base font-semibold tracking-[0.02em]",
               )}
+              style={{ textTransform: "uppercase" }}
             >
               {item.name}
             </Link>
           ))}
-          <Link className="primary-button" to="/join-us">
-            JOIN US
-          </Link>
+          <div className="flex items-center gap-3">
+            <LanguageSwitcher />
+            <Link className="primary-button" to="/join-us">
+              {t("common.join_us")}
+            </Link>
+          </div>
         </section>
         <div className="flex md:hidden"></div>
       </div>
@@ -103,7 +109,7 @@ export default function Navbar() {
         {/* Mobile menu button*/}
         <DisclosureButton className="group relative inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:ring-2 focus:ring-white focus:outline-hidden focus:ring-inset">
           <span className="absolute -inset-0.5" />
-          <span className="sr-only">Open main menu</span>
+          <span className="sr-only">{t("common.open_main_menu")}</span>
           <Bars3Icon
             aria-hidden="true"
             className="block size-6 group-data-open:hidden"
@@ -131,6 +137,10 @@ export default function Navbar() {
                     : "text-gray-200 hover:bg-gray-700 hover:text-white",
                   "block rounded-md px-3 py-8  text-5xl font-medium",
                 )}
+                style={{
+                  fontFamily: global.UTILS.FONT_FAMILY,
+                  textTransform: "uppercase",
+                }}
               >
                 {item.name}
               </DisclosureButton>
@@ -140,8 +150,14 @@ export default function Navbar() {
               to="/join-us"
               className="primary-button mt-4 block w-full text-center"
             >
-              JOIN US
+              {t("common.join_us")}
             </DisclosureButton>
+            <div className="mt-6 rounded-2xl border border-white/10 bg-white/5 px-3 py-4">
+              <p className="mb-3 text-xs font-semibold uppercase tracking-[0.2em] text-gray-400">
+                {t("common.language")}
+              </p>
+              <LanguageSwitcher mobile />
+            </div>
           </div>
         </DisclosurePanel>
       </div>

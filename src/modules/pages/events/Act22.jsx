@@ -1,5 +1,7 @@
 import EventTemplate from "./EventTemplate";
 import sidebarContent from "../../../data/eventSidebarContent.json";
+import { useTranslation } from "react-i18next";
+import { getLocalizedText, localized } from "../../utils/localization";
 
 import Act22Header from "../../../assets/images/act22/Edizione2022.webp";
 import Amoroso from "../../../assets/images/act22/Amoroso.png";
@@ -37,10 +39,15 @@ const buildAct22Speaker = (lookupName, image, displayName = lookupName) => {
 
 const act22Data = {
   title: "ACT: Lead the Change",
-  description:
+  description: localized(
     "La prima edizione del TEDxSapienzaU ha portato sul palco un invito chiaro: agire, contaminare i saperi e trasformare il presente. In pieno spirito TEDx, ACT ha intrecciato idee, discipline ed esperienze diverse per raccontare un cambiamento concreto, interdisciplinare e condiviso.",
-  date: "29.04.2022",
-  location: "Aula Magna, Palazzo del Rettorato Sapienza Universita di Roma",
+    "The first TEDxSapienzaU edition brought a clear invitation to the stage: act, cross-pollinate knowledge and reshape the present. In full TEDx spirit, ACT wove together ideas, disciplines and experiences to tell a story of change that was concrete, interdisciplinary and shared.",
+  ),
+  date: localized("29.04.2022", "29 Apr 2022"),
+  location: localized(
+    "Aula Magna, Palazzo del Rettorato Sapienza Universita di Roma",
+    "Great Hall, Rectorate Building, Sapienza University of Rome",
+  ),
   link_talks:
     "https://youtube.com/playlist?list=PL4-t_gJBexTAtUGEpHCVgcV0Zwt8RyYG6&si=oP9pKvJScQewfqGa",
   speakers: {
@@ -64,24 +71,30 @@ const act22ThemePillars = [
   {
     letter: "A",
     title: "Action",
-    description:
+    description: localized(
       "La cultura dell'azione contro la cultura dell'inerzia e il ruolo della cittadinanza attiva nell'educazione del futuro.",
+      "The culture of action against the culture of inertia, and the role of active citizenship in shaping the education of the future.",
+    ),
   },
   {
     letter: "C",
     title: "Cross-Fertilization",
-    description:
+    description: localized(
       "La predisposizione alla creativita ed empatia, la pop education e i nuovi orizzonti della contaminazione tra i saperi.",
+      "A disposition toward creativity and empathy, pop education, and the new horizons opened by cross-pollination between fields of knowledge.",
+    ),
   },
   {
     letter: "T",
     title: "Transformation",
-    description:
+    description: localized(
       "Il digitale e la realta integrata, la trasformazione dei modelli educativi e il valore dell'esperienza nella crescita dell'individuo.",
+      "Digital and augmented realities, the transformation of educational models, and the value of experience in personal growth.",
+    ),
   },
 ];
 
-function ThemePillarCard({ letter, title, description }) {
+function ThemePillarCard({ letter, title, description, language }) {
   return (
     <article
       className="paradoxa-glass-card"
@@ -122,7 +135,7 @@ function ThemePillarCard({ letter, title, description }) {
             color: "#d9d9d9",
           }}
         >
-          {description}
+          {getLocalizedText(description, language)}
         </p>
       </div>
     </article>
@@ -130,6 +143,9 @@ function ThemePillarCard({ letter, title, description }) {
 }
 
 export default function Act22() {
+  const { i18n } = useTranslation();
+  const language = i18n.resolvedLanguage || i18n.language || "it";
+
   return (
     <EventTemplate
       imagePath={Act22Header}
@@ -142,7 +158,10 @@ export default function Act22() {
           className="event-title"
           style={{ fontSize: "clamp(42px, 6vw, 64px)", marginBottom: "28px" }}
         >
-          Il tema dell'evento
+          {getLocalizedText(
+            localized("Il tema dell'evento", "The theme of the event"),
+            language,
+          )}
         </h2>
         <div
           style={{
@@ -152,7 +171,11 @@ export default function Act22() {
           }}
         >
           {act22ThemePillars.map((pillar) => (
-            <ThemePillarCard key={pillar.letter} {...pillar} />
+            <ThemePillarCard
+              key={pillar.letter}
+              language={language}
+              {...pillar}
+            />
           ))}
         </div>
       </section>

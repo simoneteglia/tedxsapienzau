@@ -1,14 +1,19 @@
 import EventTemplate from "./EventTemplate";
+import { localized } from "../../utils/localization";
 
 import Awards24Header from "../../../assets/images/awards24/awards_sapienza.png";
 
 const awards24Data = {
   title: "SapienzaU Awards 2024",
-  description:
-    "I SapienzaU Awards sono organizzati dall'associazione SapienzaU ed hanno lo scopo di promuovere idee di valore, offrendo ai vincitori la prestigiosa opportunita di esibirsi sul palco dell'edizione 2025 del TEDxSapienzaU. I vincitori del concorso SapienzaU Awards, 3 Speakers e 2 Artists, vengono premiati sul palco della finale e avranno l'occasione di condividere le loro idee con un pubblico ampio, promuovendo il loro messaggio di innovazione e ispirazione.",
-  date: "28.11.2024",
-  location:
+  description: localized(
+    "I SapienzaU Awards sono organizzati dall'associazione SapienzaU per promuovere idee di valore, offrendo ai vincitori la prestigiosa opportunita di salire sul palco dell'edizione 2025 di TEDxSapienzaU. I cinque vincitori del concorso, tre speaker e due artisti, vengono premiati durante la finale e hanno l'occasione di condividere il proprio progetto con un pubblico piu ampio.",
+    "The SapienzaU Awards are organized by the SapienzaU association to promote ideas worth spreading, giving the winners the opportunity to step onto the stage of TEDxSapienzaU 2025. The five winners of the competition, three speakers and two artists, are celebrated during the final and get the chance to share their work with a broader audience.",
+  ),
+  date: localized("28.11.2024", "28 Nov 2024"),
+  location: localized(
     "Universita La Sapienza - Nuovo Teatro Ateneo, Piazzale Aldo Moro, 5, 00185 Roma RM",
+    "Sapienza University - Nuovo Teatro Ateneo, Piazzale Aldo Moro 5, 00185 Rome",
+  ),
   link_talks: "#",
   speakers: {
     speaker1: {

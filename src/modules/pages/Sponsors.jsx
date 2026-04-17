@@ -8,6 +8,7 @@ import {
   getLocalizedSponsorValue,
   sponsorHeroCopy,
   sponsorMarqueeItems,
+  sponsorStats,
   sponsorSections,
 } from "../../data/sponsorsData";
 
@@ -133,7 +134,12 @@ export default function Sponsors() {
               <span>{getLocalizedSponsorValue(sponsorHeroCopy.contactLabel, language)}</span>
               <a href={`mailto:${sponsorHeroCopy.contactValue}`}>{sponsorHeroCopy.contactValue}</a>
             </div>
-            <button type="button" className="sponsors-contact-button">{t("partners.14th_st_el_6")}</button>
+            <a
+              className="sponsors-contact-button"
+              href={`mailto:${sponsorHeroCopy.contactValue}`}
+            >
+              {t("partners.14th_st_el_6")}
+            </a>
           </aside>
         </section>
 
@@ -146,31 +152,26 @@ export default function Sponsors() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            <Bento style={{ textAlign: "center", padding: "2rem 1rem", minHeight: "220px" }}>
-              <strong className="text-[#eb0028] font-bold leading-tight block mb-2" style={{ fontSize: "clamp(42px, 5vw, 74px)", fontFamily: "GothamBold" }}>3000</strong>
-              <span className="font-bold leading-tight text-white block" style={{ fontSize: "18px", fontFamily: "GothamBold", letterSpacing: "1px" }}>spettatori coinvolti</span>
-            </Bento>
-            <Bento style={{ textAlign: "center", padding: "2rem 1rem", minHeight: "220px" }}>
-              <strong className="text-[#eb0028] font-bold leading-tight block mb-2" style={{ fontSize: "clamp(42px, 5vw, 74px)", fontFamily: "GothamBold" }}>35000</strong>
-              <span className="font-bold leading-tight text-white block" style={{ fontSize: "18px", fontFamily: "GothamBold", letterSpacing: "1px" }}>visualizzazioni su YouTube</span>
-            </Bento>
-            <Bento style={{ textAlign: "center", padding: "2rem 1rem", minHeight: "220px" }}>
-              <strong className="text-[#eb0028] font-bold leading-tight block mb-2" style={{ fontSize: "clamp(42px, 5vw, 74px)", fontFamily: "GothamBold" }}>???</strong>
-              <span className="font-bold leading-tight text-white block" style={{ fontSize: "18px", fontFamily: "GothamBold", letterSpacing: "1px" }}>vi prego qui metteteci altri numeri</span>
-            </Bento>
-            <Bento style={{ textAlign: "center", padding: "2rem 1rem", minHeight: "220px" }}>
-              <strong className="text-[#eb0028] font-bold leading-tight block mb-2" style={{ fontSize: "clamp(42px, 5vw, 74px)", fontFamily: "GothamBold" }}>50</strong>
-              <span className="font-bold leading-tight text-white block" style={{ fontSize: "18px", fontFamily: "GothamBold", letterSpacing: "1px" }}>event partners</span>
-            </Bento>
-            <Bento style={{ textAlign: "center", padding: "2rem 1rem", minHeight: "220px" }}>
-              <strong className="text-[#eb0028] font-bold leading-tight block mb-2" style={{ fontSize: "clamp(42px, 5vw, 74px)", fontFamily: "GothamBold" }}>300</strong>
-              <span className="font-bold leading-tight text-white block" style={{ fontSize: "18px", fontFamily: "GothamBold", letterSpacing: "1px" }}>volontari passati di qui</span>
-            </Bento>
-            <Bento style={{ textAlign: "center", padding: "2rem 1rem", minHeight: "220px" }}>
-              <strong className="text-[#eb0028] font-bold leading-tight block mb-2" style={{ fontSize: "clamp(42px, 5vw, 74px)", fontFamily: "GothamBold" }}>???</strong>
-              <span className="font-bold leading-tight text-white block" style={{ fontSize: "18px", fontFamily: "GothamBold", letterSpacing: "1px" }}>vi prego qui metteteci altri numeri</span>
-            </Bento>
+          <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-6">
+            {sponsorStats.map((stat) => (
+              <Bento
+                key={stat.labelKey}
+                style={{ textAlign: "center", padding: "2rem 1rem", minHeight: "220px" }}
+              >
+                <strong
+                  className="text-[#eb0028] font-bold leading-tight block mb-2"
+                  style={{ fontSize: "clamp(42px, 5vw, 74px)", fontFamily: "GothamBold" }}
+                >
+                  {stat.value}
+                </strong>
+                <span
+                  className="font-bold leading-tight text-white block"
+                  style={{ fontSize: "18px", fontFamily: "GothamBold", letterSpacing: "1px" }}
+                >
+                  {t(stat.labelKey)}
+                </span>
+              </Bento>
+            ))}
           </div>
         </section>
 

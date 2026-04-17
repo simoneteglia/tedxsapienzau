@@ -1,9 +1,11 @@
 // src/components/CookieBox.jsx
 import React, { useState, useEffect } from "react";
+import { useTranslation } from "react-i18next";
 
 export default function CookieBox() {
   const [showCookieBox, setShowCookieBox] = useState(false);
   const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
+  const { t } = useTranslation();
 
   // Gestione resize
   useEffect(() => {
@@ -53,7 +55,7 @@ export default function CookieBox() {
       }}
     >
       <p style={{ color: "#e0e0e0", fontSize: "0.95rem", margin: 0, fontFamily: "sans-serif" }}>
-        Questo sito utilizza i cookie per migliorare la tua esperienza.
+        {t("common.cookie_message")}
       </p>
       <button
         onClick={acceptCookies}
@@ -69,7 +71,7 @@ export default function CookieBox() {
           width: isMobile ? "100%" : "auto",
         }}
       >
-        Accetta
+        {t("common.accept")}
       </button>
     </div>
   );
