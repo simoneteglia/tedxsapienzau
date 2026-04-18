@@ -6,11 +6,28 @@ import { getLocalizedValue, teamSections } from "../../data/teamData";
 import { getTeamLogo } from "../../data/teamVisuals";
 import placeholderImage from "../../assets/images/team/placeholder.webp";
 
+const teamImages = import.meta.glob("../../assets/images/team/*.webp", {
+  eager: true,
+});
+
+function getTeamMemberImage(memberName) {
+  const nameParts = memberName.trim().split(/\s+/);
+  const surname = nameParts[nameParts.length - 1].toLowerCase();
+  console.log(surname);
+  const matchingKey = Object.keys(teamImages).find((key) =>
+    key.endsWith(`/${surname}.webp`),
+  );
+  return matchingKey ? teamImages[matchingKey].default : placeholderImage;
+}
+
 import "./team.css";
 
-function TeamMemberCard({ member, accent, language, imageSrc }) {
+function TeamMemberCard({ member, accent, language }) {
   const name = getLocalizedValue(member.name, language);
   const role = member.role;
+  const imageSrc = getTeamMemberImage(
+    typeof member.name === "string" ? member.name : member.name.it,
+  );
 
   return (
     <article className="team-member-card" style={{ "--team-accent": accent }}>
@@ -188,7 +205,6 @@ export default function Team() {
                           member={member}
                           accent={team.accent}
                           language={language}
-                          imageSrc={placeholderImage}
                         />
                       ))}
                     </div>
@@ -252,7 +268,6 @@ export default function Team() {
                   member={member}
                   accent={focusedTeam.accent}
                   language={language}
-                  imageSrc={placeholderImage}
                 />
               ))}
             </div>
