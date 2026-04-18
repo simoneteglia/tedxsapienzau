@@ -41,25 +41,22 @@ const AnimatedNumber = ({ end, duration = 2000, locale = "it-IT" }) => {
   return <span>{count.toLocaleString(locale)}</span>;
 };
 
-const thumbnailVariants = ["maxresdefault", "hq720", "mqdefault"];
+const thumbnailImages = import.meta.glob("../../assets/images/thumbnails/*.*", {
+  eager: true,
+});
 
-const getYouTubeThumbnail = (videoId, variant = "maxresdefault") =>
-  `https://img.youtube.com/vi/${videoId}/${variant}.jpg`;
+function getThumbnailSrc(videoId) {
+  const matchingKey = Object.keys(thumbnailImages).find((key) => {
+    const filename = key.split("/").pop().split(".")[0];
+    return filename === videoId;
+  });
+  return matchingKey ? thumbnailImages[matchingKey].default : null;
+}
 
 function TalkThumbnail({ videoId, alt, objectPosition = "center" }) {
-  const [variantIndex, setVariantIndex] = useState(0);
-  const thumbnail = getYouTubeThumbnail(
-    videoId,
-    thumbnailVariants[variantIndex],
-  );
+  const thumbnail = getThumbnailSrc(videoId);
 
-  const handleError = () => {
-    setVariantIndex((currentIndex) =>
-      currentIndex < thumbnailVariants.length - 1
-        ? currentIndex + 1
-        : currentIndex,
-    );
-  };
+  if (!thumbnail) return null;
 
   return (
     <img
@@ -70,7 +67,6 @@ function TalkThumbnail({ videoId, alt, objectPosition = "center" }) {
       loading="lazy"
       decoding="async"
       fetchPriority="low"
-      onError={handleError}
     />
   );
 }
@@ -80,7 +76,7 @@ const talkHighlights = [
     videoId: "oel9-7Az0vw",
     title: "Pepa Pasatu",
     subtitle: "3 habits that ruin pleasurable sex",
-    objectPosition: "12% center",
+    objectPosition: "center",
     href: "https://www.youtube.com/watch?v=oel9-7Az0vw&list=PL4-t_gJBexTAb7wP2mzg-S2bCfzptE58n&index=1",
   },
   {

@@ -96,7 +96,7 @@ export default function Navbar() {
           <div className="flex items-center gap-3">
             <LanguageSwitcher />
             <Link
-              className="primary-button font-objectsans-heavy"
+              className="primary-button font-objectsans-heavy text-sm"
               to="/join-us"
             >
               {t("common.join_us")}
