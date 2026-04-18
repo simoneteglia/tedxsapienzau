@@ -6,7 +6,7 @@ import backgroundVideo from "../../assets/videos/tedx.mp4";
 import countdownCover from "../../assets/images/countdown24/earth.webp";
 import backToZeroCover from "../../assets/images/backtozero23/header_blog23-card.webp";
 import act22Cover from "../../assets/images/act22/Edizione2022.webp";
-import awards22Cover from "../../assets/images/awards22/awards2022-card.webp";
+import paradoxa25Cover from "../../assets/images/paradoxa25/header_paradoxa2.png";
 import youtubeLogo from "../../assets/images/general/youtube_logo.png";
 import global from "../../resources/global.json";
 
@@ -101,16 +101,16 @@ const talkHighlights = [
 
 const landingEvents = [
   {
-    title: "ACT Lead the Change",
-    year: "2022",
-    href: "/events/act22",
-    image: act22Cover,
+    title: "Paradoxa",
+    year: "2025",
+    href: "/events/paradoxa2025",
+    image: paradoxa25Cover,
   },
   {
-    title: "SapienzaU Awards",
-    year: "2022",
-    href: "/events/awards22",
-    image: awards22Cover,
+    title: "Countdown",
+    year: "2024",
+    href: "/events/countdown2024",
+    image: countdownCover,
   },
   {
     title: "Back to Zero",
@@ -118,11 +118,12 @@ const landingEvents = [
     href: "/events/backtozero",
     image: backToZeroCover,
   },
+
   {
-    title: "Countdown",
-    year: "2024",
-    href: "/events/countdown2024",
-    image: countdownCover,
+    title: "ACT Lead the Change",
+    year: "2022",
+    href: "/events/act22",
+    image: act22Cover,
   },
 ];
 
