@@ -13,9 +13,16 @@ const teamImages = import.meta.glob("../../assets/images/team/*.webp", {
 function getTeamMemberImage(memberName) {
   const nameParts = memberName.trim().split(/\s+/);
   const surname = nameParts[nameParts.length - 1].toLowerCase();
-  console.log(surname);
+
+  // Two members share the "scardini" surname, so use name_surname for disambiguation
+  let imageSlug = surname;
+  if (surname === "scardini") {
+    const firstName = nameParts[0].toLowerCase();
+    imageSlug = `${firstName}_${surname}`;
+  }
+
   const matchingKey = Object.keys(teamImages).find((key) =>
-    key.endsWith(`/${surname}.webp`),
+    key.endsWith(`/${imageSlug}.webp`),
   );
   return matchingKey ? teamImages[matchingKey].default : placeholderImage;
 }

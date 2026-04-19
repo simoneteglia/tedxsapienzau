@@ -157,7 +157,6 @@ const baseTeamSections = [
     descriptionKey: "joinus.HRA",
     members: [
       { name: "Mariangela Pisanelli" },
-      { name: "Ascanio Frugoni" },
       { name: "Carlotta Riccardi" },
       { name: "Vera Tomasella" },
       { name: "Valeria Scardini" },
