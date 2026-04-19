@@ -1,10 +1,13 @@
 body {
   margin: 0;
-  background-color: #2a0008; 
+  background-color: #2a0008;
 }
 .grainient-fixed-bg {
   position: fixed;
-  inset: 0;
+  top: -50px;
+  left: -50px;
+  right: -50px;
+  bottom: -50px;
   z-index: 0;
   pointer-events: none;
 }

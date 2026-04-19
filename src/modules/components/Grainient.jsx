@@ -185,23 +185,27 @@ const Grainient = ({
     const setSize = () => {
       if (!containerRef.current) return;
 
-      const rect = containerRef.current.getBoundingClientRect();
-      const width = Math.max(1, Math.floor(rect.width));
-      const height = Math.max(1, Math.floor(rect.height));
+      // Use window dimensions instead of getBoundingClientRect() —
+      // getBoundingClientRect() on fixed elements returns stale values
+      // during iOS Safari address bar animations.
+      const width = Math.max(1, window.innerWidth);
+      const height = Math.max(1, window.innerHeight);
       renderer.setSize(width, height);
+      // Re-apply CSS sizing after OGL overrides inline styles
+      canvas.style.width = "100%";
+      canvas.style.height = "100%";
       const res = program.uniforms.iResolution.value;
       res[0] = gl.drawingBufferWidth;
       res[1] = gl.drawingBufferHeight;
     };
 
-    let resizeTimeout;
-    const onResize = () => {
-      clearTimeout(resizeTimeout);
-      resizeTimeout = setTimeout(setSize, 200);
-    };
+    const onResize = () => setSize();
 
     const ro = new ResizeObserver(onResize);
     ro.observe(container);
+
+    // iOS Safari: visualViewport fires when the address bar shows/hides
+    window.visualViewport?.addEventListener("resize", onResize);
 
     setSize();
 
@@ -209,8 +213,19 @@ const Grainient = ({
     let lastFrame = 0;
     const frameDuration = 1000 / 30;
     const t0 = performance.now();
+    let lastW = window.innerWidth;
+    let lastH = window.innerHeight;
 
     const loop = (t) => {
+      // Catch any viewport changes the observers missed
+      const curW = window.innerWidth;
+      const curH = window.innerHeight;
+      if (curW !== lastW || curH !== lastH) {
+        lastW = curW;
+        lastH = curH;
+        setSize();
+      }
+
       if (t - lastFrame >= frameDuration) {
         program.uniforms.iTime.value = (t - t0) * 0.001;
         renderer.render({ scene: mesh });
@@ -223,7 +238,7 @@ const Grainient = ({
     return () => {
       cancelAnimationFrame(raf);
       ro.disconnect();
-      clearTimeout(resizeTimeout);
+      window.visualViewport?.removeEventListener("resize", onResize);
       try {
         container.removeChild(canvas);
       } catch {}
