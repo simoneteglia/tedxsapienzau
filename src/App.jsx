@@ -226,10 +226,11 @@ function LandingManager() {
         aria-hidden="true"
         style={{
           position: "fixed",
-          top: "-10vh",
-          left: "-10vw",
-          width: "120vw", 
-          height: "120vh", 
+          /* Niente più vw, vh o dvh. Lo spingiamo fuori dallo schermo di 100px in ogni direzione */
+          top: "-100px",
+          bottom: "-100px",
+          left: "-100px",
+          right: "-100px",
           zIndex: 0,
           pointerEvents: "none",
         }}

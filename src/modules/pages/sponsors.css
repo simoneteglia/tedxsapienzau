@@ -4,13 +4,9 @@
 }
 .sponsors-page {
   position: relative;
-  /* cambiare vh in dvh */
-  min-height: 100dvh; 
+  min-height: 100vh;
   padding-right: 24px;
-  
-  /* aggiungere la safe area al padding esistente*/
-  padding-bottom: calc(110px + env(safe-area-inset-bottom)); 
-  
+  padding-bottom: 110px;
   padding-left: 24px;
   color: #ffffff;
   overflow: hidden;
