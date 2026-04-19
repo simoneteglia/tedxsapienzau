@@ -116,12 +116,7 @@ const createLogoSlot = (key, options = {}) => {
 const createYearSlot = (year, key, options = {}) =>
   createLogoSlot(key, { year, ...options });
 
-export const sponsorStats = [
-  { value: "3000", labelKey: "partners.people" },
-  { value: "35000", labelKey: "partners.yt_views" },
-  { value: "50", labelKey: "partners.partners" },
-  { value: "300", labelKey: "partners.volunteers" },
-];
+
 
 export const sponsorMarqueeItems = [
   sponsorLogoLibrary.Unicredit,

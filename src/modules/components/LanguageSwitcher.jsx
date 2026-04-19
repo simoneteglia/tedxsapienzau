@@ -50,54 +50,49 @@ export default function LanguageSwitcher({ mobile = false }) {
         }
       }}
     >
-      <div className={`relative ${mobile ? "w-full" : "min-w-[92px]"}`}>
+      <div className={`relative ${mobile ? "w-full" : "min-w-[110px]"}`}>
+        {/* AGGIORNATO: Ripristinata la trasparenza originale, mantenendo font e dimensioni grandi */}
         <ListboxButton
-          className={`inline-flex w-full items-center justify-between rounded-full border border-white/20 bg-white/10 text-white transition hover:border-white/40 hover:bg-white/15 ${
-            mobile ? "px-4 py-3 text-sm" : "px-2.5 py-1.5 text-xs"
+          className={`inline-flex w-full items-center justify-between rounded-full border border-white/20 bg-white/10 text-white transition hover:border-white/40 hover:bg-white/15 font-objectsans-heavy text-base tracking-[0.02em] uppercase ${
+            mobile ? "px-4 py-3" : "px-4 py-2"
           }`}
           aria-label={t("common.language")}
-          style={{ fontFamily: global.UTILS.FONT_FAMILY }}
         >
           <span className="flex items-center gap-2">
             <img
               src={currentLanguage.flag}
               alt=""
-              className={`${mobile ? "h-5 w-7" : "h-4 w-6"} rounded-[3px] object-cover`}
+              className="h-5 w-7 rounded-[3px] object-cover"
             />
-            <span
-              className={`font-semibold tracking-[0.12em] ${mobile ? "text-sm" : "text-[10px]"}`}
-            >
+            <span>
               {currentLanguage.shortLabel}
             </span>
           </span>
           <ChevronUpDownIcon
             aria-hidden="true"
-            className={`${mobile ? "ml-3 h-5 w-5" : "ml-1.5 h-3.5 w-3.5"} text-white/75`}
+            className="ml-2 h-5 w-5 text-white/75"
           />
         </ListboxButton>
 
         <ListboxOptions
           anchor="bottom end"
           className={`glass-card z-[1100] mt-2 rounded-2xl border border-white/20 bg-white/10 p-2 shadow-2xl shadow-black/20 focus:outline-none ${
-            mobile ? "w-full" : "w-[var(--button-width)]"
+            mobile ? "w-full" : "w-[var(--button-width)] min-w-[110px]"
           }`}
-          style={{ fontFamily: global.UTILS.FONT_FAMILY }}
         >
           {availableOptions.map((option) => (
             <ListboxOption
               key={option.code}
               value={option}
-              className="cursor-pointer rounded-xl px-2 py-1.5 text-white data-focus:bg-white/10"
+              className="cursor-pointer rounded-xl px-2 py-1.5 text-white font-objectsans-heavy text-base tracking-[0.02em] uppercase data-focus:bg-white/10"
             >
               <div className="flex items-center gap-3">
                 <img
                   src={option.flag}
                   alt=""
-                  className={`${mobile ? "h-5 w-7" : "h-4 w-6"} rounded-[3px] object-cover`}
+                  className="h-5 w-7 rounded-[3px] object-cover"
                 />
-                <span
-                  className={`font-semibold tracking-[0.12em] ${mobile ? "text-sm" : "text-[10px]"}`}
-                >
+                <span>
                   {option.shortLabel}
                 </span>
               </div>

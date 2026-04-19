@@ -157,7 +157,13 @@ export default function Sponsors() {
                 {t("sponsors.contactValue")}
               </a>
             </div>
-            <button type="button" className="sponsors-contact-button">
+            <button
+              type="button"
+              className="sponsors-contact-button"
+              onClick={() => {
+                window.location.href = `mailto:${t("sponsors.contactValue")}`;
+              }}
+            >
               {t("sponsors.contact")}
             </button>
           </aside>

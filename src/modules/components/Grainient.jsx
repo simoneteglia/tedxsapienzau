@@ -123,9 +123,9 @@ const Grainient = ({
   centerX = 0.0,
   centerY = 0.0,
   zoom = 0.9,
-  color1 = "#FF9FFC",
-  color2 = "#5227FF",
-  color3 = "#B19EEF",
+  color1 = "#FFFFFF",
+  color2 = "#eb0028",
+  color3 = "#191919",
   className = "",
 }) => {
   const containerRef = useRef(null);
@@ -183,7 +183,9 @@ const Grainient = ({
     const mesh = new Mesh(gl, { geometry, program });
 
     const setSize = () => {
-      const rect = container.getBoundingClientRect();
+      if (!containerRef.current) return;
+
+      const rect = containerRef.current.getBoundingClientRect();
       const width = Math.max(1, Math.floor(rect.width));
       const height = Math.max(1, Math.floor(rect.height));
       renderer.setSize(width, height);
@@ -192,14 +194,22 @@ const Grainient = ({
       res[1] = gl.drawingBufferHeight;
     };
 
-    const ro = new ResizeObserver(setSize);
+    let resizeTimeout;
+    const onResize = () => {
+      clearTimeout(resizeTimeout);
+      resizeTimeout = setTimeout(setSize, 200);
+    };
+
+    const ro = new ResizeObserver(onResize);
     ro.observe(container);
+
     setSize();
 
     let raf = 0;
     let lastFrame = 0;
     const frameDuration = 1000 / 30;
     const t0 = performance.now();
+
     const loop = (t) => {
       if (t - lastFrame >= frameDuration) {
         program.uniforms.iTime.value = (t - t0) * 0.001;
@@ -213,11 +223,10 @@ const Grainient = ({
     return () => {
       cancelAnimationFrame(raf);
       ro.disconnect();
+      clearTimeout(resizeTimeout);
       try {
         container.removeChild(canvas);
-      } catch {
-        // Ignore
-      }
+      } catch {}
     };
   }, [
     timeSpeed,

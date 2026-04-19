@@ -11,7 +11,7 @@ const teamLogos = {
   "it-website": orangeLogo,
   "planning-event-management": fuchsiaLogo,
   "legal-administrative": lightBlueLogo,
-  design: yellowLogo,
+  "design": yellowLogo,
   "speakers-event-curation": greenLogo,
   "human-resources-academy": blueLogo,
   "external-relations-sponsor": pinkLogo,

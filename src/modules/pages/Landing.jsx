@@ -9,6 +9,7 @@ import act22Cover from "../../assets/images/act22/Edizione2022.webp";
 import paradoxa25Cover from "../../assets/images/paradoxa25/header_paradoxa2.png";
 import youtubeLogo from "../../assets/images/general/youtube_logo.png";
 import global from "../../resources/global.json";
+import paradoxaCover from "../../assets/images/paradoxa25/panepinto.webp";
 
 import CookieBox from "../components/CookieBox";
 import Bento from "../components/bento";
@@ -101,10 +102,10 @@ const talkHighlights = [
 
 const landingEvents = [
   {
-    title: "Paradoxa",
+    title: "Para Doxa",
     year: "2025",
     href: "/events/paradoxa2025",
-    image: paradoxa25Cover,
+    image: paradoxaCover,
   },
   {
     title: "Countdown",
@@ -120,7 +121,7 @@ const landingEvents = [
   },
 
   {
-    title: "ACT Lead the Change",
+    title: "ACT: Lead the Change",
     year: "2022",
     href: "/events/act22",
     image: act22Cover,
