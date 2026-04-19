@@ -228,7 +228,7 @@ export default function JoinUs() {
             <p>
               {getLocalizedValue(
                 {
-                  it: "Tre dubbi tipici che vale la pena chiarire gia in pagina, cosi chi arriva capisce se questo ritmo puo essere quello giusto.",
+                  it: "Tre dubbi frequenti, leggi per chiarire subito cosa ti aspetta.",
                   en: "Three common doubts worth clarifying directly on the page, so people can quickly understand whether this pace is right for them.",
                 },
                 language,

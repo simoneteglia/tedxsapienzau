@@ -4,7 +4,7 @@ export const joinUsHeroCopy = {
   kicker: localized("Dentro il progetto", "Inside the project"),
   title: localized("Build TEDx with us", "Build TEDx with us"),
   description: localized(
-    "Entrare nel team significa lavorare su eventi, contenuti, partnership, design e tecnologia insieme a studenti che trasformano idee in esperienze concrete. La pagina e pronta per diventare il punto di ingresso della prossima call, ma gia oggi racconta bene ritmo, aree e modo di lavorare.",
+    "Entrare nel team significa lavorare su eventi, contenuti, partnership, design e tecnologia insieme a studenti che trasformano idee in esperienze concrete. Questa pagina vi racconta il nostro ritmo, aree e modo di lavorare.",
     "Joining the team means working on events, content, partnerships, design and technology with students who turn ideas into real experiences. This page is ready to become the entry point for the next open call, but already shows the rhythm, the areas and the way we work.",
   ),
   statusEyebrow: localized("Application rhythm", "Application rhythm"),
@@ -54,7 +54,7 @@ export const joinUsInfoCards = [
     eyebrow: localized("Chi puo candidarsi", "Who can apply"),
     title: localized("Studenti di Sapienza", "Sapienza students"),
     description: localized(
-      "La call puo essere pensata per studenti regolarmente iscritti a corsi di laurea, laurea magistrale, master, dottorato o scuole di specializzazione.",
+      "La call è pensata per studenti regolarmente iscritti a corsi di laurea, laurea magistrale, master, dottorato o scuole di specializzazione.",
       "The open call can be built for students currently enrolled in bachelor, master, postgraduate, PhD or specialization programmes.",
     ),
   },
@@ -62,11 +62,11 @@ export const joinUsInfoCards = [
     id: "pace",
     eyebrow: localized("Come si lavora", "How the work feels"),
     title: localized(
-      "Operativita vera, non solo volontariato simbolico",
+      "Operatività vera, non solo volontariato simbolico",
       "Hands-on work, not symbolic volunteering",
     ),
     description: localized(
-      "Ogni area contribuisce con task reali: planning, produzione, contenuti, contatti, design, sviluppo e supporto durante gli eventi.",
+      "Ogni team contribuisce con task reali: planning, produzione, contenuti, contatti, design, sviluppo e supporto durante gli eventi.",
       "Every area contributes through real tasks: planning, production, content, outreach, design, development and live event support.",
     ),
   },
@@ -78,7 +78,7 @@ export const joinUsInfoCards = [
       "Process, ownership, network",
     ),
     description: localized(
-      "Si entra in un contesto dove si impara lavorando con persone di team diversi, con piu responsabilita nel tempo e occasioni concrete di crescita.",
+      "Si entra in un contesto dove si impara lavorando con persone di team diversi, con occasioni concrete di crescita.",
       "You enter a context where you learn by working with people across teams, gain more ownership over time and build real growth opportunities.",
     ),
   },
@@ -89,7 +89,7 @@ export const joinUsSteps = [
     id: "01",
     title: localized("Leggi la call", "Read the open call"),
     description: localized(
-      "Quando apriremo, troverai qui requisiti, team coinvolti, timing e il link diretto al form.",
+      "Quando apriremo, troverai qui requisiti, team coinvolti, date e il link diretto al form.",
       "When applications open, this page will host requirements, involved teams, timeline and the direct form link.",
     ),
   },
@@ -108,7 +108,7 @@ export const joinUsSteps = [
     id: "03",
     title: localized("Colloquio conoscitivo", "Introductory interview"),
     description: localized(
-      "La selezione non serve a mettere in scena un esame, ma a capire fit, disponibilita e potenziale di crescita.",
+      "La selezione non serve a mettere in scena un esame, ma a capire cosa fa per te, disponibilità e potenziale di crescita.",
       "Selection is not about staging an exam, but about understanding fit, availability and growth potential.",
     ),
   },
@@ -119,7 +119,7 @@ export const joinUsSteps = [
       "Onboarding and first integration",
     ),
     description: localized(
-      "Se entri, inizi con un affiancamento chiaro: strumenti, rituali del team, persone di riferimento e prime attivita.",
+      "Se entri, sarai affiancato da altri membri e ti forniremo: strumenti, rituali del team, persone di riferimento e prime attività.",
       "If you join, you start with a clear onboarding: tools, team rituals, reference people and first tasks.",
     ),
   },
@@ -213,7 +213,7 @@ export const joinUsFinalCta = {
     "The next open call will start here.",
   ),
   description: localized(
-    "Per ora possiamo usare questa pagina per raccontare bene il progetto, indirizzare chi e curioso verso i team e raccogliere interesse attraverso email e canali social. Quando vorrai, collegheremo il form reale al bottone principale.",
+    "Per ora vi raccontiamo progetto. ",
     "For now this page can explain the project clearly, direct curious people to the teams and gather interest through email and social channels. When you want, we can connect the real form to the main button.",
   ),
   primaryLabel: localized(

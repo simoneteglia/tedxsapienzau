@@ -131,7 +131,7 @@ const landingEvents = [
 const landingCopy = {
   heroTitle: "RELIVE THE LATEST EDITION",
   aboutDescription: localized(
-    "TEDxSapienzaU e il TEDx universitario dell'Ateneo Sapienza Universita di Roma.",
+    "TEDxSapienzaU è il TEDx universitario dell'Ateneo Sapienza Università di Roma.",
     "TEDxSapienzaU is the university TEDx of Sapienza University of Rome.",
   ),
   talksTitle: localized(

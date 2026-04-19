@@ -115,7 +115,7 @@ const eventsHubCopy = {
     "Events worth revisiting.",
   ),
   heroSubtitle: localized(
-    "Questa e la nuova porta d'ingresso agli eventi TEDxSapienzaU: un archivio visivo, rapido e pieno di personalita, da cui puoi raggiungere direttamente ogni pagina evento del sito.",
+    "Questa è la nuova porta d'ingresso agli eventi TEDxSapienzaU: un archivio visivo, rapido e pieno di personalità, da cui puoi raggiungere direttamente ogni pagina evento del sito.",
     "This is the new front door to TEDxSapienzaU events: a visual archive that is fast, distinctive and built to take you straight into every event page on the site.",
   ),
   archiveKicker: localized("Tutte le pagine evento", "All event pages"),
