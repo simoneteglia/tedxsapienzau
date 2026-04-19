@@ -222,19 +222,8 @@ function LandingManager() {
 
   return (
     <div style={{ position: "relative" }}>
-      <div
-        aria-hidden="true"
-        style={{
-          position: "fixed",
-          /* Niente più vw, vh o dvh. Lo spingiamo fuori dallo schermo di 100px in ogni direzione */
-          top: "-100px",
-          bottom: "-100px",
-          left: "-100px",
-          right: "-100px",
-          zIndex: 0,
-          pointerEvents: "none",
-        }}
-      >
+      {/* Usiamo la classe CSS con 100lvh */}
+      <div aria-hidden="true" className="grainient-fixed-bg">
         <Grainient
           timeSpeed={0.3}
           colorBalance={0.01}
@@ -247,6 +236,7 @@ function LandingManager() {
           saturation={0.7}
         />
       </div>
+      
       <div style={{ position: "relative", zIndex: 1 }}>
         <Navbar />
         <ScrollToTop />

@@ -2,3 +2,13 @@ body {
   margin: 0;
   background-color: #2a0008; 
 }
+.grainient-fixed-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh; /* Fallback per browser vecchissimi */
+  height: 100lvh; /* LA MAGIA: Large Viewport Height */
+  z-index: 0;
+  pointer-events: none;
+}
