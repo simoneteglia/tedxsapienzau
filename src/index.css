@@ -59,9 +59,8 @@ body {
   margin: 0;
   background-color: black;
   font-family:
-    -apple-system, BlinkMacSystemFont, "Fira Sans Extra Condensed", "Segoe UI",
-    Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
-    "Segoe UI Symbol";
+    -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial,
+    sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
 }
 
 .primary-button {
@@ -112,114 +111,6 @@ body {
 }
 
 /** FONTS **/
-
-.fira-sans extra condensed-thin {
-  font-family: "Fira Sans Extra Condensed", sans-serif;
-  font-weight: 100;
-  font-style: normal;
-}
-
-.fira-sans extra condensed-thin-italic {
-  font-family: "Fira Sans Extra Condensed", sans-serif;
-  font-weight: 100;
-  font-style: italic;
-}
-
-.fira-sans extra condensed-extralight {
-  font-family: "Fira Sans Extra Condensed", sans-serif;
-  font-weight: 200;
-  font-style: normal;
-}
-
-.fira-sans extra condensed-extralight-italic {
-  font-family: "Fira Sans Extra Condensed", sans-serif;
-  font-weight: 200;
-  font-style: italic;
-}
-
-.fira-sans extra condensed-light {
-  font-family: "Fira Sans Extra Condensed", sans-serif;
-  font-weight: 300;
-  font-style: normal;
-}
-
-.fira-sans extra condensed-light-italic {
-  font-family: "Fira Sans Extra Condensed", sans-serif;
-  font-weight: 300;
-  font-style: italic;
-}
-
-.fira-sans extra condensed-regular {
-  font-family: "Fira Sans Extra Condensed", sans-serif;
-  font-weight: 400;
-  font-style: normal;
-}
-
-.fira-sans extra condensed-regular-italic {
-  font-family: "Fira Sans Extra Condensed", sans-serif;
-  font-weight: 400;
-  font-style: italic;
-}
-
-.fira-sans extra condensed-medium {
-  font-family: "Fira Sans Extra Condensed", sans-serif;
-  font-weight: 500;
-  font-style: normal;
-}
-
-.fira-sans extra condensed-medium-italic {
-  font-family: "Fira Sans Extra Condensed", sans-serif;
-  font-weight: 500;
-  font-style: italic;
-}
-
-.fira-sans extra condensed-semibold {
-  font-family: "Fira Sans Extra Condensed", sans-serif;
-  font-weight: 600;
-  font-style: normal;
-}
-
-.fira-sans extra condensed-semibold-italic {
-  font-family: "Fira Sans Extra Condensed", sans-serif;
-  font-weight: 600;
-  font-style: italic;
-}
-
-.fira-sans extra condensed-bold {
-  font-family: "Fira Sans Extra Condensed", sans-serif;
-  font-weight: 700;
-  font-style: normal;
-}
-
-.fira-sans extra condensed-bold-italic {
-  font-family: "Fira Sans Extra Condensed", sans-serif;
-  font-weight: 700;
-  font-style: italic;
-}
-
-.fira-sans extra condensed-extrabold {
-  font-family: "Fira Sans Extra Condensed", sans-serif;
-  font-weight: 800;
-  font-style: normal;
-}
-
-.fira-sans extra condensed-extrabold-italic {
-  font-family: "Fira Sans Extra Condensed", sans-serif;
-  font-weight: 800;
-  font-style: italic;
-}
-
-.fira-sans extra condensed-black {
-  font-family: "Fira Sans Extra Condensed", sans-serif;
-  font-weight: 900;
-  font-style: normal;
-}
-
-.fira-sans extra condensed-black-italic {
-  font-family: "Fira Sans Extra Condensed", sans-serif;
-  font-weight: 900;
-  font-style: italic;
-}
 
 :root {
   --paradoxa-red: #eb0028;

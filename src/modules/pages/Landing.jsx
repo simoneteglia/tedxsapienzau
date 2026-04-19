@@ -190,7 +190,8 @@ export default function Landing() {
             padding: global.UTILS.BENTO_BOX_PADDING,
             display: "flex",
             justifyContent: "center",
-            alignItems: "flex-end",
+            alignItems:
+              windowSize > global.UTILS.TABLET_WIDTH ? "flex-end" : "center",
             fontFamily: "ObjectSansHeavy",
             position: "relative",
             overflow: "hidden",
@@ -227,6 +228,8 @@ export default function Landing() {
               height: "100%",
               background:
                 "linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.8))",
+              display:
+                windowSize > global.UTILS.TABLET_WIDTH ? "initial" : "none",
             }}
           />
           <div
@@ -258,7 +261,7 @@ export default function Landing() {
                     ? "10vh"
                     : windowSize > global.UTILS.MOBILE_WIDTH
                       ? "80px"
-                      : "50px",
+                      : "60px",
                 fontWeight: 700,
                 maxWidth: "13ch",
                 lineHeight: 1.02,
