@@ -136,11 +136,8 @@ export default function Team() {
       style={{ paddingTop: `calc(${global.UTILS.NAV_HEIGHT} + 28px)` }}
     >
       <div className={`team-page-shell ${selectedTeam ? "is-focus-mode" : ""}`}>
-        <div className={`team-view-stack ${selectedTeam ? "is-focused" : ""}`}>
-          <div
-            aria-hidden={Boolean(selectedTeam)}
-            className={`team-overview-view ${selectedTeam ? "is-hidden" : "is-visible"}`}
-          >
+        {!selectedTeam ? (
+          <div className="team-overview-view is-visible">
             <section className="team-hero">
               <h1 className="team-hero-title">{t("team_page.hero_title")}</h1>
               <p className="team-hero-description">
@@ -220,10 +217,9 @@ export default function Team() {
               })}
             </section>
           </div>
-
+        ) : (
           <section
-            aria-hidden={!selectedTeam}
-            className={`team-focus-view ${selectedTeam ? "is-visible" : "is-hidden"}`}
+            className="team-focus-view is-visible"
             style={{
               "--team-accent": focusedTeam.accent,
               "--team-description-color":
@@ -279,7 +275,7 @@ export default function Team() {
               ))}
             </div>
           </section>
-        </div>
+        )}
       </div>
     </main>
   );

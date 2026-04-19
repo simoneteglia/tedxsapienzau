@@ -46,47 +46,9 @@
   gap: 0;
 }
 
-.team-view-stack {
-  position: relative;
-}
-
-.team-overview-view,
-.team-focus-view {
-  transition:
-    opacity 0.38s ease,
-    transform 0.42s ease,
-    visibility 0.38s ease;
-}
-
 .team-overview-view {
   display: grid;
   gap: 78px;
-}
-
-.team-overview-view.is-visible,
-.team-focus-view.is-visible {
-  opacity: 1;
-  transform: translateY(0) scale(1);
-  visibility: visible;
-}
-
-.team-overview-view.is-hidden,
-.team-focus-view.is-hidden {
-  opacity: 0;
-  pointer-events: none;
-  visibility: hidden;
-}
-
-.team-view-stack.is-focused .team-overview-view {
-  position: absolute;
-  inset: 0;
-  transform: translateY(-18px) scale(0.985);
-}
-
-.team-view-stack:not(.is-focused) .team-focus-view {
-  position: absolute;
-  inset: 0;
-  transform: translateY(22px) scale(0.985);
 }
 
 .team-hero {
