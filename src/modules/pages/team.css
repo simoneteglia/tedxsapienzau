@@ -55,7 +55,6 @@
   transition:
     opacity 0.38s ease,
     transform 0.42s ease,
-    filter 0.38s ease,
     visibility 0.38s ease;
 }
 
@@ -68,14 +67,12 @@
 .team-focus-view.is-visible {
   opacity: 1;
   transform: translateY(0) scale(1);
-  filter: blur(0);
   visibility: visible;
 }
 
 .team-overview-view.is-hidden,
 .team-focus-view.is-hidden {
   opacity: 0;
-  filter: blur(6px);
   pointer-events: none;
   visibility: hidden;
 }
