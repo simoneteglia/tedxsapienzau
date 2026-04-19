@@ -226,10 +226,12 @@ function LandingManager() {
         aria-hidden="true"
         style={{
           position: "fixed",
-          inset: 0,
+          top: 0,
+          left: 0,
+          width: "100vw",
+          height: "100dvh",
           zIndex: 0,
           pointerEvents: "none",
-          width: "2500px",
         }}
       >
         <Grainient
