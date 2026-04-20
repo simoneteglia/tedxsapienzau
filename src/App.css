@@ -20,27 +20,8 @@ body {
   z-index: 0;
   pointer-events: none;
   background-color: #000000;
-  background-image:
-    radial-gradient(ellipse at 10% 20%, #c40022 10%, transparent 60%),
-    radial-gradient(circle at 90% 30%, #777777 0%, transparent 55%),
-    radial-gradient(ellipse at 40% 70%, #c40022 20%, transparent 70%),
-    radial-gradient(circle at 80% 90%, #777777 10%, transparent 45%),
-    radial-gradient(circle at 50% 10%, #000000 0%, transparent 50%);
-}
-
-.mobile-static-bg::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  backdrop-filter: blur(40px);
-  -webkit-backdrop-filter: blur(40px);
-}
-
-.mobile-static-bg::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.7' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
-  opacity: 0.35;
-  mix-blend-mode: overlay;
+  background-image: url("./assets/images/location/location1.webp");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
