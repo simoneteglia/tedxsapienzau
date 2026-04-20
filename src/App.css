@@ -2,12 +2,13 @@ body {
   margin: 0;
   background-color: #2a0008;
 }
-.grainient-fixed-bg {
+.grainient-background-wrapper {
   position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: calc(-1 * env(safe-area-inset-bottom, 0px));
+  top: -150px;
+  left: -150px;
+  width: calc(100vw + 300px);
+  height: calc(100vh + 300px);
+  height: calc(100lvh + 300px);
   z-index: 0;
   pointer-events: none;
 }

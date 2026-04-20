@@ -224,16 +224,7 @@ function LandingManager() {
     <div style={{ position: "relative" }}>
       <div
         aria-hidden="true"
-        style={{
-          position: "fixed",
-          /* OPZIONE NUCLEARE: Il div è più grande dello schermo di 300px totali in ogni direzione */
-          top: "-150px",
-          bottom: "-150px",
-          left: "-150px",
-          right: "-150px",
-          zIndex: 0,
-          pointerEvents: "none",
-        }}
+        className="grainient-background-wrapper"
       >
         <Grainient
           timeSpeed={0.3}
