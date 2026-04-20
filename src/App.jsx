@@ -222,26 +222,22 @@ function LandingManager() {
 
   return (
     <div style={{ position: "relative" }}>
-      {windowSize <= 768 ? (
-        <div aria-hidden="true" className="mobile-static-bg" />
-      ) : (
-        <div
-          aria-hidden="true"
-          className="grainient-background-wrapper"
-        >
-          <Grainient
-            timeSpeed={0.3}
-            colorBalance={0.01}
-            color1="#c40022"
-            color2="#000000"
-            color3="#777777"
-            warpStrength={3.2}
-            contrast={1.02}
-            gamma={1.18}
-            saturation={0.7}
-          />
-        </div>
-      )}
+      <div
+        aria-hidden="true"
+        className="grainient-background-wrapper"
+      >
+        <Grainient
+          timeSpeed={0.3}
+          colorBalance={0.01}
+          color1="#c40022"
+          color2="#000000"
+          color3="#777777"
+          warpStrength={3.2}
+          contrast={1.02}
+          gamma={1.18}
+          saturation={0.7}
+        />
+      </div>
       <div style={{ position: "relative", zIndex: 1 }}>
         <Navbar />
         <ScrollToTop />

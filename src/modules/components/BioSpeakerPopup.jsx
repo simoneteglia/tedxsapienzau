@@ -38,7 +38,7 @@ export default function BioSpeakerPopup({
         id="overlay"
         style={{
           width: "100vw",
-          bottom: "calc(-1 * env(safe-area-inset-bottom))",
+          height: "100vh",
           backgroundColor: "rgba(0, 0, 0, 0.58)",
           position: "fixed",
           top: 0,
@@ -53,7 +53,7 @@ export default function BioSpeakerPopup({
 
       <div
         style={{
-          bottom: "calc(-1 * env(safe-area-inset-bottom))",
+          height: "100vh",
           width: isDesktop ? "min(620px, 100vw)" : "100vw",
           position: "fixed",
           top: 0,

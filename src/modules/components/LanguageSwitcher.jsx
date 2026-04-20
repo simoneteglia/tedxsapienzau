@@ -76,17 +76,19 @@ export default function LanguageSwitcher({ mobile = false }) {
 
         <ListboxOptions
           anchor="bottom end"
-          className={`glass-card z-[1100] mt-2 rounded-2xl border border-white/20 bg-white/10 p-2 shadow-2xl shadow-black/20 focus:outline-none ${
-            mobile ? "w-full" : "w-[var(--button-width)] min-w-[110px]"
+          className={`glass-card z-[1100] mt-2 border border-white/20 bg-white/10 shadow-2xl shadow-black/20 focus:outline-none w-[var(--button-width)] min-w-[110px] ${
+            mobile ? "rounded-full p-0 overflow-hidden" : "rounded-2xl p-2"
           }`}
         >
           {availableOptions.map((option) => (
             <ListboxOption
               key={option.code}
               value={option}
-              className="cursor-pointer rounded-xl px-2 py-1.5 text-white font-objectsans-heavy text-base tracking-[0.02em] uppercase data-focus:bg-white/10"
+              className={`cursor-pointer text-white font-objectsans-heavy text-base tracking-[0.02em] uppercase data-focus:bg-white/10 ${
+                mobile ? "rounded-full px-4 py-3" : "rounded-xl px-2 py-1.5"
+              }`}
             >
-              <div className="flex items-center gap-3">
+              <div className="flex items-center gap-2">
                 <img
                   src={option.flag}
                   alt=""

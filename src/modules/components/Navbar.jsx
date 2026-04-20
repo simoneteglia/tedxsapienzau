@@ -138,7 +138,7 @@ export default function Navbar() {
             </DisclosureButton>
             <DisclosurePanel
               transition
-              className="origin-top transition duration-200 ease-out data-closed:-translate-y-5 data-closed:opacity-0 md:hidden glass-card-darker fixed top-[70px] left-0 w-full bottom-[calc(-1*env(safe-area-inset-bottom))] pr-2 pb-[env(safe-area-inset-bottom)]"
+              className="origin-top transition duration-200 ease-out data-closed:-translate-y-5 data-closed:opacity-0 md:hidden glass-card-darker fixed top-[70px] left-0 w-full h-[calc(100lvh-70px)] pr-2 pb-[env(safe-area-inset-bottom)]"
               style={{ zIndex: 1001 }}
             >
               <div className="space-y-1 pl-2 pr-4 pt-2 pb-3 ">
@@ -152,7 +152,7 @@ export default function Navbar() {
                       item.current
                         ? "bg-gray-800 text-red-500 underline-offset-4 underline"
                         : "text-gray-200 hover:bg-gray-700 hover:text-white",
-                      "block rounded-md px-3 py-8  text-5xl font-objectsans-heavy",
+                      "block rounded-md px-3 py-5 text-4xl font-objectsans-heavy",
                     )}
                     style={{
                       fontFamily: global.UTILS.FONT_FAMILY,
@@ -165,12 +165,12 @@ export default function Navbar() {
                 <DisclosureButton
                   as={Link}
                   to="/join-us"
-                  className="primary-button mt-4 block w-full text-center font-objectsans-heavy"
+                  className="primary-button mt-4 ml-3 inline-block text-center font-objectsans-heavy"
                 >
                   {t("common.join_us")}
                 </DisclosureButton>
-                <div className="mt-6 rounded-2xl border border-white/10 bg-white/5 px-3 py-4">
-                  <p className="mb-3 text-xs font-semibold uppercase tracking-[0.2em] text-gray-400">
+                <div className="mt-6 ml-3 mr-3">
+                  <p className="mb-3 pl-1 text-xs font-semibold uppercase tracking-[0.2em] text-gray-400">
                     {t("common.language")}
                   </p>
                   <LanguageSwitcher mobile />
