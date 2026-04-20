@@ -119,7 +119,7 @@ export default function Navbar() {
             </section>
             <div className="flex md:hidden"></div>
           </div>
-          <div className="absolute inset-y-0 left-0 w-full pl-2 pr-2 flex items-center justify-between md:hidden bg-black">
+          <div className="absolute z-[1002] inset-y-0 left-0 w-full pl-2 pr-2 flex items-center justify-between md:hidden bg-black">
             <Link to="/">
               <img src={Logo} alt="LogoTedx" className="w-[200px]" />
             </Link>
@@ -136,7 +136,8 @@ export default function Navbar() {
                 className="hidden size-6 group-data-open:block"
               />
             </DisclosureButton>
-            <DisclosurePanel
+          </div>
+          <DisclosurePanel
               transition
               className="origin-top transition duration-200 ease-out data-closed:-translate-y-5 data-closed:opacity-0 md:hidden glass-card-darker fixed top-[70px] left-0 w-full h-[calc(100lvh-70px)] pr-2 pb-[env(safe-area-inset-bottom)]"
               style={{ zIndex: 1001 }}
@@ -176,8 +177,7 @@ export default function Navbar() {
                   <LanguageSwitcher mobile />
                 </div>
               </div>
-            </DisclosurePanel>
-          </div>
+          </DisclosurePanel>
         </>
       )}
     </Disclosure>
