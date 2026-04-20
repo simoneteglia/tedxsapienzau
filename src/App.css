@@ -4,11 +4,10 @@ body {
 }
 .grainient-background-wrapper {
   position: fixed;
-  top: -150px;
-  left: -150px;
-  width: calc(100vw + 300px);
-  height: calc(100vh + 300px);
-  height: calc(100lvh + 300px);
+  top: -20vh;
+  left: -20vw;
+  width: 140vw;
+  height: 140vh;
   z-index: 0;
   pointer-events: none;
 }
