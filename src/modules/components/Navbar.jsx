@@ -1,5 +1,5 @@
 // COMPONENTS
-import { useEffect } from "react";
+import { useEffect, useState, useRef } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import {
@@ -24,6 +24,10 @@ import Logo from "../../assets/logos/logo_white.png";
 export default function Navbar() {
   const { t } = useTranslation();
   const { pathname } = useLocation();
+
+  const [pillStyle, setPillStyle] = useState({ left: 0, width: 0, opacity: 0 });
+  const [hoveredIndex, setHoveredIndex] = useState(null);
+  const navRefs = useRef([]);
 
   const isCurrentPage = (href) => {
     if (href === "/events") {
@@ -70,6 +74,23 @@ export default function Navbar() {
     return null;
   }
 
+  useEffect(() => {
+    const active = navigation.findIndex((item) => item.current);
+    const targetIndex = hoveredIndex !== null ? hoveredIndex : active;
+
+    if (targetIndex !== -1 && navRefs.current[targetIndex]) {
+      const el = navRefs.current[targetIndex];
+      setPillStyle({
+        left: el.offsetLeft,
+        width: el.offsetWidth,
+        opacity: 1,
+      });
+    } else {
+      setPillStyle((prev) => ({ ...prev, opacity: 0 }));
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [pathname, hoveredIndex]);
+
   return (
     <Disclosure
       as="nav"
@@ -88,26 +109,42 @@ export default function Navbar() {
             </Link>
             <section
               id="right-section"
-              className="flex items-center gap-2 lg:gap-6 xl:gap-10"
+              className="flex items-center gap-2 lg:gap-6 xl:gap-10 relative"
               style={{ fontFamily: global.UTILS.FONT_FAMILY }}
+              onMouseLeave={() => setHoveredIndex(null)}
             >
-              {navigation.map((item) => (
+              {/* Liquid Sliding Pill */}
+              <div
+                className="absolute h-[38px] bg-white/20 backdrop-blur-md rounded-[14px] shadow-sm transition-all duration-300 pointer-events-none"
+                style={{
+                  left: `${pillStyle.left}px`,
+                  width: `${pillStyle.width}px`,
+                  opacity: pillStyle.opacity,
+                  top: "50%",
+                  transform: "translateY(-50%)",
+                  transitionTimingFunction: "cubic-bezier(0.25, 1, 0.5, 1)"
+                }}
+              />
+
+              {navigation.map((item, index) => (
                 <Link
                   key={item.name}
                   to={item.href}
+                  ref={(el) => (navRefs.current[index] = el)}
+                  onMouseEnter={() => setHoveredIndex(index)}
                   aria-current={item.current ? "page" : undefined}
                   className={classNames(
-                    item.current
-                      ? "bg-gray-900 text-white"
-                      : "text-white hover:bg-gray-700 hover:text-white",
-                    "rounded-md px-3 py-2 text-base font-objectsans-heavy tracking-[0.02em]",
+                    "relative z-10 rounded-[14px] px-4 py-2 text-base font-objectsans-heavy tracking-[0.02em] transition-colors duration-300 ease-in-out",
+                    item.current || hoveredIndex === index
+                      ? "text-white"
+                      : "text-white/80"
                   )}
                   style={{ textTransform: "uppercase" }}
                 >
                   {item.name}
                 </Link>
               ))}
-              <div className="flex items-center gap-3">
+              <div className="flex items-center gap-3 relative z-10 ml-2">
                 <LanguageSwitcher />
                 <Link
                   className="primary-button font-objectsans-heavy text-sm"
@@ -139,10 +176,10 @@ export default function Navbar() {
           </div>
           <DisclosurePanel
               transition
-              className="origin-top transition duration-200 ease-out data-closed:-translate-y-5 data-closed:opacity-0 md:hidden glass-card-darker fixed top-[70px] left-0 w-full h-[calc(100lvh-70px)] pr-2 pb-[env(safe-area-inset-bottom)]"
+              className="origin-top transition duration-200 ease-out data-closed:-translate-y-5 data-closed:opacity-0 md:hidden glass-card-darker fixed top-[70px] left-0 w-full h-[calc(100lvh-70px)] overflow-y-auto pr-2 pb-[env(safe-area-inset-bottom)]"
               style={{ zIndex: 1001 }}
             >
-              <div className="space-y-1 pl-2 pr-4 pt-2 pb-3 ">
+              <div className="space-y-1 pl-2 pr-4 pt-6 pb-3 ">
                 {navigation.map((item) => (
                   <DisclosureButton
                     key={item.name}
@@ -151,9 +188,9 @@ export default function Navbar() {
                     aria-current={item.current ? "page" : undefined}
                     className={classNames(
                       item.current
-                        ? "bg-gray-800 text-red-500 underline-offset-4 underline"
-                        : "text-gray-200 hover:bg-gray-700 hover:text-white",
-                      "block rounded-md px-3 py-5 text-4xl font-objectsans-heavy",
+                        ? "bg-white/20 shadow-md text-white"
+                        : "text-gray-200 hover:bg-white/10 hover:text-white",
+                      "block rounded-[20px] px-4 py-5 text-4xl font-objectsans-heavy transition-all duration-300 ease-in-out",
                     )}
                     style={{
                       fontFamily: global.UTILS.FONT_FAMILY,
