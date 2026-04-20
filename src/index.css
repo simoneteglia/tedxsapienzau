@@ -57,7 +57,7 @@
 
 html, body {
   /* Questo colore verrà usato da Safari per riempire eventuali aree sicure dell'iPhone */
-  background-color: #1a0004 !important; 
+  background-color: #000000 !important; 
   margin: 0;
   padding: 0;
 }
