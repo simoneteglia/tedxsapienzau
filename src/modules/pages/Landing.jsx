@@ -136,13 +136,13 @@ const landingCopy = {
   ),
   talksTitle: localized(
     "Rivivi alcuni dei nostri talk.",
-    "Rewatch a few of our talks.",
+    "Rewatch some of our talks.",
   ),
   talksCopy: localized(
-    "Una selezione veloce di interventi TEDxSapienzaU da riaprire subito: immagine, titolo e accesso diretto al video completo su YouTube.",
-    "A quick selection of TEDxSapienzaU talks to revisit right away: image, title and direct access to the full video on YouTube.",
+    "Una selezione di alcuni dei talks TEDxSapienzaU, scelti tra i più acclamati delle passate edizioni.",
+    "A selection of some of our TEDxSapienzaU talks, chosen among the most acclaimed of the past editions.",
   ),
-  eventsTitle: localized("I nostri eventi", "Our events"),
+  eventsTitle: localized("I nostri eventi:", "Our events:"),
   eventCardAction: localized("Scopri", "Learn more"),
   eventsCta: localized("Scopri tutti gli eventi", "Browse all events"),
   youtubeCta: "Open on YouTube",
@@ -163,9 +163,9 @@ export default function Landing() {
 
   const stats = [
     { end: 41, label: t("mvhome.speakers") },
-    { end: 4000, label: t("mvhome.spectators") },
+    { end: 205000, label: t("mvhome.yt_views") },
     { end: 9000, label: t("mvhome.followers") },
-    { end: 35000, label: t("mvhome.yt_views") },
+    { end: 5000, label: t("mvhome.spectators") },
   ];
 
   return (

@@ -252,7 +252,7 @@ export default function Sponsors() {
                   color: "white",
                 }}
               >
-                {t("sponsors.eventi_awards_number")}
+                {t("sponsors.eventi_tedx_number")}
               </strong>
               <span
                 className="font-bold leading-tight text-white block"
@@ -262,7 +262,7 @@ export default function Sponsors() {
                   letterSpacing: "1px",
                 }}
               >
-                {t("sponsors.eventi_awards_text")}
+                {t("sponsors.eventi_tedx_text")}
               </span>
             </Bento>
             <Bento
@@ -336,7 +336,7 @@ export default function Sponsors() {
                   color: "white",
                 }}
               >
-                {t("sponsors.eventi_tedx_number")}
+                {t("sponsors.eventi_awards_number")}
               </strong>
               <span
                 className="font-bold leading-tight text-white block"
@@ -346,7 +346,7 @@ export default function Sponsors() {
                   letterSpacing: "1px",
                 }}
               >
-                {t("sponsors.eventi_tedx_text")}
+                {t("sponsors.eventi_awards_text")}
               </span>
             </Bento>
           </div>

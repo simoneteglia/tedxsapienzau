@@ -130,6 +130,7 @@
   font-family: "ObjectSans";
   font-size: 17px;
   line-height: 1.72;
+  transition: color 0.2s ease;
 }
 
 .joinus-signal-row {
@@ -260,6 +261,27 @@
   font-family: "ObjectSans";
   font-size: 13px;
   line-height: 1.6;
+  transition: color 0.2s ease;
+}
+
+.joinus-action-note.is-highlighted,
+.joinus-description.is-highlighted {
+  animation: joinus-note-highlight 0.5s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+}
+
+@keyframes joinus-note-highlight {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  15%, 45%, 75% {
+    transform: translateX(-4px);
+  }
+  30%, 60% {
+    transform: translateX(4px);
+  }
+  20%, 80% {
+    color: #ffb8c3;
+  }
 }
 
 .joinus-status-card,
@@ -511,7 +533,7 @@
   grid-template-columns: minmax(0, 1fr) auto;
   gap: 24px;
   align-items: center;
-  padding: 32px;
+  padding: 32px 32px 88px 32px;
   border-radius: 34px;
 }
 
@@ -521,9 +543,30 @@
   max-width: 72ch;
 }
 
+.joinus-cta-actions-wrapper {
+  position: relative;
+}
+
+.joinus-cta-note-container {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  margin-top: 16px;
+}
+
 @media (max-width: 1180px) {
+  .joinus-cta-note-container {
+    position: static;
+    margin-top: 16px;
+  }
+
+  .joinus-cta-banner {
+    grid-template-columns: 1fr;
+    padding: 32px;
+  }
+
   .joinus-hero,
-  .joinus-cta-banner,
   .joinus-section-head--with-link {
     grid-template-columns: 1fr;
   }

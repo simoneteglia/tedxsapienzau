@@ -30,7 +30,6 @@
     "close_selected_team": "Close selected team",
     "open_main_menu": "Open main menu"
   },
-
   "joinus": {
     "closed_title": "Applications to join the team are closed, but not forever.<br></br> Fill out the form below to be contacted when we reopen applications!",
     "open_title": "Join the TEDxSapienzaU team!",
@@ -47,20 +46,18 @@
     "LA": "The Legal & Administrative team takes care of the legal and administrative aspects related to the organization of TEDxSapienzaU events. In particular, it deals with drafting contracts, accounting, searching for tenders for fund recovery, compliance with TEDx rules and University guidelines and finally with the protection of privacy and copyright.",
     "DESIGN": "The Design team takes care of the design aspects of the event. In detail, it works on creating a visual and graphic identity, developing products and designing the setups."
   },
-
   "team_page": {
     "hero_kicker": "TEDxSapienzaU people",
     "hero_title": "Meet our team(s)",
-    "hero_description": "TEDxSapienzaU comes to life through people with different backgrounds working together across curation, production, partnerships, design and technology. Below you can explore the areas that shape each edition: for now they are presented as structure cards, ready to be swapped with real names and portraits whenever you want.",
+    "hero_description": "TEDxSapienzaU comes to life through people with different backgrounds working together across curation, production, partnerships, design and technology. Below you can explore the areas that shape each edition.",
     "focus_label": "Focus area",
     "jump_to_section": "Jump to section",
     "board_description": "The board keeps the overall vision aligned, coordinates the teams and turns strategic direction into weekly execution. It is where priorities, people and decisions are brought back into sync."
   },
-
   "sponsors": {
     "hero_title": "Sponsors & partners",
     "hero_description": "TEDxSapienzaU costruisce ogni edizione insieme a brand, istituzioni e community.",
-    "stats_title": "TEDxSapienzaU in numbers",
+    "stats_title": "TEDxSapienzaU in numbers:",
     "stats_description": "Una fotografia rapida di audience, reach e collaborazioni che orbitano intorno al progetto.",
     "ctaTitle": "Vuoi costruire la prossima edizione con noi?",
     "ctaDescription": "Questa area è pronta per diventare il punto di contatto per sponsorship e partnership.",
@@ -68,20 +65,19 @@
     "contactValue": "info@tedxsapienzau.com",
     "contact": "Contattaci",
     "account_social_raggiunti_text": "account social raggiunti",
-    "account_social_raggiunti_number": "725113",
+    "account_social_raggiunti_number": "725000",
     "speakers_text": "speakers",
     "speakers_number": "41",
     "eventi_awards_text": "eventi awards",
-    "eventi_awards_number": "4",
+    "eventi_awards_number": "3",
     "volontari_text": "volontari",
     "volontari_number": "320",
     "sponsor_partners_text": "sponsors & partners",
-    "sponsor_partners_number": "36",
+    "sponsor_partners_number": "56",
     "eventi_tedx_text": "eventi TEDx",
-    "eventi_tedx_number": "3",
-    "i_nostri_sponsor": "I nostri sponsors"
+    "eventi_tedx_number": "4",
+    "i_nostri_sponsor": "I nostri sponsors."
   },
-
   "partners": {
     "people": "engaged spectators",
     "yt_views": "YouTube views",
@@ -121,27 +117,23 @@
     "14th_st_el_5": "Sponsorship",
     "14th_st_el_6": "Contact Us"
   },
-
   "partners_list": {
     "patrocinio_div": "With the sponsorship of",
     "patrocinioEP_div": "Under the high patronage of"
   },
-
   "footer": {
     "description": "TEDxSapienzaU is an independently organized TED event operated under license from TED. The protagonists are the ideas, the speakers, the partners and the students that populate this great academic community.",
     "follow_us": "Follow us on social media",
     "join_us": "Join the <br> TEDxSapienzaU team!",
     "info1": "Looking for more information?",
-    "info2": "Contact us",
+    "info2": "Contact us: ",
     "statute": "Statute"
   },
-
   "home": {
     "find_out_more": "Find out more",
     "next_event": "DON'T MISS<br> OUR <br> NEXT EVENT<br>",
     "next_event_form": "Fill out the form to stay updated on our activities"
   },
-
   "mvhome": {
     "description": "TEDxSapienzaU is the TEDx of Sapienza University of Rome",
     "find_out_more": "Find out more",
@@ -225,11 +217,9 @@
     "sapienzau": "'SapienzaU' ",
     "button": "Collaborate with us"
   },
-
   "events": {
     "title": "Past Events"
   },
-
   "event_countdown2024": {
     "title": "3, 2, 1IMPACT",
     "description": "Time is ticking and it is necessary to create a new space for reflection and entertainment focused on the climate crisis. A place to face fears about the future with positivity and science thanks to an interdisciplinary and engaging vision in the spaces of our University. Immerse yourself in Sapienza's first <1>TEDx Countdown</1> event and be inspired by the urgency and complexity of this global challenge to promote concrete actions."

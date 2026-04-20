@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { useLayoutEffect } from "react";
+import { useLayoutEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 
 import global from "../../resources/global.json";
@@ -94,6 +94,8 @@ export default function JoinUs() {
   const recruitingTeams = teamSections.filter(({ id }) => id !== "board");
   const heroTitle = getLocalizedValue(joinUsHeroCopy.title, language);
   const heroTitleWords = heroTitle.split(" ");
+  const [highlightNote, setHighlightNote] = useState(false);
+  const [highlightFinalNote, setHighlightFinalNote] = useState(false);
 
   useLayoutEffect(() => {
     window.scrollTo(0, 0);
@@ -134,7 +136,11 @@ export default function JoinUs() {
             </div>
 
             <div className="joinus-action-row">
-              <button type="button" className="joinus-primary-button">
+              <button
+                type="button"
+                className="joinus-primary-button"
+                onClick={() => setHighlightNote(true)}
+              >
                 {getLocalizedValue(joinUsHeroCopy.inactiveCtaLabel, language)}
               </button>
               <a
@@ -145,7 +151,10 @@ export default function JoinUs() {
               </a>
             </div>
 
-            <p className="joinus-action-note">
+            <p
+              className={`joinus-action-note ${highlightNote ? "is-highlighted" : ""}`}
+              onAnimationEnd={() => setHighlightNote(false)}
+            >
               {getLocalizedValue(joinUsHeroCopy.inactiveCtaNote, language)}
             </p>
           </div>
@@ -164,19 +173,10 @@ export default function JoinUs() {
             </p>
             <h2>
               {getLocalizedValue(
-                { it: "Come funziona", en: "How it works" },
+                { it: "Come candidarsi:", en: "How to apply:" },
                 language,
               )}
             </h2>
-            <p>
-              {getLocalizedValue(
-                {
-                  it: "Una call ben fatta non lascia zone grigie: chiarisce aspettative, racconta i team e accompagna l'ingresso con un onboarding leggibile.",
-                  en: "A well-built open call leaves no grey areas: it clarifies expectations, explains the teams and supports entry with a readable onboarding flow.",
-                },
-                language,
-              )}
-            </p>
           </header>
 
           <div className="joinus-step-grid">
@@ -221,7 +221,7 @@ export default function JoinUs() {
             </p>
             <h2>
               {getLocalizedValue(
-                { it: "Prima di candidarti", en: "Before you apply" },
+                { it: "Prima di candidarti:", en: "Before you apply:" },
                 language,
               )}
             </h2>
@@ -252,16 +252,30 @@ export default function JoinUs() {
             <p>{getLocalizedValue(joinUsFinalCta.description, language)}</p>
           </div>
 
-          <div className="joinus-cta-actions">
-            <button type="button" className="joinus-primary-button">
-              {getLocalizedValue(joinUsFinalCta.primaryLabel, language)}
-            </button>
-            <a
-              className="joinus-secondary-button"
-              href={`mailto:${joinUsHeroCopy.contactValue}`}
-            >
-              {getLocalizedValue(joinUsFinalCta.secondaryLabel, language)}
-            </a>
+          <div className="joinus-cta-actions-wrapper">
+            <div className="joinus-cta-actions">
+              <button
+                type="button"
+                className="joinus-primary-button"
+                onClick={() => setHighlightFinalNote(true)}
+              >
+                {getLocalizedValue(joinUsFinalCta.primaryLabel, language)}
+              </button>
+              <a
+                className="joinus-secondary-button"
+                href={`mailto:${joinUsHeroCopy.contactValue}`}
+              >
+                {getLocalizedValue(joinUsFinalCta.secondaryLabel, language)}
+              </a>
+            </div>
+            <div className="joinus-cta-note-container">
+              <p
+                className={`joinus-description ${highlightFinalNote ? "is-highlighted" : ""}`}
+                onAnimationEnd={() => setHighlightFinalNote(false)}
+              >
+                {getLocalizedValue(joinUsFinalCta.descriptionLabel, language)}
+              </p>
+            </div>
           </div>
         </section>
       </div>

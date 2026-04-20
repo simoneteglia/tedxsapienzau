@@ -37,8 +37,8 @@ const events = [
     doContain: true,
     accent: "#ffd800",
     description: localized(
-      "La finale che porta sul palco artisti e speaker emergenti con idee capaci di viaggiare ben oltre l'universita.",
-      "The final that brings emerging artists and speakers to the stage with ideas built to travel far beyond the university.",
+      "L'evento che porta sul palco artisti e speaker emergenti con idee capaci di viaggiare ben oltre l'universita.",
+      "The event that brings emerging artists and speakers to the stage with ideas built to travel far beyond the university.",
     ),
   },
   {
@@ -50,7 +50,7 @@ const events = [
     image: countdownCover,
     accent: "#f1ff39",
     description: localized(
-      "Il format dedicato alla crisi climatica: visioni interdisciplinari, urgenza concreta e un immaginario piu radicale.",
+      "Il format dedicato alla crisi climatica: visioni interdisciplinari, urgenza concreta e un immaginario più radicale.",
       "The format focused on the climate crisis: interdisciplinary perspectives, concrete urgency and a more radical imagination.",
     ),
   },
@@ -102,8 +102,8 @@ const events = [
     image: awards22Cover,
     accent: "#ff9d00",
     description: localized(
-      "I vincitori della prima stagione awards, premiati sul palco e pronti a trasformare il loro progetto in una voce pubblica.",
-      "The winners of the first awards season, recognised on stage and ready to turn their project into a public voice.",
+      "I vincitori del primo evento awards, premiati sul palco e pronti a trasformare il loro progetto in una voce pubblica.",
+      "The winners of the first awards event, awarded on stage and ready to turn their project into a public voice.",
     ),
   },
 ];
@@ -115,8 +115,8 @@ const eventsHubCopy = {
     "Events worth revisiting.",
   ),
   heroSubtitle: localized(
-    "Questa è la nuova porta d'ingresso agli eventi TEDxSapienzaU: un archivio visivo, rapido e pieno di personalità, da cui puoi raggiungere direttamente ogni pagina evento del sito.",
-    "This is the new front door to TEDxSapienzaU events: a visual archive that is fast, distinctive and built to take you straight into every event page on the site.",
+    "Questa è la porta d'ingresso agli eventi TEDxSapienzaU: un archivio da cui puoi raggiungere direttamente ogni pagina evento del sito.",
+    "This is the front door to TEDxSapienzaU events: an archive to directly access every event page on the site.",
   ),
   archiveKicker: localized("Tutte le pagine evento", "All event pages"),
   archiveTitle: localized(
@@ -135,16 +135,16 @@ export default function EventsHub() {
   const copy = (value) => getLocalizedText(value, language);
   const stats = [
     {
-      value: "2022 -> 2025",
-      label: copy(localized("stagioni raccolte", "seasons collected")),
+      value: "2022 ➔ 2025",
+      label: copy(localized("edizioni raccolte", "editions collected")),
     },
     {
-      value: `${events.length}`,
-      label: copy(localized("pagine evento", "event pages")),
+      value: `4`,
+      label: copy(localized("eventi TEDx", "TEDx events")),
     },
     {
-      value: "1 hub",
-      label: copy(localized("per arrivare ovunque", "to reach everything")),
+      value: "3",
+      label: copy(localized("Awards", "Awards")),
     },
   ];
   const featuredEvent = events[0];

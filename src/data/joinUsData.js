@@ -4,8 +4,8 @@ export const joinUsHeroCopy = {
   kicker: localized("Dentro il progetto", "Inside the project"),
   title: localized("Build TEDx with us", "Build TEDx with us"),
   description: localized(
-    "Entrare nel team significa lavorare su eventi, contenuti, partnership, design e tecnologia insieme a studenti che trasformano idee in esperienze concrete. Questa pagina vi racconta il nostro ritmo, aree e modo di lavorare.",
-    "Joining the team means working on events, content, partnerships, design and technology with students who turn ideas into real experiences. This page is ready to become the entry point for the next open call, but already shows the rhythm, the areas and the way we work.",
+    "Entrare nel team significa lavorare su eventi, contenuti, partnership, design e tecnologia insieme a studenti che trasformano idee in esperienze concrete.",
+    "Joining the team means working on events, content, partnerships, design and technology with students who turn ideas into real experiences.",
   ),
   statusEyebrow: localized("Application rhythm", "Application rhythm"),
   statusTitle: localized(
@@ -17,20 +17,20 @@ export const joinUsHeroCopy = {
     "The next open call will be announced on the site, social channels and newsletter. For now the main button intentionally stays inactive, so we can build a solid page first and connect the real form later.",
   ),
   inactiveCtaLabel: localized(
-    "Candidati appena apriamo",
-    "Apply when applications open",
+    "Candidati appena apriamo *",
+    "Apply when applications open *",
   ),
   inactiveCtaNote: localized(
-    "Il form verra collegato alla prossima apertura candidature.",
-    "The form will be connected to the next application window.",
+    "* Le candidature sono attualmente chiuse, ma non per sempre! Seguici sui social per non perderti le prossime call!",
+    "* Applications are currently closed, but not forever! Follow us on social media so you don't miss the next open calls!",
   ),
   exploreTeamsLabel: localized("Esplora le aree", "Explore the areas"),
   contactLabel: localized("Contatto diretto", "Direct contact"),
-  contactValue: "info@tedxsapienzau.com",
+  contactValue: "[EMAIL_ADDRESS]",
   signals: [
     localized("Studenti Sapienza", "Sapienza students"),
     localized("Team multidisciplinari", "Multidisciplinary teams"),
-    localized("Onboarding incluso", "Onboarding included"),
+    localized("Networking", "Networking"),
   ],
   statusPoints: [
     localized(
@@ -51,8 +51,8 @@ export const joinUsHeroCopy = {
 export const joinUsInfoCards = [
   {
     id: "who",
-    eyebrow: localized("Chi puo candidarsi", "Who can apply"),
-    title: localized("Studenti di Sapienza", "Sapienza students"),
+    eyebrow: localized("Chi può candidarsi:", "Who can apply:"),
+    title: localized("Studenti Sapienza", "Sapienza students"),
     description: localized(
       "La call è pensata per studenti regolarmente iscritti a corsi di laurea, laurea magistrale, master, dottorato o scuole di specializzazione.",
       "The open call can be built for students currently enrolled in bachelor, master, postgraduate, PhD or specialization programmes.",
@@ -60,7 +60,7 @@ export const joinUsInfoCards = [
   },
   {
     id: "pace",
-    eyebrow: localized("Come si lavora", "How the work feels"),
+    eyebrow: localized("Come si lavora:", "How the work feels:"),
     title: localized(
       "Operatività vera, non solo volontariato simbolico",
       "Hands-on work, not symbolic volunteering",
@@ -72,10 +72,10 @@ export const joinUsInfoCards = [
   },
   {
     id: "growth",
-    eyebrow: localized("Cosa ti porti a casa", "What you gain"),
+    eyebrow: localized("Cosa ti porti a casa:", "What you gain:"),
     title: localized(
-      "Metodo, responsabilita, rete",
-      "Process, ownership, network",
+      "Metodo, esperienza, rete",
+      "Method, experience, network",
     ),
     description: localized(
       "Si entra in un contesto dove si impara lavorando con persone di team diversi, con occasioni concrete di crescita.",
@@ -89,18 +89,18 @@ export const joinUsSteps = [
     id: "01",
     title: localized("Leggi la call", "Read the open call"),
     description: localized(
-      "Quando apriremo, troverai qui requisiti, team coinvolti, date e il link diretto al form.",
-      "When applications open, this page will host requirements, involved teams, timeline and the direct form link.",
+      "Quando apriremo le candidature, troverai qui i requisiti, i team coinvolti, le date e il link diretto al form.",
+      "When applications open, this page will host requirements, teams involved, timeline and the direct form link.",
     ),
   },
   {
     id: "02",
     title: localized(
-      "Raccontaci dove vuoi contribuire",
-      "Tell us where you want to contribute",
+      "Raccontaci dove e come vuoi contribuire",
+      "Tell us where and how you want to contribute",
     ),
     description: localized(
-      "Potrai indicare le aree che senti piu vicine a te e spiegare il tipo di contributo che vuoi portare.",
+      "Potrai indicare le aree che senti più vicine a te e spiegare il tipo di contributo che vuoi portare.",
       "You will be able to indicate the areas that feel closest to you and explain the kind of contribution you want to bring.",
     ),
   },
@@ -108,26 +108,26 @@ export const joinUsSteps = [
     id: "03",
     title: localized("Colloquio conoscitivo", "Introductory interview"),
     description: localized(
-      "La selezione non serve a mettere in scena un esame, ma a capire cosa fa per te, disponibilità e potenziale di crescita.",
-      "Selection is not about staging an exam, but about understanding fit, availability and growth potential.",
+      "La selezione non serve a mettere in scena un esame, ma a capire cosa fa per te, disponibilità e dedizione al progetto.",
+      "Selection is not about staging an exam, but about understanding fit, availability and dedication to the project.",
     ),
   },
   {
     id: "04",
     title: localized(
-      "Onboarding e primo inserimento",
-      "Onboarding and first integration",
+      "Primo inserimento",
+      "First integration",
     ),
     description: localized(
-      "Se entri, sarai affiancato da altri membri e ti forniremo: strumenti, rituali del team, persone di riferimento e prime attività.",
-      "If you join, you start with a clear onboarding: tools, team rituals, reference people and first tasks.",
+      "Se entri, sarai subito affiancato da altri membri del team e verrai guidato step by step sulle tasks, sugli obiettivi e avrai subito occasione di conoscere persone nuove.",
+      "If you join, you will be supported by other team members and guided step by step on tasks, goals and you will immediately have the opportunity to meet new people.",
     ),
   },
 ];
 
 export const joinUsTeamIntro = {
   kicker: localized("Aree del team", "Team areas"),
-  title: localized("Dove potresti entrare", "Where you could join"),
+  title: localized("Dove potresti entrare:", "Where you could join:"),
   description: localized(
     "Le aree qui sotto sono i punti di ingresso piu naturali per una call. Ognuna ha un linguaggio, un ritmo e un tipo di responsabilita diverso, ma tutte contribuiscono alla stessa esperienza finale.",
     "The areas below are the most natural entry points for a future open call. Each one has its own language, pace and kind of ownership, but they all build the same final experience together.",
@@ -137,36 +137,36 @@ export const joinUsTeamIntro = {
 
 export const joinUsTeamSummaries = {
   "it-website": localized(
-    "Tiene online il sito, la web app, la newsletter e il supporto tecnico durante i momenti chiave del progetto.",
-    "Keeps the website, web app, newsletter and technical support alive across the key moments of the project.",
+    "Garantisce il corretto funzionamento del sito web, lato front-end e back-end, gestisce la web app ufficiale e coordina la newsletter, assicurando un'esperienza utente ottimale. Supporta la regia tecnica durante gli eventi.",
+    "Ensures the proper functioning of the website, both front-end and back-end, manages the official web app and coordinates the newsletter, ensuring an optimal user experience. Supports the technical direction during the events.",
   ),
   "planning-event-management": localized(
-    "Gestisce venue, logistica, fornitori, timeline, flussi e coordinamento operativo degli eventi.",
-    "Handles venue, logistics, suppliers, timelines, flows and operational event coordination.",
+    "Pianifica e gestisce gli aspetti organizzativi delle conferenze TEDxSapienzaU e di altri eventi dedicati agli studenti Sapienza, anche in collaborazione con gli Sponsor. Si occupa delle richieste di preventivi alle aziende, della ricerca degli spazi per gli eventi e della loro promozione.",
+    "Plans and manages the organizational aspects of TEDxSapienzaU conferences and other events dedicated to Sapienza students, also in collaboration with Sponsors. Handles requests for quotes from companies, searches for event spaces and promotes them.",
   ),
   "legal-administrative": localized(
-    "Presidia contratti, contabilita, privacy, copyright e allineamento con linee guida TEDx e ateneo.",
-    "Covers contracts, accounting, privacy, copyright and alignment with TEDx and university guidelines.",
+    "Gestisce gli aspetti giuridici e amministrativi degli eventi TEDxSapienzaU. Si occupa della stesura dei contratti, della contabilità, della ricerca dei bandi per il recupero fondi. Garantisce il rispetto delle regole TEDx e delle linee guida dell'Ateneo, insieme alla tutela della privacy e del diritto d'autore.",
+    "Manages the legal and administrative aspects of TEDxSapienzaU events. Handles contract drafting, accounting, and the search for funding opportunities. Ensures compliance with TEDx rules and University guidelines, as well as protecting privacy and copyright.",
   ),
-  design: localized(
-    "Costruisce l'identita visiva dell'edizione: asset digitali, materiali stampati, allestimenti e motion.",
-    "Builds the edition visual identity: digital assets, print materials, setups and motion.",
+  "design": localized(
+    "Si occupa della progettazione grafica dell’evento. Crea l'identità visiva e grafica, gestisce l’ideazione e la realizzazione di prodotti e allestimenti, assicurando un'esperienza visiva coinvolgente e coerente con il tema dell’evento.",
+    "Designs the event's visual identity. Creates and manages the visual and graphic identity, handles the ideation and production of materials and setups, ensuring an engaging visual experience consistent with the event theme.",
   ),
   "speakers-event-curation": localized(
-    "Lavora su temi, scouting speaker, speaker care e preparazione dei talk fino al palco.",
-    "Works on themes, speaker scouting, speaker care and talk preparation all the way to the stage.",
+    "Propone i temi degli eventi, seleziona gli Speaker e ne cura i dettagli burocratici e pratici (email, contatti, slides, speech). Si occupa di ogni fase del rapporto con gli Speaker, garantendo attenzione alle loro necessità e assicurando una preparazione ottimale.",
+    "Proposes event themes, selects speakers and manages their logistical and administrative details (emails, contacts, slides, speech). Takes care of every phase of the relationship with speakers, ensuring attention to their needs and ensuring optimal preparation.",
   ),
   "human-resources-academy": localized(
-    "Segue candidature, colloqui, onboarding, benessere interno e formazione condivisa del team.",
-    "Handles applications, interviews, onboarding, internal wellbeing and shared learning across the team.",
+    "Gestisce la selezione dei volontari attraverso candidature e colloqui conoscitivi, e ne promuove il benessere promuovendo un ambiente creativo e produttivo. Si occupa inoltre della formazione interna tramite masterclass, create e esposte da membri interni e collaboratori esterni.",
+    "Manages volunteer selection through applications and interviews, promotes wellbeing in a creative and productive environment, and organizes internal training through masterclasses led by team members and external collaborators.",
   ),
   "external-relations-sponsor": localized(
-    "Cerca sponsor, partnership, patrocini e costruisce relazioni che permettono al progetto di crescere.",
-    "Finds sponsors, partnerships and patronage while building the relationships that allow the project to grow.",
+    "Gestisce sponsorizzazioni, partnership, patrocini e bandi pubblici. Si occupa della ricerca di aziende, startup, PMI, media, associazioni, enti e istituzioni e della firma dei contratti, coltivando collaborazioni reciprocamente vantaggiose. I fondi raccolti finanziano il progetto e le iniziative del TEDxSapienzaU.",
+    "Manages sponsorships, partnerships, patronage and public calls. Searches for companies, startups, SMEs, media, associations, bodies and institutions and handles contract signing, fostering mutually beneficial collaborations. The funds raised finance the project and TEDxSapienzaU initiatives.",
   ),
   "communication-editorial-marketing-media": localized(
-    "Guida social, editorial, newsletter, press office e contenuti visuali che raccontano il progetto al pubblico.",
-    "Leads social, editorial, newsletter, press office and visual content that shape the public-facing voice of the project.",
+    "Si occupa della comunicazione di TEDxSapienzaU. Pianifica e cura la reputazione online, l'awareness e le campagne per coinvolgere il pubblico. Realizza comunicati stampa, newsletter, articoli e contenuti visuali e video, curando l’efficacia dei messaggi. Gestisce la collaborazione con i Media Partner.",
+    "Handles TEDxSapienzaU's communication. Plans and manages online reputation, awareness and campaigns to engage the public. Creates press releases, newsletters, articles, visual and video content, ensuring effective messaging. Manages collaboration with Media Partners.",
   ),
 };
 
@@ -178,8 +178,8 @@ export const joinUsFaqs = [
       "Do I need previous experience?",
     ),
     answer: localized(
-      "Aiuta, ma non e l'unico criterio. Contano molto chiarezza, costanza, voglia di imparare e il motivo per cui vuoi entrare nel progetto.",
-      "It helps, but it is not the only criterion. Clarity, consistency, willingness to learn and your motivation matter a lot.",
+      "Aiuta, ma non è necessaria. Contano molto impegno, costanza, voglia di imparare e il motivo per cui vuoi entrare nel progetto.",
+      "It helps, but it is not necessary. Commitment, consistency, willingness to learn and your motivation matter a lot.",
     ),
   },
   {
@@ -189,19 +189,19 @@ export const joinUsFaqs = [
       "How much time does it require?",
     ),
     answer: localized(
-      "Dipende dall'area e dalla fase dell'anno. Alcuni periodi sono piu intensi, ma il lavoro viene organizzato per team e milestone, non lasciato al caso.",
-      "It depends on the area and the moment of the year. Some periods are more intense, but work is organized through teams and milestones, not left to improvisation.",
+      "Dipende dal team e dalla fase dell'anno. Alcuni periodi sono più intensi, ma il lavoro viene organizzato per team e necessità, non lasciato al caso.",
+      "It depends on the team and the moment of the year. Some periods are more intense, but work is organized through teams and needs, not left to improvisation.",
     ),
   },
   {
     id: "fit",
     question: localized(
-      "E se non so ancora dove mi vedo?",
-      "What if I do not know where I fit yet?",
+      "Posso usarlo come tirocinio curriculare?",
+      "Can I use it as a curricular internship?",
     ),
     answer: localized(
-      "Va bene cosi. La call serve anche a capire quale area ti permette di esprimerti meglio: puoi arrivare con curiosita, non per forza con una risposta definitiva.",
-      "That is completely fine. The open call also helps understand which area fits you best: you can arrive with curiosity, not necessarily with a final answer.",
+      "Sì, per determinate facoltà. Richiede però un impegno maggiore in termini di ore e responsabilità, concordati con il proprio relatore. Più informazioni in fase di colloquio.",
+      "Yes, for certain faculties. However, it requires a greater commitment in terms of hours and responsibilities, agreed with your supervisor. More information during the interview.",
     ),
   },
 ];
@@ -209,7 +209,7 @@ export const joinUsFaqs = [
 export const joinUsFinalCta = {
   kicker: localized("Restiamo in contatto", "Stay in touch"),
   title: localized(
-    "La prossima call passera da qui.",
+    "La prossima call passerà da qui.",
     "The next open call will start here.",
   ),
   description: localized(
@@ -217,8 +217,12 @@ export const joinUsFinalCta = {
     "For now this page can explain the project clearly, direct curious people to the teams and gather interest through email and social channels. When you want, we can connect the real form to the main button.",
   ),
   primaryLabel: localized(
-    "Candidati appena apriamo",
-    "Apply when applications open",
+    "Candidati appena apriamo * ",
+    "Apply when applications open *",
+  ),
+  descriptionLabel: localized(
+    "* Le candidature sono attualmente chiuse, ma non per sempre! Seguici sui social per non perderti le prossime call!",
+    "* Applications are currently closed, but not forever! Follow us on social media so you don't miss the next open calls!",
   ),
   secondaryLabel: localized("Scrivici una mail", "Send us an email"),
 };
