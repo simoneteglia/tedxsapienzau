@@ -138,7 +138,7 @@ export default function Navbar() {
             </DisclosureButton>
             <DisclosurePanel
               transition
-              className="origin-top transition duration-200 ease-out data-closed:-translate-y-5 data-closed:opacity-0 md:hidden glass-card-darker fixed top-[70px] left-0 w-full h-[calc(100lvh-70px)] pr-2 pb-[env(safe-area-inset-bottom)]"
+              className="origin-top transition duration-200 ease-out data-closed:-translate-y-5 data-closed:opacity-0 md:hidden glass-card-darker fixed top-[70px] left-0 w-full bottom-[calc(-1*env(safe-area-inset-bottom))] pr-2 pb-[env(safe-area-inset-bottom)]"
               style={{ zIndex: 1001 }}
             >
               <div className="space-y-1 pl-2 pr-4 pt-2 pb-3 ">

@@ -5,8 +5,8 @@ body {
 .grainient-background-wrapper {
   position: fixed;
   inset: 0;
+  bottom: calc(-1 * env(safe-area-inset-bottom));
   width: 100%;
-  height: 100lvh;
   z-index: 0;
   pointer-events: none;
   transform: scale(1.4);
@@ -15,8 +15,8 @@ body {
 .mobile-static-bg {
   position: fixed;
   inset: 0;
+  bottom: calc(-1 * env(safe-area-inset-bottom));
   width: 100%;
-  height: 100lvh;
   z-index: 0;
   pointer-events: none;
   background-color: #000000;
