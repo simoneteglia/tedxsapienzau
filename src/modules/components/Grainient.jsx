@@ -137,7 +137,7 @@ const Grainient = ({
       webgl: 2,
       alpha: true,
       antialias: false,
-      dpr: Math.min(window.devicePixelRatio || 1, 1.25),
+      dpr: Math.min(window.devicePixelRatio || 1, 1.5),
     });
 
     const gl = renderer.gl;
@@ -241,7 +241,7 @@ const Grainient = ({
       window.visualViewport?.removeEventListener("resize", onResize);
       try {
         container.removeChild(canvas);
-      } catch {}
+      } catch { }
     };
   }, [
     timeSpeed,
