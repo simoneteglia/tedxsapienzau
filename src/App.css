@@ -1,13 +1,14 @@
 body {
   margin: 0;
-  background-color: #2a0008;
+  background-color: transparent;
 }
 .grainient-background-wrapper {
   position: fixed;
-  top: -20vh;
-  left: -20vw;
-  width: 140vw;
-  height: 140vh;
+  top: calc(-20vh - env(safe-area-inset-top, 0px));
+  left: calc(-20vw - env(safe-area-inset-left, 0px));
+  width: calc(140vw + env(safe-area-inset-left, 0px) + env(safe-area-inset-right, 0px));
+  height: calc(140vh + env(safe-area-inset-top, 0px) + env(safe-area-inset-bottom, 0px));
+  height: calc(140lvh + env(safe-area-inset-top, 0px) + env(safe-area-inset-bottom, 0px));
   z-index: 0;
   pointer-events: none;
 }

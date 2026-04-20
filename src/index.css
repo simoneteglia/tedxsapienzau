@@ -56,8 +56,8 @@
 @tailwind utilities;
 
 html, body {
-  /* Questo colore verrà usato da Safari per riempire eventuali aree sicure dell'iPhone */
-  background-color: #1a0004 !important; 
+  /* Transparent so Safari/Chrome toolbar samples no color → shows gradient through glass */
+  background-color: transparent !important; 
   margin: 0;
   padding: 0;
 }

@@ -119,7 +119,7 @@ export default function Navbar() {
             </section>
             <div className="flex md:hidden"></div>
           </div>
-          <div className="absolute inset-y-0 left-0 w-full pl-2 pr-2 flex items-center justify-between md:hidden bg-black">
+          <div className="absolute inset-y-0 left-0 w-full pl-2 pr-2 flex items-center justify-between md:hidden">
             <Link to="/">
               <img src={Logo} alt="LogoTedx" className="w-[200px]" />
             </Link>
