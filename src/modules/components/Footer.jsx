@@ -91,7 +91,7 @@ export default function Footer() {
           <p
             className="text-gray mb-5 "
             style={{
-              maxWidth: "385px",
+              maxWidth: "450px",
               fontSize: "16px",
               fontFamily: "ObjectSans",
             }}
@@ -205,7 +205,7 @@ export default function Footer() {
               style={{
                 textDecoration: "underline",
               }}
-              href="/privacypolicy"
+              href="mailto:manco.luca99@gmail.com"
             >
               {t("common.privacy_policy")}
             </a>
@@ -214,7 +214,7 @@ export default function Footer() {
             <a
               className="secondary-text"
               style={{ textDecoration: "underline" }}
-              href="/images/Statuto2024-25.pdf"
+              href="mailto:manco.luca99@gmail.com"
             >
               {t("footer.statute")}
             </a>

@@ -43,7 +43,7 @@ const events = [
   },
   {
     title: "Countdown 2024",
-    type: localized("Format speciale", "Special format"),
+    type: localized("Edizione TEDx", "TEDx edition"),
     year: "2024",
     date: localized("31 mag 2024", "31 May 2024"),
     href: "/events/countdown2024",

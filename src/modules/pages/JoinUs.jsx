@@ -68,13 +68,13 @@ function JoinUsTeamCard({ team, language }) {
         {summary ? getLocalizedValue(summary, language) : ""}
       </p>
 
-      <div className="joinus-team-tag-row">
+      {/* <div className="joinus-team-tag-row">
         {roleTags.map((member, index) => (
           <span key={`${team.id}-tag-${index}`} className="joinus-team-tag">
             {getLocalizedValue(member.name, language)}
           </span>
         ))}
-      </div>
+      </div> */}
     </article>
   );
 }
@@ -249,7 +249,7 @@ export default function JoinUs() {
               {getLocalizedValue(joinUsFinalCta.kicker, language)}
             </p>
             <h2>{getLocalizedValue(joinUsFinalCta.title, language)}</h2>
-            <p>{getLocalizedValue(joinUsFinalCta.description, language)}</p>
+            {/* <p>{getLocalizedValue(joinUsFinalCta.description, language)}</p> */}
           </div>
 
           <div className="joinus-cta-actions-wrapper">

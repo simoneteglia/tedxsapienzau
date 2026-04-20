@@ -26,7 +26,7 @@ export const joinUsHeroCopy = {
   ),
   exploreTeamsLabel: localized("Esplora le aree", "Explore the areas"),
   contactLabel: localized("Contatto diretto", "Direct contact"),
-  contactValue: "[EMAIL_ADDRESS]",
+  contactValue: "info@tedxsapienzau.com",
   signals: [
     localized("Studenti Sapienza", "Sapienza students"),
     localized("Team multidisciplinari", "Multidisciplinary teams"),
@@ -73,10 +73,7 @@ export const joinUsInfoCards = [
   {
     id: "growth",
     eyebrow: localized("Cosa ti porti a casa:", "What you gain:"),
-    title: localized(
-      "Metodo, esperienza, rete",
-      "Method, experience, network",
-    ),
+    title: localized("Metodo, esperienza, rete", "Method, experience, network"),
     description: localized(
       "Si entra in un contesto dove si impara lavorando con persone di team diversi, con occasioni concrete di crescita.",
       "You enter a context where you learn by working with people across teams, gain more ownership over time and build real growth opportunities.",
@@ -114,10 +111,7 @@ export const joinUsSteps = [
   },
   {
     id: "04",
-    title: localized(
-      "Primo inserimento",
-      "First integration",
-    ),
+    title: localized("Primo inserimento", "First integration"),
     description: localized(
       "Se entri, sarai subito affiancato da altri membri del team e verrai guidato step by step sulle tasks, sugli obiettivi e avrai subito occasione di conoscere persone nuove.",
       "If you join, you will be supported by other team members and guided step by step on tasks, goals and you will immediately have the opportunity to meet new people.",
@@ -148,7 +142,7 @@ export const joinUsTeamSummaries = {
     "Gestisce gli aspetti giuridici e amministrativi degli eventi TEDxSapienzaU. Si occupa della stesura dei contratti, della contabilità, della ricerca dei bandi per il recupero fondi. Garantisce il rispetto delle regole TEDx e delle linee guida dell'Ateneo, insieme alla tutela della privacy e del diritto d'autore.",
     "Manages the legal and administrative aspects of TEDxSapienzaU events. Handles contract drafting, accounting, and the search for funding opportunities. Ensures compliance with TEDx rules and University guidelines, as well as protecting privacy and copyright.",
   ),
-  "design": localized(
+  design: localized(
     "Si occupa della progettazione grafica dell’evento. Crea l'identità visiva e grafica, gestisce l’ideazione e la realizzazione di prodotti e allestimenti, assicurando un'esperienza visiva coinvolgente e coerente con il tema dell’evento.",
     "Designs the event's visual identity. Creates and manages the visual and graphic identity, handles the ideation and production of materials and setups, ensuring an engaging visual experience consistent with the event theme.",
   ),
