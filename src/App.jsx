@@ -222,10 +222,7 @@ function LandingManager() {
 
   return (
     <div style={{ position: "relative" }}>
-      <div
-        aria-hidden="true"
-        className="grainient-background-wrapper"
-      >
+      <div aria-hidden="true" className="grainient-background-wrapper">
         <Grainient
           timeSpeed={0.3}
           colorBalance={0.01}
@@ -252,7 +249,6 @@ function App() {
   return (
     <AuthContextProvider>
       <RouterProvider router={router} />
-      {/* <SpeedInsights /> */}
     </AuthContextProvider>
   );
 }
