@@ -100,7 +100,7 @@ const baseTeamSections = [
   },
   {
     id: "design",
-    label: "Design",
+    label: "Design & Exhibit",
     code: "DE",
     accent: "#fab732",
     eyebrow: localized("DEX", "DEX"),
