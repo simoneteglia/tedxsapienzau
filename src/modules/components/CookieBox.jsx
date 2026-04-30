@@ -59,7 +59,7 @@ export default function CookieBox() {
           color: "#e0e0e0",
           fontSize: "0.95rem",
           margin: 0,
-          fontFamily: "sans-serif",
+          fontFamily: "ObjectSans",
         }}
       >
         {t("common.cookie_message")}
@@ -74,7 +74,7 @@ export default function CookieBox() {
           borderRadius: "8px",
           cursor: "pointer",
           fontWeight: "bold",
-          fontFamily: "sans-serif",
+          fontFamily: "ObjectSans",
           width: isMobile ? "100%" : "auto",
         }}
       >

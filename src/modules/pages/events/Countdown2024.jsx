@@ -106,7 +106,7 @@ export default function Countdown2024() {
         <h1
           className="text-white ml-[1ch] mb-2 text-4xl md:text-6xl lg:text-6xl"
           style={{
-            fontFamily: "Anton",
+            fontFamily: "ObjectSans",
           }}
         >
           <span style={{ color: global.COLORS.GIALLO_COUNTDOWN }}>31 | 05</span>

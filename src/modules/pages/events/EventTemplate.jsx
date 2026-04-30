@@ -299,7 +299,7 @@ export default function EventTemplate({
             width: "100%",
             height: "100%",
             borderRadius: global.UTILS.BENTO_BOX_PADDING,
-            fontFamily: "'Bricolage Grotesque', sans-serif",
+            fontFamily: "ObjectSans",
             position: "relative",
           }}
         >

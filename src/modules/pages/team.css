@@ -81,7 +81,7 @@
 .team-kicker {
   margin: 0;
   color: #ff93a4;
-  font-family: "Anton";
+  font-family: "ObjectSansHeavy";
   font-size: 14px;
   letter-spacing: 0.18em;
   text-transform: uppercase;
@@ -206,7 +206,7 @@
   margin: 0;
   max-width: 45ch;
   color: rgba(255, 255, 255, 0.88);
-  font-family: "GothamBook";
+  font-family: "ObjectSans";
   font-size: 17px;
   line-height: 1.28;
 }
@@ -356,7 +356,7 @@
 .team-section-kicker {
   margin: 0;
   color: var(--team-accent, #eb0028);
-  font-family: "Anton";
+  font-family: "ObjectSansHeavy";
   font-size: 13px;
   letter-spacing: 0.14em;
   text-transform: uppercase;
@@ -373,7 +373,7 @@
   margin: 0;
   max-width: 56ch;
   color: rgba(255, 255, 255, 0.78);
-  font-family: "GothamBook";
+  font-family: "ObjectSans";
   font-size: 16px;
   line-height: 1.72;
   margin-right: auto;

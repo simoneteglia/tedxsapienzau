@@ -48,7 +48,7 @@ export default function ChiSiamo() {
         <header style={{ textAlign: "center", marginBottom: "60px" }}>
           <p style={{ 
             color: "#ff93a4", 
-            fontFamily: "Anton", 
+            fontFamily: "ObjectSans", 
             letterSpacing: "0.18em", 
             textTransform: "uppercase", 
             fontSize: "14px", 
@@ -57,7 +57,7 @@ export default function ChiSiamo() {
             Mission & Vision
           </p>
           <h1 style={{ 
-            fontFamily: "GothamBold", 
+            fontFamily: "ObjectSans", 
             fontSize: "clamp(40px, 8vw, 72px)", 
             textTransform: "uppercase", 
             lineHeight: "0.9",
@@ -120,7 +120,7 @@ export default function ChiSiamo() {
             </div>
             <div style={{ width: windowSize > 768 ? "65%" : "100%" }}>
               <p style={{ 
-                fontFamily: "GothamBook", 
+                fontFamily: "ObjectSans", 
                 fontSize: windowSize > 768 ? "17px" : "16px", 
                 lineHeight: "1.6", 
                 textAlign: windowSize > 768 ? "justify" : "left",
@@ -153,7 +153,7 @@ export default function ChiSiamo() {
             </div>
             <div style={{ width: windowSize > 768 ? "65%" : "100%" }}>
               <p style={{ 
-                fontFamily: "GothamBook", 
+                fontFamily: "ObjectSans", 
                 fontSize: windowSize > 768 ? "17px" : "16px", 
                 lineHeight: "1.6", 
                 textAlign: windowSize > 768 ? "justify" : "left",
@@ -161,7 +161,7 @@ export default function ChiSiamo() {
                 color: "#e0e0e0" 
               }}>
                 {t("mission.tedxsapienzau1")}
-                <strong style={{ fontFamily: "GothamBold", color: "#fff" }}> {t("mission.sapienzau")} </strong>
+                <strong style={{ fontFamily: "ObjectSans", color: "#fff" }}> {t("mission.sapienzau")} </strong>
                 {t("mission.tedxsapienzau2")}
               </p>
               
@@ -174,7 +174,7 @@ export default function ChiSiamo() {
                     color: "white",
                     border: "none",
                     borderRadius: "50px",
-                    fontFamily: "GothamBold",
+                    fontFamily: "ObjectSans",
                     fontSize: "15px",
                     boxShadow: "0 10px 30px rgba(235, 0, 40, 0.3)",
                     cursor: "pointer",

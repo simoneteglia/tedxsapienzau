@@ -107,7 +107,7 @@ export default function StatsPage() {
             gap: "24px",
             maxWidth: "1200px",
             margin: "0 auto",
-            fontFamily: "sans-serif",
+            fontFamily: "ObjectSans",
           }}
         >
           {/* BOX TESTO */}

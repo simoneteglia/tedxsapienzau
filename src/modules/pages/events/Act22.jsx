@@ -113,7 +113,7 @@ function ThemePillarCard({ letter, title, description, language }) {
     >
       <div
         style={{
-          fontFamily: "GothamBold",
+          fontFamily: "ObjectSans",
           fontSize: "clamp(82px, 14vw, 150px)",
           lineHeight: 0.9,
           color: "#EB0028",
@@ -125,7 +125,7 @@ function ThemePillarCard({ letter, title, description, language }) {
         <h3
           style={{
             margin: 0,
-            fontFamily: "GothamBold",
+            fontFamily: "ObjectSans",
             fontSize: "28px",
           }}
         >
@@ -134,7 +134,7 @@ function ThemePillarCard({ letter, title, description, language }) {
         <p
           style={{
             margin: 0,
-            fontFamily: "GothamBook",
+            fontFamily: "ObjectSans",
             fontSize: "16px",
             lineHeight: 1.55,
             color: "#d9d9d9",

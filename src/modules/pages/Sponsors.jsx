@@ -82,14 +82,6 @@ export default function Sponsors() {
   // STATO PER IL FILTRO ANNO: Impostato su 2026 di default
   const [selectedYear, setSelectedYear] = useState("2026");
 
-  const marqueeFirstRow = sponsorMarqueeItems.slice(
-    0,
-    Math.ceil(sponsorMarqueeItems.length / 2),
-  );
-  const marqueeSecondRow = sponsorMarqueeItems.slice(
-    Math.ceil(sponsorMarqueeItems.length / 2),
-  );
-
   const partnershipFormats = [
     t("partners.14th_st_el_1"),
     t("partners.14th_st_el_2"),
@@ -119,19 +111,9 @@ export default function Sponsors() {
             <div className="sponsors-logo-marquee">
               <div className="sponsors-logo-marquee-row">
                 <div className="sponsors-logo-track">
-                  {[...marqueeFirstRow, ...marqueeFirstRow].map(
+                  {[...sponsorMarqueeItems, ...sponsorMarqueeItems].map(
                     (item, index) => (
                       <SponsorLogoTile key={`row-a-${index}`} item={item} />
-                    ),
-                  )}
-                </div>
-              </div>
-
-              <div className="sponsors-logo-marquee-row is-slower">
-                <div className="sponsors-logo-track">
-                  {[...marqueeSecondRow, ...marqueeSecondRow].map(
-                    (item, index) => (
-                      <SponsorLogoTile key={`row-b-${index}`} item={item} />
                     ),
                   )}
                 </div>

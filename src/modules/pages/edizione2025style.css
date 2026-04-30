@@ -4,7 +4,7 @@
 
 .where-is-the-event25 {
   background-color: #190716;
-  font-family: GothamBook;
+  font-family: "ObjectSans";
 }
 
 .where-is-the-event25 > div:nth-child(1) {
@@ -29,7 +29,7 @@
   border-radius: 0.5em;
   box-sizing: border-box;
   text-decoration: none;
-  font-family: "arial";
+  font-family: "ObjectSans";
   text-transform: uppercase;
   font-weight: 800;
   color: white;
@@ -78,7 +78,7 @@
   font-size: 18px;
   text-align: justify;
   max-width: 22ch;
-  font-family: GothamBook;
+  font-family: "ObjectSans";
   color: rgb(0, 0, 0);
 }
 
@@ -132,7 +132,7 @@
   transition: all 0.3s ease;
   color: white;
   font-size: 23px;
-  font-family: GothamBold;
+  font-family: "ObjectSans";
   display: flex;
   justify-content: center;
   align-items: center;
