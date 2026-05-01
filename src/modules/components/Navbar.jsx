@@ -1,5 +1,5 @@
 // COMPONENTS
-import { useEffect } from "react";
+import { useEffect, useState, useRef } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import {
@@ -21,6 +21,10 @@ import Logo from "../../assets/logos/logo_white.png";
 export default function Navbar() {
   const { t } = useTranslation();
   const { pathname } = useLocation();
+
+  const [pillStyle, setPillStyle] = useState({ left: 0, width: 0, opacity: 0 });
+  const [hoveredIndex, setHoveredIndex] = useState(null);
+  const navRefs = useRef([]);
 
   const isCurrentPage = (href) => {
     if (href === "/events") {
@@ -66,6 +70,23 @@ export default function Navbar() {
     return null;
   }
 
+  useEffect(() => {
+    const active = navigation.findIndex((item) => item.current);
+    const targetIndex = hoveredIndex !== null ? hoveredIndex : active;
+
+    if (targetIndex !== -1 && navRefs.current[targetIndex]) {
+      const el = navRefs.current[targetIndex];
+      setPillStyle({
+        left: el.offsetLeft,
+        width: el.offsetWidth,
+        opacity: 1,
+      });
+    } else {
+      setPillStyle((prev) => ({ ...prev, opacity: 0 }));
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [pathname, hoveredIndex]);
+
   return (
     <Disclosure
       as="nav"
@@ -79,36 +100,58 @@ export default function Navbar() {
         <>
           <ScrollLock open={open} />
 
-          {/* --- INIZIO NUOVA NAVBAR DESKTOP --- */}
+          {/* --- NAVBAR DESKTOP --- */}
           <div className="glass-card hidden md:flex w-[96%] xl:w-[92%] h-[75%] mx-auto mt-4 rounded-[24px] justify-between items-center px-8 lg:px-12 transition-all duration-300">
-            {/* Logo tutto a sinistra */}
             <Link to="/" className="flex-shrink-0">
-              <img src={Logo} alt="LogoTedx" className="w-[180px] hover:scale-105 transition-transform" />
+              <img
+                src={Logo}
+                alt="LogoTedx"
+                className="w-[180px] hover:scale-105 transition-transform"
+              />
             </Link>
 
-            {/* Gruppo unico a destra: Link + Bottoni spostati a destra */}
-            <div className="flex items-center gap-8 lg:gap-12 ml-auto" style={{ fontFamily: global.UTILS.FONT_FAMILY }}>
-              {/* Voci del menu (Tornate bianche!) */}
+            <div
+              className="flex items-center gap-8 lg:gap-12 ml-auto relative"
+              style={{ fontFamily: global.UTILS.FONT_FAMILY }}
+              onMouseLeave={() => setHoveredIndex(null)}
+            >
+              {/* Liquid Sliding Pill */}
+              <div
+                className="absolute h-[38px] bg-white/20 backdrop-blur-md rounded-[14px] shadow-sm transition-all duration-300 pointer-events-none"
+                style={{
+                  left: `${pillStyle.left}px`,
+                  width: `${pillStyle.width}px`,
+                  opacity: pillStyle.opacity,
+                  top: "50%",
+                  transform: "translateY(-50%)",
+                  transitionTimingFunction: "cubic-bezier(0.25, 1, 0.5, 1)",
+                }}
+              />
               <div className="flex gap-6 lg:gap-8 items-center">
-                {navigation.map((item) => (
+                {navigation.map((item, index) => (
                   <Link
                     key={item.name}
                     to={item.href}
+                    ref={(el) => (navRefs.current[index] = el)}
+                    onMouseEnter={() => setHoveredIndex(index)}
+                    aria-current={item.current ? "page" : undefined}
                     className={classNames(
-                      "text-[13px] font-objectsans-heavy tracking-wider uppercase transition-colors duration-200",
-                      item.current ? "text-white" : "text-white/80 hover:text-white"
+                      "text-sm tracking-wider relative z-10 rounded-[14px] px-2 py-2 text-base font-objectsans-heavy tracking-[0.02em] transition-colors duration-300 ease-in-out",
+                      item.current || hoveredIndex === index
+                        ? "text-white"
+                        : "text-white/80",
                     )}
+                    style={{ textTransform: "uppercase" }}
                   >
                     {item.name}
                   </Link>
                 ))}
               </div>
 
-              {/* Bottoni (Invertiti: Join Us prima, Lingua dopo) */}
               <div className="flex items-center gap-5 ml-4">
                 <Link
                   to="/join-us"
-                  className="bg-[#eb0028] text-white px-6 py-2 rounded-full font-objectsans-heavy text-[13px] uppercase hover:bg-white hover:text-[#eb0028] transition-all duration-300 shadow-md"
+                  className="bg-[#eb0028] text-white px-4 py-2 rounded-full font-objectsans-heavy text-[13px] uppercase hover:bg-white hover:text-[#eb0028] transition-all duration-300 shadow-md"
                 >
                   {t("common.join_us")}
                 </Link>

@@ -51,7 +51,6 @@ export default function LanguageSwitcher({ mobile = false }) {
       }}
     >
       <div className={`relative ${mobile ? "w-full" : "min-w-[110px]"}`}>
-        {/* AGGIORNATO: Ripristinata la trasparenza originale, mantenendo font e dimensioni grandi */}
         <ListboxButton
           className={`inline-flex w-full items-center justify-between rounded-full border border-white/20 bg-white/10 text-white transition hover:border-white/40 hover:bg-white/15 font-objectsans-heavy text-base tracking-[0.02em] uppercase ${
             mobile ? "px-4 py-3" : "px-4 py-2"
@@ -64,9 +63,7 @@ export default function LanguageSwitcher({ mobile = false }) {
               alt=""
               className="h-5 w-7 rounded-[3px] object-cover"
             />
-            <span>
-              {currentLanguage.shortLabel}
-            </span>
+            <span>{currentLanguage.shortLabel}</span>
           </span>
           <ChevronUpDownIcon
             aria-hidden="true"
@@ -94,9 +91,7 @@ export default function LanguageSwitcher({ mobile = false }) {
                   alt=""
                   className="h-5 w-7 rounded-[3px] object-cover"
                 />
-                <span>
-                  {option.shortLabel}
-                </span>
+                <span>{option.shortLabel}</span>
               </div>
             </ListboxOption>
           ))}
