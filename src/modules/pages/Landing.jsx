@@ -211,9 +211,15 @@ export default function Landing() {
           <div className="landing-concept-text">
             On the Brink è il momento sospeso in cui le possibilità sono infinite perché tutto deve ancora avvenire, la moneta librante in volo che determinerà il futuro. È la soglia tra ciò che è stato e ciò che potrebbe diventare, dove tensione, desiderio e incertezza convivono in quell’attimo “prima di”. L’evento celebra questo spazio di liminalità, ci invita a sostare nel dubbio, a esplorare l’ignoto e ad abitarlo. La moneta cadrà, ma è nel suo volo che prende forma ciò che verrà.
           </div>
+          <a href="https://www.eventbrite.it/e/biglietti-tedxsapienzau-on-the-brink-1988490962999?aff=oddtdtcreator" className="landing-ticket" target="_blank" rel="noopener noreferrer">
+            <div className="landing-ticket-notch-bottom" />
+            <span className="landing-ticket-label">on the brink</span>
+            <span className="landing-ticket-date">25 Maggio 2026<br />h 14:00<br />Teatro Parioli Costanzo</span>
+            <span className="landing-ticket-cta">Biglietti qui!</span>
+          </a>
         </section>
 
-        <section
+        {/* <section
           style={{
             display: "flex",
             justifyContent: "center",
@@ -229,7 +235,7 @@ export default function Landing() {
             <div className="hero-speakers-text">Speakers</div>
             <OnTheBrinkSpeakers />
           </div>
-        </section>
+        </section> */}
 
         <section className="landing-showcase-section">
           <div className="landing-showcase-shell">

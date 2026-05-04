@@ -33,10 +33,12 @@
 }
 
 @keyframes float-bounce {
+
   0%,
   100% {
     transform: translateY(0);
   }
+
   50% {
     transform: translateY(12px);
   }
@@ -67,13 +69,27 @@
 }
 
 @keyframes float-bounce-horizontal-next {
-  0%, 100% { transform: rotate(-90deg) translateY(0); }
-  50% { transform: rotate(-90deg) translateY(12px); }
+
+  0%,
+  100% {
+    transform: rotate(-90deg) translateY(0);
+  }
+
+  50% {
+    transform: rotate(-90deg) translateY(12px);
+  }
 }
 
 @keyframes float-bounce-horizontal-prev {
-  0%, 100% { transform: rotate(90deg) translateY(0); }
-  50% { transform: rotate(90deg) translateY(12px); }
+
+  0%,
+  100% {
+    transform: rotate(90deg) translateY(0);
+  }
+
+  50% {
+    transform: rotate(90deg) translateY(12px);
+  }
 }
 
 .hero-demo-text {
@@ -101,7 +117,9 @@
   padding: 140px 24px 100px 24px;
   box-sizing: border-box;
   display: flex;
-  justify-content: flex-start;
+  justify-content: space-between;
+  align-items: center;
+  gap: 60px;
 }
 
 .landing-concept-text {
@@ -112,6 +130,112 @@
   color: black;
   text-align: left;
   max-width: 900px;
+}
+
+.landing-ticket {
+  position: relative;
+  flex-shrink: 0;
+  width: 180px;
+  min-height: 340px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 50px 20px;
+  box-sizing: border-box;
+  cursor: pointer;
+  text-decoration: none;
+  color: black;
+  transition: transform 0.25s ease;
+}
+
+.landing-ticket:hover {
+  transform: translateY(-4px);
+}
+
+.landing-ticket::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  background:
+    linear-gradient(to right, black, black) left top / 10px 100% no-repeat,
+    linear-gradient(to right, black, black) right top / 10px 100% no-repeat,
+    linear-gradient(to right, black, black) left top / calc(50% - 18px) 10px no-repeat,
+    linear-gradient(to right, black, black) right top / calc(50% - 18px) 10px no-repeat,
+    linear-gradient(to right, black, black) left bottom / calc(50% - 18px) 10px no-repeat,
+    linear-gradient(to right, black, black) right bottom / calc(50% - 18px) 10px no-repeat;
+  pointer-events: none;
+}
+
+/* Top semicircle notch */
+.landing-ticket::after {
+  content: '';
+  position: absolute;
+  top: -25px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: 10px solid black;
+  background: transparent;
+  clip-path: inset(50% 0 0 0);
+  z-index: 1;
+  pointer-events: none;
+}
+
+.landing-ticket-notch-bottom {
+  position: absolute;
+  bottom: -25px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: 10px solid black;
+  background: transparent;
+  clip-path: inset(0 0 50% 0);
+  z-index: 1;
+  pointer-events: none;
+}
+
+.landing-ticket-label {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 800;
+  font-size: clamp(11px, 1.2vw, 16px);
+  line-height: 1.3;
+  color: black;
+  letter-spacing: 0.05em;
+}
+
+.landing-ticket-date {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+  font-size: clamp(10px, 1vw, 13px);
+  line-height: 1.4;
+  color: black;
+  margin-top: 10px;
+}
+
+.landing-ticket-cta {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 800;
+  font-size: clamp(10px, 1vw, 14px);
+  color: black;
+  margin-top: 20px;
+  padding: 6px 16px;
+  border: 3px solid black;
+  border-radius: 999px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.landing-ticket:hover .landing-ticket-cta {
+  background: black;
+  color: white;
 }
 
 .landing-speakers-rectangle {
@@ -150,6 +274,59 @@
 
   .landing-concept-section {
     padding: 100px 24px 60px 24px;
+    flex-direction: column;
+    gap: 40px;
+  }
+
+  .landing-ticket {
+    width: 280px;
+    min-height: 160px;
+    padding: 16px 40px;
+    transform: rotate(0deg);
+  }
+
+  .landing-ticket:hover {
+    transform: translateY(-4px);
+  }
+
+  .landing-ticket::after {
+    top: 50%;
+    left: -25px;
+    right: auto;
+    bottom: auto;
+    transform: translateY(-50%);
+    clip-path: inset(0 0 0 50%);
+  }
+
+  .landing-ticket-notch-bottom {
+    top: 50%;
+    bottom: auto;
+    left: auto;
+    right: -25px;
+    transform: translateY(-50%);
+    clip-path: inset(0 50% 0 0);
+  }
+
+  .landing-ticket::before {
+    background:
+      linear-gradient(to right, black, black) left top / 100% 10px no-repeat,
+      linear-gradient(to right, black, black) left bottom / 100% 10px no-repeat,
+      linear-gradient(to right, black, black) left top / 10px calc(50% - 18px) no-repeat,
+      linear-gradient(to right, black, black) left bottom / 10px calc(50% - 18px) no-repeat,
+      linear-gradient(to right, black, black) right top / 10px calc(50% - 18px) no-repeat,
+      linear-gradient(to right, black, black) right bottom / 10px calc(50% - 18px) no-repeat;
+  }
+
+  .landing-ticket-label {
+    font-size: 18px;
+  }
+
+  .landing-ticket-date {
+    font-size: 14px;
+  }
+
+  .landing-ticket-cta {
+    font-size: 13px;
   }
 
   .hero-onthebrink-text {
