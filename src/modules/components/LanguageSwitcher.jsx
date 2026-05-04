@@ -50,11 +50,10 @@ export default function LanguageSwitcher({ mobile = false }) {
         }
       }}
     >
-      <div className={`relative ${mobile ? "w-full" : "min-w-[110px]"}`}>
+      <div className={`relative ${mobile ? "w-full" : "w-[130px]"}`}>
         <ListboxButton
-          className={`inline-flex w-full items-center justify-between rounded-full border border-white/20 bg-white/10 text-white transition hover:border-white/40 hover:bg-white/15 font-objectsans-heavy text-base tracking-[0.02em] uppercase ${
-            mobile ? "px-4 py-3" : "px-4 py-2"
-          }`}
+          className={`inline-flex w-full items-center justify-between rounded-full border border-white/20 bg-white/10 text-white transition hover:border-white/40 hover:bg-white/15 font-objectsans-heavy tracking-[0.02em] uppercase ${mobile ? "text-base px-4 py-3" : "text-[13px] px-4 h-[40px]"
+            }`}
           aria-label={t("common.language")}
         >
           <span className="flex items-center gap-2">
@@ -73,17 +72,15 @@ export default function LanguageSwitcher({ mobile = false }) {
 
         <ListboxOptions
           anchor="bottom end"
-          className={`glass-card z-[1100] mt-2 border border-white/20 bg-white/10 shadow-2xl shadow-black/20 focus:outline-none w-[var(--button-width)] min-w-[110px] ${
-            mobile ? "rounded-full p-0 overflow-hidden" : "rounded-2xl p-2"
-          }`}
+          className={`glass-card z-[1100] mt-2 border border-white/20 bg-white/10 shadow-2xl shadow-black/20 focus:outline-none w-[var(--button-width)] min-w-[130px] ${mobile ? "rounded-full p-0 overflow-hidden" : "rounded-2xl p-2"
+            }`}
         >
           {availableOptions.map((option) => (
             <ListboxOption
               key={option.code}
               value={option}
-              className={`cursor-pointer text-white font-objectsans-heavy text-base tracking-[0.02em] uppercase data-focus:bg-white/10 ${
-                mobile ? "rounded-full px-4 py-3" : "rounded-xl px-2 py-1.5"
-              }`}
+              className={`cursor-pointer text-white font-objectsans-heavy tracking-[0.02em] uppercase data-focus:bg-white/10 ${mobile ? "text-base rounded-full px-4 py-3" : "text-[13px] rounded-xl px-2 py-1.5"
+                }`}
             >
               <div className="flex items-center gap-2">
                 <img

@@ -19,7 +19,7 @@ const OnTheBrinkBackground = ({ children }) => {
     });
 
     const isMobile = typeof window !== 'undefined' && window.innerWidth < 760;
-    const scrollStops = isMobile ? [0, 0.15, 0.3] : [0, 0.3, 0.5];
+    const scrollStops = isMobile ? [0, 0.15, 0.3] : [0, 0.25, 0.5];
 
     // tiles e sfondo col gradiente
     const backgroundColor = useTransform(scrollYProgress,

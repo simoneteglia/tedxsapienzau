@@ -51,17 +51,22 @@
   text-align: right;
   font-family: 'Poppins', sans-serif;
   font-weight: 800;
-  font-size: clamp(16px, 2.5vw, 42px);
+  font-size: clamp(24px, 3.5vw, 60px);
   line-height: 1.15;
   color: black;
   max-width: 600px;
   z-index: 2;
 }
 
+.hero-demo-subtext {
+  font-weight: 500;
+  font-size: 0.8em;
+}
+
 .landing-concept-section {
   width: min(1320px, 100%);
   margin: 0 auto;
-  padding: 140px 24px;
+  padding: 140px 24px 100px 24px;
   box-sizing: border-box;
   display: flex;
   justify-content: flex-start;
@@ -70,8 +75,8 @@
 .landing-concept-text {
   font-family: 'Poppins', sans-serif;
   font-weight: 800;
-  font-size: clamp(20px, 3.5vw, 42px);
-  line-height: 1.2;
+  font-size: clamp(16px, 2.5vw, 28px);
+  line-height: 1.3;
   color: black;
   text-align: left;
   max-width: 900px;
@@ -112,7 +117,7 @@
   }
 
   .landing-concept-section {
-    padding: 80px 24px;
+    padding: 100px 24px 60px 24px;
   }
 
   .hero-onthebrink-text {
@@ -134,7 +139,7 @@
     transform: translateX(-50%);
     text-align: center;
     width: 85%;
-    font-size: clamp(16px, 5vw, 24px);
+    font-size: clamp(22px, 6.5vw, 32px);
   }
 }
 

@@ -191,11 +191,11 @@ export default function Landing() {
           <div className="landing-hero-rectangle" style={{ marginTop: `calc(3vh + ${global.UTILS.NAV_HEIGHT})` }}>
             <img src={onthebrinkText} alt="On The Brink" className="hero-onthebrink-text" />
             <div className="hero-demo-text">
-              L'evento più figo<br />
-              dell'anno, organizzato<br />
-              dai migliori studenti<br />
-              Sapienza che fanno un<br />
-              sacco di cose belle.
+              25 maggio • 14:00<br />
+              <span className="hero-demo-subtext">
+                Teatro Parioli Costanzo<br />
+                Biglietti disponibili ora.
+              </span>
             </div>
             <img
               src={frecciagiu}
@@ -209,11 +209,7 @@ export default function Landing() {
 
         <section className="landing-concept-section" id="concept-section">
           <div className="landing-concept-text">
-            Questo è un posticino per inserire il<br />
-            nostro testo. Direi che mettiamo<br />
-            tutta la spiegazione del concept e<br />
-            del tema dell'evento più forte<br />
-            dell'anno. :)
+            On the Brink è il momento sospeso in cui le possibilità sono infinite perché tutto deve ancora avvenire, la moneta librante in volo che determinerà il futuro. È la soglia tra ciò che è stato e ciò che potrebbe diventare, dove tensione, desiderio e incertezza convivono in quell’attimo “prima di”. L’evento celebra questo spazio di liminalità, ci invita a sostare nel dubbio, a esplorare l’ignoto e ad abitarlo. La moneta cadrà, ma è nel suo volo che prende forma ciò che verrà.
           </div>
         </section>
 
