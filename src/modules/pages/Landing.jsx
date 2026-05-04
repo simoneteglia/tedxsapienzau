@@ -193,9 +193,11 @@ export default function Landing() {
             <div className="hero-demo-text">
               25 maggio • 14:00<br />
               <span className="hero-demo-subtext">
-                Teatro Parioli Costanzo<br />
-                Biglietti disponibili ora.
+                Teatro Parioli Costanzo
               </span>
+              <a href="https://www.eventbrite.it/e/biglietti-tedxsapienzau-on-the-brink-1988490962999?aff=oddtdtcreator" className="hero-ticket-cta" target="_blank" rel="noopener noreferrer">
+                Biglietti disponibili ora
+              </a>
             </div>
             <img
               src={frecciagiu}

@@ -111,6 +111,28 @@
   font-size: 0.8em;
 }
 
+.hero-ticket-cta {
+  display: inline-block;
+  margin-top: 12px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 800;
+  font-size: 0.45em;
+  color: white;
+  background: black;
+  padding: 8px 22px;
+  border: 3px solid black;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  text-decoration: none;
+  transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease;
+}
+
+.hero-ticket-cta:hover {
+  background: transparent;
+  color: black;
+  transform: translateY(-2px);
+}
+
 .landing-concept-section {
   width: min(1320px, 100%);
   margin: 0 auto;
@@ -223,19 +245,19 @@
   font-family: 'Poppins', sans-serif;
   font-weight: 800;
   font-size: clamp(10px, 1vw, 14px);
-  color: black;
+  color: white;
+  background: black;
   margin-top: 20px;
   padding: 6px 16px;
   border: 3px solid black;
-  border-radius: 999px;
   text-transform: uppercase;
   letter-spacing: 0.06em;
   transition: background 0.2s ease, color 0.2s ease;
 }
 
 .landing-ticket:hover .landing-ticket-cta {
-  background: black;
-  color: white;
+  background: transparent;
+  color: black;
 }
 
 .landing-speakers-rectangle {
