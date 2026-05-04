@@ -33,15 +33,47 @@
 }
 
 @keyframes float-bounce {
-
   0%,
   100% {
     transform: translateY(0);
   }
-
   50% {
     transform: translateY(12px);
   }
+}
+
+.hero-arrows-container {
+  position: absolute;
+  top: calc(15% + 60px);
+  right: 10px;
+  display: flex;
+  gap: 10px;
+  z-index: 10;
+}
+
+.hero-chevron-prev,
+.hero-chevron-next {
+  width: 120px;
+  object-fit: contain;
+  cursor: pointer;
+}
+
+.hero-chevron-next {
+  animation: float-bounce-horizontal-next 2s ease-in-out infinite;
+}
+
+.hero-chevron-prev {
+  animation: float-bounce-horizontal-prev 2s ease-in-out infinite;
+}
+
+@keyframes float-bounce-horizontal-next {
+  0%, 100% { transform: rotate(-90deg) translateY(0); }
+  50% { transform: rotate(-90deg) translateY(12px); }
+}
+
+@keyframes float-bounce-horizontal-prev {
+  0%, 100% { transform: rotate(90deg) translateY(0); }
+  50% { transform: rotate(90deg) translateY(12px); }
 }
 
 .hero-demo-text {
@@ -130,6 +162,17 @@
     width: 50px;
     bottom: 16px;
     right: 16px;
+  }
+
+  .hero-arrows-container {
+    top: calc(5% + 40px);
+    right: 16px;
+    gap: 0px;
+  }
+
+  .hero-chevron-prev,
+  .hero-chevron-next {
+    width: 50px;
   }
 
   .hero-demo-text {
