@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@700;800;900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@700;800;900&display=swap");
 
 .landing-hero-rectangle {
   position: relative;
@@ -33,7 +33,6 @@
 }
 
 @keyframes float-bounce {
-
   0%,
   100% {
     transform: translateY(0);
@@ -69,7 +68,6 @@
 }
 
 @keyframes float-bounce-horizontal-next {
-
   0%,
   100% {
     transform: rotate(-90deg) translateY(0);
@@ -81,7 +79,6 @@
 }
 
 @keyframes float-bounce-horizontal-prev {
-
   0%,
   100% {
     transform: rotate(90deg) translateY(0);
@@ -97,7 +94,7 @@
   top: 15%;
   right: 50px;
   text-align: right;
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
   font-weight: 800;
   font-size: clamp(24px, 3.5vw, 60px);
   line-height: 1.15;
@@ -114,7 +111,7 @@
 .hero-ticket-cta {
   display: inline-block;
   margin-top: 12px;
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
   font-weight: 800;
   font-size: 0.6em;
   color: white;
@@ -124,7 +121,10 @@
   text-transform: uppercase;
   letter-spacing: 0.06em;
   text-decoration: none;
-  transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease;
+  transition:
+    background 0.2s ease,
+    color 0.2s ease,
+    transform 0.2s ease;
 }
 
 .hero-ticket-cta:hover {
@@ -145,7 +145,7 @@
 }
 
 .landing-concept-text {
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
   font-weight: 800;
   font-size: clamp(16px, 2.5vw, 28px);
   line-height: 1.3;
@@ -177,23 +177,27 @@
 }
 
 .landing-ticket::before {
-  content: '';
+  content: "";
   position: absolute;
   inset: 0;
   z-index: 2;
   background:
     linear-gradient(to right, black, black) left top / 10px 100% no-repeat,
     linear-gradient(to right, black, black) right top / 10px 100% no-repeat,
-    linear-gradient(to right, black, black) left top / calc(50% - 18px) 10px no-repeat,
-    linear-gradient(to right, black, black) right top / calc(50% - 18px) 10px no-repeat,
-    linear-gradient(to right, black, black) left bottom / calc(50% - 18px) 10px no-repeat,
-    linear-gradient(to right, black, black) right bottom / calc(50% - 18px) 10px no-repeat;
+    linear-gradient(to right, black, black) left top / calc(50% - 18px) 10px
+      no-repeat,
+    linear-gradient(to right, black, black) right top / calc(50% - 18px) 10px
+      no-repeat,
+    linear-gradient(to right, black, black) left bottom / calc(50% - 18px) 10px
+      no-repeat,
+    linear-gradient(to right, black, black) right bottom / calc(50% - 18px) 10px
+      no-repeat;
   pointer-events: none;
 }
 
 /* Top semicircle notch */
 .landing-ticket::after {
-  content: '';
+  content: "";
   position: absolute;
   top: -25px;
   left: 50%;
@@ -224,7 +228,7 @@
 }
 
 .landing-ticket-label {
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
   font-weight: 800;
   font-size: clamp(11px, 1.2vw, 16px);
   line-height: 1.3;
@@ -233,7 +237,7 @@
 }
 
 .landing-ticket-date {
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
   font-weight: 500;
   font-size: clamp(10px, 1vw, 13px);
   line-height: 1.4;
@@ -242,7 +246,7 @@
 }
 
 .landing-ticket-cta {
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
   font-weight: 800;
   font-size: clamp(10px, 1vw, 14px);
   color: white;
@@ -252,7 +256,9 @@
   border: 3px solid black;
   text-transform: uppercase;
   letter-spacing: 0.06em;
-  transition: background 0.2s ease, color 0.2s ease;
+  transition:
+    background 0.2s ease,
+    color 0.2s ease;
 }
 
 .landing-ticket:hover .landing-ticket-cta {
@@ -278,7 +284,7 @@
   top: 15%;
   right: -2px;
   transform: translateY(-50%);
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
   font-weight: 800;
   font-size: clamp(32px, 6vw, 80px);
   color: black;
@@ -286,7 +292,6 @@
 }
 
 @media (max-width: 760px) {
-
   .landing-hero-rectangle,
   .landing-speakers-rectangle {
     margin: 30px;
@@ -333,10 +338,14 @@
     background:
       linear-gradient(to right, black, black) left top / 100% 10px no-repeat,
       linear-gradient(to right, black, black) left bottom / 100% 10px no-repeat,
-      linear-gradient(to right, black, black) left top / 10px calc(50% - 18px) no-repeat,
-      linear-gradient(to right, black, black) left bottom / 10px calc(50% - 18px) no-repeat,
-      linear-gradient(to right, black, black) right top / 10px calc(50% - 18px) no-repeat,
-      linear-gradient(to right, black, black) right bottom / 10px calc(50% - 18px) no-repeat;
+      linear-gradient(to right, black, black) left top / 10px calc(50% - 18px)
+        no-repeat,
+      linear-gradient(to right, black, black) left bottom / 10px
+        calc(50% - 18px) no-repeat,
+      linear-gradient(to right, black, black) right top / 10px calc(50% - 18px)
+        no-repeat,
+      linear-gradient(to right, black, black) right bottom / 10px
+        calc(50% - 18px) no-repeat;
   }
 
   .landing-ticket-label {
@@ -458,8 +467,17 @@
   position: absolute;
   inset: 0;
   background:
-    linear-gradient(180deg, rgba(4, 4, 4, 0.06) 0%, rgba(4, 4, 4, 0.38) 48%, rgba(4, 4, 4, 0.92) 100%),
-    linear-gradient(120deg, rgba(255, 255, 255, 0) 50%, rgba(255, 255, 255, 0.08) 100%);
+    linear-gradient(
+      180deg,
+      rgba(4, 4, 4, 0.06) 0%,
+      rgba(4, 4, 4, 0.38) 48%,
+      rgba(4, 4, 4, 0.92) 100%
+    ),
+    linear-gradient(
+      120deg,
+      rgba(255, 255, 255, 0) 50%,
+      rgba(255, 255, 255, 0.08) 100%
+    );
 }
 
 .landing-video-card:hover {
@@ -613,8 +631,17 @@
   position: absolute;
   inset: 0;
   background:
-    linear-gradient(180deg, rgba(0, 0, 0, 0.02) 0%, rgba(0, 0, 0, 0.22) 38%, rgba(0, 0, 0, 0.9) 100%),
-    linear-gradient(120deg, rgba(255, 255, 255, 0) 42%, rgba(255, 255, 255, 0.08) 100%);
+    linear-gradient(
+      180deg,
+      rgba(0, 0, 0, 0.02) 0%,
+      rgba(0, 0, 0, 0.22) 38%,
+      rgba(0, 0, 0, 0.9) 100%
+    ),
+    linear-gradient(
+      120deg,
+      rgba(255, 255, 255, 0) 42%,
+      rgba(255, 255, 255, 0.08) 100%
+    );
 }
 
 .landing-event-card:hover {
@@ -732,7 +759,6 @@
   }
 }
 
-
 .otb-speakers-container {
   width: 100%;
   height: 100%;
@@ -773,7 +799,7 @@
 }
 
 .otb-speaker-bio {
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
   font-weight: 400;
   font-size: clamp(14px, 1.5vw, 16px);
   color: black;
@@ -783,7 +809,7 @@
 }
 
 .otb-speaker-name {
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
   font-weight: 800;
   font-size: clamp(32px, 6vw, 80px);
   color: black;

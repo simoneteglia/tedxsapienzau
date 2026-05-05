@@ -12,6 +12,7 @@ import global from "../../resources/global.json";
 import paradoxaCover from "../../assets/images/paradoxa25/panepinto.webp";
 import onthebrinkText from "../../assets/images/onthebrink26/onthebrink_text.png";
 import frecciagiu from "../../assets/images/onthebrink26/chevron_backward.png";
+import parioli_logo_t from "../../assets/images/partners23/parioliTransparent.png";
 
 // import CookieBox from "../components/CookieBox";
 import Bento from "../components/bento";
@@ -215,7 +216,15 @@ export default function Landing() {
               >
                 {copy(landingCopy.ticketsCta)}
               </a>
+              <img
+                src={parioli_logo_t}
+                alt="Parioli"
+                className="mt-5"
+                width={130}
+                style={{ display: "block", marginLeft: "auto" }}
+              />
             </div>
+
             <img
               src={frecciagiu}
               alt="Scroll Down"
