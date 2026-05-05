@@ -49,11 +49,16 @@ const sponsorLogoLibrary = {
     "Cose Belle Cose Rare",
     "https://www.icosebellecoserare.com",
   ),
-  CE: createSponsorLogo("CE", "CE", "https://www.commission.europa.eu"),
+  CE: createSponsorLogo("CE", "Commissione Europea", "https://www.commission.europa.eu"),
   CNR: createSponsorLogo(
     "CNR",
     "Consiglio Nazionale delle Ricerche",
     "https://www.cnr.it/",
+  ),
+  CMR: createSponsorLogo(
+    "CMR",
+    "Città metropolitana di Roma Capitale",
+    "https://www.cittametropolitanaroma.it/",
   ),
   CDP: createSponsorLogo(
     "CDP",
@@ -109,6 +114,11 @@ const sponsorLogoLibrary = {
     "Innocent",
     "Innocent Drinks",
     "https://www.innocentdrinks.it/",
+  ),
+  INPS: createSponsorLogo(
+    "INPS",
+    "INPS",
+    "https://www.inps.it/",
   ),
   JESAP: createSponsorLogo("JESAP", "JESAP", "https://www.jesap.it/"),
   Kortpress: createSponsorLogo(
@@ -203,6 +213,11 @@ const sponsorLogoLibrary = {
     "https://www.romefutureweek.it/",
   ),
   Sanarti: createSponsorLogo("Sanarti", "Sanarti", "https://www.sanarti.it/"),
+  Sapienza: createSponsorLogo(
+    "Sapienza",
+    "Sapienza Università di Roma",
+    "https://www.uniroma1.it/it/pagina-strutturale/home",
+  ),
   SapienzaGladiators: createSponsorLogo(
     "SapienzaGladiators",
     "Sapienza Gladiators",
@@ -487,7 +502,16 @@ export const sponsorSections = [
   {
     id: "alto-patrocinio",
     title: "Con l'alto patrocinio di",
-    slots: [createYearSlot(2025, "PE"), createYearSlot(2024, "PE")].filter(
+    slots: [createYearSlot(2026, "PE"),createYearSlot(2025, "PE"), createYearSlot(2024, "PE")].filter(
+      (slot) => Boolean(slot.src),
+    ),
+  },
+  {
+    id: "patner-istituzionale",
+    title: "Partner istituzionale",
+    slots: [
+      createYearSlot(2026, "RegioneLazio"),
+    ].filter(
       (slot) => Boolean(slot.src),
     ),
   },
@@ -495,6 +519,12 @@ export const sponsorSections = [
     id: "patrocinio",
     title: "Con il patrocinio di",
     slots: [
+      createYearSlot(2026, "CE"),
+      createYearSlot(2026, "CNR"),
+      createYearSlot(2026, "CMR"),
+      createYearSlot(2026, "Roma"),
+      createYearSlot(2026, "Sapienza"),
+      createYearSlot(2026, "INPS"),
       createYearSlot(2025, "CE"),
       createYearSlot(2025, "MSG"),
       createYearSlot(2025, "Enea"),
