@@ -151,7 +151,7 @@ export default function Navbar() {
               <div className="flex items-center gap-5 ml-4">
                 <Link
                   to="/join-us"
-                  className="bg-[#eb0028] text-white px-4 py-2 rounded-full font-objectsans-heavy text-[13px] uppercase hover:bg-white hover:text-[#eb0028] transition-all duration-300 shadow-md"
+                  className="bg-[#eb0028] text-white w-[130px] h-[40px] flex items-center justify-center rounded-full font-objectsans-heavy text-[13px] uppercase hover:bg-white hover:text-[#eb0028] transition-all duration-300 shadow-md"
                 >
                   {t("common.join_us")}
                 </Link>

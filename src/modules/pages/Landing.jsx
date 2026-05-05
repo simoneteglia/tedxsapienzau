@@ -10,9 +10,13 @@ import paradoxa25Cover from "../../assets/images/paradoxa25/header_paradoxa2.png
 import youtubeLogo from "../../assets/images/general/youtube_logo.png";
 import global from "../../resources/global.json";
 import paradoxaCover from "../../assets/images/paradoxa25/panepinto.webp";
+import onthebrinkText from "../../assets/images/onthebrink26/onthebrink_text.png";
+import frecciagiu from "../../assets/images/onthebrink26/chevron_backward.png";
 
-import CookieBox from "../components/CookieBox";
+// import CookieBox from "../components/CookieBox";
 import Bento from "../components/bento";
+import OnTheBrinkBackground from "../components/OnTheBrinkBackground";
+import OnTheBrinkSpeakers from "../components/OnTheBrinkSpeakers";
 import "./landing.css";
 import {
   getLocalizedText,
@@ -146,6 +150,13 @@ const landingCopy = {
   eventCardAction: localized("Scopri", "Learn more"),
   eventsCta: localized("Scopri tutti gli eventi", "Browse all events"),
   youtubeCta: "Open on YouTube",
+  heroDate: localized("25 Maggio • 14:00", "May 25 • 2PM"),
+  ticketsCta: localized("Biglietti disponibili ora!", "Tickets available now!"),
+  ticketsCtaShort: localized("Biglietti qui!", "Tickets here!"),
+  otbDescription: localized(
+    " On the Brink è il momento sospeso in cui le possibilità sono infinite perché tutto deve ancora avvenire, la moneta librante in volo che determinerà il futuro. È la soglia tra ciò che è stato e ciò che potrebbe diventare, dove tensione, desiderio e incertezza convivono in quell’attimo “prima di”. L’evento celebra questo spazio di liminalità, ci invita a sostare nel dubbio, a esplorare l’ignoto e ad abitarlo. La moneta cadrà, ma è nel suo volo che prende forma ciò che verrà.",
+    " On the Brink is the suspended moment in which possibilities are infinite because everything is yet to happen, the hovering coin in flight that will determine the future. It is the threshold between what has been and what could become, where tension, desire and uncertainty coexist in that “before“ moment. The event celebrates this liminal space, inviting us to dwell in doubt, to explore the unknown and to inhabit it. The coin will fall, but it is in its flight that what is to come takes shape.",
+  ),
 };
 
 export default function Landing() {
@@ -170,326 +181,193 @@ export default function Landing() {
 
   return (
     <div className="text-white" style={{ backgroundColor: "transparent" }}>
-      <section
-        style={{
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-          height: `calc(100vh - ${global.UTILS.NAV_HEIGHT})`,
-          marginTop: global.UTILS.NAV_HEIGHT,
-          width: "100%",
-          maxWidth: "100%",
-          gap: "20px",
-          flexWrap: "wrap",
-        }}
-      >
-        <div
-          id="main-container"
-          className="w-full h-full"
+      <OnTheBrinkBackground>
+        <section
           style={{
-            padding: global.UTILS.BENTO_BOX_PADDING,
             display: "flex",
             justifyContent: "center",
-            alignItems:
-              windowSize > global.UTILS.TABLET_WIDTH ? "flex-end" : "center",
-            fontFamily: "ObjectSansHeavy",
-            position: "relative",
-            overflow: "hidden",
-            boxSizing: "border-box",
-          }}
-        >
-          {windowSize > global.UTILS.TABLET_WIDTH ? (
-            <video
-              autoPlay
-              muted
-              loop
-              playsInline
-              preload="metadata"
-              style={{
-                position: "absolute",
-                width: "100%",
-                height: "100%",
-                top: 0,
-                left: 0,
-                objectPosition: "center",
-                objectFit: "cover",
-              }}
-            >
-              <source src={backgroundVideo} type="video/mp4" />
-            </video>
-          ) : null}
-          <div
-            id="video-overlay"
-            style={{
-              position: "absolute",
-              top: 0,
-              left: 0,
-              width: "100%",
-              height: "100%",
-              background:
-                "linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.8))",
-              display:
-                windowSize > global.UTILS.TABLET_WIDTH ? "initial" : "none",
-            }}
-          />
-          <div
-            style={{
-              color: "white",
-              zIndex: 0,
-              display: "flex",
-              alignItems: "flex-end",
-              gap: "20px",
-            }}
-          >
-            <h2
-              className="text-white"
-              style={{
-                fontSize:
-                  windowSize > global.UTILS.TABLET_WIDTH ? "2vw" : "0.5vw",
-                visibility:
-                  windowSize > global.UTILS.TABLET_WIDTH ? "initial" : "hidden",
-                transform: "translateY(6px)",
-              }}
-            >
-              TEDXSAPIENZAU
-            </h2>
-            <h1
-              style={{
-                textAlign: "center",
-                fontSize:
-                  windowSize > 1245
-                    ? "10vh"
-                    : windowSize > global.UTILS.MOBILE_WIDTH
-                      ? "80px"
-                      : "60px",
-                fontWeight: 700,
-                maxWidth: "13ch",
-                lineHeight: 1.02,
-              }}
-            >
-              {copy(landingCopy.heroTitle)}
-            </h1>
-            <h2
-              className="text-white"
-              style={{
-                fontSize: "2vw",
-                visibility:
-                  windowSize > global.UTILS.TABLET_WIDTH ? "initial" : "hidden",
-                transform: "translateY(6px)",
-              }}
-            >
-              PARA DOXA 2025
-            </h2>
-          </div>
-        </div>
-      </section>
-
-      <section className="w-full relative py-24">
-        <div
-          style={{
-            position: "relative",
-            zIndex: 1,
-            maxWidth: "1200px",
-            margin: "0 auto",
-            padding: "0 24px",
+            alignItems: "center",
+            height: `calc(100vh - ${global.UTILS.NAV_HEIGHT})`,
+            width: "100%",
+            maxWidth: "100%",
+            gap: "20px",
+            flexWrap: "wrap",
           }}
         >
           <div
-            style={{
-              display: "grid",
-              gridTemplateColumns: isMobile ? "1fr" : "1.2fr 1fr 1fr",
-              gridTemplateRows: isMobile ? "auto" : "repeat(2, 1fr)",
-              gap: "24px",
-              fontFamily: "'Object Sans', sans-serif",
-            }}
+            className="landing-hero-rectangle"
+            style={{ marginTop: `calc(3vh + ${global.UTILS.NAV_HEIGHT})` }}
           >
-            <Bento
-              style={{
-                gridRow: isMobile ? "span 1" : "span 2",
-                alignItems: "flex-start",
-                textAlign: "left",
-                padding: "40px",
-              }}
-              onMouseOver={(event) => {
-                event.currentTarget.style.transform = "translateY(-5px)";
-                event.currentTarget.style.borderColor = "rgba(235, 0, 40, 0.8)";
-              }}
-              onMouseOut={(event) => {
-                event.currentTarget.style.transform = "translateY(0)";
-                event.currentTarget.style.borderColor =
-                  "rgba(255, 255, 255, 0.15)";
-              }}
-            >
-              <h3
-                style={{
-                  fontSize: "1.8rem",
-                  fontWeight: "bold",
-                  lineHeight: "1.4",
-                  marginBottom: "30px",
-                  color: "white",
-                  fontFamily: "ObjectSans",
-                }}
-              >
-                {copy(landingCopy.aboutDescription)}
-              </h3>
-
-              <Link
-                to="/about"
-                style={{
-                  backgroundColor: "#eb0028",
-                  color: "white",
-                  border: "none",
-                  padding: "15px 35px",
-                  borderRadius: "50px",
-                  fontSize: "1rem",
-                  fontWeight: "bold",
-                  letterSpacing: "0.02em",
-                  cursor: "pointer",
-                  transition: "transform 0.2s",
-                  boxShadow: "0 4px 15px rgba(235, 0, 40, 0.4)",
-                  textDecoration: "none",
-                  display: "inline-block",
-                  fontFamily: "ObjectSans",
-                }}
-                onMouseOver={(event) => {
-                  event.currentTarget.style.transform = "scale(1.05)";
-                }}
-                onMouseOut={(event) => {
-                  event.currentTarget.style.transform = "scale(1)";
-                }}
-              >
-                {t("common.learn_more")}
-              </Link>
-            </Bento>
-
-            {stats.map((stat) => (
-              <Bento key={stat.label}>
-                <div
-                  style={{
-                    color: "white",
-                    fontSize: "3.5rem",
-                    fontWeight: "800",
-                    marginBottom: "10px",
-                  }}
-                >
-                  <AnimatedNumber
-                    end={stat.end}
-                    duration={2000}
-                    locale={locale}
-                  />
-                </div>
-                <div
-                  style={{
-                    fontSize: "1.2rem",
-                    fontWeight: "500",
-                    color: "#ccc",
-                    textAlign: "center",
-                    fontFamily: "ObjectSans",
-                  }}
-                >
-                  {stat.label}
-                </div>
-              </Bento>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="landing-showcase-section">
-        <div className="landing-showcase-shell">
-          <div className="landing-section-head">
-            <h2 className="landing-section-title">
-              {copy(landingCopy.talksTitle)}
-            </h2>
-            <p className="landing-section-copy">
-              {copy(landingCopy.talksCopy)}
-            </p>
-          </div>
-
-          <div className="landing-video-grid">
-            {talkHighlights.map((talk) => (
+            <img
+              src={onthebrinkText}
+              alt="On The Brink"
+              className="hero-onthebrink-text"
+            />
+            <div className="hero-demo-text">
+              {copy(landingCopy.heroDate)}
+              <br />
+              <span className="hero-demo-subtext">Teatro Parioli Costanzo</span>
               <a
-                key={talk.href}
-                className="landing-video-card"
-                href={talk.href}
-                rel="noreferrer"
+                href="https://www.eventbrite.it/e/biglietti-tedxsapienzau-on-the-brink-1988490962999?aff=oddtdtcreator"
+                className="hero-ticket-cta"
                 target="_blank"
+                rel="noopener noreferrer"
               >
-                <TalkThumbnail
-                  videoId={talk.videoId}
-                  alt={talk.title}
-                  objectPosition={talk.objectPosition}
-                />
-                <span className="landing-video-logo-badge" aria-hidden="true">
-                  <img
-                    className="landing-video-logo"
-                    src={youtubeLogo}
-                    alt=""
-                    loading="lazy"
-                    decoding="async"
-                  />
-                </span>
-                <div className="landing-video-content">
-                  <h3 className="landing-video-title">{talk.title}</h3>
-                  <p className="landing-video-subtitle">
-                    {copy(talk.subtitle)}
-                  </p>
-                  <span className="landing-video-footer">
-                    {copy(landingCopy.youtubeCta)}
-                  </span>
-                </div>
+                {copy(landingCopy.ticketsCta)}
               </a>
-            ))}
+            </div>
+            <img
+              src={frecciagiu}
+              alt="Scroll Down"
+              className="hero-chevron"
+              onClick={() =>
+                document
+                  .getElementById("concept-section")
+                  ?.scrollIntoView({ behavior: "smooth" })
+              }
+              style={{ cursor: "pointer" }}
+            />
           </div>
-        </div>
-      </section>
+        </section>
 
-      <section className="landing-showcase-section">
-        <div className="landing-showcase-shell">
-          <div className="landing-section-head">
-            <h2 className="landing-section-title">
-              {copy(landingCopy.eventsTitle)}
-            </h2>
+        <section className="landing-concept-section" id="concept-section">
+          <div className="landing-concept-text">
+            {copy(landingCopy.otbDescription)}
           </div>
+          <a
+            href="https://www.eventbrite.it/e/biglietti-tedxsapienzau-on-the-brink-1988490962999?aff=oddtdtcreator"
+            className="landing-ticket"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <div className="landing-ticket-notch-bottom" />
+            <span className="landing-ticket-label">on the brink</span>
+            <span className="landing-ticket-date">
+              25 Maggio 2026
+              <br />h 14:00
+              <br />
+              Teatro Parioli Costanzo
+            </span>
+            <span className="landing-ticket-cta">
+              {copy(landingCopy.ticketsCtaShort)}
+            </span>
+          </a>
+        </section>
 
-          <div className="landing-events-grid">
-            {landingEvents.map((event) => (
-              <Link
-                key={event.href}
-                className="landing-event-card"
-                to={event.href}
-              >
-                <img
-                  className="landing-event-image"
-                  src={event.image}
-                  alt={event.title}
-                  loading="lazy"
-                  decoding="async"
-                  fetchPriority="low"
-                />
-                <div className="landing-event-content">
-                  <h3 className="landing-event-title">{event.title}</h3>
-                  <div className="landing-event-footer">
-                    <span>{event.year}</span>
-                    <span className="landing-event-link">
-                      <span>{copy(landingCopy.eventCardAction)}</span>
-                      <span aria-hidden="true">&rarr;</span>
+        {/* <section
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            height: `calc(100vh - ${global.UTILS.NAV_HEIGHT})`,
+            width: "100%",
+            maxWidth: "100%",
+            gap: "20px",
+            flexWrap: "wrap",
+          }}
+        >
+          <div className="landing-speakers-rectangle">
+            <div className="hero-speakers-text">Speakers</div>
+            <OnTheBrinkSpeakers />
+          </div>
+        </section> */}
+
+        <section className="landing-showcase-section">
+          <div className="landing-showcase-shell">
+            <div className="landing-section-head">
+              <h2 className="landing-section-title">
+                {copy(landingCopy.talksTitle)}
+              </h2>
+              <p className="landing-section-copy">
+                {copy(landingCopy.talksCopy)}
+              </p>
+            </div>
+
+            <div className="landing-video-grid">
+              {talkHighlights.map((talk) => (
+                <a
+                  key={talk.href}
+                  className="landing-video-card"
+                  href={talk.href}
+                  rel="noreferrer"
+                  target="_blank"
+                >
+                  <TalkThumbnail
+                    videoId={talk.videoId}
+                    alt={talk.title}
+                    objectPosition={talk.objectPosition}
+                  />
+                  <span className="landing-video-logo-badge" aria-hidden="true">
+                    <img
+                      className="landing-video-logo"
+                      src={youtubeLogo}
+                      alt=""
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  </span>
+                  <div className="landing-video-content">
+                    <h3 className="landing-video-title">{talk.title}</h3>
+                    <p className="landing-video-subtitle">
+                      {copy(talk.subtitle)}
+                    </p>
+                    <span className="landing-video-footer">
+                      {copy(landingCopy.youtubeCta)}
                     </span>
                   </div>
-                </div>
+                </a>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section className="landing-showcase-section">
+          <div className="landing-showcase-shell">
+            <div className="landing-section-head">
+              <h2 className="landing-section-title">
+                {copy(landingCopy.eventsTitle)}
+              </h2>
+            </div>
+
+            <div className="landing-events-grid">
+              {landingEvents.map((event) => (
+                <Link
+                  key={event.href}
+                  className="landing-event-card"
+                  to={event.href}
+                >
+                  <img
+                    className="landing-event-image"
+                    src={event.image}
+                    alt={event.title}
+                    loading="lazy"
+                    decoding="async"
+                    fetchPriority="low"
+                  />
+                  <div className="landing-event-content">
+                    <h3 className="landing-event-title">{event.title}</h3>
+                    <div className="landing-event-footer">
+                      <span>{event.year}</span>
+                      <span className="landing-event-link">
+                        <span>{copy(landingCopy.eventCardAction)}</span>
+                        <span aria-hidden="true">&rarr;</span>
+                      </span>
+                    </div>
+                  </div>
+                </Link>
+              ))}
+            </div>
+
+            <div className="landing-showcase-cta">
+              <Link className="landing-showcase-link" to="/events">
+                {copy(landingCopy.eventsCta)}
               </Link>
-            ))}
+            </div>
           </div>
+        </section>
 
-          <div className="landing-showcase-cta">
-            <Link className="landing-showcase-link" to="/events">
-              {copy(landingCopy.eventsCta)}
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      <CookieBox />
+        {/* <CookieBox /> */}
+      </OnTheBrinkBackground>
     </div>
   );
 }
