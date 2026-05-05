@@ -13,8 +13,7 @@ import paradoxaCover from "../../assets/images/paradoxa25/panepinto.webp";
 import onthebrinkText from "../../assets/images/onthebrink26/onthebrink_text.png";
 import frecciagiu from "../../assets/images/onthebrink26/chevron_backward.png";
 
-
-import CookieBox from "../components/CookieBox";
+// import CookieBox from "../components/CookieBox";
 import Bento from "../components/bento";
 import OnTheBrinkBackground from "../components/OnTheBrinkBackground";
 import OnTheBrinkSpeakers from "../components/OnTheBrinkSpeakers";
@@ -151,6 +150,13 @@ const landingCopy = {
   eventCardAction: localized("Scopri", "Learn more"),
   eventsCta: localized("Scopri tutti gli eventi", "Browse all events"),
   youtubeCta: "Open on YouTube",
+  heroDate: localized("25 Maggio • 14:00", "May 25 • 2PM"),
+  ticketsCta: localized("Biglietti disponibili ora!", "Tickets available now!"),
+  ticketsCtaShort: localized("Biglietti qui!", "Tickets here!"),
+  otbDescription: localized(
+    " On the Brink è il momento sospeso in cui le possibilità sono infinite perché tutto deve ancora avvenire, la moneta librante in volo che determinerà il futuro. È la soglia tra ciò che è stato e ciò che potrebbe diventare, dove tensione, desiderio e incertezza convivono in quell’attimo “prima di”. L’evento celebra questo spazio di liminalità, ci invita a sostare nel dubbio, a esplorare l’ignoto e ad abitarlo. La moneta cadrà, ma è nel suo volo che prende forma ciò che verrà.",
+    " On the Brink is the suspended moment in which possibilities are infinite because everything is yet to happen, the hovering coin in flight that will determine the future. It is the threshold between what has been and what could become, where tension, desire and uncertainty coexist in that “before“ moment. The event celebrates this liminal space, inviting us to dwell in doubt, to explore the unknown and to inhabit it. The coin will fall, but it is in its flight that what is to come takes shape.",
+  ),
 };
 
 export default function Landing() {
@@ -188,36 +194,63 @@ export default function Landing() {
             flexWrap: "wrap",
           }}
         >
-          <div className="landing-hero-rectangle" style={{ marginTop: `calc(3vh + ${global.UTILS.NAV_HEIGHT})` }}>
-            <img src={onthebrinkText} alt="On The Brink" className="hero-onthebrink-text" />
+          <div
+            className="landing-hero-rectangle"
+            style={{ marginTop: `calc(3vh + ${global.UTILS.NAV_HEIGHT})` }}
+          >
+            <img
+              src={onthebrinkText}
+              alt="On The Brink"
+              className="hero-onthebrink-text"
+            />
             <div className="hero-demo-text">
-              25 maggio • 14:00<br />
-              <span className="hero-demo-subtext">
-                Teatro Parioli Costanzo
-              </span>
-              <a href="https://www.eventbrite.it/e/biglietti-tedxsapienzau-on-the-brink-1988490962999?aff=oddtdtcreator" className="hero-ticket-cta" target="_blank" rel="noopener noreferrer">
-                Biglietti disponibili ora
+              {copy(landingCopy.heroDate)}
+              <br />
+              <span className="hero-demo-subtext">Teatro Parioli Costanzo</span>
+              <a
+                href="https://www.eventbrite.it/e/biglietti-tedxsapienzau-on-the-brink-1988490962999?aff=oddtdtcreator"
+                className="hero-ticket-cta"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {copy(landingCopy.ticketsCta)}
               </a>
             </div>
             <img
               src={frecciagiu}
               alt="Scroll Down"
               className="hero-chevron"
-              onClick={() => document.getElementById('concept-section')?.scrollIntoView({ behavior: 'smooth' })}
-              style={{ cursor: 'pointer' }}
+              onClick={() =>
+                document
+                  .getElementById("concept-section")
+                  ?.scrollIntoView({ behavior: "smooth" })
+              }
+              style={{ cursor: "pointer" }}
             />
           </div>
         </section>
 
         <section className="landing-concept-section" id="concept-section">
           <div className="landing-concept-text">
-            On the Brink è il momento sospeso in cui le possibilità sono infinite perché tutto deve ancora avvenire, la moneta librante in volo che determinerà il futuro. È la soglia tra ciò che è stato e ciò che potrebbe diventare, dove tensione, desiderio e incertezza convivono in quell’attimo “prima di”. L’evento celebra questo spazio di liminalità, ci invita a sostare nel dubbio, a esplorare l’ignoto e ad abitarlo. La moneta cadrà, ma è nel suo volo che prende forma ciò che verrà.
+            {copy(landingCopy.otbDescription)}
           </div>
-          <a href="https://www.eventbrite.it/e/biglietti-tedxsapienzau-on-the-brink-1988490962999?aff=oddtdtcreator" className="landing-ticket" target="_blank" rel="noopener noreferrer">
+          <a
+            href="https://www.eventbrite.it/e/biglietti-tedxsapienzau-on-the-brink-1988490962999?aff=oddtdtcreator"
+            className="landing-ticket"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <div className="landing-ticket-notch-bottom" />
             <span className="landing-ticket-label">on the brink</span>
-            <span className="landing-ticket-date">25 Maggio 2026<br />h 14:00<br />Teatro Parioli Costanzo</span>
-            <span className="landing-ticket-cta">Biglietti qui!</span>
+            <span className="landing-ticket-date">
+              25 Maggio 2026
+              <br />h 14:00
+              <br />
+              Teatro Parioli Costanzo
+            </span>
+            <span className="landing-ticket-cta">
+              {copy(landingCopy.ticketsCtaShort)}
+            </span>
           </a>
         </section>
 
@@ -333,7 +366,7 @@ export default function Landing() {
           </div>
         </section>
 
-        <CookieBox />
+        {/* <CookieBox /> */}
       </OnTheBrinkBackground>
     </div>
   );
