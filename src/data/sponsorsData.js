@@ -39,6 +39,7 @@ const sponsorLogoLibrary = {
     "https://www.aespertagroup.com",
   ),
   AVIS: createSponsorLogo("Avis", "AVIS", "https://www.avisroma.it"),
+  BigJellyfish: createSponsorLogo("BigJellyfish", "BIG JELLYFISH", "https://www.bigjellyfish.it/"),
   Bonduelle: createSponsorLogo(
     "Bonduelle",
     "Bonduelle",
@@ -100,6 +101,7 @@ const sponsorLogoLibrary = {
     slotLogoScale: 1.68,
   }),
   Enea: createSponsorLogo("Enea", "ENEA", "https://www.enea.it/"),
+  FamoCose: createSponsorLogo("FamoCose", "Famo Cose ", "https://www.famocose.it/"),
   HyperFoundry: createSponsorLogo(
     "Hyper-Foundry",
     "Hyper Foundry",
@@ -120,7 +122,7 @@ const sponsorLogoLibrary = {
     "INPS",
     "https://www.inps.it/",
   ),
-  JESAP: createSponsorLogo("JESAP", "JESAP", "https://www.jesap.it/"),
+  JESAP: createSponsorLogo("JESAP", "JESAP", "https://www.jesap.it/", {slotLogoScale: 1.68,}),
   Kortpress: createSponsorLogo(
     "Kortpress",
     "Kortpress",
@@ -164,6 +166,11 @@ const sponsorLogoLibrary = {
       tileLogoScale: 1.3,
     },
   ),
+  Parioli: createSponsorLogo(
+    "Parioli",
+    "Teatro Parioli Costanzo",
+    "https://www.ilparioli.it/",
+  ),
   Peekaboo: createSponsorLogo(
     "Peekaboo",
     "Peekaboo",
@@ -188,6 +195,7 @@ const sponsorLogoLibrary = {
     "RadioSapienza",
     "Radio Sapienza",
     "https://www.radiosapienza.net/",
+    {slotLogoScale: 1.40,}
   ),
   Redbull: createSponsorLogo(
     "Redbull",
@@ -201,11 +209,17 @@ const sponsorLogoLibrary = {
     "RegioneLazio",
     "Regione Lazio",
     "https://www.regione.lazio.it/",
+    {
+      slotLogoScale: 1.68,
+    },
   ),
   Roma: createSponsorLogo(
-    "Roma",
+    "Roma2",
     "Comune di Roma Capitale",
     "https://www.comune.roma.it/",
+    {
+      slotLogoScale: 1.20,
+    },
   ),
   RFW: createSponsorLogo(
     "RFW",
@@ -239,14 +253,19 @@ const sponsorLogoLibrary = {
     "https://www.teachforitaly.org/",
   ),
   Thesis4u: createSponsorLogo(
-    "Thesis4u",
-    "Thesis4u",
+    "Thesis4U",
+    "Thesis4U",
     "https://thesisforyou.com/",
   ),
   Tim: createSponsorLogo("Tim", "TIM", "https://www.gruppotim.it/", {
     tileLogoScale: 1.9,
   }),
   Tlon: createSponsorLogo("Tlon", "TLON", "https://tlon.it/"),
+  Underpark: createSponsorLogo(
+    "UPR",
+    "Underpark Radio",
+    "https://www.underparkradio.com/",
+  ),
   Tucano: createSponsorLogo("Tucano", "Tucano", "https://tucano.com/"),
   Unicredit: createSponsorLogo(
     "Unicredit",
@@ -256,11 +275,12 @@ const sponsorLogoLibrary = {
       tileLogoScale: 1.9,
     },
   ),
-  Underpark: createSponsorLogo(
-    "UPR",
-    "Underpark Radio",
-    "https://www.underparkradio.com/",
+  Unitelma: createSponsorLogo(
+    "Unitelma",
+    "Radio Unitelma",
+    "https://www.unitelmasapienza.it/radiounitelmasapienza/",
   ),
+  VAF: createSponsorLogo("VAF", "Vivendo a Fundo", "#"),
   VAIA: createSponsorLogo("VAIA", "VAIA", "https://www.vaia.eu/"),
   Viscosa: createSponsorLogo(
     "Viscosa",
@@ -343,7 +363,9 @@ export const sponsorSections = [
     id: "technical-sponsors",
     title: "Technical Sponsors",
     slots: [
+      createYearSlot(2026, "Pioda"),
       createYearSlot(2026, "Tucano"),
+      createYearSlot(2026, "FamoCose"),
       createYearSlot(2025, "Tucano"),
       createYearSlot(2025, "Pioda"),
       createYearSlot(2024, "Tucano"),
@@ -354,6 +376,13 @@ export const sponsorSections = [
     id: "supporting-sponsors",
     title: "Supporting Sponsors",
     slots: [createYearSlot(2026, "Dotcampus")].filter((slot) =>
+      Boolean(slot.src),
+    ),
+  },
+  {
+    id: "starter-sponsors",
+    title: "Starter Sponsors",
+    slots: [createYearSlot(2026, "HyperFoundry")].filter((slot) =>
       Boolean(slot.src),
     ),
   },
@@ -390,6 +419,7 @@ export const sponsorSections = [
     title: "Friendly Sponsors",
     slots: [
       createYearSlot(2026, "DirezioneLavoro"),
+      createYearSlot(2026, "BigJellyfish"),
       createYearSlot(2025, "EF"),
       createYearSlot(2025, "YPT"),
       createYearSlot(2025, "Redbull"),
@@ -427,6 +457,11 @@ export const sponsorSections = [
     title: "Partners",
     slots: [
       createYearSlot(2026, "AVIS"),
+      createYearSlot(2026, "JESAP"),
+      createYearSlot(2026, "MentorsNova"),
+      createYearSlot(2026, "Thesis4u"),
+      createYearSlot(2026, "VAF"),
+      createYearSlot(2026, "Parioli"),
       createYearSlot(2025, "MIC"),
       createYearSlot(2025, "Technotown"),
       createYearSlot(2024, "MIC"),
@@ -437,6 +472,9 @@ export const sponsorSections = [
     id: "media-partners",
     title: "Media Partners",
     slots: [
+      createYearSlot(2026, "RadioSapienza"),
+      createYearSlot(2026, "Underpark"),
+      createYearSlot(2026, "Unitelma"),
       createYearSlot(2025, "RadioSapienza"),
       createYearSlot(2025, "Zeta"),
       createYearSlot(2025, "Underpark"),
@@ -465,7 +503,7 @@ export const sponsorSections = [
   {
     id: "creative-partners",
     title: "Creative Partners",
-    slots: [createYearSlot(2025, "NAM"), createYearSlot(2024, "NAM")].filter(
+    slots: [createYearSlot(2026, "NAM"),createYearSlot(2025, "NAM"), createYearSlot(2024, "NAM")].filter(
       (slot) => Boolean(slot.src),
     ),
   },

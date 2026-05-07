@@ -12,7 +12,7 @@ import global from "../../resources/global.json";
 import paradoxaCover from "../../assets/images/paradoxa25/panepinto.webp";
 import onthebrinkText from "../../assets/images/onthebrink26/onthebrink_text.png";
 import frecciagiu from "../../assets/images/onthebrink26/chevron_backward.png";
-import parioli_logo_t from "../../assets/images/partners23/parioliTransparent.png";
+import parioli_logo_t from "../../assets/images/partners23/Parioli.png";
 
 // import CookieBox from "../components/CookieBox";
 import Bento from "../components/bento";
