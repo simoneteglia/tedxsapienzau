@@ -458,7 +458,7 @@ export const sponsorSections = [
     slots: [
       createYearSlot(2026, "AVIS"),
       createYearSlot(2026, "JESAP"),
-      createYearSlot(2026, "MentorsNova"),
+      //createYearSlot(2026, "MentorsNova"),
       createYearSlot(2026, "Thesis4u"),
       createYearSlot(2026, "VAF"),
       createYearSlot(2026, "Parioli"),
