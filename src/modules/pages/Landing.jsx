@@ -263,7 +263,7 @@ export default function Landing() {
           </a>
         </section>
 
-        {/* <section
+        <section
           style={{
             display: "flex",
             justifyContent: "center",
@@ -279,7 +279,7 @@ export default function Landing() {
             <div className="hero-speakers-text">Speakers</div>
             <OnTheBrinkSpeakers />
           </div>
-        </section> */}
+        </section>
 
         <section className="landing-showcase-section">
           <div className="landing-showcase-shell">

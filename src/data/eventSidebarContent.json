@@ -466,44 +466,60 @@
       "link_talks": "#",
       "speakers": {
         "speaker1": {
-          "name": "Cristina Simone",
+          "name": "Aurora Ruffino",
           "category": "Speaker",
-          "bio_it": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-          "bio_en": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+          "bio_it": "Attrice, scrittrice e ricercatrice filosofica. Aurora Ruffino debutta con La solitudine dei numeri primi di Saverio Costanzo. Diplomata al Centro Sperimentale di Cinematografia, recita in Bianca come il latte, rossa come il sangue ed in Braccialetti Rossi. È la sirena di Ninyo di Gabriele Mainetti e protagonista di Noi. Esordisce nel 2024 con il primo romanzo Volevo salvare i colori. Sarà Santa Lucia nella prossima produzione di Martin Scorsese.",
           "youtube_embed_url": "#",
-          "img": "CristinaSimone"
+          "img": "Aurora Ruffino"
         },
         "speaker2": {
-          "name": "Guido Chiefalo",
-          "category": "Speaker",
-          "bio_it": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-          "bio_en": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-          "youtube_embed_url": "#",
-          "img": "GuidoChiefalo"
-        },
-        "speaker3": {
-          "name": "Carolina Venosi",
-          "category": "Speaker",
-          "bio_it": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-          "bio_en": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-          "youtube_embed_url": "#",
-          "img": "CarolinaVenosi"
-        },
-        "speaker4": {
           "name": "Giuliana Mazzoni",
           "category": "Speaker",
-          "bio_it": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-          "bio_en": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+          "bio_it": "Professore Ordinario di Psicologia in quiescenza, Sapienza Università di Roma. Giuliana Mazzoni è nota a livello internazionale per i suoi lavori sulla memoria umana e in particolare la memoria di avvenimenti personali. Il suo lavoro sulla relazione tra memoria e testimonianza, le potenziali fallacie e le corrette metodologie di ascolto, ha avuto un’importante influenza sul mondo del diritto, soprattutto nei paesi di lingua spagnola e in Italia.",
           "youtube_embed_url": "#",
           "img": "GiulianaMazzoni"
         },
+        "speaker3": {
+          "name": "Lorenzo Zazzeri",
+          "category": "Speaker",
+          "bio_it": "Atleta professionista. Lorenzo Zazzeri, nato a Firenze nel 1994, è l'attuale Capitano della Nazionale Italiana di Nuoto. Oltre agli straordinari successi sportivi, ha conseguito con lode la laurea in Scienze Motorie, Sport e Salute e il premio da parte del CONI come \"Atleta Eccellente/Eccellente Studente\" nel 2023. È attualmente iscritto al terzo anno di Belle Arti all'indirizzo \"Arti Visive\" e conduce il podcast Sportiva-Mente.",
+          "youtube_embed_url": "#",
+          "img": "Lorenzo Zazzeri"
+        },
+        "speaker4": {
+          "name": "Alessandra Amato & Claudio Cocino",
+          "category": "Artist",
+          "bio_it": "Étoile e Primo Ballerino del corpo di ballo del Teatro dell’Opera di Roma. Alessandra Amato è Étoile del Teatro dell’Opera di Roma dal 2016, nominata in seguito a uno spettacolo de Il lago dei cigni. Consolida negli anni la sua partnership con Claudio Cocino, Primo Ballerino del Teatro dell’Opera di Roma dal 2017, nominato in seguito al balletto La bella addormentata. Nelle loro carriere interpretano i ruoli principali nei più importanti balletti del repertorio classico e del repertorio dei maggiori coreografi del ‘900 e contemporanei.",
+          "youtube_embed_url": "#",
+          "img": "Amato-Cocino"
+        },
         "speaker5": {
+          "name": "Cristina Simone",
+          "category": "Speaker",
+          "bio_it": "Professore Ordinario di Economia e Gestione delle Imprese, Sapienza Università di Roma. Cristina Simone è un professore ordinario di Economia e Gestione delle Imprese alla Sapienza, dove coordina il PhD in Management, Banking e Commodity Science. Supervisiona il progetto Horizon MSCA-GeoPlaReg. Si occupa di management strategico, sistemi complessi, capitalismo digitale e rapporti impresa-territorio. È Visiting Professor all’ITBA in Argentina.",
+          "youtube_embed_url": "#",
+          "img": "CristinaSimone"
+        },
+        "speaker6": {
           "name": "Stefano Magno",
           "category": "Speaker",
-          "bio_it": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-          "bio_en": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+          "bio_it": "Chirurgo Senologo. Stefano Magno è un chirurgo senologo e Direttore dell’Unità Operativa Semplice di Terapie Integrate in Senologia presso la Breast Unit della Fondazione Policlinico Gemelli di Roma. È inoltre coordinatore scientifico del Master di I livello in \"Terapie Integrate nelle patologie oncologiche femminili\" e ricopre il ruolo di segretario del Centro di Ricerca e Formazione nelle terapie integrate nelle neoplasie mammarie presso l’Università Cattolica del Sacro Cuore.",
           "youtube_embed_url": "#",
-          "img": "StefanoMagno"
+          "img": "Stefano Magno"
+        },
+        "speaker7": {
+          "name": "Guido Chiefalo",
+          "category": "Speaker",
+          "bio_it": "Designer e Professore. Guido Chiefalo è un designer nato a Roma nel 1986, opera nel campo della comunicazione visiva e della brand strategy. Attualmente ricopre il ruolo di Art Director alla FAO, Nazioni Unite, ed insegna \"Brand Design\" alla Sapienza Università di Roma, DCVM. Ha lavorato tra Milano, Londra e Roma, collaborando con agenzie come INAREA, McCann, Slamp e Soda Studio.",
+          "youtube_embed_url": "#",
+          "img": "GuidoChiefalo"
+        },
+        "speaker8": {
+          "name": "Carolina Venosi",
+          "category": "Speaker",
+          "bio_it": "Imprenditrice e consulente, founder di Rome is More e Domenica Italiana. Carolina Venosi è consulente per startup e imprenditrice, nata e cresciuta a Roma. Dopo dieci anni di lavoro in aziende e agenzie di comunicazione, ha fondato il brand Rome is More, nato sui social media nel 2018, che spiega in modo ironico e divertente il dialetto e la cultura romanesca e che oggi è una start-up in crescita con uno store fisico e un'agenzia creativa tutta al femminile.",
+          "youtube_embed_url": "#",
+          "img": "CarolinaVenosi"
         }
       }
     }

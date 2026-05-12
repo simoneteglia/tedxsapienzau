@@ -5,14 +5,22 @@ import eventData from '../../data/eventSidebarContent.json';
 import { isEnglishLanguage } from '../utils/localization';
 import frecciagiu from '../../assets/images/onthebrink26/chevron_backward.png';
 
-const images = import.meta.glob('../../assets/images/onthebrink26/*.{jpg,jpeg}', { eager: true });
+const images = {
+  ...import.meta.glob('../../assets/images/onthebrink26/*.{jpg,jpeg,png,webp,jfif}', { eager: true }),
+};
+
+const normalizeImageName = (value) =>
+  value
+    .toLowerCase()
+    .replace(/\.[^.]+$/, '')
+    .replace(/[^a-z0-9]/g, '');
 
 const getImage = (imgName) => {
   if (!imgName) return null;
+  const lowerImgName = normalizeImageName(imgName);
   const key = Object.keys(images).find(path => {
-    const normalizedPath = path.toLowerCase().replace(/\s+/g, '');
-    const lowerImgName = imgName.toLowerCase().replace(/\s+/g, '');
-    return normalizedPath.includes(`/${lowerImgName}.jpg`) || normalizedPath.includes(`/${lowerImgName}.jpeg`);
+    const fileName = path.split('/').pop();
+    return normalizeImageName(fileName) === lowerImgName;
   });
   return key ? images[key].default : null;
 };
