@@ -33,6 +33,7 @@
 }
 
 @keyframes float-bounce {
+
   0%,
   100% {
     transform: translateY(0);
@@ -68,6 +69,7 @@
 }
 
 @keyframes float-bounce-horizontal-next {
+
   0%,
   100% {
     transform: rotate(-90deg) translateY(0);
@@ -79,6 +81,7 @@
 }
 
 @keyframes float-bounce-horizontal-prev {
+
   0%,
   100% {
     transform: rotate(90deg) translateY(0);
@@ -184,14 +187,10 @@
   background:
     linear-gradient(to right, black, black) left top / 10px 100% no-repeat,
     linear-gradient(to right, black, black) right top / 10px 100% no-repeat,
-    linear-gradient(to right, black, black) left top / calc(50% - 18px) 10px
-      no-repeat,
-    linear-gradient(to right, black, black) right top / calc(50% - 18px) 10px
-      no-repeat,
-    linear-gradient(to right, black, black) left bottom / calc(50% - 18px) 10px
-      no-repeat,
-    linear-gradient(to right, black, black) right bottom / calc(50% - 18px) 10px
-      no-repeat;
+    linear-gradient(to right, black, black) left top / calc(50% - 18px) 10px no-repeat,
+    linear-gradient(to right, black, black) right top / calc(50% - 18px) 10px no-repeat,
+    linear-gradient(to right, black, black) left bottom / calc(50% - 18px) 10px no-repeat,
+    linear-gradient(to right, black, black) right bottom / calc(50% - 18px) 10px no-repeat;
   pointer-events: none;
 }
 
@@ -292,11 +291,18 @@
 }
 
 @media (max-width: 760px) {
-  .landing-hero-rectangle,
-  .landing-speakers-rectangle {
+  .landing-hero-rectangle {
     margin: 30px;
     width: calc(100% - 60px);
     height: calc(100% - 60px);
+  }
+
+  .landing-speakers-rectangle {
+    margin: 30px;
+    width: calc(100% - 60px);
+    height: auto;
+    min-height: calc(100vh - 120px);
+    padding-bottom: 30px;
   }
 
   .landing-concept-section {
@@ -338,14 +344,10 @@
     background:
       linear-gradient(to right, black, black) left top / 100% 10px no-repeat,
       linear-gradient(to right, black, black) left bottom / 100% 10px no-repeat,
-      linear-gradient(to right, black, black) left top / 10px calc(50% - 18px)
-        no-repeat,
-      linear-gradient(to right, black, black) left bottom / 10px
-        calc(50% - 18px) no-repeat,
-      linear-gradient(to right, black, black) right top / 10px calc(50% - 18px)
-        no-repeat,
-      linear-gradient(to right, black, black) right bottom / 10px
-        calc(50% - 18px) no-repeat;
+      linear-gradient(to right, black, black) left top / 10px calc(50% - 18px) no-repeat,
+      linear-gradient(to right, black, black) left bottom / 10px calc(50% - 18px) no-repeat,
+      linear-gradient(to right, black, black) right top / 10px calc(50% - 18px) no-repeat,
+      linear-gradient(to right, black, black) right bottom / 10px calc(50% - 18px) no-repeat;
   }
 
   .landing-ticket-label {
@@ -373,9 +375,10 @@
   }
 
   .hero-arrows-container {
-    top: calc(5% + 40px);
+    top: 150px;
     right: 16px;
-    gap: 0px;
+    gap: 10px;
+    flex-direction: column;
   }
 
   .hero-chevron-prev,
@@ -467,17 +470,13 @@
   position: absolute;
   inset: 0;
   background:
-    linear-gradient(
-      180deg,
+    linear-gradient(180deg,
       rgba(4, 4, 4, 0.06) 0%,
       rgba(4, 4, 4, 0.38) 48%,
-      rgba(4, 4, 4, 0.92) 100%
-    ),
-    linear-gradient(
-      120deg,
+      rgba(4, 4, 4, 0.92) 100%),
+    linear-gradient(120deg,
       rgba(255, 255, 255, 0) 50%,
-      rgba(255, 255, 255, 0.08) 100%
-    );
+      rgba(255, 255, 255, 0.08) 100%);
 }
 
 .landing-video-card:hover {
@@ -631,17 +630,13 @@
   position: absolute;
   inset: 0;
   background:
-    linear-gradient(
-      180deg,
+    linear-gradient(180deg,
       rgba(0, 0, 0, 0.02) 0%,
       rgba(0, 0, 0, 0.22) 38%,
-      rgba(0, 0, 0, 0.9) 100%
-    ),
-    linear-gradient(
-      120deg,
+      rgba(0, 0, 0, 0.9) 100%),
+    linear-gradient(120deg,
       rgba(255, 255, 255, 0) 42%,
-      rgba(255, 255, 255, 0.08) 100%
-    );
+      rgba(255, 255, 255, 0.08) 100%);
 }
 
 .landing-event-card:hover {
@@ -820,7 +815,7 @@
 
 @media (max-width: 760px) {
   .hero-speakers-text {
-    top: 5%;
+    top: 6%;
   }
 
   .otb-speakers-container {

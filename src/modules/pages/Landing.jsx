@@ -268,11 +268,13 @@ export default function Landing() {
             display: "flex",
             justifyContent: "center",
             alignItems: "center",
-            height: `calc(100vh - ${global.UTILS.NAV_HEIGHT})`,
+            minHeight: `calc(100vh - ${global.UTILS.NAV_HEIGHT})`,
+            height: isMobile ? "auto" : `calc(100vh - ${global.UTILS.NAV_HEIGHT})`,
             width: "100%",
             maxWidth: "100%",
             gap: "20px",
             flexWrap: "wrap",
+            padding: isMobile ? "20px 0" : "0",
           }}
         >
           <div className="landing-speakers-rectangle">

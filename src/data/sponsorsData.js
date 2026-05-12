@@ -122,7 +122,7 @@ const sponsorLogoLibrary = {
     "INPS",
     "https://www.inps.it/",
   ),
-  JESAP: createSponsorLogo("JESAP", "JESAP", "https://www.jesap.it/", {slotLogoScale: 1.68,}),
+  JESAP: createSponsorLogo("JESAP", "JESAP", "https://www.jesap.it/", { slotLogoScale: 1.68, }),
   Kortpress: createSponsorLogo(
     "Kortpress",
     "Kortpress",
@@ -195,7 +195,7 @@ const sponsorLogoLibrary = {
     "RadioSapienza",
     "Radio Sapienza",
     "https://www.radiosapienza.net/",
-    {slotLogoScale: 1.40,}
+    { slotLogoScale: 1.40, }
   ),
   Redbull: createSponsorLogo(
     "Redbull",
@@ -279,6 +279,11 @@ const sponsorLogoLibrary = {
     "Unitelma",
     "Radio Unitelma",
     "https://www.unitelmasapienza.it/radiounitelmasapienza/",
+  ),
+  Unpli: createSponsorLogo(
+    "unpli",
+    "Unione Nazionale Pro Loco d'Italia",
+    "https://www.unpli.info/",
   ),
   VAF: createSponsorLogo("VAF", "Vivendo a Fundo", "#"),
   VAIA: createSponsorLogo("VAIA", "VAIA", "https://www.vaia.eu/"),
@@ -503,7 +508,7 @@ export const sponsorSections = [
   {
     id: "creative-partners",
     title: "Creative Partners",
-    slots: [createYearSlot(2026, "NAM"),createYearSlot(2025, "NAM"), createYearSlot(2024, "NAM")].filter(
+    slots: [createYearSlot(2026, "NAM"), createYearSlot(2025, "NAM"), createYearSlot(2024, "NAM")].filter(
       (slot) => Boolean(slot.src),
     ),
   },
@@ -540,7 +545,7 @@ export const sponsorSections = [
   {
     id: "alto-patrocinio",
     title: "Con l'alto patrocinio di",
-    slots: [createYearSlot(2026, "PE"),createYearSlot(2025, "PE"), createYearSlot(2024, "PE")].filter(
+    slots: [createYearSlot(2026, "PE"), createYearSlot(2025, "PE"), createYearSlot(2024, "PE")].filter(
       (slot) => Boolean(slot.src),
     ),
   },
@@ -563,6 +568,7 @@ export const sponsorSections = [
       createYearSlot(2026, "Roma"),
       createYearSlot(2026, "Sapienza"),
       createYearSlot(2026, "INPS"),
+      createYearSlot(2026, "Unpli"),
       createYearSlot(2025, "CE"),
       createYearSlot(2025, "MSG"),
       createYearSlot(2025, "Enea"),
