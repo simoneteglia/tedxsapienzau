@@ -39,7 +39,11 @@ const sponsorLogoLibrary = {
     "https://www.aespertagroup.com",
   ),
   AVIS: createSponsorLogo("Avis", "AVIS", "https://www.avisroma.it"),
-  BigJellyfish: createSponsorLogo("BigJellyfish", "BIG JELLYFISH", "https://www.bigjellyfish.it/"),
+  BigJellyfish: createSponsorLogo(
+    "BigJellyfish",
+    "BIG JELLYFISH",
+    "https://www.bigjellyfish.it/",
+  ),
   Bonduelle: createSponsorLogo(
     "Bonduelle",
     "Bonduelle",
@@ -50,7 +54,11 @@ const sponsorLogoLibrary = {
     "Cose Belle Cose Rare",
     "https://www.icosebellecoserare.com",
   ),
-  CE: createSponsorLogo("CE", "Commissione Europea", "https://www.commission.europa.eu"),
+  CE: createSponsorLogo(
+    "CE",
+    "Commissione Europea",
+    "https://www.commission.europa.eu",
+  ),
   CNR: createSponsorLogo(
     "CNR",
     "Consiglio Nazionale delle Ricerche",
@@ -101,7 +109,11 @@ const sponsorLogoLibrary = {
     slotLogoScale: 1.68,
   }),
   Enea: createSponsorLogo("Enea", "ENEA", "https://www.enea.it/"),
-  FamoCose: createSponsorLogo("FamoCose", "Famo Cose ", "https://www.famocose.it/"),
+  FamoCose: createSponsorLogo(
+    "FamoCose",
+    "Famo Cose ",
+    "https://www.famocose.it/",
+  ),
   HyperFoundry: createSponsorLogo(
     "Hyper-Foundry",
     "Hyper Foundry",
@@ -117,12 +129,10 @@ const sponsorLogoLibrary = {
     "Innocent Drinks",
     "https://www.innocentdrinks.it/",
   ),
-  INPS: createSponsorLogo(
-    "INPS",
-    "INPS",
-    "https://www.inps.it/",
-  ),
-  JESAP: createSponsorLogo("JESAP", "JESAP", "https://www.jesap.it/", { slotLogoScale: 1.68, }),
+  INPS: createSponsorLogo("INPS", "INPS", "https://www.inps.it/"),
+  JESAP: createSponsorLogo("JESAP", "JESAP", "https://www.jesap.it/", {
+    slotLogoScale: 1.68,
+  }),
   Kortpress: createSponsorLogo(
     "Kortpress",
     "Kortpress",
@@ -195,7 +205,7 @@ const sponsorLogoLibrary = {
     "RadioSapienza",
     "Radio Sapienza",
     "https://www.radiosapienza.net/",
-    { slotLogoScale: 1.40, }
+    { slotLogoScale: 1.4 },
   ),
   Redbull: createSponsorLogo(
     "Redbull",
@@ -218,7 +228,7 @@ const sponsorLogoLibrary = {
     "Comune di Roma Capitale",
     "https://www.comune.roma.it/",
     {
-      slotLogoScale: 1.20,
+      slotLogoScale: 1.2,
     },
   ),
   RFW: createSponsorLogo(
@@ -285,7 +295,11 @@ const sponsorLogoLibrary = {
     "Unione Nazionale Pro Loco d'Italia",
     "https://www.unpli.info/",
   ),
-  VAF: createSponsorLogo("VAF", "Vivendo a Fundo", "#"),
+  VAF: createSponsorLogo(
+    "VAF",
+    "Vivendo a Fundo",
+    "https://www.vivendoafundo.com.br/ ",
+  ),
   VAIA: createSponsorLogo("VAIA", "VAIA", "https://www.vaia.eu/"),
   Viscosa: createSponsorLogo(
     "Viscosa",
@@ -508,9 +522,11 @@ export const sponsorSections = [
   {
     id: "creative-partners",
     title: "Creative Partners",
-    slots: [createYearSlot(2026, "NAM"), createYearSlot(2025, "NAM"), createYearSlot(2024, "NAM")].filter(
-      (slot) => Boolean(slot.src),
-    ),
+    slots: [
+      createYearSlot(2026, "NAM"),
+      createYearSlot(2025, "NAM"),
+      createYearSlot(2024, "NAM"),
+    ].filter((slot) => Boolean(slot.src)),
   },
   {
     id: "community-sponsors",
@@ -545,17 +561,17 @@ export const sponsorSections = [
   {
     id: "alto-patrocinio",
     title: "Con l'alto patrocinio di",
-    slots: [createYearSlot(2026, "PE"), createYearSlot(2025, "PE"), createYearSlot(2024, "PE")].filter(
-      (slot) => Boolean(slot.src),
-    ),
+    slots: [
+      createYearSlot(2026, "PE"),
+      createYearSlot(2025, "PE"),
+      createYearSlot(2024, "PE"),
+    ].filter((slot) => Boolean(slot.src)),
   },
   {
     id: "patner-istituzionale",
     title: "Partner istituzionale",
-    slots: [
-      createYearSlot(2026, "RegioneLazio"),
-    ].filter(
-      (slot) => Boolean(slot.src),
+    slots: [createYearSlot(2026, "RegioneLazio")].filter((slot) =>
+      Boolean(slot.src),
     ),
   },
   {
