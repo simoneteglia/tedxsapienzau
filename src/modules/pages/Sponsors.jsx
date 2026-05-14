@@ -49,7 +49,7 @@ function SponsorSlot({ slot, isFeatured }) {
           <img
             src={slot.src}
             alt={name}
-            className="w-full h-full object-contain drop-shadow-sm"
+            className="w-full h-full object-contain"
             style={{ transform: `scale(${slot.logoScale ?? 1})` }}
           />
         ) : (
