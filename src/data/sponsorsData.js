@@ -582,7 +582,6 @@ export const sponsorSections = [
       createYearSlot(2026, "CNR"),
       createYearSlot(2026, "CMR"),
       createYearSlot(2026, "Roma"),
-      createYearSlot(2026, "Sapienza"),
       createYearSlot(2026, "INPS"),
       createYearSlot(2026, "Unpli"),
       createYearSlot(2025, "CE"),
