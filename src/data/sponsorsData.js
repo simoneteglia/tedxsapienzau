@@ -64,6 +64,11 @@ const sponsorLogoLibrary = {
     "Consiglio Nazionale delle Ricerche",
     "https://www.cnr.it/",
   ),
+  CNEL: createSponsorLogo(
+    "CNEL",
+    "Consiglio Nazionale dell'Economia e del Lavoro",
+    "https://www.cnel.it/",
+  ),
   CMR: createSponsorLogo(
     "CMR",
     "Città metropolitana di Roma Capitale",
@@ -579,6 +584,7 @@ export const sponsorSections = [
     title: "Con il patrocinio di",
     slots: [
       createYearSlot(2026, "CE"),
+      createYearSlot(2026, "CNEL"),
       createYearSlot(2026, "CNR"),
       createYearSlot(2026, "CMR"),
       createYearSlot(2026, "Roma"),
