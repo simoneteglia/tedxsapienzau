@@ -58,6 +58,10 @@ const sponsorLogoLibrary = {
     "CE",
     "Commissione Europea",
     "https://www.commission.europa.eu",
+    {
+      tileLogoScale: 1.6,
+      slotLogoScale: 1.5,
+    },
   ),
   CNR: createSponsorLogo(
     "CNR",
@@ -361,9 +365,17 @@ export const sponsorSections = [
     ].filter((slot) => Boolean(slot.src)),
   },
   {
+    id: "mobility-sponsors",
+    title: "Mobility Sponsors",
+    slots: [createYearSlot(2026, "Autocentri")].filter((slot) =>
+      Boolean(slot.src),
+    ),
+  },
+  {
     id: "supporting-sponsors",
     title: "Supporting Sponsors",
     slots: [
+      createYearSlot(2026, "Dotcampus"),
       createYearSlot(2025, "NovoNordisk"),
       createYearSlot(2025, "Autocentri"),
       createYearSlot(2024, "NovoNordisk"),
@@ -377,13 +389,6 @@ export const sponsorSections = [
     ].filter((slot) => Boolean(slot.src)),
   },
   {
-    id: "mobility-sponsors",
-    title: "Mobility Sponsors",
-    slots: [createYearSlot(2026, "Autocentri")].filter((slot) =>
-      Boolean(slot.src),
-    ),
-  },
-  {
     id: "technical-sponsors",
     title: "Technical Sponsors",
     slots: [
@@ -395,13 +400,6 @@ export const sponsorSections = [
       createYearSlot(2024, "Tucano"),
       createYearSlot(2024, "Pioda"),
     ].filter((slot) => Boolean(slot.src)),
-  },
-  {
-    id: "supporting-sponsors",
-    title: "Supporting Sponsors",
-    slots: [createYearSlot(2026, "Dotcampus")].filter((slot) =>
-      Boolean(slot.src),
-    ),
   },
   {
     id: "starter-sponsors",

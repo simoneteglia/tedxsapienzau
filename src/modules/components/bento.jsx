@@ -24,7 +24,7 @@ export default function Bento({ children, style, onMouseOver, onMouseOut }) {
       onMouseOut={onMouseOut}
     >
       {/* Qui dentro verrà caricato dinamicamente quello che inserisci dalla Landing */}
-      {children} 
+      {children}
     </div>
   );
 }

@@ -33,7 +33,7 @@ function SponsorSlot({ slot, isFeatured }) {
   const bentoHeight = isFeatured ? "260px" : "180px";
 
   return (
-    <div className="flex flex-col h-full w-full">
+    <div className="flex flex-col h-full w-full overflow-hidden">
       <Bento
         style={{
           padding: "1.5rem",
@@ -43,6 +43,7 @@ function SponsorSlot({ slot, isFeatured }) {
           justifyContent: "center",
           alignItems: "center",
           borderRadius: "32px",
+          overflow: "hidden",
         }}
       >
         {slot.src ? (
