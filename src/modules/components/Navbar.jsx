@@ -20,8 +20,9 @@ import Logo from "../../assets/logos/logo_white.png";
 // Navbar component
 export default function Navbar() {
   const { t } = useTranslation();
-  const { pathname } = useLocation();
-
+  
+  const { pathname, search } = useLocation(); 
+  const isEmbed = new URLSearchParams(search).get("embed") === "true";
   const [pillStyle, setPillStyle] = useState({ left: 0, width: 0, opacity: 0 });
   const [hoveredIndex, setHoveredIndex] = useState(null);
   const navRefs = useRef([]);
@@ -87,6 +88,10 @@ export default function Navbar() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [pathname, hoveredIndex]);
 
+  if (isEmbed) {
+    return null;
+  }
+  
   return (
     <Disclosure
       as="nav"
