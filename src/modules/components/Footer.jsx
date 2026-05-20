@@ -2,8 +2,7 @@
 import React, { useState, useEffect } from "react";
 import { Trans, useTranslation } from "react-i18next";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { Link } from "react-router-dom";
-
+import { Link, useLocation } from "react-router-dom";
 // -------------RESOURCES-------------
 import global from "../../resources/global.json";
 import "../../index.css";
@@ -22,14 +21,21 @@ import Logo from "../../assets/logos/logo_white.png";
 export default function Footer() {
   const [windowSize, setWindowSize] = useState(window.innerWidth);
   const { t, i18n } = useTranslation();
+  const { search } = useLocation();
+  const isEmbed = new URLSearchParams(search).get("embed") === "true";
 
   useEffect(() => {
     window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
   }, []);
 
   const handleResize = () => {
     setWindowSize(window.innerWidth);
   };
+
+  if (isEmbed) {
+    return null;
+  }
 
   const SocialIcon = ({ icon, link }) => {
     return (
