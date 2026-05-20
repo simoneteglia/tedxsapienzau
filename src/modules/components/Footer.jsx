@@ -22,7 +22,13 @@ export default function Footer() {
   const [windowSize, setWindowSize] = useState(window.innerWidth);
   const { t, i18n } = useTranslation();
   const { search } = useLocation();
-  const isEmbed = new URLSearchParams(search).get("embed") === "true";
+  const isEmbedParam = new URLSearchParams(search).get("embed") === "true";
+
+  if (isEmbedParam) {
+    sessionStorage.setItem("isEmbedMode", "true");
+  }
+
+  const isEmbed = isEmbedParam || sessionStorage.getItem("isEmbedMode") === "true";
 
   useEffect(() => {
     window.addEventListener("resize", handleResize);

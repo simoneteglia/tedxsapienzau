@@ -22,10 +22,17 @@ export default function Navbar() {
   const { t } = useTranslation();
   
   const { pathname, search } = useLocation(); 
-  const isEmbed = new URLSearchParams(search).get("embed") === "true";
   const [pillStyle, setPillStyle] = useState({ left: 0, width: 0, opacity: 0 });
   const [hoveredIndex, setHoveredIndex] = useState(null);
   const navRefs = useRef([]);
+
+  const isEmbedParam = new URLSearchParams(search).get("embed") === "true";
+
+  if (isEmbedParam) {
+    sessionStorage.setItem("isEmbedMode", "true");
+  }
+
+  const isEmbed = isEmbedParam || sessionStorage.getItem("isEmbedMode") === "true";
 
   const isCurrentPage = (href) => {
     if (href === "/events") {
