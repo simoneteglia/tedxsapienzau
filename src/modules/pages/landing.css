@@ -160,8 +160,8 @@
 .landing-ticket {
   position: relative;
   flex-shrink: 0;
-  width: 180px;
-  min-height: 340px;
+  width: 220px;
+  min-height: 430px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -226,19 +226,17 @@
   pointer-events: none;
 }
 
-.landing-ticket-label {
-  font-family: "Poppins", sans-serif;
-  font-weight: 800;
-  font-size: clamp(11px, 1.2vw, 16px);
-  line-height: 1.3;
-  color: black;
-  letter-spacing: 0.05em;
+.landing-ticket-logo {
+  width: min(142px, 100%);
+  height: auto;
+  object-fit: contain;
+  margin-bottom: 26px;
 }
 
 .landing-ticket-date {
   font-family: "Poppins", sans-serif;
   font-weight: 500;
-  font-size: clamp(10px, 1vw, 13px);
+  font-size: clamp(12px, 1.1vw, 16px);
   line-height: 1.4;
   color: black;
   margin-top: 10px;
@@ -247,11 +245,11 @@
 .landing-ticket-cta {
   font-family: "Poppins", sans-serif;
   font-weight: 800;
-  font-size: clamp(10px, 1vw, 14px);
+  font-size: clamp(16px, 1.35vw, 22px);
   color: white;
   background: black;
   margin-top: 20px;
-  padding: 6px 16px;
+  padding: 16px 32px;
   border: 3px solid black;
   text-transform: uppercase;
   letter-spacing: 0.06em;
@@ -312,9 +310,9 @@
   }
 
   .landing-ticket {
-    width: 280px;
-    min-height: 160px;
-    padding: 16px 40px;
+    width: 300px;
+    min-height: 190px;
+    padding: 22px 48px;
     transform: rotate(0deg);
   }
 
@@ -350,8 +348,9 @@
       linear-gradient(to right, black, black) right bottom / 10px calc(50% - 18px) no-repeat;
   }
 
-  .landing-ticket-label {
-    font-size: 18px;
+  .landing-ticket-logo {
+    width: 118px;
+    margin-bottom: 18px;
   }
 
   .landing-ticket-date {
@@ -359,7 +358,7 @@
   }
 
   .landing-ticket-cta {
-    font-size: 13px;
+    font-size: 19px;
   }
 
   .hero-onthebrink-text {

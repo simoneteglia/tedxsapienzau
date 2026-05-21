@@ -153,7 +153,7 @@ const landingCopy = {
   youtubeCta: "Open on YouTube",
   heroDate: localized("25 Maggio • 14:00", "May 25 • 2PM"),
   ticketsCta: localized("Biglietti disponibili ora!", "Tickets available now!"),
-  ticketsCtaShort: localized("Biglietti qui!", "Tickets here!"),
+  ticketsCtaShort: localized("Biglietti!", "Tickets!"),
   otbDescription: localized(
     " On the Brink è il momento sospeso in cui le possibilità sono infinite perché tutto deve ancora avvenire, la moneta librante in volo che determinerà il futuro. È la soglia tra ciò che è stato e ciò che potrebbe diventare, dove tensione, desiderio e incertezza convivono in quell’attimo “prima di”. L’evento celebra questo spazio di liminalità, ci invita a sostare nel dubbio, a esplorare l’ignoto e ad abitarlo. La moneta cadrà, ma è nel suo volo che prende forma ciò che verrà.",
     " On the Brink is the suspended moment in which possibilities are infinite because everything is yet to happen, the hovering coin in flight that will determine the future. It is the threshold between what has been and what could become, where tension, desire and uncertainty coexist in that “before“ moment. The event celebrates this liminal space, inviting us to dwell in doubt, to explore the unknown and to inhabit it. The coin will fall, but it is in its flight that what is to come takes shape.",
@@ -250,7 +250,11 @@ export default function Landing() {
             rel="noopener noreferrer"
           >
             <div className="landing-ticket-notch-bottom" />
-            <span className="landing-ticket-label">on the brink</span>
+            <img
+              src={onthebrinkText}
+              alt="on the brink"
+              className="landing-ticket-logo"
+            />
             <span className="landing-ticket-date">
               25 Maggio 2026
               <br />h 14:00
