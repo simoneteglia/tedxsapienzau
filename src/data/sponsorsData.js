@@ -496,7 +496,7 @@ export const sponsorSections = [
     slots: [
       createYearSlot(2026, "RadioSapienza"),
       createYearSlot(2026, "Underpark"),
-      //createYearSlot(2026, "Unitelma"),
+      createYearSlot(2026, "Unitelma"),
       createYearSlot(2025, "RadioSapienza"),
       createYearSlot(2025, "Zeta"),
       createYearSlot(2025, "Underpark"),
@@ -558,7 +558,6 @@ export const sponsorSections = [
       createYearSlot(2022, "SFClubSapienza"),
       createYearSlot(2022, "JESAP"),
       createYearSlot(2022, "MentorsNova"),
-      //manca logo verde acqua
     ].filter((slot) => Boolean(slot.src)),
   },
   {
@@ -588,6 +587,7 @@ export const sponsorSections = [
       createYearSlot(2026, "Roma"),
       createYearSlot(2026, "INPS"),
       createYearSlot(2026, "Unpli"),
+      createYearSlot(2026, "Sapienza"),
       createYearSlot(2025, "CE"),
       createYearSlot(2025, "MSG"),
       createYearSlot(2025, "Enea"),
