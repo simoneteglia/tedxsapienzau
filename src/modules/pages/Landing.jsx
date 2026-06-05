@@ -208,14 +208,14 @@ export default function Landing() {
               {copy(landingCopy.heroDate)}
               <br />
               <span className="hero-demo-subtext">Teatro Parioli Costanzo</span>
-              <a
+              {/* <a
                 href="https://www.eventbrite.it/e/biglietti-tedxsapienzau-on-the-brink-1988490962999?aff=oddtdtcreator"
                 className="hero-ticket-cta"
                 target="_blank"
                 rel="noopener noreferrer"
               >
                 {copy(landingCopy.ticketsCta)}
-              </a>
+              </a> */}
               <img
                 src={parioli_logo_t}
                 alt="Parioli"
@@ -261,9 +261,9 @@ export default function Landing() {
               <br />
               Teatro Parioli Costanzo
             </span>
-            <span className="landing-ticket-cta">
+            {/* <span className="landing-ticket-cta">
               {copy(landingCopy.ticketsCtaShort)}
-            </span>
+            </span> */}
           </a>
         </section>
 
@@ -273,7 +273,9 @@ export default function Landing() {
             justifyContent: "center",
             alignItems: "center",
             minHeight: `calc(100vh - ${global.UTILS.NAV_HEIGHT})`,
-            height: isMobile ? "auto" : `calc(100vh - ${global.UTILS.NAV_HEIGHT})`,
+            height: isMobile
+              ? "auto"
+              : `calc(100vh - ${global.UTILS.NAV_HEIGHT})`,
             width: "100%",
             maxWidth: "100%",
             gap: "20px",
