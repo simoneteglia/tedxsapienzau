@@ -81,7 +81,7 @@ export default function OnTheBrink() {
       it: "Speakers",
       en: "Speakers"
     },
-    link_talks: "" 
+    link_talks: "https://www.youtube.com/playlist?list=PLDHVFQ6e3F-s" 
   };
 
   const rawOnTheBrinkData = sidebarContent.onthebrink26?.[0] || {};

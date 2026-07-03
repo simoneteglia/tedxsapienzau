@@ -76,7 +76,7 @@ const EventTemplate = lazy(
 const Act22 = lazy(() => import("./modules/pages/events/Act22"));
 const ChiSiamo = lazy(() => import("./modules/pages/ChiSiamo"));
 
-//const OnTheBrink = lazy(() => import("./modules/pages/events/OnTheBrink"));
+const OnTheBrink = lazy(() => import("./modules/pages/events/OnTheBrink"));
 
 function RouteFallback() {
   return (
@@ -200,10 +200,10 @@ const router = createBrowserRouter([
         element: withSuspense(<ChiSiamo />),
       },
 
-    /*  {
+      {
         path: "/events/onthebrink",
         element: withSuspense(<OnTheBrink />),
-      },*/
+      },
 
     ],
   },
