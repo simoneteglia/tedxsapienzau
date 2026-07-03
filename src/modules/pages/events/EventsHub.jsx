@@ -4,6 +4,9 @@ import { useTranslation } from "react-i18next";
 
 import global from "../../../resources/global.json";
 
+// --- NUOVO IMPORT COPERTINA ON THE BRINK ---
+import onthebrinkText from "../../../assets/images/onthebrink26/onthebrink_text.png";
+
 import paradoxaHeader from "../../../assets/images/paradoxa25/header_paradoxa2.png";
 import awards24Poster from "../../../assets/images/awards24/awards24.webp";
 import countdownCover from "../../../assets/images/countdown24/earth.webp";
@@ -14,6 +17,21 @@ import awards22Cover from "../../../assets/images/awards22/awards2022-card.webp"
 import { getLocalizedText, localized } from "../../utils/localization";
 
 const events = [
+  // 1. NUOVO EVENTO IN CIMA (DIVENTA AUTOMATICAMENTE "FEATURED")
+  {
+    title: "On the Brink",
+    type: localized("Edizione TEDx", "TEDx edition"),
+    year: "2026",
+    date: localized("25 mag 2026", "25 May 2026"),
+    href: "/events/onthebrink",
+    image: onthebrinkText,
+    doContain: true, // Evita che il logo si tagli male nella griglia dell'archivio
+    accent: "#a578c3", // Colore viola abbinato al gradiente dell'evento
+    description: localized(
+      "Il momento sospeso in cui le possibilità sono infinite: un viaggio immersivo nella liminalità, tra tensioni, desideri e incertezze.",
+      "The suspended moment in which possibilities are infinite: an immersive journey into liminality, where tension, desire and uncertainty coexist.",
+    ),
+  },
   {
     title: "Para Doxa",
     type: localized("Edizione TEDx", "TEDx edition"),
@@ -133,13 +151,15 @@ export default function EventsHub() {
   const { t, i18n } = useTranslation();
   const language = i18n.resolvedLanguage || i18n.language || "it";
   const copy = (value) => getLocalizedText(value, language);
+
+  // 2. AGGIORNATE LE STATISTICHE (2022->2026 e 5 eventi TEDx in totale)
   const stats = [
     {
-      value: "2022 ➔ 2025",
+      value: "2022 ➔ 2026",
       label: copy(localized("edizioni raccolte", "editions collected")),
     },
     {
-      value: `4`,
+      value: `5`,
       label: copy(localized("eventi TEDx", "TEDx events")),
     },
     {
@@ -197,6 +217,7 @@ export default function EventsHub() {
               src={featuredEvent.image}
               alt={featuredEvent.title}
               decoding="async"
+              style={{ objectFit: featuredEvent.doContain ? "contain" : "cover" }} // Gestione scalatura logo
             />
             <div className="events-feature-content">
               <div className="events-pill-row">
