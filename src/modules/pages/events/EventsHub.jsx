@@ -5,8 +5,8 @@ import { useTranslation } from "react-i18next";
 import global from "../../../resources/global.json";
 
 // --- NUOVO IMPORT COPERTINA ON THE BRINK ---
-import onthebrinkText from "../../../assets/images/onthebrink26/onthebrink_text.png";
 
+import otbHeader from "../../../assets/images/onthebrink26/otb_header.png";
 import paradoxaHeader from "../../../assets/images/paradoxa25/header_paradoxa2.png";
 import awards24Poster from "../../../assets/images/awards24/awards24.webp";
 import countdownCover from "../../../assets/images/countdown24/earth.webp";
@@ -24,9 +24,9 @@ const events = [
     year: "2026",
     date: localized("25 mag 2026", "25 May 2026"),
     href: "/events/onthebrink",
-    image: onthebrinkText,
-    doContain: true, // Evita che il logo si tagli male nella griglia dell'archivio
-    accent: "#a578c3", // Colore viola abbinato al gradiente dell'evento
+    image: otbHeader,
+    objectPosition: "30% center",
+    accent: "#a578c3",
     description: localized(
       "Il momento sospeso in cui le possibilità sono infinite: un viaggio immersivo nella liminalità, tra tensioni, desideri e incertezze.",
       "The suspended moment in which possibilities are infinite: an immersive journey into liminality, where tension, desire and uncertainty coexist.",
@@ -39,6 +39,7 @@ const events = [
     date: localized("11 apr 2025", "11 Apr 2025"),
     href: "/events/paradoxa2025",
     image: paradoxaHeader,
+    objectPosition: "35% center",
     accent: "#ff009c",
     description: localized(
       "Il capitolo piu recente del TEDxSapienzaU: una giornata di talk, paradossi contemporanei e idee che rompono gli schemi.",
@@ -152,7 +153,6 @@ export default function EventsHub() {
   const language = i18n.resolvedLanguage || i18n.language || "it";
   const copy = (value) => getLocalizedText(value, language);
 
-  // 2. AGGIORNATE LE STATISTICHE (2022->2026 e 5 eventi TEDx in totale)
   const stats = [
     {
       value: "2022 ➔ 2026",
@@ -217,7 +217,12 @@ export default function EventsHub() {
               src={featuredEvent.image}
               alt={featuredEvent.title}
               decoding="async"
-              style={{ objectFit: featuredEvent.doContain ? "contain" : "cover" }} // Gestione scalatura logo
+              style={{
+                objectFit: featuredEvent.doContain ? "contain" : "cover",
+                objectPosition: featuredEvent.objectPosition
+                  ? featuredEvent.objectPosition
+                  : "",
+              }}
             />
             <div className="events-feature-content">
               <div className="events-pill-row">
@@ -257,7 +262,12 @@ export default function EventsHub() {
                   <img
                     src={event.image}
                     alt={event.title}
-                    style={{ objectFit: event.doContain ? "contain" : "cover" }}
+                    style={{
+                      objectFit: event.doContain ? "contain" : "cover",
+                      objectPosition: event.objectPosition
+                        ? event.objectPosition
+                        : "",
+                    }}
                     loading="lazy"
                     decoding="async"
                     fetchPriority="low"

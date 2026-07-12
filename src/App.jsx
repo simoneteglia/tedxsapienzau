@@ -14,6 +14,7 @@ import ErrorPage from "./modules/pages/ErrorPage";
 import Grainient from "./modules/components/Grainient";
 import ScrollToTop from "./modules/components/ScrollToTop";
 
+import otbHeader from "./assets/images/onthebrink26/otb_header.png";
 import paradoxaHeader from "./assets/images/paradoxa25/header_paradoxa2.png";
 import btzHeader from "./assets/images/backtozero23/Edizione2023.webp";
 import awardsBanner from "./assets/images/awards24/awards_sapienza.png";
@@ -44,6 +45,10 @@ const formatEventData = (rawEventData) => {
 };
 
 // 2. ESTRAZIONE DATI DA eventSidebarContent.json
+
+const rawOtbData = sidebarContent.onthebrink26?.[0];
+const otbData = formatEventData(rawOtbData);
+
 const rawParadoxaData = sidebarContent.paradoxa2025?.[0];
 const paradoxaEventData = formatEventData(rawParadoxaData);
 
@@ -75,8 +80,6 @@ const EventTemplate = lazy(
 );
 const Act22 = lazy(() => import("./modules/pages/events/Act22"));
 const ChiSiamo = lazy(() => import("./modules/pages/ChiSiamo"));
-
-const OnTheBrink = lazy(() => import("./modules/pages/events/OnTheBrink"));
 
 function RouteFallback() {
   return (
@@ -194,17 +197,16 @@ const router = createBrowserRouter([
           <EventTemplate imagePath={awardsBanner} eventData={awards22Data} />,
         ),
       },
-
+      {
+        path: "/events/onthebrink",
+        element: withSuspense(
+          <EventTemplate imagePath={otbHeader} eventData={otbData} />,
+        ),
+      },
       {
         path: "/about",
         element: withSuspense(<ChiSiamo />),
       },
-
-      {
-        path: "/events/onthebrink",
-        element: withSuspense(<OnTheBrink />),
-      },
-
     ],
   },
 ]);

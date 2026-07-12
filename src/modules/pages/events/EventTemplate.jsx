@@ -8,7 +8,16 @@ import { getLocalizedText } from "../../utils/localization";
 
 import "@fontsource-variable/bricolage-grotesque/index.css";
 
-// --- IMPORT SPEAKERS IMAGES ---
+// ------OTB 2026 SPEAKERS ---
+import Ruffino from "../../../assets/images/onthebrink26/ruffino.jpeg";
+import Mazzoni from "../../../assets/images/onthebrink26/mazzoni.jpeg";
+import Zazzeri from "../../../assets/images/onthebrink26/zazzeri.jpg";
+import Cocino from "../../../assets/images/onthebrink26/cocino.jpeg";
+import Simone from "../../../assets/images/onthebrink26/simone.jpg";
+import Chiefalo from "../../../assets/images/onthebrink26/chiefalo.jpeg";
+import Venosi from "../../../assets/images/onthebrink26/venosi.jpg";
+import Magno from "../../../assets/images/onthebrink26/magno.jpg";
+
 // ----------PARADOXA 2025 SPEAKERS ----------
 import Nardi from "../../../assets/images/paradoxa25/nardi_poster.webp";
 import Dapoto from "../../../assets/images/paradoxa25/dapoto_poster.webp";
@@ -98,6 +107,24 @@ const LocationIcon = () => (
 
 const getImage = (imgName) => {
   switch (imgName) {
+    //otb26
+    case "Ruffino":
+      return Ruffino;
+    case "Mazzoni":
+      return Mazzoni;
+    case "Zazzeri":
+      return Zazzeri;
+    case "Cocino":
+      return Cocino;
+    case "Simone":
+      return Simone;
+    case "Chiefalo":
+      return Chiefalo;
+    case "Venosi":
+      return Venosi;
+    case "Magno":
+      return Magno;
+    //paradoxa25
     case "Nardi":
       return Nardi;
     case "Dapoto":
