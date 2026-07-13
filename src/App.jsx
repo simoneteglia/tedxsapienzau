@@ -9,6 +9,7 @@ import { AuthContextProvider } from "./modules/context/authContext";
 
 import Navbar from "./modules/components/Navbar";
 import Landing from "./modules/pages/Landing";
+import LandingBase from "./modules/pages/LandingBase";
 import Footer from "./modules/components/Footer";
 import ErrorPage from "./modules/pages/ErrorPage";
 import Grainient from "./modules/components/Grainient";
@@ -109,7 +110,7 @@ const router = createBrowserRouter([
     children: [
       {
         path: "/",
-        element: <Landing />,
+        element: <LandingBase />,
       },
       {
         path: "/sponsors",
@@ -232,21 +233,19 @@ function LandingManager() {
 
   return (
     <div style={{ position: "relative" }}>
-      {path !== "/" && (
-        <div aria-hidden="true" className="grainient-background-wrapper">
-          <Grainient
-            timeSpeed={0.3}
-            colorBalance={0.01}
-            color1="#c40022"
-            color2="#000000"
-            color3="#777777"
-            warpStrength={3.2}
-            contrast={1.02}
-            gamma={1.18}
-            saturation={0.7}
-          />
-        </div>
-      )}
+      <div aria-hidden="true" className="grainient-background-wrapper">
+        <Grainient
+          timeSpeed={0.3}
+          colorBalance={0.01}
+          color1="#c40022"
+          color2="#000000"
+          color3="#777777"
+          warpStrength={3.2}
+          contrast={1.02}
+          gamma={1.18}
+          saturation={0.7}
+        />
+      </div>
       <div style={{ position: "relative", zIndex: 1 }}>
         <Navbar />
         <ScrollToTop />

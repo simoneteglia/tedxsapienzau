@@ -2,14 +2,14 @@ import { useEffect, useLayoutEffect, useState } from "react";
 import { Link, useOutletContext } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 
-import backgroundVideo from "../../assets/videos/tedx.mp4";
+import backgroundVideo from "../../assets/videos/teaser2026.mov";
 import countdownCover from "../../assets/images/countdown24/earth.webp";
 import backToZeroCover from "../../assets/images/backtozero23/header_blog23-card.webp";
-import act22Cover from "../../assets/images/act22/Edizione2022.webp";
 import paradoxa25Cover from "../../assets/images/paradoxa25/header_paradoxa2.png";
 import youtubeLogo from "../../assets/images/general/youtube_logo.png";
 import global from "../../resources/global.json";
 import paradoxaCover from "../../assets/images/paradoxa25/panepinto.webp";
+import otbCover from "../../assets/images/onthebrink26/otb_header.png";
 
 import CookieBox from "../components/CookieBox";
 import Bento from "../components/bento";
@@ -19,6 +19,7 @@ import {
   isEnglishLanguage,
   localized,
 } from "../utils/localization";
+import { objectPosition } from "three/src/nodes/accessors/Object3DNode.js";
 
 const AnimatedNumber = ({ end, duration = 2000, locale = "it-IT" }) => {
   const [count, setCount] = useState(0);
@@ -74,6 +75,12 @@ function TalkThumbnail({ videoId, alt, objectPosition = "center" }) {
 
 const talkHighlights = [
   {
+    videoId: "p9za10JtrpU",
+    title: "Lorenzo Zazzeri",
+    subtitle: "Cosa impari quando sei costretto a fermarti?",
+    href: "https://youtu.be/p9za10JtrpU?si=m0tHbXuo3csf4OGe",
+  },
+  {
     videoId: "oel9-7Az0vw",
     title: "Pepa Pasatu",
     subtitle: "3 habits that ruin pleasurable sex",
@@ -92,15 +99,22 @@ const talkHighlights = [
     subtitle: "Music and self-care: a new perspective on the world",
     href: "https://www.youtube.com/watch?v=IYliyLgTnfk&list=PL4-t_gJBexTBDgARWnLB3dmC0g1_OcxFc&index=7",
   },
-  {
-    videoId: "qVbiy9OiaHY",
-    title: "Marcello Ienca",
-    subtitle: "Human-AI Symbiosis and the Quest for Neurorights",
-    href: "https://www.youtube.com/watch?v=qVbiy9OiaHY&list=PL4-t_gJBexTBDgARWnLB3dmC0g1_OcxFc&index=1&t=1s",
-  },
+  // {
+  //   videoId: "qVbiy9OiaHY",
+  //   title: "Marcello Ienca",
+  //   subtitle: "Human-AI Symbiosis and the Quest for Neurorights",
+  //   href: "https://www.youtube.com/watch?v=qVbiy9OiaHY&list=PL4-t_gJBexTBDgARWnLB3dmC0g1_OcxFc&index=1&t=1s",
+  // },
 ];
 
 const landingEvents = [
+  {
+    title: "On the Brink",
+    year: "2026",
+    href: "/events/onthebrink",
+    image: otbCover,
+    objectPosition: "32% center",
+  },
   {
     title: "Para Doxa",
     year: "2025",
@@ -118,13 +132,6 @@ const landingEvents = [
     year: "2023",
     href: "/events/backtozero",
     image: backToZeroCover,
-  },
-
-  {
-    title: "ACT: Lead the Change",
-    year: "2022",
-    href: "/events/act22",
-    image: act22Cover,
   },
 ];
 
@@ -278,7 +285,7 @@ export default function Landing() {
                 transform: "translateY(6px)",
               }}
             >
-              PARA DOXA 2025
+              On the Brink 2026
             </h2>
           </div>
         </div>
@@ -466,6 +473,9 @@ export default function Landing() {
                   loading="lazy"
                   decoding="async"
                   fetchPriority="low"
+                  style={{
+                    objectPosition: event.objectPosition || "center",
+                  }}
                 />
                 <div className="landing-event-content">
                   <h3 className="landing-event-title">{event.title}</h3>
