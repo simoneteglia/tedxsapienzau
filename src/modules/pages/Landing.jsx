@@ -2,7 +2,6 @@ import { useEffect, useLayoutEffect, useState } from "react";
 import { Link, useOutletContext } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 
-import backgroundVideo from "../../assets/videos/tedx.mp4";
 import countdownCover from "../../assets/images/countdown24/earth.webp";
 import backToZeroCover from "../../assets/images/backtozero23/header_blog23-card.webp";
 import act22Cover from "../../assets/images/act22/Edizione2022.webp";
