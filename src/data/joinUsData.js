@@ -1,5 +1,8 @@
 const localized = (it, en = it) => ({ it, en });
 
+export const joinUsFormUrl =
+  "https://docs.google.com/forms/d/e/1FAIpQLSf9PmpVte8eiZhGUkplfzYLIIiIHsVfJiB70vRDm5VxCnXPSg/viewform?usp=header";
+
 export const joinUsHeroCopy = {
   kicker: localized("Dentro il progetto", "Inside the project"),
   title: localized("Build TEDx with us", "Build TEDx with us"),
@@ -9,20 +12,17 @@ export const joinUsHeroCopy = {
   ),
   statusEyebrow: localized("Application rhythm", "Application rhythm"),
   statusTitle: localized(
-    "Le candidature non sono sempre aperte, ma quando partono il percorso e chiaro.",
-    "Applications are not always open, but when they do open the path is clear.",
+    "Le candidature sono aperte, il percorso è chiaro.",
+    "Applications are open, the path is clear.",
   ),
   statusDescription: localized(
-    "La prossima call verra annunciata su sito, social e newsletter. Per ora il bottone resta intenzionalmente fermo, cosi possiamo costruire prima una pagina solida e poi collegare il form reale.",
-    "The next open call will be announced on the site, social channels and newsletter. For now the main button intentionally stays inactive, so we can build a solid page first and connect the real form later.",
+    "La call per entrare nel team TEDxSapienzaU è ufficialmente aperta! Compila il form per candidarti: ti terremo aggiornato su ogni fase tramite email.",
+    "The call to join the TEDxSapienzaU team is officially open! Fill out the form to apply: we will keep you updated on every step by email.",
   ),
-  inactiveCtaLabel: localized(
-    "Candidati appena apriamo *",
-    "Apply when applications open *",
-  ),
-  inactiveCtaNote: localized(
-    "* Le candidature sono attualmente chiuse, ma non per sempre! Seguici sui social per non perderti le prossime call!",
-    "* Applications are currently closed, but not forever! Follow us on social media so you don't miss the next open calls!",
+  ctaLabel: localized("Candidati ora", "Apply now"),
+  ctaNote: localized(
+    "Le candidature sono aperte! Compila il form per entrare a far parte del team.",
+    "Applications are open! Fill out the form to join the team.",
   ),
   exploreTeamsLabel: localized("Esplora le aree", "Explore the areas"),
   contactLabel: localized("Contatto diretto", "Direct contact"),
@@ -86,8 +86,8 @@ export const joinUsSteps = [
     id: "01",
     title: localized("Leggi la call", "Read the open call"),
     description: localized(
-      "Quando apriremo le candidature, troverai qui i requisiti, i team coinvolti, le date e il link diretto al form.",
-      "When applications open, this page will host requirements, teams involved, timeline and the direct form link.",
+      "Le candidature sono aperte: qui trovi i requisiti, i team coinvolti e il link diretto al form.",
+      "Applications are open: here you can find the requirements, the teams involved and the direct form link.",
     ),
   },
   {
@@ -203,20 +203,17 @@ export const joinUsFaqs = [
 export const joinUsFinalCta = {
   kicker: localized("Restiamo in contatto", "Stay in touch"),
   title: localized(
-    "La prossima call passerà da qui.",
-    "The next open call will start here.",
+    "La call è aperta, la prossima mossa è tua.",
+    "The call is open, the next move is yours.",
   ),
   description: localized(
-    "Per ora vi raccontiamo progetto. ",
-    "For now this page can explain the project clearly, direct curious people to the teams and gather interest through email and social channels. When you want, we can connect the real form to the main button.",
+    "Compila il form per candidarti al team TEDxSapienzaU.",
+    "Fill out the form to apply to the TEDxSapienzaU team.",
   ),
-  primaryLabel: localized(
-    "Candidati appena apriamo * ",
-    "Apply when applications open *",
-  ),
+  primaryLabel: localized("Candidati ora", "Apply now"),
   descriptionLabel: localized(
-    "* Le candidature sono attualmente chiuse, ma non per sempre! Seguici sui social per non perderti le prossime call!",
-    "* Applications are currently closed, but not forever! Follow us on social media so you don't miss the next open calls!",
+    "Le candidature sono aperte! Compila il form per entrare a far parte del team.",
+    "Applications are open! Fill out the form to join the team.",
   ),
   secondaryLabel: localized("Scrivici una mail", "Send us an email"),
 };

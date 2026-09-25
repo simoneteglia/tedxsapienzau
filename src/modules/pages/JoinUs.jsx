@@ -1,11 +1,12 @@
 import { Link } from "react-router-dom";
-import { useLayoutEffect, useState } from "react";
+import { useLayoutEffect } from "react";
 import { useTranslation } from "react-i18next";
 
 import global from "../../resources/global.json";
 import {
   joinUsFaqs,
   joinUsFinalCta,
+  joinUsFormUrl,
   joinUsHeroCopy,
   joinUsInfoCards,
   joinUsSteps,
@@ -94,8 +95,6 @@ export default function JoinUs() {
   const recruitingTeams = teamSections.filter(({ id }) => id !== "board");
   const heroTitle = getLocalizedValue(joinUsHeroCopy.title, language);
   const heroTitleWords = heroTitle.split(" ");
-  const [highlightNote, setHighlightNote] = useState(false);
-  const [highlightFinalNote, setHighlightFinalNote] = useState(false);
 
   useLayoutEffect(() => {
     window.scrollTo(0, 0);
@@ -136,13 +135,14 @@ export default function JoinUs() {
             </div>
 
             <div className="joinus-action-row">
-              <button
-                type="button"
+              <a
                 className="joinus-primary-button"
-                onClick={() => setHighlightNote(true)}
+                href={joinUsFormUrl}
+                target="_blank"
+                rel="noopener noreferrer"
               >
-                {getLocalizedValue(joinUsHeroCopy.inactiveCtaLabel, language)}
-              </button>
+                {getLocalizedValue(joinUsHeroCopy.ctaLabel, language)}
+              </a>
               <a
                 className="joinus-secondary-button"
                 href="#joinus-team-directory"
@@ -151,11 +151,8 @@ export default function JoinUs() {
               </a>
             </div>
 
-            <p
-              className={`joinus-action-note ${highlightNote ? "is-highlighted" : ""}`}
-              onAnimationEnd={() => setHighlightNote(false)}
-            >
-              {getLocalizedValue(joinUsHeroCopy.inactiveCtaNote, language)}
+            <p className="joinus-action-note">
+              {getLocalizedValue(joinUsHeroCopy.ctaNote, language)}
             </p>
           </div>
         </section>
@@ -254,13 +251,14 @@ export default function JoinUs() {
 
           <div className="joinus-cta-actions-wrapper">
             <div className="joinus-cta-actions">
-              <button
-                type="button"
+              <a
                 className="joinus-primary-button"
-                onClick={() => setHighlightFinalNote(true)}
+                href={joinUsFormUrl}
+                target="_blank"
+                rel="noopener noreferrer"
               >
                 {getLocalizedValue(joinUsFinalCta.primaryLabel, language)}
-              </button>
+              </a>
               <a
                 className="joinus-secondary-button"
                 href={`mailto:${joinUsHeroCopy.contactValue}`}
@@ -269,10 +267,7 @@ export default function JoinUs() {
               </a>
             </div>
             <div className="joinus-cta-note-container">
-              <p
-                className={`joinus-description ${highlightFinalNote ? "is-highlighted" : ""}`}
-                onAnimationEnd={() => setHighlightFinalNote(false)}
-              >
+              <p className="joinus-description">
                 {getLocalizedValue(joinUsFinalCta.descriptionLabel, language)}
               </p>
             </div>

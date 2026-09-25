@@ -9,7 +9,12 @@ import { AuthContextProvider } from "./modules/context/authContext";
 
 import Navbar from "./modules/components/Navbar";
 import Landing from "./modules/pages/Landing";
+// LandingBase is the general-purpose homepage (no active call for
+// volunteers). LandingRecruiting is the variant that sponsors the open
+// call. To switch back once applications close, swap the element below
+// from <LandingRecruiting /> to <LandingBase />.
 import LandingBase from "./modules/pages/LandingBase";
+import LandingRecruiting from "./modules/pages/LandingRecruiting";
 import Footer from "./modules/components/Footer";
 import ErrorPage from "./modules/pages/ErrorPage";
 import Grainient from "./modules/components/Grainient";
@@ -110,7 +115,7 @@ const router = createBrowserRouter([
     children: [
       {
         path: "/",
-        element: <LandingBase />,
+        element: <LandingRecruiting />,
       },
       {
         path: "/sponsors",
