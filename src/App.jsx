@@ -15,6 +15,7 @@ import Landing from "./modules/pages/Landing";
 // from <LandingRecruiting /> to <LandingBase />.
 import LandingBase from "./modules/pages/LandingBase";
 import LandingRecruiting from "./modules/pages/LandingRecruiting";
+import LandingAwards from "./modules/pages/LandingAwards";
 import Footer from "./modules/components/Footer";
 import ErrorPage from "./modules/pages/ErrorPage";
 import Grainient from "./modules/components/Grainient";
@@ -115,7 +116,7 @@ const router = createBrowserRouter([
     children: [
       {
         path: "/",
-        element: <LandingRecruiting />,
+        element: <LandingAwards />,
       },
       {
         path: "/sponsors",

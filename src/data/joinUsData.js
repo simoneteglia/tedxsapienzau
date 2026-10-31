@@ -21,8 +21,8 @@ export const joinUsHeroCopy = {
   ),
   ctaLabel: localized("Candidati ora", "Apply now"),
   ctaNote: localized(
-    "Le candidature sono aperte! Compila il form per entrare a far parte del team.",
-    "Applications are open! Fill out the form to join the team.",
+    "Le candidature sono chiuse...per ora! Resta aggiornato per le prossime aperture.",
+    "Applications are closed...for now! Stay tuned for future opportunities.",
   ),
   exploreTeamsLabel: localized("Esplora le aree", "Explore the areas"),
   contactLabel: localized("Contatto diretto", "Direct contact"),
@@ -212,8 +212,8 @@ export const joinUsFinalCta = {
   ),
   primaryLabel: localized("Candidati ora", "Apply now"),
   descriptionLabel: localized(
-    "Le candidature sono aperte! Compila il form per entrare a far parte del team.",
-    "Applications are open! Fill out the form to join the team.",
+    "Le candidature sono chiuse...per ora! Resta aggiornato per le prossime aperture.",
+    "Applications are closed...for now! Stay tuned for future opportunities.",
   ),
   secondaryLabel: localized("Scrivici una mail", "Send us an email"),
 };
