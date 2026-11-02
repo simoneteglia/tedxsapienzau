@@ -33,7 +33,6 @@
 }
 
 @keyframes float-bounce {
-
   0%,
   100% {
     transform: translateY(0);
@@ -69,7 +68,6 @@
 }
 
 @keyframes float-bounce-horizontal-next {
-
   0%,
   100% {
     transform: rotate(-90deg) translateY(0);
@@ -81,7 +79,6 @@
 }
 
 @keyframes float-bounce-horizontal-prev {
-
   0%,
   100% {
     transform: rotate(90deg) translateY(0);
@@ -187,10 +184,14 @@
   background:
     linear-gradient(to right, black, black) left top / 10px 100% no-repeat,
     linear-gradient(to right, black, black) right top / 10px 100% no-repeat,
-    linear-gradient(to right, black, black) left top / calc(50% - 18px) 10px no-repeat,
-    linear-gradient(to right, black, black) right top / calc(50% - 18px) 10px no-repeat,
-    linear-gradient(to right, black, black) left bottom / calc(50% - 18px) 10px no-repeat,
-    linear-gradient(to right, black, black) right bottom / calc(50% - 18px) 10px no-repeat;
+    linear-gradient(to right, black, black) left top / calc(50% - 18px) 10px
+      no-repeat,
+    linear-gradient(to right, black, black) right top / calc(50% - 18px) 10px
+      no-repeat,
+    linear-gradient(to right, black, black) left bottom / calc(50% - 18px) 10px
+      no-repeat,
+    linear-gradient(to right, black, black) right bottom / calc(50% - 18px) 10px
+      no-repeat;
   pointer-events: none;
 }
 
@@ -342,10 +343,14 @@
     background:
       linear-gradient(to right, black, black) left top / 100% 10px no-repeat,
       linear-gradient(to right, black, black) left bottom / 100% 10px no-repeat,
-      linear-gradient(to right, black, black) left top / 10px calc(50% - 18px) no-repeat,
-      linear-gradient(to right, black, black) left bottom / 10px calc(50% - 18px) no-repeat,
-      linear-gradient(to right, black, black) right top / 10px calc(50% - 18px) no-repeat,
-      linear-gradient(to right, black, black) right bottom / 10px calc(50% - 18px) no-repeat;
+      linear-gradient(to right, black, black) left top / 10px calc(50% - 18px)
+        no-repeat,
+      linear-gradient(to right, black, black) left bottom / 10px
+        calc(50% - 18px) no-repeat,
+      linear-gradient(to right, black, black) right top / 10px calc(50% - 18px)
+        no-repeat,
+      linear-gradient(to right, black, black) right bottom / 10px
+        calc(50% - 18px) no-repeat;
   }
 
   .landing-ticket-logo {
@@ -469,13 +474,17 @@
   position: absolute;
   inset: 0;
   background:
-    linear-gradient(180deg,
+    linear-gradient(
+      180deg,
       rgba(4, 4, 4, 0.06) 0%,
       rgba(4, 4, 4, 0.38) 48%,
-      rgba(4, 4, 4, 0.92) 100%),
-    linear-gradient(120deg,
+      rgba(4, 4, 4, 0.92) 100%
+    ),
+    linear-gradient(
+      120deg,
       rgba(255, 255, 255, 0) 50%,
-      rgba(255, 255, 255, 0.08) 100%);
+      rgba(255, 255, 255, 0.08) 100%
+    );
 }
 
 .landing-video-card:hover {
@@ -595,7 +604,14 @@
     background 0.2s ease;
 }
 
-.landing-showcase-link:hover {
+.disabled,
+.landing-showcase-link:disabled {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(255, 255, 255, 0.34);
+  cursor: not-allowed;
+}
+
+.landing-showcase-link:hover:not(:disabled):not(.disabled) {
   transform: translateY(-2px);
   border-color: rgba(255, 255, 255, 0.34);
   background: rgba(255, 255, 255, 0.12);
@@ -629,13 +645,17 @@
   position: absolute;
   inset: 0;
   background:
-    linear-gradient(180deg,
+    linear-gradient(
+      180deg,
       rgba(0, 0, 0, 0.02) 0%,
       rgba(0, 0, 0, 0.22) 38%,
-      rgba(0, 0, 0, 0.9) 100%),
-    linear-gradient(120deg,
+      rgba(0, 0, 0, 0.9) 100%
+    ),
+    linear-gradient(
+      120deg,
       rgba(255, 255, 255, 0) 42%,
-      rgba(255, 255, 255, 0.08) 100%);
+      rgba(255, 255, 255, 0.08) 100%
+    );
 }
 
 .landing-event-card:hover {

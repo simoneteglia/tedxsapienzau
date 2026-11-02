@@ -11,7 +11,6 @@ import paradoxaCover from "../../assets/images/paradoxa25/panepinto.webp";
 import otbCover from "../../assets/images/onthebrink26/otb_header.png";
 import awardsLogo from "../../assets/images/awards24/awards24.webp";
 
-
 import CookieBox from "../components/CookieBox";
 import Bento from "../components/bento";
 import TeamLogoScroll from "../components/TeamLogoScroll";
@@ -237,11 +236,7 @@ export default function Landing() {
 
           <div className="awards-hero-content">
             <div className="awards-hero-logo-wrapper">
-              <img
-                src={awardsLogo}
-                alt="Awards"
-                className="awards-hero-logo"
-              />
+              <img src={awardsLogo} alt="Awards" className="awards-hero-logo" />
             </div>
 
             <div
@@ -299,7 +294,8 @@ export default function Landing() {
                   color: "rgba(255, 255, 255, 0.94)",
                 }}
               >
-                Aula Odeion • Edificio di Lettere, Dipartimento di Scienze dell' Antichità
+                Aula Odeion • Edificio di Lettere, Dipartimento di Scienze dell'
+                Antichità
               </span>
               <span
                 style={{
@@ -311,6 +307,15 @@ export default function Landing() {
                 }}
               >
                 Sapienza Università di Roma • Piazzale Aldo Moro, Roma
+              </span>
+              <span>
+                <button
+                  type="button"
+                  disabled
+                  className="landing-showcase-link"
+                >
+                  Tickets out soon
+                </button>
               </span>
             </div>
           </div>
