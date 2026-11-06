@@ -611,10 +611,24 @@
   cursor: not-allowed;
 }
 
-.landing-showcase-link:hover:not(:disabled):not(.disabled) {
+.landing-showcase-link:hover:not(:disabled):not(.disabled):not(.accent) {
   transform: translateY(-2px);
   border-color: rgba(255, 255, 255, 0.34);
   background: rgba(255, 255, 255, 0.12);
+}
+
+.landing-showcase-link.accent {
+  background: #eb0028;
+  border-color: #eb0028;
+  color: #ffffff;
+  box-shadow: 0 8px 24px rgba(235, 0, 40, 0.38);
+}
+
+.landing-showcase-link.accent:hover {
+  background: #c80022;
+  border-color: #c80022;
+  box-shadow: 0 10px 30px rgba(235, 0, 40, 0.58);
+  transform: translateY(-2px);
 }
 
 .landing-events-grid {

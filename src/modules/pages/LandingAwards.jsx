@@ -309,13 +309,14 @@ export default function Landing() {
                 Sapienza Università di Roma • Piazzale Aldo Moro, Roma
               </span>
               <span>
-                <button
-                  type="button"
-                  disabled
-                  className="landing-showcase-link"
+                <a
+                  href="https://www.eventbrite.it/e/biglietti-nothing-is-what-it-seems-sapienzau-2003977470560?aff=oddtdtcreator"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="landing-showcase-link accent"
                 >
-                  Tickets out soon
-                </button>
+                  Tickets out now
+                </a>
               </span>
             </div>
           </div>
