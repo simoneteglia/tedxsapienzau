@@ -280,8 +280,8 @@ export default function Landing() {
                 />
                 {copy(
                   localized(
-                    "Venerdì 4 Dicembre 2026 • ore 16:00",
-                    "Friday December 04, 2026 • 4:00 PM",
+                    "Venerdì 4 Dicembre 2026 • ore 14:00",
+                    "Friday December 04, 2026 • 3:00 PM",
                   ),
                 )}
               </span>
