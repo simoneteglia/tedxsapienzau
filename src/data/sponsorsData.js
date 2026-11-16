@@ -478,7 +478,7 @@ export const sponsorSections = [
     id: "partners",
     title: "Partners",
     slots: [
-      createYearSlot(2026, "AVIS"),
+      // createYearSlot(2026, "AVIS"),
       createYearSlot(2026, "JESAP"),
       //createYearSlot(2026, "MentorsNova"),
       createYearSlot(2026, "Thesis4u"),
